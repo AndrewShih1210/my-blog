@@ -1,0 +1,58 @@
+<svg width="1400" height="900" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="900" rx="36" fill="#FFFDF8"/>
+  <rect x="30" y="30" width="1340" height="840" rx="28" fill="url(#bg)"/>
+  <text x="70" y="102" fill="#173334" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="48" font-weight="800">研究關聯圖 / Research Relationship Map</text>
+  <text x="70" y="142" fill="#5D6B69" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="22">第一作者與獨立作者著作主題分布：生成式 AI、教學設計、工作流、自動評分、對話代理與學習分析</text>
+
+  <circle cx="700" cy="440" r="120" fill="#D9F1EE" stroke="#0F766E" stroke-width="4"/>
+  <text x="635" y="426" fill="#0F766E" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="26" font-weight="800">施育廷</text>
+  <text x="612" y="462" fill="#0F766E" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="24" font-weight="700">第一作者 / 獨立作者</text>
+
+  <g>
+    <rect x="114" y="234" width="260" height="124" rx="24" fill="#FFFDF8" stroke="#D8CCBC" stroke-width="3"/>
+    <text x="146" y="278" fill="#9A6700" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="20" font-weight="700">教學設計 / Teaching Design</text>
+    <text x="146" y="314" fill="#5D6B69" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="18">2018 虛擬助教</text>
+    <text x="146" y="342" fill="#5D6B69" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="18">2022 機器人教學</text>
+  </g>
+
+  <g>
+    <rect x="1022" y="220" width="260" height="132" rx="24" fill="#FFFDF8" stroke="#D8CCBC" stroke-width="3"/>
+    <text x="1052" y="264" fill="#0F766E" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="20" font-weight="700">生成式 AI 教學 / GenAI Pedagogy</text>
+    <text x="1052" y="300" fill="#5D6B69" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="18">2025 程式設計與資料科學</text>
+    <text x="1052" y="328" fill="#5D6B69" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="18">2026 認知補償與互動</text>
+  </g>
+
+  <g>
+    <rect x="1048" y="548" width="230" height="132" rx="24" fill="#FFFDF8" stroke="#D8CCBC" stroke-width="3"/>
+    <text x="1082" y="592" fill="#9A6700" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="20" font-weight="700">工作流 / Workflow</text>
+    <text x="1082" y="628" fill="#5D6B69" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="18">2025-2026 AI Agent</text>
+    <text x="1082" y="656" fill="#5D6B69" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="18">無伺服器整合應用</text>
+  </g>
+
+  <g>
+    <rect x="128" y="564" width="270" height="132" rx="24" fill="#FFFDF8" stroke="#D8CCBC" stroke-width="3"/>
+    <text x="160" y="608" fill="#0F766E" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="20" font-weight="700">評量與回饋 / Assessment</text>
+    <text x="160" y="644" fill="#5D6B69" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="18">2025 心理社會情緒評量</text>
+    <text x="160" y="672" fill="#5D6B69" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="18">2026 自動評分與回饋</text>
+  </g>
+
+  <g>
+    <rect x="520" y="694" width="360" height="120" rx="24" fill="#FFFDF8" stroke="#D8CCBC" stroke-width="3"/>
+    <text x="560" y="738" fill="#9A6700" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="20" font-weight="700">專利與系統方法 / Patent & Method</text>
+    <text x="560" y="774" fill="#5D6B69" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="18">多源資訊整合、自動化內容生成、對話式介面</text>
+  </g>
+
+  <path d="M590 384C474 334 386 314 374 308" stroke="#173334" stroke-width="8" stroke-linecap="round"/>
+  <path d="M816 382C894 338 966 308 1022 288" stroke="#173334" stroke-width="8" stroke-linecap="round"/>
+  <path d="M804 512C892 560 962 592 1048 610" stroke="#173334" stroke-width="8" stroke-linecap="round"/>
+  <path d="M594 518C504 572 430 610 398 624" stroke="#173334" stroke-width="8" stroke-linecap="round"/>
+  <path d="M700 560V694" stroke="#173334" stroke-width="8" stroke-linecap="round"/>
+
+  <defs>
+    <linearGradient id="bg" x1="50" y1="50" x2="1340" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F3ECE1"/>
+      <stop offset="0.52" stop-color="#FCF9F3"/>
+      <stop offset="1" stop-color="#EEF5F3"/>
+    </linearGradient>
+  </defs>
+</svg>

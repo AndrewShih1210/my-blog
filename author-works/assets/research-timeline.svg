@@ -1,0 +1,52 @@
+<svg width="1400" height="920" viewBox="0 0 1400 920" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="920" rx="36" fill="#FFFDF8"/>
+  <rect x="28" y="28" width="1344" height="864" rx="28" fill="url(#bg)"/>
+  <text x="68" y="96" fill="#173334" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="48" font-weight="800">研究沿革 / Research Timeline</text>
+  <text x="68" y="136" fill="#5D6B69" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="22">從虛擬助教、機器人教學，到生成式 AI 工作流、自動評分與對話式系統應用</text>
+
+  <line x1="120" y1="430" x2="1280" y2="430" stroke="#173334" stroke-width="8" stroke-linecap="round"/>
+
+  <g>
+    <circle cx="210" cy="430" r="16" fill="#9A6700"/>
+    <rect x="116" y="248" width="240" height="134" rx="22" fill="#FFFDF8" stroke="#D8CCBC" stroke-width="3"/>
+    <text x="146" y="292" fill="#9A6700" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="22" font-weight="800">2018</text>
+    <text x="146" y="326" fill="#173334" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="20" font-weight="700">即時適性虛擬助教</text>
+    <text x="146" y="356" fill="#5D6B69" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="17">教學輔助與學習成效</text>
+  </g>
+
+  <g>
+    <circle cx="430" cy="430" r="16" fill="#0F766E"/>
+    <rect x="320" y="486" width="270" height="156" rx="22" fill="#FFFDF8" stroke="#D8CCBC" stroke-width="3"/>
+    <text x="350" y="530" fill="#0F766E" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="22" font-weight="800">2022</text>
+    <text x="350" y="564" fill="#173334" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="20" font-weight="700">疫情數位學習與機器人教學</text>
+    <text x="350" y="594" fill="#5D6B69" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="17">數位學習使用意願</text>
+    <text x="350" y="622" fill="#5D6B69" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="17">互動情境機器人課程設計</text>
+  </g>
+
+  <g>
+    <circle cx="760" cy="430" r="16" fill="#9A6700"/>
+    <rect x="620" y="246" width="300" height="170" rx="22" fill="#FFFDF8" stroke="#D8CCBC" stroke-width="3"/>
+    <text x="652" y="290" fill="#9A6700" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="22" font-weight="800">2025</text>
+    <text x="652" y="324" fill="#173334" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="20" font-weight="700">生成式 AI 教學與工作流擴展</text>
+    <text x="652" y="354" fill="#5D6B69" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="17">程式設計與資料科學課程</text>
+    <text x="652" y="382" fill="#5D6B69" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="17">智慧對話系統與社會情緒評量</text>
+    <text x="652" y="410" fill="#5D6B69" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="17">無伺服器 AI Agent 與雲端整合</text>
+  </g>
+
+  <g>
+    <circle cx="1090" cy="430" r="16" fill="#0F766E"/>
+    <rect x="944" y="486" width="320" height="180" rx="22" fill="#FFFDF8" stroke="#D8CCBC" stroke-width="3"/>
+    <text x="976" y="530" fill="#0F766E" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="22" font-weight="800">2026</text>
+    <text x="976" y="564" fill="#173334" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="20" font-weight="700">自動評分、認知補償與專利整合</text>
+    <text x="976" y="594" fill="#5D6B69" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="17">生成式 AI 自動評分與回饋</text>
+    <text x="976" y="622" fill="#5D6B69" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="17">心盲到心流：運算思維與互動</text>
+    <text x="976" y="650" fill="#5D6B69" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="17">I918530 專利與系統方法</text>
+  </g>
+
+  <defs>
+    <linearGradient id="bg" x1="40" y1="40" x2="1360" y2="890" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4ECE0"/>
+      <stop offset="1" stop-color="#EFF5F3"/>
+    </linearGradient>
+  </defs>
+</svg>
