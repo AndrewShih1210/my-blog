@@ -1,7 +1,9 @@
 {
   "index": 10,
   "title": "生成式AI自動評分與回饋系統之滿意度與需求分析",
+  "title_en": "Satisfaction and Needs Analysis of a Generative AI Automated Scoring and Feedback System",
   "author": "施育廷",
+  "author_en": "Yu-Ting Shih",
   "source_name": "生成式 AI 自動評分與回饋系統之滿意度與需求分析.pdf",
   "page_count": 9,
   "keywords": [
@@ -9,10 +11,17 @@
     "自動化評分系統",
     "虛擬人設"
   ],
+  "keywords_en": [
+    "Generative AI",
+    "Automated Scoring System",
+    "AI Persona"
+  ],
   "image_count": 3,
   "files": {
     "article": "article.md",
+    "article_en": "article_en.md",
     "readme": "README.md",
+    "readme_en": "README_en.md",
     "images": [
       "images/figure-01.jpg",
       "images/figure-02.png",

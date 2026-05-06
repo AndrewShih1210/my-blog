@@ -1,7 +1,9 @@
 {
   "index": 3,
   "title": "Enhancing learning outcomes and reducing anxiety in programming courses through AI integration",
+  "title_en": "Enhancing learning outcomes and reducing anxiety in programming courses through AI integration",
   "author": "施育廷",
+  "author_en": "Yu-Ting Shih",
   "source_name": "JA0037-A-9.17.pdf",
   "page_count": 1,
   "keywords": [
@@ -9,10 +11,17 @@
     "Programming Learning Anxiety",
     "Virtual Learning Partner"
   ],
+  "keywords_en": [
+    "Artificial Intelligence in Education",
+    "Programming Learning Anxiety",
+    "Virtual Learning Partner"
+  ],
   "image_count": 1,
   "files": {
     "article": "article.md",
+    "article_en": "article_en.md",
     "readme": "README.md",
+    "readme_en": "README_en.md",
     "images": [
       "images/figure-01.jpg"
     ]

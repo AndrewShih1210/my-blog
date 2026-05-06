@@ -1,14 +1,19 @@
 {
   "index": 11,
   "title": "生成式AI於資料科學課程的導入時長效應：比較不同介入週數對非資訊背景大學生學習成效之影響",
+  "title_en": "Duration Effects of Introducing Generative AI into a Data Science Course: Comparing the Learning Outcomes of Non-CS Undergraduates Across Different Weeks of Intervention",
   "author": "施育廷",
+  "author_en": "Yu-Ting Shih",
   "source_name": "生成式AI於資料科學課程的導入時長效應比較不同介入週數對非資訊背景大學生學習成效之影響_施育廷.pdf",
   "page_count": 2,
   "keywords": [],
+  "keywords_en": [],
   "image_count": 0,
   "files": {
     "article": "article.md",
+    "article_en": "article_en.md",
     "readme": "README.md",
+    "readme_en": "README_en.md",
     "images": []
   }
 }

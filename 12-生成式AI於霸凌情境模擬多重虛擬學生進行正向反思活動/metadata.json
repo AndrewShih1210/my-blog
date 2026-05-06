@@ -1,14 +1,19 @@
 {
   "index": 12,
   "title": "生成式AI於霸凌情境模擬多重虛擬學生進行正向反思活動",
+  "title_en": "Positive Reflective Activities Through Multiple Virtual Students in Generative AI-Based Bullying Scenario Simulations",
   "author": "施育廷",
+  "author_en": "Yu-Ting Shih",
   "source_name": "生成式AI於霸凌情境模擬多重虛擬學生進行正向反思活動 (2).docx.pdf",
   "page_count": 4,
   "keywords": [],
+  "keywords_en": [],
   "image_count": 3,
   "files": {
     "article": "article.md",
+    "article_en": "article_en.md",
     "readme": "README.md",
+    "readme_en": "README_en.md",
     "images": [
       "images/figure-01.png",
       "images/figure-02.jpg",

@@ -1,7 +1,9 @@
 {
   "index": 2,
   "title": "AI 輔助程式設計與數據分析學習中的人機互動行為分析",
+  "title_en": "Behavioral Analysis of Human-AI Interaction in AI-Assisted Programming and Data Science Learning",
   "author": "施育廷",
+  "author_en": "Yu-Ting Shih",
   "source_name": "20250424905.pdf",
   "page_count": 10,
   "keywords": [
@@ -11,10 +13,17 @@
     "學習分析",
     "人機互動"
   ],
+  "keywords_en": [
+    "Lag Sequential Analysis",
+    "Generative AI",
+    "Programming Education"
+  ],
   "image_count": 3,
   "files": {
     "article": "article.md",
+    "article_en": "article_en.md",
     "readme": "README.md",
+    "readme_en": "README_en.md",
     "images": [
       "images/figure-01.jpg",
       "images/figure-02.png",

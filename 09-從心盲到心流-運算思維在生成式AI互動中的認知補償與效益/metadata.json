@@ -1,7 +1,9 @@
 {
   "index": 9,
   "title": "從心盲到心流：運算思維在生成式AI互動中的認知補償與效益",
+  "title_en": "From Mind Blindness to Flow: Cognitive Compensation and Benefits of Computational Thinking in Generative AI Interaction",
   "author": "施育廷",
+  "author_en": "Yu-Ting Shih",
   "source_name": "施育廷_TWELF2026 (2) (1).pdf",
   "page_count": 6,
   "keywords": [
@@ -11,10 +13,19 @@
     "Cognitive Load",
     "Vibe"
   ],
+  "keywords_en": [
+    "Aphantasia",
+    "Generative AI",
+    "Computational Thinking",
+    "Cognitive Load",
+    "Vibe"
+  ],
   "image_count": 2,
   "files": {
     "article": "article.md",
+    "article_en": "article_en.md",
     "readme": "README.md",
+    "readme_en": "README_en.md",
     "images": [
       "images/figure-01.png",
       "images/figure-02.png"

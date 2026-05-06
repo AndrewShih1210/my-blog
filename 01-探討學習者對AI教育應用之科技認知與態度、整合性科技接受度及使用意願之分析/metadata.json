@@ -1,7 +1,9 @@
 {
   "index": 1,
   "title": "探討學習者對AI教育應用之科技認知與態度、整合性科技接受度及使用意願之分析",
+  "title_en": "Analysis of Learners' Technological Cognition and Attitudes Toward AI Educational Applications, Integrated Technology Acceptance, and Behavioral Intention",
   "author": "施育廷",
+  "author_en": "Yu-Ting Shih",
   "source_name": "2023bemst全文.pdf",
   "page_count": 5,
   "keywords": [
@@ -9,10 +11,13 @@
     "整合性科技接受度",
     "使用意願"
   ],
+  "keywords_en": [],
   "image_count": 2,
   "files": {
     "article": "article.md",
+    "article_en": "article_en.md",
     "readme": "README.md",
+    "readme_en": "README_en.md",
     "images": [
       "images/figure-01.png",
       "images/figure-02.png"

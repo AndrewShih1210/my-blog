@@ -1,7 +1,9 @@
 {
   "index": 13,
   "title": "運用智慧對話系統於心理與社會情緒評量之應用",
+  "title_en": "Application of Intelligent Dialogue Systems in Psychological and Social-Emotional Assessment",
   "author": "施育廷",
+  "author_en": "Yu-Ting Shih",
   "source_name": "運用智慧對話系統於心理與社會情緒評量之應用 (1).pdf",
   "page_count": 1,
   "keywords": [
@@ -10,10 +12,13 @@
     "對話式代理人",
     "教育科技"
   ],
+  "keywords_en": [],
   "image_count": 0,
   "files": {
     "article": "article.md",
+    "article_en": "article_en.md",
     "readme": "README.md",
+    "readme_en": "README_en.md",
     "images": []
   }
 }
