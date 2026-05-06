@@ -1,0 +1,405 @@
+:root {
+  --bg: #f5efe4;
+  --paper: #fffdf8;
+  --ink: #1f2d2c;
+  --muted: #5e6c69;
+  --line: #d7cbba;
+  --accent: #0f766e;
+  --accent-2: #9a6700;
+  --accent-soft: #d9f1ee;
+  --shadow: 0 16px 40px rgba(30, 43, 42, 0.08);
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(15, 118, 110, 0.1), transparent 26%),
+    radial-gradient(circle at top right, rgba(154, 103, 0, 0.08), transparent 24%),
+    linear-gradient(180deg, #efe8db 0%, #f8f4ec 24%, #f5efe4 100%);
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  line-height: 1.8;
+}
+
+a {
+  color: inherit;
+}
+
+code {
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: rgba(15, 118, 110, 0.08);
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 0.95em;
+}
+
+.wrap {
+  width: min(1120px, calc(100vw - 32px));
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(14px);
+  background: rgba(255, 253, 248, 0.82);
+  border-bottom: 1px solid rgba(31, 45, 44, 0.08);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 0;
+}
+
+.brand {
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.hero {
+  padding: 56px 0 28px;
+}
+
+.hero-grid,
+.two-col,
+.footer-grid,
+.plan-grid,
+.project-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 24px;
+}
+
+.eyebrow,
+.section-label {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  margin: 0;
+}
+
+h1 {
+  margin-top: 12px;
+  font-size: clamp(34px, 5vw, 58px);
+}
+
+h2 {
+  font-size: clamp(26px, 3vw, 36px);
+}
+
+h3 {
+  font-size: 22px;
+}
+
+.lead,
+.section-text,
+.intro,
+.muted {
+  color: var(--muted);
+}
+
+.hero-actions,
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.7);
+  font-weight: 700;
+}
+
+.button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.main-stack {
+  padding: 16px 0 56px;
+}
+
+.section {
+  margin-top: 32px;
+}
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.section-head > * {
+  flex: 1;
+}
+
+.panel,
+.path-card,
+.unit-card,
+.roadmap a,
+.note,
+.lesson-card,
+.project-card,
+.rubric,
+.summary-box {
+  background: rgba(255, 253, 248, 0.92);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.panel,
+.lesson-card,
+.project-card,
+.rubric,
+.summary-box {
+  padding: 24px;
+}
+
+.callout {
+  align-self: start;
+}
+
+.hero-visual,
+.figure-card {
+  overflow: hidden;
+}
+
+.hero-visual img,
+.figure-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.clean-list {
+  margin: 14px 0 0;
+  padding-left: 20px;
+}
+
+.path-grid,
+.unit-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.path-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.unit-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.path-card,
+.unit-card,
+.roadmap a {
+  padding: 22px;
+  text-decoration: none;
+}
+
+.path-card span,
+.unit-card strong {
+  color: var(--accent-2);
+}
+
+.roadmap {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.roadmap a {
+  font-weight: 700;
+}
+
+.site-footer {
+  padding: 22px 0 40px;
+  color: var(--muted);
+}
+
+.footer-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+.page-hero {
+  padding: 42px 0 14px;
+}
+
+.breadcrumb {
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 24px;
+  padding: 20px 0 56px;
+}
+
+.sidebar {
+  position: sticky;
+  top: 84px;
+  align-self: start;
+  padding: 18px;
+}
+
+.sidebar h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  display: block;
+  text-decoration: none;
+  padding: 8px 0;
+  color: var(--muted);
+}
+
+.article {
+  display: grid;
+  gap: 18px;
+}
+
+.figure-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.article section {
+  padding: 28px;
+}
+
+.article p,
+.article li {
+  margin-top: 10px;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.tag {
+  display: inline-flex;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(15, 118, 110, 0.08);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.lesson-card + .lesson-card,
+.project-card + .project-card {
+  margin-top: 16px;
+}
+
+.mini-title {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.rubric table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.rubric th,
+.rubric td {
+  padding: 12px;
+  border-top: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.summary-box {
+  background: linear-gradient(180deg, rgba(217, 242, 238, 0.65), rgba(255, 253, 248, 0.96));
+}
+
+@media (max-width: 980px) {
+  .hero-grid,
+  .two-col,
+  .footer-grid,
+  .path-grid,
+  .roadmap,
+  .content-grid,
+  .plan-grid,
+  .project-grid,
+  .unit-grid,
+  .figure-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-head,
+  .topbar {
+    display: block;
+  }
+
+  .nav {
+    margin-top: 12px;
+  }
+
+  .sidebar {
+    position: static;
+  }
+}

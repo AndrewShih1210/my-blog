@@ -36,6 +36,11 @@
 - [生成式AI於霸凌情境模擬多重虛擬學生進行正向反思活動](./12-生成式AI於霸凌情境模擬多重虛擬學生進行正向反思活動/article.md)
 - [運用智慧對話系統於心理與社會情緒評量之應用](./13-運用智慧對話系統於心理與社會情緒評量之應用/article.md)
 
+## 線上教材
+
+- [生成式 AI 教學與實作教材（中文版首頁）](./ai-course-site/index.html)
+- [Generative AI Teaching and Practice（English Home）](./ai-course-site/index_en.html)
+
 ## 說明
 
 - 所有文章頁僅保留文字整理與內部圖片，不附原始全文 PDF。

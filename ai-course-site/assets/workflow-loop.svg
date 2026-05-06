@@ -1,0 +1,43 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="36" fill="#FFFDF8"/>
+  <rect x="34" y="34" width="1132" height="652" rx="28" fill="#F7F3EA"/>
+  <text x="68" y="100" fill="#153436" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="50" font-weight="800">AI 工作流循環</text>
+  <text x="68" y="140" fill="#58716E" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="24">適用於教學、研究、行政與專題製作的通用流程</text>
+
+  <circle cx="600" cy="370" r="230" fill="#FFFDF8" stroke="#D8CEC0" stroke-width="4"/>
+  <circle cx="600" cy="370" r="110" fill="#D9F1EE"/>
+  <text x="546" y="360" fill="#0F766E" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="28" font-weight="800">人機協作</text>
+  <text x="555" y="396" fill="#0F766E" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="28" font-weight="800">持續優化</text>
+
+  <g>
+    <rect x="498" y="84" width="204" height="94" rx="24" fill="#FFFFFF" stroke="#D8CEC0" stroke-width="3"/>
+    <text x="548" y="124" fill="#9A6700" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="20" font-weight="700">1. 定義任務</text>
+    <text x="535" y="152" fill="#5C6968" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="18">釐清目標與限制</text>
+  </g>
+  <g>
+    <rect x="845" y="270" width="220" height="94" rx="24" fill="#FFFFFF" stroke="#D8CEC0" stroke-width="3"/>
+    <text x="892" y="310" fill="#0F766E" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="20" font-weight="700">2. 設計提示</text>
+    <text x="882" y="338" fill="#5C6968" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="18">角色、條件、格式</text>
+  </g>
+  <g>
+    <rect x="758" y="522" width="220" height="94" rx="24" fill="#FFFFFF" stroke="#D8CEC0" stroke-width="3"/>
+    <text x="812" y="562" fill="#9A6700" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="20" font-weight="700">3. 產出初稿</text>
+    <text x="799" y="590" fill="#5C6968" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="18">先追求結構完整</text>
+  </g>
+  <g>
+    <rect x="235" y="522" width="220" height="94" rx="24" fill="#FFFFFF" stroke="#D8CEC0" stroke-width="3"/>
+    <text x="286" y="562" fill="#0F766E" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="20" font-weight="700">4. 人工查核</text>
+    <text x="274" y="590" fill="#5C6968" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="18">事實、語氣、風險</text>
+  </g>
+  <g>
+    <rect x="135" y="270" width="220" height="94" rx="24" fill="#FFFFFF" stroke="#D8CEC0" stroke-width="3"/>
+    <text x="189" y="310" fill="#9A6700" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="20" font-weight="700">5. 累積模板</text>
+    <text x="179" y="338" fill="#5C6968" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="18">形成可重用資產</text>
+  </g>
+
+  <path d="M600 178C728 178 823 220 886 279" stroke="#153436" stroke-width="10" stroke-linecap="round"/>
+  <path d="M956 366C955 447 925 502 882 546" stroke="#153436" stroke-width="10" stroke-linecap="round"/>
+  <path d="M761 586C703 618 658 628 600 628" stroke="#153436" stroke-width="10" stroke-linecap="round"/>
+  <path d="M443 586C381 551 324 505 279 438" stroke="#153436" stroke-width="10" stroke-linecap="round"/>
+  <path d="M245 272C304 222 385 184 498 178" stroke="#153436" stroke-width="10" stroke-linecap="round"/>
+</svg>

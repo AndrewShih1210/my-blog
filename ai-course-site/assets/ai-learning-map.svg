@@ -1,0 +1,59 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="36" fill="#FFFDF8"/>
+  <rect x="24" y="24" width="1152" height="672" rx="28" fill="url(#bg)"/>
+  <text x="64" y="108" fill="#153436" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="54" font-weight="800">生成式 AI 教材學習地圖</text>
+  <text x="64" y="152" fill="#55706E" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="24">從觀念建立、提問設計、工具選擇到工作流整合與風險治理</text>
+
+  <g>
+    <rect x="70" y="220" width="220" height="150" rx="26" fill="#FFFFFF" stroke="#D8CEC0" stroke-width="3"/>
+    <text x="98" y="272" fill="#0F766E" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="22" font-weight="700">單元 1-2</text>
+    <text x="98" y="316" fill="#183234" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="32" font-weight="800">觀念與提問</text>
+    <text x="98" y="352" fill="#5C6968" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="21">理解 AI 邏輯</text>
+    <text x="98" y="382" fill="#5C6968" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="21">建立提示模板</text>
+  </g>
+
+  <g>
+    <rect x="350" y="220" width="220" height="150" rx="26" fill="#FFFFFF" stroke="#D8CEC0" stroke-width="3"/>
+    <text x="378" y="272" fill="#9A6700" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="22" font-weight="700">單元 3-4</text>
+    <text x="378" y="316" fill="#183234" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="32" font-weight="800">工具與教學</text>
+    <text x="378" y="352" fill="#5C6968" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="21">平台判斷</text>
+    <text x="378" y="382" fill="#5C6968" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="21">活動設計</text>
+  </g>
+
+  <g>
+    <rect x="630" y="220" width="220" height="150" rx="26" fill="#FFFFFF" stroke="#D8CEC0" stroke-width="3"/>
+    <text x="658" y="272" fill="#0F766E" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="22" font-weight="700">單元 5-6</text>
+    <text x="658" y="316" fill="#183234" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="32" font-weight="800">研究與流程</text>
+    <text x="658" y="352" fill="#5C6968" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="21">文獻與寫作</text>
+    <text x="658" y="382" fill="#5C6968" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="21">雲端整合</text>
+  </g>
+
+  <g>
+    <rect x="910" y="220" width="220" height="150" rx="26" fill="#FFFFFF" stroke="#D8CEC0" stroke-width="3"/>
+    <text x="938" y="272" fill="#9A6700" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="22" font-weight="700">單元 7-8</text>
+    <text x="938" y="316" fill="#183234" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="32" font-weight="800">服務與治理</text>
+    <text x="938" y="352" fill="#5C6968" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="21">互動服務</text>
+    <text x="938" y="382" fill="#5C6968" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="21">風險控管</text>
+  </g>
+
+  <path d="M290 295H346" stroke="#153436" stroke-width="10" stroke-linecap="round"/>
+  <path d="M570 295H626" stroke="#153436" stroke-width="10" stroke-linecap="round"/>
+  <path d="M850 295H906" stroke="#153436" stroke-width="10" stroke-linecap="round"/>
+
+  <g>
+    <rect x="78" y="468" width="1044" height="164" rx="30" fill="#FFF9EF" stroke="#D8CEC0" stroke-width="3"/>
+    <text x="116" y="532" fill="#183234" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="34" font-weight="800">課程設計精神</text>
+    <text x="116" y="576" fill="#5C6968" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="24">1. 每週都有概念、示範、實作與反思</text>
+    <text x="116" y="612" fill="#5C6968" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="24">2. 先建立判斷，再追求效率，避免把 AI 當黑箱捷徑</text>
+    <text x="650" y="576" fill="#5C6968" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="24">3. 公開版保留方法，進階版再加入深度案例</text>
+    <text x="650" y="612" fill="#5C6968" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="24">4. 學習成果要能轉化成真實教學或研究工作流</text>
+  </g>
+
+  <defs>
+    <linearGradient id="bg" x1="60" y1="50" x2="1110" y2="670" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F3ECE0"/>
+      <stop offset="0.52" stop-color="#FCF9F3"/>
+      <stop offset="1" stop-color="#EEF4F2"/>
+    </linearGradient>
+  </defs>
+</svg>

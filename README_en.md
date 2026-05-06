@@ -38,6 +38,11 @@ Shih, Y.-T. (2026). System and method for multi-source information integration a
 - [Positive Reflective Activities Through Multiple Virtual Students in Generative AI-Based Bullying Scenario Simulations](./12-生成式AI於霸凌情境模擬多重虛擬學生進行正向反思活動/article_en.md)
 - [Application of Intelligent Dialogue Systems in Psychological and Social-Emotional Assessment](./13-運用智慧對話系統於心理與社會情緒評量之應用/article_en.md)
 
+## Course Site
+
+- [Generative AI Teaching and Practice: English Home](./ai-course-site/index_en.html)
+- [Generative AI Teaching and Practice: Chinese Home](./ai-course-site/index.html)
+
 ## Notes
 
 - The repository keeps article-style summaries and extracted figures only; the full source PDFs are not redistributed.

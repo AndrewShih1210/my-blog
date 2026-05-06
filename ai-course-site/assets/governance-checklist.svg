@@ -1,0 +1,38 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="36" fill="#FFFDF8"/>
+  <rect x="34" y="34" width="1132" height="652" rx="28" fill="url(#g)"/>
+  <text x="70" y="108" fill="#153436" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="50" font-weight="800">AI 使用治理檢查表</text>
+  <text x="70" y="148" fill="#58716E" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="24">在正式發布、評量、研究與服務前，先完成這五個檢查</text>
+
+  <g>
+    <rect x="76" y="218" width="1048" height="94" rx="24" fill="#FFFFFF" stroke="#D8CEC0" stroke-width="3"/>
+    <circle cx="138" cy="265" r="24" fill="#D9F1EE"/><path d="M128 266L136 274L150 255" stroke="#0F766E" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="184" y="260" fill="#183234" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="26" font-weight="800">資料來源是否可信？</text>
+    <text x="184" y="292" fill="#5C6968" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="20">檢查引用、年份、作者與是否來自可追溯的文件或資料庫。</text>
+  </g>
+  <g>
+    <rect x="76" y="332" width="1048" height="94" rx="24" fill="#FFFFFF" stroke="#D8CEC0" stroke-width="3"/>
+    <circle cx="138" cy="379" r="24" fill="#FFF1D8"/><path d="M128 380L136 388L150 369" stroke="#9A6700" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="184" y="374" fill="#183234" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="26" font-weight="800">內容是否經過人工查核？</text>
+    <text x="184" y="406" fill="#5C6968" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="20">AI 產生的初稿不能直接視為完成品，必須由人類做語意與事實修正。</text>
+  </g>
+  <g>
+    <rect x="76" y="446" width="1048" height="94" rx="24" fill="#FFFFFF" stroke="#D8CEC0" stroke-width="3"/>
+    <circle cx="138" cy="493" r="24" fill="#D9F1EE"/><path d="M128 494L136 502L150 483" stroke="#0F766E" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="184" y="488" fill="#183234" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="26" font-weight="800">是否涉及敏感資料或隱私？</text>
+    <text x="184" y="520" fill="#5C6968" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="20">牽涉個資、評量、學生資料或內部文件時，要先確認平台權限與保存方式。</text>
+  </g>
+  <g>
+    <rect x="76" y="560" width="1048" height="94" rx="24" fill="#FFFFFF" stroke="#D8CEC0" stroke-width="3"/>
+    <circle cx="138" cy="607" r="24" fill="#FFF1D8"/><path d="M128 608L136 616L150 597" stroke="#9A6700" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="184" y="602" fill="#183234" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="26" font-weight="800">公開版與進階版是否已分流？</text>
+    <text x="184" y="634" fill="#5C6968" font-family="Noto Sans TC, Microsoft JhengHei, sans-serif" font-size="20">公開頁保留方法與概念，收費版再加入專屬案例、腳本與深度對話內容。</text>
+  </g>
+
+  <defs>
+    <linearGradient id="g" x1="70" y1="70" x2="1120" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6F0E4"/>
+      <stop offset="1" stop-color="#EFF5F3"/>
+    </linearGradient>
+  </defs>
+</svg>
