@@ -1,4 +1,4 @@
-# 從心盲到心流：運算思維在生成式AI互動中的認知補償與效益
+﻿# 從心盲到心流：運算思維在生成式AI互動中的認知補償與效益
 
 作者：施育廷
 
@@ -6,7 +6,7 @@
 
 ## 內容
 
-- [`article.md`](./article.md)：文章版整理
+- [`article.md`](./index.html)：文章版整理
 - [`metadata.json`](./metadata.json)：基本資訊
 - `images/`：抽取出的內部圖片（共 2 張）
 

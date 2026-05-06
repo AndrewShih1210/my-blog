@@ -1,4 +1,4 @@
-# Analysis of Learners' Technological Cognition and Attitudes Toward AI Educational Applications, Integrated Technology Acceptance, and Behavioral Intention
+﻿# Analysis of Learners' Technological Cognition and Attitudes Toward AI Educational Applications, Integrated Technology Acceptance, and Behavioral Intention
 
 Author: Yu-Ting Shih
 
@@ -6,8 +6,8 @@ This page reorganizes the source material into a GitHub-friendly article format,
 
 ## Contents
 
-- [`article_en.md`](./article_en.md): English article page
-- [`article.md`](./article.md): Chinese article page
+- [`article_en.md`](./index_en.html): English article page
+- [`article.md`](./index.html): Chinese article page
 - [`metadata.json`](./metadata.json): basic metadata
 - `images/`: extracted internal figures (2 image(s))
 

@@ -1,4 +1,4 @@
-# 優化學習工作流輕量級無伺服器AI代理人之開發與成效分析
+﻿# 優化學習工作流輕量級無伺服器AI代理人之開發與成效分析
 
 作者：施育廷
 
@@ -6,7 +6,7 @@
 
 ## 內容
 
-- [`article.md`](./article.md)：文章版整理
+- [`article.md`](./index.html)：文章版整理
 - [`metadata.json`](./metadata.json)：基本資訊
 - `images/`：抽取出的內部圖片（共 3 張）
 

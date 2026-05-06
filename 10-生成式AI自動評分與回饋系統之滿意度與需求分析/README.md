@@ -1,4 +1,4 @@
-# 生成式AI自動評分與回饋系統之滿意度與需求分析
+﻿# 生成式AI自動評分與回饋系統之滿意度與需求分析
 
 作者：施育廷
 
@@ -6,7 +6,7 @@
 
 ## 內容
 
-- [`article.md`](./article.md)：文章版整理
+- [`article.md`](./index.html)：文章版整理
 - [`metadata.json`](./metadata.json)：基本資訊
 - `images/`：抽取出的內部圖片（共 3 張）
 

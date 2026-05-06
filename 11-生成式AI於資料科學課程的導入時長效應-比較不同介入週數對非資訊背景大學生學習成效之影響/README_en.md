@@ -1,4 +1,4 @@
-# Duration Effects of Introducing Generative AI into a Data Science Course: Comparing the Learning Outcomes of Non-CS Undergraduates Across Different Weeks of Intervention
+﻿# Duration Effects of Introducing Generative AI into a Data Science Course: Comparing the Learning Outcomes of Non-CS Undergraduates Across Different Weeks of Intervention
 
 Author: Yu-Ting Shih
 
@@ -6,7 +6,7 @@ This page reorganizes the source material into a GitHub-friendly article format,
 
 ## Contents
 
-- [`article_en.md`](./article_en.md): English article page
-- [`article.md`](./article.md): Chinese article page
+- [`article_en.md`](./index_en.html): English article page
+- [`article.md`](./index.html): Chinese article page
 - [`metadata.json`](./metadata.json): basic metadata
 - `images/`: extracted internal figures (0 image(s))

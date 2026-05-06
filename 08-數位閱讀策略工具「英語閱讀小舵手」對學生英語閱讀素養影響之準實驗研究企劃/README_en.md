@@ -1,4 +1,4 @@
-# A Quasi-Experimental Research Proposal on the Effects of the Digital Reading Strategy Tool "English Reading Helmsman" on Students' English Reading Literacy
+﻿# A Quasi-Experimental Research Proposal on the Effects of the Digital Reading Strategy Tool "English Reading Helmsman" on Students' English Reading Literacy
 
 Author: Yu-Ting Shih
 
@@ -6,7 +6,7 @@ This page reorganizes the source material into a GitHub-friendly article format,
 
 ## Contents
 
-- [`article_en.md`](./article_en.md): English article page
-- [`article.md`](./article.md): Chinese article page
+- [`article_en.md`](./index_en.html): English article page
+- [`article.md`](./index.html): Chinese article page
 - [`metadata.json`](./metadata.json): basic metadata
 - `images/`: extracted internal figures (0 image(s))

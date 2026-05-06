@@ -1,4 +1,4 @@
-# my-blog
+﻿# my-blog
 
 This repository presents Yu-Ting Shih's research outputs in a GitHub-friendly format, turning source PDFs into readable article pages and extracted visual assets.
 
