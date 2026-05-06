@@ -198,10 +198,33 @@
       color: var(--muted);
       font-size: 15px;
     }
+    .author-signature {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 20px;
+      align-items: center;
+      padding: 28px;
+    }
+    .author-badge {
+      width: 150px;
+      height: 150px;
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at top left, rgba(15,118,110,.18), transparent 36%),
+        linear-gradient(180deg, #f4ead8, #fffdf8);
+      border: 1px solid var(--line);
+      font-size: 54px;
+      font-weight: 800;
+      color: var(--accent);
+    }
     @media (max-width: 980px) {
       .hero-grid, .grid-2, .stats { grid-template-columns: 1fr; }
       .section-head, .topbar { display: block; }
       .topnav { margin-top: 12px; }
+      .author-signature { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -351,21 +374,45 @@
       </div>
       <div class="timeline">
         <article class="timeline-item">
-          <strong>專利與系統方法</strong>
+          <strong>代表成果</strong>
           <h3>基於對話式介面之多源資訊整合與自動化內容生成之系統與方法</h3>
           <p class="muted">以發明專利作為代表成果，凸顯對話式介面、多源資料整合與內容自動化生成的實作能力。</p>
         </article>
         <article class="timeline-item">
-          <strong>研究發表與應用擴展</strong>
-          <h3>從人機互動、學習工作流到心理社會情緒評量</h3>
-          <p class="muted">目前網站中的研究成果，已涵蓋 AI 輔助程式設計、學習工作流優化、GenAI 協作評量、虛擬學生情境模擬與智慧對話系統應用。</p>
+          <strong>最新消息</strong>
+          <h3>GitHub Pages 學術首頁與 AI 教材網站已完成整合</h3>
+          <p class="muted">目前已完成品牌首頁、雙語 AI 教材網站、研究成果索引與公開教材導流頁的整合，作為後續學術交流、課程展示與合作介紹的公開入口。</p>
         </article>
         <article class="timeline-item">
-          <strong>公開教材與國際交流</strong>
-          <h3>中英雙語 AI 教材網站</h3>
-          <p class="muted">將 AI 教學內容整理為中英雙語靜態網站，兼顧公開試讀、課程展示與未來進階或付費內容的分流可能。</p>
+          <strong>聯絡方式</strong>
+          <h3>網站與公開連結</h3>
+          <p class="muted">GitHub 研究與網站入口：<a href="https://github.com/AndrewShih1210/my-blog">AndrewShih1210/my-blog</a><br />Google Sites 個人頁：<a href="https://sites.google.com/view/andrewshih-resume/">andrewshih-resume</a></p>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Author</p>
+          <h2>作者署名</h2>
+        </div>
+        <p>這個 GitHub Pages 首頁與其中的 AI 教材公開版，均由施育廷規劃、整編與製作，作為個人學術品牌與教學研究成果的正式對外入口。</p>
+      </div>
+      <article class="card author-signature">
+        <div class="author-badge">YT</div>
+        <div>
+          <h3>施育廷</h3>
+          <p class="muted">博士候選人、兼任教師、AI 教學與研究實作者。研究主軸涵蓋生成式 AI、教育科技、學習分析、對話式代理人，以及教學與評量自動化。</p>
+          <div class="cta-row">
+            <a class="button primary" href="./ai-course-site/index.html">查看 AI 教材</a>
+            <a class="button" href="https://github.com/AndrewShih1210/my-blog">GitHub Repository</a>
+            <a class="button" href="https://sites.google.com/view/andrewshih-resume/">Google Sites</a>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 

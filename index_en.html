@@ -185,10 +185,33 @@
       color: var(--muted);
       font-size: 15px;
     }
+    .author-signature {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 20px;
+      align-items: center;
+      padding: 28px;
+    }
+    .author-badge {
+      width: 150px;
+      height: 150px;
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at top left, rgba(15,118,110,.18), transparent 36%),
+        linear-gradient(180deg, #f4ead8, #fffdf8);
+      border: 1px solid var(--line);
+      font-size: 54px;
+      font-weight: 800;
+      color: var(--accent);
+    }
     @media (max-width: 980px) {
       .hero-grid, .grid-2, .stats { grid-template-columns: 1fr; }
       .section-head, .topbar { display: block; }
       .topnav { margin-top: 12px; }
+      .author-signature { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -338,21 +361,45 @@
       </div>
       <div class="timeline">
         <article class="timeline-item">
-          <strong>Patent and system method</strong>
+          <strong>Representative Output</strong>
           <h3>Multi-source integration and automated content generation through conversational interfaces</h3>
           <p class="muted">The invention patent highlights applied capability in conversational interfaces, information integration, and automated content generation.</p>
         </article>
         <article class="timeline-item">
-          <strong>Research outputs and expansion</strong>
-          <h3>From human-AI interaction and learning workflows to socio-emotional assessment</h3>
-          <p class="muted">The current repository includes work on AI-assisted programming learning, optimized learning workflows, GenAI collaborative assessment, virtual student simulations, and intelligent dialogue systems.</p>
+          <strong>Latest Update</strong>
+          <h3>The GitHub Pages academic homepage and bilingual AI course site are now integrated</h3>
+          <p class="muted">The site currently combines a branding-oriented homepage, a bilingual AI course site, research output indexes, and public-facing course previews for academic communication and teaching outreach.</p>
         </article>
         <article class="timeline-item">
-          <strong>Public course site and international exchange</strong>
-          <h3>Bilingual AI teaching site</h3>
-          <p class="muted">The AI teaching materials have been reorganized into a bilingual static site that supports public preview, course communication, and future premium content differentiation.</p>
+          <strong>Contact</strong>
+          <h3>Public website links</h3>
+          <p class="muted">GitHub repository: <a href="https://github.com/AndrewShih1210/my-blog">AndrewShih1210/my-blog</a><br />Google Sites profile: <a href="https://sites.google.com/view/andrewshih-resume/">andrewshih-resume</a></p>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Author</p>
+          <h2>Author Signature</h2>
+        </div>
+        <p>This GitHub Pages homepage and the public-facing AI course materials were planned, organized, and produced by Yu-Ting Shih as part of his academic brand and teaching-research communication work.</p>
+      </div>
+      <article class="card author-signature">
+        <div class="author-badge">YT</div>
+        <div>
+          <h3>Yu-Ting Shih</h3>
+          <p class="muted">Doctoral candidate, instructor, and practitioner in AI-supported teaching and research. His work focuses on generative AI, educational technology, learning analytics, conversational agents, and the automation of teaching and assessment workflows.</p>
+          <div class="cta-row">
+            <a class="button primary" href="./ai-course-site/index_en.html">View the AI Course Site</a>
+            <a class="button" href="https://github.com/AndrewShih1210/my-blog">GitHub Repository</a>
+            <a class="button" href="https://sites.google.com/view/andrewshih-resume/">Google Sites</a>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 
