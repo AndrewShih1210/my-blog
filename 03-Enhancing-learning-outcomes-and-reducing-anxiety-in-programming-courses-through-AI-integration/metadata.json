@@ -1,0 +1,20 @@
+{
+  "index": 3,
+  "title": "Enhancing learning outcomes and reducing anxiety in programming courses through AI integration",
+  "author": "施育廷",
+  "source_name": "JA0037-A-9.17.pdf",
+  "page_count": 1,
+  "keywords": [
+    "Artificial Intelligence in Education",
+    "Programming Learning Anxiety",
+    "Virtual Learning Partner"
+  ],
+  "image_count": 1,
+  "files": {
+    "article": "article.md",
+    "readme": "README.md",
+    "images": [
+      "images/figure-01.jpg"
+    ]
+  }
+}

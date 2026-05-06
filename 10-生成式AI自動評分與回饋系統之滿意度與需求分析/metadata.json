@@ -1,0 +1,22 @@
+{
+  "index": 10,
+  "title": "生成式AI自動評分與回饋系統之滿意度與需求分析",
+  "author": "施育廷",
+  "source_name": "生成式 AI 自動評分與回饋系統之滿意度與需求分析.pdf",
+  "page_count": 9,
+  "keywords": [
+    "生成式人工智慧",
+    "自動化評分系統",
+    "虛擬人設"
+  ],
+  "image_count": 3,
+  "files": {
+    "article": "article.md",
+    "readme": "README.md",
+    "images": [
+      "images/figure-01.jpg",
+      "images/figure-02.png",
+      "images/figure-03.png"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "index": 2,
+  "title": "AI 輔助程式設計與數據分析學習中的人機互動行為分析",
+  "author": "施育廷",
+  "source_name": "20250424905.pdf",
+  "page_count": 10,
+  "keywords": [
+    "行為序列分析",
+    "生成式 AI",
+    "程式設計教育",
+    "學習分析",
+    "人機互動"
+  ],
+  "image_count": 3,
+  "files": {
+    "article": "article.md",
+    "readme": "README.md",
+    "images": [
+      "images/figure-01.jpg",
+      "images/figure-02.png",
+      "images/figure-03.png"
+    ]
+  }
+}

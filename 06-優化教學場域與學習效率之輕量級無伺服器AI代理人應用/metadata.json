@@ -1,0 +1,22 @@
+{
+  "index": 6,
+  "title": "優化教學場域與學習效率之輕量級無伺服器AI代理人應用",
+  "author": "施育廷",
+  "source_name": "優化教學與學習效率的輕量級無伺服器AI代理人於教育場域之應用 (2).docx.pdf",
+  "page_count": 12,
+  "keywords": [],
+  "image_count": 7,
+  "files": {
+    "article": "article.md",
+    "readme": "README.md",
+    "images": [
+      "images/figure-01.png",
+      "images/figure-02.png",
+      "images/figure-03.png",
+      "images/figure-04.png",
+      "images/figure-05.png",
+      "images/figure-06.png",
+      "images/figure-07.png"
+    ]
+  }
+}

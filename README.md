@@ -14,19 +14,25 @@
 
 以上內容依 `施育廷_2026.docx.pdf` 所整理。
 
+## 專利
+
+施育廷（2026）。基於對話式介面之多源資訊整合與自動化內容生成之系統與方法（I918530）。中華民國經濟部智慧財產局。
+
+![專利圖片](https://eapi.pcloud.com/getpubthumb?code=XZX5SGZIwgxU0pNloz6Qmo9WPMbmX79tJ3y&linkpassword=&size=1080x1528&crop=0&type=auto)
+
 ## 研究文章
 
-- [2023bemst全文](./01-2023bemst全文/article.md)
-- [20250424905](./02-20250424905/article.md)
-- [JA0037-A-9.17](./03-JA0037-A-9.17/article.md)
-- [T0354](./04-T0354/article.md)
-- [優化學習工作流輕量級無伺服器 AI 代理人之開發與成效分析](./05-優化學習工作流輕量級無伺服器-AI-代理人之開發與成效分析/article.md)
-- [優化教學與學習效率的輕量級無伺服器AI代理人於教育場域之應用](./06-優化教學與學習效率的輕量級無伺服器AI代理人於教育場域之應用/article.md)
+- [探討學習者對AI教育應用之科技認知與態度、整合性科技接受度及使用意願之分析](./01-探討學習者對AI教育應用之科技認知與態度、整合性科技接受度及使用意願之分析/article.md)
+- [AI 輔助程式設計與數據分析學習中的人機互動行為分析](./02-AI-輔助程式設計與數據分析學習中的人機互動行為分析/article.md)
+- [Enhancing learning outcomes and reducing anxiety in programming courses through AI integration](./03-Enhancing-learning-outcomes-and-reducing-anxiety-in-programming-courses-through-AI-integration/article.md)
+- [From Traditional Semantic Analysis to Generative AI: Research on Cybersecurity and Privacy Challenges in Cloud-Based Educational Task Automation](./04-From-Traditional-Semantic-Analysis-to-Generative-AI-Research-on-Cybersecurity-and-Privacy-Challenges-in-Cloud-Based-Educational-Task-Automation/article.md)
+- [優化學習工作流輕量級無伺服器AI代理人之開發與成效分析](./05-優化學習工作流輕量級無伺服器AI代理人之開發與成效分析/article.md)
+- [優化教學場域與學習效率之輕量級無伺服器AI代理人應用](./06-優化教學場域與學習效率之輕量級無伺服器AI代理人應用/article.md)
 - [探討 GenAI人機協作評量之信度與差異分析](./07-探討-GenAI人機協作評量之信度與差異分析/article.md)
-- [數位閱讀策略工具「英語閱讀小舵手」對學生英語閱讀素養影響之準實驗研究企畫](./08-數位閱讀策略工具「英語閱讀小舵手」對學生英語閱讀素養影響之準實驗研究企畫/article.md)
-- [施育廷 TWELF2026 (2)](./09-施育廷-TWELF2026-(2)/article.md)
-- [生成式 AI 自動評分與回饋系統之滿意度與需求分析](./10-生成式-AI-自動評分與回饋系統之滿意度與需求分析/article.md)
-- [生成式AI於資料科學課程的導入時長效應比較不同介入週數對非資訊背景大學生學習成效之影響](./11-生成式AI於資料科學課程的導入時長效應比較不同介入週數對非資訊背景大學生學習成效之影響/article.md)
+- [數位閱讀策略工具「英語閱讀小舵手」對學生英語閱讀素養影響之準實驗研究企劃](./08-數位閱讀策略工具「英語閱讀小舵手」對學生英語閱讀素養影響之準實驗研究企劃/article.md)
+- [從心盲到心流：運算思維在生成式AI互動中的認知補償與效益](./09-從心盲到心流-運算思維在生成式AI互動中的認知補償與效益/article.md)
+- [生成式AI自動評分與回饋系統之滿意度與需求分析](./10-生成式AI自動評分與回饋系統之滿意度與需求分析/article.md)
+- [生成式AI於資料科學課程的導入時長效應：比較不同介入週數對非資訊背景大學生學習成效之影響](./11-生成式AI於資料科學課程的導入時長效應-比較不同介入週數對非資訊背景大學生學習成效之影響/article.md)
 - [生成式AI於霸凌情境模擬多重虛擬學生進行正向反思活動](./12-生成式AI於霸凌情境模擬多重虛擬學生進行正向反思活動/article.md)
 - [運用智慧對話系統於心理與社會情緒評量之應用](./13-運用智慧對話系統於心理與社會情緒評量之應用/article.md)
 

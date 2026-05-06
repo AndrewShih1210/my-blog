@@ -1,0 +1,28 @@
+{
+  "index": 4,
+  "title": "From Traditional Semantic Analysis to Generative AI: Research on Cybersecurity and Privacy Challenges in Cloud-Based Educational Task Automation",
+  "author": "施育廷",
+  "source_name": "T0354_全文.pdf",
+  "page_count": 6,
+  "keywords": [
+    "Large Language Models (LLMs)",
+    "Educational Task"
+  ],
+  "image_count": 10,
+  "files": {
+    "article": "article.md",
+    "readme": "README.md",
+    "images": [
+      "images/figure-01.jpg",
+      "images/figure-02.jpg",
+      "images/figure-03.jpg",
+      "images/figure-04.jpg",
+      "images/figure-05.jpg",
+      "images/figure-06.jpg",
+      "images/figure-07.jpg",
+      "images/figure-08.jpg",
+      "images/figure-09.jpg",
+      "images/figure-10.jpg"
+    ]
+  }
+}
