@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>施育廷研究與 AI 教材網站</title>
+  <style>
+    :root {
+      --bg: #f6f1e8;
+      --paper: #fffdf9;
+      --ink: #1d2d2c;
+      --muted: #5e6b69;
+      --line: #d9ccbb;
+      --accent: #0f766e;
+      --warm: #9a6700;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(15,118,110,.12), transparent 24%),
+        radial-gradient(circle at top right, rgba(154,103,0,.1), transparent 22%),
+        linear-gradient(180deg, #efe8db 0%, #f8f4ec 28%, #f6f1e8 100%);
+      line-height: 1.8;
+    }
+    .wrap { width: min(1120px, calc(100vw - 32px)); margin: 0 auto; }
+    .hero { padding: 72px 0 28px; }
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(15,118,110,.12);
+      color: var(--accent);
+      font-weight: 800;
+      letter-spacing: .04em;
+      font-size: 13px;
+    }
+    h1 { font-size: clamp(34px, 5vw, 60px); line-height: 1.15; margin: 16px 0; }
+    .lead { max-width: 840px; color: var(--muted); font-size: 18px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      padding: 18px 0 56px;
+    }
+    .card {
+      background: rgba(255,253,249,.92);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 28px;
+      box-shadow: 0 16px 40px rgba(29,45,44,.08);
+    }
+    .card h2 { margin: 0 0 12px; font-size: 32px; }
+    .card p { color: var(--muted); margin: 0 0 18px; }
+    .links { display: flex; flex-wrap: wrap; gap: 12px; }
+    .links a {
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .links a.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .note {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">GitHub Pages Entry</p>
+      <h1>施育廷研究與 AI 教學網站</h1>
+      <p class="lead">這個入口頁整合了兩條內容主線：一條是研究文章與發表成果的公開整理，另一條是生成式 AI 教學與實作教材的中英雙語網站。若啟用 GitHub Pages，建議以這個頁面作為對外首頁。</p>
+    </div>
+  </section>
+  <main class="wrap grid">
+    <section class="card">
+      <h2>AI 教材網站</h2>
+      <p>完整的生成式 AI 線上教材，含中文與英文首頁、教學計畫、專題任務與單元內容，適合公開展示、試讀與課程導流。</p>
+      <div class="links">
+        <a class="primary" href="./ai-course-site/index.html">中文教材首頁</a>
+        <a href="./ai-course-site/index_en.html">English Home</a>
+      </div>
+      <p class="note">若要把 GitHub Pages 主要導向教材，可優先使用這兩個入口。</p>
+    </section>
+    <section class="card">
+      <h2>研究成果整理</h2>
+      <p>收錄施育廷的研究文章、專利與發表內容，將原始資料整理為較易於 GitHub 閱讀的文章頁與索引頁。</p>
+      <div class="links">
+        <a class="primary" href="./README.md">中文研究索引</a>
+        <a href="./README_en.md">English Research Index</a>
+      </div>
+      <p class="note">這一區較適合作為學術履歷、成果展示與研究交流入口。</p>
+    </section>
+  </main>
+</body>
+</html>

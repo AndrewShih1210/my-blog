@@ -1,23 +1,9 @@
 <!doctype html>
 <html lang="zh-Hant">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>單元 6 | AI 工作流與雲端整合</title>
-  <link rel="stylesheet" href="../styles.css" />
-</head>
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>單元 6 | AI 工作流與雲端整合</title><link rel="stylesheet" href="../styles.css" /></head>
 <body>
-  <header class="site-header"><div class="wrap topbar"><a class="brand" href="../index.html">生成式 AI 教學與實作教材</a><nav class="nav"><a href="../index.html">首頁</a><a href="../teaching-plan.html">教學計畫</a><a href="../projects.html">專題任務</a><a href="unit06_en.html">EN</a></nav></div></header>
-  <section class="page-hero"><div class="wrap"><p class="breadcrumb"><a href="../index.html">首頁</a> / 單元 6</p><p class="eyebrow">Unit 06</p><h1>AI 工作流與雲端整合</h1><p class="lead">真正有價值的 AI 應用，往往不是單次對話，而是能被重複執行的流程。</p></div></section>
-  <main class="wrap content-grid">
-    <aside class="sidebar panel"><h3>本單元導覽</h3><a href="#goals">學習目標</a><a href="#concepts">核心概念</a><a href="#activity">課堂活動</a><a href="#task">課後任務</a><a href="unit07.html">下一單元</a></aside>
-    <article class="article">
-      <section class="panel" id="goals"><h2>學習目標</h2><ul class="clean-list"><li>理解文件、表單、試算表與 AI 串接的基本邏輯。</li><li>用流程思維重新描述重複性工作。</li><li>設計一份 AI 整合藍圖。</li></ul></section>
-      <section class="panel" id="concepts"><h2>核心概念</h2><p>流程整合的關鍵是清楚定義輸入、處理、輸出與人工檢查點。當這四個要素被說清楚，無論最後使用哪個平台，自動化設計都會更穩。</p><p>這也是為什麼教材把工作流放在後段。先有任務理解與工具判斷，再談整合，才不會流於只會照抄步驟卻不知道原理。</p></section>
-      <section class="panel figure-card"><img src="../assets/workflow-loop.svg" alt="AI 工作流循環圖" /></section>
-      <section class="panel" id="activity"><h2>課堂活動</h2><p class="mini-title">活動一：工作拆解</p><p>請學習者選一項重複性工作，拆成資料輸入、判斷規則、產出格式與例外處理。</p><p class="mini-title">活動二：流程藍圖繪製</p><p>用方塊圖或清單圖描述一個 AI 工作流，並標出人工審核節點。</p></section>
-      <section class="panel" id="task"><h2>課後任務</h2><p>完成一張 AI 工作流藍圖，說明其用途、資料來源、處理步驟、輸出成果與風險控管方式。</p></section>
-    </article>
-  </main>
+<header class="site-header"><div class="wrap topbar"><a class="brand" href="../index.html">生成式 AI 教學與實作教材</a><nav class="nav"><a href="../index.html">首頁</a><a href="../teaching-plan.html">教學計畫</a><a href="../projects.html">專題任務</a><a href="unit06_en.html">EN</a></nav></div></header>
+<section class="page-hero"><div class="wrap"><p class="breadcrumb"><a href="../index.html">首頁</a> / 單元 6</p><p class="eyebrow">Unit 06</p><h1>AI 工作流與雲端整合</h1><p class="lead">這一單元的目標是把 AI 從「偶爾問一下的工具」升級成「可以反覆執行的流程設計」。真正有價值的 AI 應用，不是只會聊天，而是能被放進工作中持續發揮作用。</p></div></section>
+<main class="wrap content-grid"><aside class="sidebar panel"><h3>本單元導覽</h3><a href="#goals">學習目標</a><a href="#concepts">核心概念</a><a href="#workflow">流程思維</a><a href="#example">實作情境</a><a href="#activity">課堂活動</a><a href="#task">課後任務</a><a href="unit07.html">下一單元</a></aside><article class="article"><section class="panel" id="goals"><h2>學習目標</h2><ul class="clean-list"><li>理解文件、表單、試算表與 AI 串接的基本邏輯。</li><li>用流程思維重新描述重複性工作。</li><li>設計一份 AI 整合藍圖。</li><li>學會標記人工審核點與例外處理規則。</li></ul></section><section class="panel" id="concepts"><h2>核心概念</h2><p>流程整合的關鍵不在於會多少指令，而在於能否清楚定義輸入、處理、輸出與人工檢查點。只要這四個要素被說清楚，無論最後使用哪個平台，工作流都會更穩定。也就是說，工作流設計首先是一種結構思考，技術只是後續實現手段。</p></section><section class="panel figure-card"><img src="../assets/workflow-loop.svg" alt="AI 工作流循環圖" /></section><section class="panel" id="workflow"><h2>流程思維</h2><p>初學者常犯的一個錯誤，是以為把 AI 接到某個工具上就叫自動化。其實真正的自動化至少要回答幾個問題：資料從哪裡來？要經過什麼規則處理？最終輸出給誰？如果結果有錯，誰負責檢查與中止流程？這些問題若沒有先釐清，就算串起來了，也只是在放大混亂。</p><p>因此，教師可先要求學生用自然語言寫出一個工作流，而不是立刻進入技術操作。例如：「每週收集學生表單回覆，整理成試算表，請 AI 先分類學生常見困難，再由教師挑選回覆策略。」當學生能這樣描述流程時，後續才有可能真正整合到雲端平台中。</p></section><section class="panel" id="example"><h2>實作情境</h2><p class="mini-title">情境一：教學回饋整理</p><p>學生課後表單進入試算表後，由 AI 先做意見分類，再由教師判斷哪些問題需要立即處理。</p><p class="mini-title">情境二：研究資料初步整理</p><p>多份訪談摘要先由 AI 進行開放式分類，但真正的編碼與詮釋仍由研究者負責。</p><p class="mini-title">情境三：行政公告與回覆草稿</p><p>AI 可根據既有規則生成回覆初稿，但在正式對外之前仍需人工檢查用詞與資訊正確性。</p></section><section class="panel" id="activity"><h2>課堂活動</h2><p class="mini-title">活動一：工作拆解</p><p>請學習者選一項重複性工作，拆成資料輸入、判斷規則、產出格式與例外處理。</p><p class="mini-title">活動二：流程藍圖繪製</p><p>用方塊圖或清單圖描述一個 AI 工作流，並標出人工審核節點。</p><p class="mini-title">活動三：例外情境設計</p><p>每組需額外寫出兩種流程失敗情境，說明該如何回退、暫停或人工接手。</p></section><section class="panel" id="task"><h2>課後任務</h2><p>完成一張 AI 工作流藍圖，說明其用途、資料來源、處理步驟、輸出成果與風險控管方式。若可以，請再補上一段說明：這條流程若未來要放大到真實場域，最需要補強的地方是什麼？</p></section></article></main>
 </body>
 </html>
