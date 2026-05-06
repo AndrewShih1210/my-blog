@@ -1,37 +1,23 @@
-# REFERENCES_GITHUB
+# my-blog
 
-GitHub-ready packaging for all PDF files found in [`REFERENCES`](../REFERENCES).
+This repository now contains a GitHub-ready reference archive generated from the local `REFERENCES` collection.
 
-## Structure
+## What is included
 
-- One folder per reference
-- Original PDF preserved
-- `README.md` for quick browsing
-- `metadata.json` for machine-readable metadata
-- `fulltext.txt` for searchable extracted text
+- 13 reference folders
+- The original PDF in each folder
+- A per-item `README.md`
+- A `metadata.json` file for basic machine-readable metadata
+- A `fulltext.txt` file with extracted text for search and review
 
-## Index
+## Repository layout
 
-| # | Title | Folder | Pages | Source PDF |
-| --- | --- | --- | ---: | --- |
-| 1 | 2023bemst全文 | [`01-2023bemst全文`](./01-2023bemst全文/README.md) | 5 | [`2023bemst全文.pdf`](./01-2023bemst全文/2023bemst全文.pdf) |
-| 2 | 20250424905 | [`02-20250424905`](./02-20250424905/README.md) | 10 | [`20250424905.pdf`](./02-20250424905/20250424905.pdf) |
-| 3 | JA0037-A-9.17 | [`03-JA0037-A-9.17`](./03-JA0037-A-9.17/README.md) | 1 | [`JA0037-A-9.17.pdf`](./03-JA0037-A-9.17/JA0037-A-9.17.pdf) |
-| 4 | T0354_全文 | [`04-T0354_全文`](./04-T0354_全文/README.md) | 6 | [`T0354_全文.pdf`](./04-T0354_全文/T0354_全文.pdf) |
-| 5 | 優化學習工作流輕量級無伺服器 AI 代理人之開發與成效分析.docx | [`05-優化學習工作流輕量級無伺服器-AI-代理人之開發與成效分析.docx`](./05-優化學習工作流輕量級無伺服器-AI-代理人之開發與成效分析.docx/README.md) | 7 | [`優化學習工作流輕量級無伺服器 AI 代理人之開發與成效分析.docx.pdf`](./05-優化學習工作流輕量級無伺服器-AI-代理人之開發與成效分析.docx/優化學習工作流輕量級無伺服器 AI 代理人之開發與成效分析.docx.pdf) |
-| 6 | 優化教學與學習效率的輕量級無伺服器AI代理人於教育場域之應用 (2).docx | [`06-優化教學與學習效率的輕量級無伺服器AI代理人於教育場域之應用-(2).docx`](./06-優化教學與學習效率的輕量級無伺服器AI代理人於教育場域之應用-(2).docx/README.md) | 12 | [`優化教學與學習效率的輕量級無伺服器AI代理人於教育場域之應用 (2).docx.pdf`](./06-優化教學與學習效率的輕量級無伺服器AI代理人於教育場域之應用-(2).docx/優化教學與學習效率的輕量級無伺服器AI代理人於教育場域之應用 (2).docx.pdf) |
-| 7 | 探討 GenAI人機協作評量之信度與差異分析_張敦程_施育廷 | [`07-探討-GenAI人機協作評量之信度與差異分析_張敦程_施育廷`](./07-探討-GenAI人機協作評量之信度與差異分析_張敦程_施育廷/README.md) | 2 | [`探討 GenAI人機協作評量之信度與差異分析_張敦程_施育廷.pdf`](./07-探討-GenAI人機協作評量之信度與差異分析_張敦程_施育廷/探討 GenAI人機協作評量之信度與差異分析_張敦程_施育廷.pdf) |
-| 8 | 數位閱讀策略工具「英語閱讀小舵手」對學生英語閱讀素養影響之準實驗研究企畫.docx | [`08-數位閱讀策略工具「英語閱讀小舵手」對學生英語閱讀素養影響之準實驗研究企畫.docx`](./08-數位閱讀策略工具「英語閱讀小舵手」對學生英語閱讀素養影響之準實驗研究企畫.docx/README.md) | 3 | [`數位閱讀策略工具「英語閱讀小舵手」對學生英語閱讀素養影響之準實驗研究企畫.docx.pdf`](./08-數位閱讀策略工具「英語閱讀小舵手」對學生英語閱讀素養影響之準實驗研究企畫.docx/數位閱讀策略工具「英語閱讀小舵手」對學生英語閱讀素養影響之準實驗研究企畫.docx.pdf) |
-| 9 | 施育廷_TWELF2026 (2) (1) | [`09-施育廷_TWELF2026-(2)-(1)`](./09-施育廷_TWELF2026-(2)-(1)/README.md) | 6 | [`施育廷_TWELF2026 (2) (1).pdf`](./09-施育廷_TWELF2026-(2)-(1)/施育廷_TWELF2026 (2) (1).pdf) |
-| 10 | 生成式 AI 自動評分與回饋系統之滿意度與需求分析 | [`10-生成式-AI-自動評分與回饋系統之滿意度與需求分析`](./10-生成式-AI-自動評分與回饋系統之滿意度與需求分析/README.md) | 9 | [`生成式 AI 自動評分與回饋系統之滿意度與需求分析.pdf`](./10-生成式-AI-自動評分與回饋系統之滿意度與需求分析/生成式 AI 自動評分與回饋系統之滿意度與需求分析.pdf) |
-| 11 | 生成式AI於資料科學課程的導入時長效應比較不同介入週數對非資訊背景大學生學習成效之影響_施育廷 | [`11-生成式AI於資料科學課程的導入時長效應比較不同介入週數對非資訊背景大學生學習成效之影響_施育廷`](./11-生成式AI於資料科學課程的導入時長效應比較不同介入週數對非資訊背景大學生學習成效之影響_施育廷/README.md) | 2 | [`生成式AI於資料科學課程的導入時長效應比較不同介入週數對非資訊背景大學生學習成效之影響_施育廷.pdf`](./11-生成式AI於資料科學課程的導入時長效應比較不同介入週數對非資訊背景大學生學習成效之影響_施育廷/生成式AI於資料科學課程的導入時長效應比較不同介入週數對非資訊背景大學生學習成效之影響_施育廷.pdf) |
-| 12 | 生成式AI於霸凌情境模擬多重虛擬學生進行正向反思活動 (2).docx | [`12-生成式AI於霸凌情境模擬多重虛擬學生進行正向反思活動-(2).docx`](./12-生成式AI於霸凌情境模擬多重虛擬學生進行正向反思活動-(2).docx/README.md) | 4 | [`生成式AI於霸凌情境模擬多重虛擬學生進行正向反思活動 (2).docx.pdf`](./12-生成式AI於霸凌情境模擬多重虛擬學生進行正向反思活動-(2).docx/生成式AI於霸凌情境模擬多重虛擬學生進行正向反思活動 (2).docx.pdf) |
-| 13 | 運用智慧對話系統於心理與社會情緒評量之應用 (1) | [`13-運用智慧對話系統於心理與社會情緒評量之應用-(1)`](./13-運用智慧對話系統於心理與社會情緒評量之應用-(1)/README.md) | 1 | [`運用智慧對話系統於心理與社會情緒評量之應用 (1).pdf`](./13-運用智慧對話系統於心理與社會情緒評量之應用-(1)/運用智慧對話系統於心理與社會情緒評量之應用 (1).pdf) |
+- `01-*` to `13-*`: one folder per reference
+- `NOTICE.md`: publishing and copyright reminder
+- `.gitignore`: basic system file exclusions
 
-## Regeneration
+## Notes
 
-Run the following command from this workspace to rebuild this directory:
-
-```powershell
-& 'C:\Users\sweet\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' .\make_references_github_ready.py
-```
+- Some extracted text may contain OCR or encoding noise depending on the source PDF.
+- Please verify redistribution rights before making the repository public.
+- The source packaging script lives outside this repo in the parent workspace.
