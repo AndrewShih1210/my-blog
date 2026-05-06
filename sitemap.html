@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>網站導覽 | 施育廷學術網站</title>
+  <style>
+    :root {
+      --bg: #f5efe6;
+      --paper: rgba(255, 253, 248, 0.96);
+      --ink: #1d2d2c;
+      --muted: #5f6d6a;
+      --line: #d8ccbc;
+      --accent: #0f766e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      color: var(--ink);
+      line-height: 1.8;
+      background:
+        radial-gradient(circle at top left, rgba(15,118,110,.12), transparent 24%),
+        linear-gradient(180deg, #efe7d9 0%, #f7f2ea 30%, #f5efe6 100%);
+    }
+    a { color: var(--accent); }
+    .wrap { width: min(1040px, calc(100vw - 32px)); margin: 0 auto; }
+    header { padding: 28px 0 12px; }
+    nav { display: flex; flex-wrap: wrap; gap: 12px; }
+    nav a {
+      text-decoration: none;
+      color: var(--ink);
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(29,45,44,.08);
+      border-radius: 999px;
+      padding: 10px 14px;
+    }
+    main { padding: 12px 0 40px; }
+    .hero, .section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 28px;
+      margin-bottom: 18px;
+      box-shadow: 0 18px 40px rgba(29, 45, 44, 0.08);
+    }
+    h1, h2, p { margin-top: 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 20px;
+      background: rgba(255,255,255,.82);
+    }
+    .card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .muted { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <nav>
+      <a href="./index.html">學術首頁</a>
+      <a href="./index_en.html">English Home</a>
+      <a href="./author-works/index.html">研究成果專區</a>
+      <a href="./author-works/index_en.html">Research Works</a>
+      <a href="./ai-course-site/index.html">AI 教材</a>
+      <a href="./ai-course-site/index_en.html">AI Course Site</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <h1>網站導覽</h1>
+      <p class="muted">本頁整理施育廷學術網站、研究成果專區、雙語 AI 教材網站，以及代表成果與著作清單的主要入口，方便讀者快速找到對應內容。</p>
+    </section>
+
+    <section class="section">
+      <h2>主要入口</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>學術品牌首頁</h3>
+          <ul>
+            <li><a href="./index.html">中文首頁</a></li>
+            <li><a href="./index_en.html">English Homepage</a></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>研究成果專區</h3>
+          <ul>
+            <li><a href="./author-works/index.html">第一作者與獨立作者著作</a></li>
+            <li><a href="./author-works/index_en.html">First-Author and Sole-Author Works</a></li>
+            <li><a href="./author-works/apa.html">APA 格式著作清單</a></li>
+            <li><a href="./author-works/apa_en.html">APA Publication List</a></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>AI 教材網站</h3>
+          <ul>
+            <li><a href="./ai-course-site/index.html">中文教材首頁</a></li>
+            <li><a href="./ai-course-site/index_en.html">English Course Homepage</a></li>
+            <li><a href="./ai-course-site/teaching-plan.html">教學計畫</a></li>
+            <li><a href="./ai-course-site/projects.html">專題任務</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>代表成果與研究頁面</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>代表成果</h3>
+          <ul>
+            <li><a href="./author-works/index.html">專利與代表成果</a></li>
+            <li><a href="./author-works/index.html">研究關聯圖、雷達圖、沿革圖</a></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>單篇成果頁</h3>
+          <ul>
+            <li><a href="./10-生成式AI自動評分與回饋系統之滿意度與需求分析/index.html">生成式AI自動評分與回饋系統之滿意度與需求分析</a></li>
+            <li><a href="./05-優化學習工作流輕量級無伺服器AI代理人之開發與成效分析/index.html">優化學習工作流輕量級無伺服器AI代理人之開發與成效分析</a></li>
+            <li><a href="./03-Enhancing-learning-outcomes-and-reducing-anxiety-in-programming-courses-through-AI-integration/index_en.html">Enhancing learning outcomes and reducing anxiety in programming courses through AI integration</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

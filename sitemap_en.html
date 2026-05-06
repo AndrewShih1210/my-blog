@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sitemap | Yu-Ting Shih Academic Site</title>
+  <style>
+    :root {
+      --bg: #f5efe6;
+      --paper: rgba(255, 253, 248, 0.96);
+      --ink: #1d2d2c;
+      --muted: #5f6d6a;
+      --line: #d8ccbc;
+      --accent: #0f766e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Noto Sans", sans-serif;
+      color: var(--ink);
+      line-height: 1.8;
+      background:
+        radial-gradient(circle at top left, rgba(15,118,110,.12), transparent 24%),
+        linear-gradient(180deg, #efe7d9 0%, #f7f2ea 30%, #f5efe6 100%);
+    }
+    a { color: var(--accent); }
+    .wrap { width: min(1040px, calc(100vw - 32px)); margin: 0 auto; }
+    header { padding: 28px 0 12px; }
+    nav { display: flex; flex-wrap: wrap; gap: 12px; }
+    nav a {
+      text-decoration: none;
+      color: var(--ink);
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(29,45,44,.08);
+      border-radius: 999px;
+      padding: 10px 14px;
+    }
+    main { padding: 12px 0 40px; }
+    .hero, .section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 28px;
+      margin-bottom: 18px;
+      box-shadow: 0 18px 40px rgba(29, 45, 44, 0.08);
+    }
+    h1, h2, p { margin-top: 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 20px;
+      background: rgba(255,255,255,.82);
+    }
+    .card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .muted { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <nav>
+      <a href="./index_en.html">Academic Home</a>
+      <a href="./index.html">中文首頁</a>
+      <a href="./author-works/index_en.html">Research Works</a>
+      <a href="./author-works/index.html">研究成果專區</a>
+      <a href="./ai-course-site/index_en.html">AI Course Site</a>
+      <a href="./ai-course-site/index.html">AI 教材</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <h1>Sitemap</h1>
+      <p class="muted">This page brings together the main entry points of Yu-Ting Shih's academic homepage, research works section, bilingual AI course site, and publication resources for easier navigation.</p>
+    </section>
+
+    <section class="section">
+      <h2>Main Sections</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Academic Homepage</h3>
+          <ul>
+            <li><a href="./index_en.html">English Homepage</a></li>
+            <li><a href="./index.html">Chinese Homepage</a></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Research Works</h3>
+          <ul>
+            <li><a href="./author-works/index_en.html">First-Author and Sole-Author Works</a></li>
+            <li><a href="./author-works/index.html">Chinese Works Page</a></li>
+            <li><a href="./author-works/apa_en.html">APA Publication List</a></li>
+            <li><a href="./author-works/apa.html">Chinese APA List</a></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>AI Course Site</h3>
+          <ul>
+            <li><a href="./ai-course-site/index_en.html">English Course Homepage</a></li>
+            <li><a href="./ai-course-site/index.html">Chinese Course Homepage</a></li>
+            <li><a href="./ai-course-site/teaching-plan_en.html">Teaching Plan</a></li>
+            <li><a href="./ai-course-site/projects_en.html">Projects</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Featured Outputs and Research Pages</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Featured Materials</h3>
+          <ul>
+            <li><a href="./author-works/index_en.html">Patent and featured output</a></li>
+            <li><a href="./author-works/index_en.html">Research map, radar, and timeline visuals</a></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Sample Output Pages</h3>
+          <ul>
+            <li><a href="./10-生成式AI自動評分與回饋系統之滿意度與需求分析/index_en.html">Satisfaction and Needs Analysis of a Generative AI Automated Scoring and Feedback System</a></li>
+            <li><a href="./05-優化學習工作流輕量級無伺服器AI代理人之開發與成效分析/index_en.html">Development and Effectiveness Analysis of a Lightweight Serverless AI Agent</a></li>
+            <li><a href="./03-Enhancing-learning-outcomes-and-reducing-anxiety-in-programming-courses-through-AI-integration/index_en.html">Enhancing learning outcomes and reducing anxiety in programming courses through AI integration</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
