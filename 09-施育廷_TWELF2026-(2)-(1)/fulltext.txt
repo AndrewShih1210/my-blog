@@ -1,0 +1,190 @@
+TWELF2026
+從心盲到心流：運算思維在生成式 AI 互動中的認知補償與效益
+From Aphantasia to Flow: Cognitive Compensation and
+Empowerment Benefits of Computational Thinking in Generative
+AI Interaction
+施育廷
+國立臺中教育大學 教育資訊與測驗統計研究所
+cms112103@gm.ntcu.edu.tw
+李政軒
+國立臺中教育大學 教育資訊與測驗統計研究所
+ChengHsuanLi@gmail.com
+【摘要】 生成式 AI 與「氛圍編碼」 （Vibe Coding ）的興起，使提示工程成為核心素
+養。然而缺乏內在心像的「心盲症」 （Aphantasia）使用者構成了隱性門檻。 本研究對
+象為大學一年級學生 (N=103 )，整合 VVIQ、運算思維與科技接受度模型進行量化分
+析。結果顯示： (1) 心盲傾向者將抽象概念轉譯為提示詞時 有顯著較高的認知負荷
+(t=2.38,p<.05 )；(2) 運算思維對 AI 使用滿意度具有顯著的正向影響 (β=0.20,p<.01 )。研
+究顯示高運算思維能有效抵銷視覺想像不足的劣勢，提升互動滿意度。結論指出運算
+思維是與 AI 互動過程中能 跨越感官限制，建議未來 AI 教育應從「感官描述」 結合
+「邏輯結構」訓練，以落實 AI 應用教育。
+【關鍵詞】心盲、生成式 AI、運算思維、認知負荷、Vibe Coding
+Abstract: The emergence of Generative AI and "Vibe Coding" has established prompt
+engineering as a core competency. However, this poses a latent barrier for users with
+aphantasia, who lack voluntary mental imagery. This study conducted a quantitative analysis
+on 103 first -year university students by integrating the Vividness of Visual Imagery
+Questionnaire (VVIQ), Computational Thinking (CT), and the Technology Acceptance Model
+(TAM). The results indicate that: (1) individuals with aphantasic tendencies experience
+significantly higher cognitive load when translating abstract concepts into prompts
+(t=2.38,p<.05); and (2) computational thinking exerts a significant positive influence on AI
+user satisfaction (β=0.20,p<.01). The findings demonstrate that high computational thinking
+capabilities can effectively mitigate the disadvantages of low visual imagery, ther eby
+enhancing interaction satisfaction. The study concludes that computational thinking serves as
+a mechanism to transcend sensory limitations during AI interaction. It is recommended that
+future AI education integrate "logical structure" training with "se nsory description" to
+implement effective AI application pedagogies.
+Keywords: Aphantasia, Generative AI, Computational Thinking, Cognitive Load, Vibe
+Coding
+
+TWELF2026
+1. 前言
+1.1. 研究背景
+大型語言模型（ LLM）的成熟帶動了生成式人工智慧（ Generative AI）的廣泛應用，
+這股浪潮正根本性地改變知識生產的模式與典範。OpenAI 創始成員 Andrej Karpathy 提
+出的「氛圍編碼」 （Vibe Coding）概念，程式開發與創作正從「語法實作」轉向「意圖
+定義」 。在此趨勢下提示工程（Prompt Engineering）成為核心素養，使用者必須具備將
+內在構想精確轉譯為自然語言描述的能力。然而，當前的 AI 教育往往隱含了「視覺化
+預設」，要求使 用者 想像細節 後再 撰 寫提 示詞。對於心理 學中 被稱為「心盲症」
+（Aphantasia）的群體而言這構成一道溝通障礙。心盲症指個體在清醒狀態下缺乏自主
+產生視覺心像（ Mental Imagery ）的能力。當 因使用 AI 工具要求描述你腦中的場景
+時，心盲者的腦海面對的是一片空白，這在過去常被忽視。然而，在生成式 AI 極度仰
+賴精確描述的當下，此一議題的重要性不容忽視。
+1.2. 研究動機與目的
+本研究的動機源於對心盲學習者在與 AI 互動中的困境。直觀認為要求心盲者將「非視
+覺概念」強行轉譯為「視覺描述」 ，勢必會消耗大量的工作記憶資源。首要動機即在於
+將想像進行敘述的 過程是否導致心盲者承受顯著較高的認知負荷（ Cognitive Load ）。
+其次，若心盲者「非視覺概念」受阻，藉由邏輯思考與 AI 進行互動在 Vibe Coding 其
+可行。運算思維（Computational Thinking, CT）包含拆解、抽象化與演算法設計，直接
+透過高階邏輯驅動 AI，將能把劣勢轉化為結構化思考的優勢。
+基於上述背景，本研究針對大學一年級學生（ N=103）進行實證調查，整合 生動視覺
+意象問卷(VVIQ)、運算思維傾向與科技接受度模型（TAM）達成以下目的：
+1. 探討視覺想像能力的個別差異如何影響 AI 互動過程中的心理負擔，特別是檢驗心
+盲傾向者在執行提示工程任務時，是否面臨顯著較高的認知負荷。
+2. 確立運算思維在 AI 協作中的關鍵： 驗證運算思維是否能有效預測 AI 使用滿意
+度，並探討其是否為提升 AI 互動效能關鍵因素。
+3. 多樣性的 AI 教育策略： 基於實證數據，倡議將 AI 教學從單一的描述引導轉向
+「感官描述」結合「邏輯結構」訓練。
+2. 文獻探討
+2.1. 心盲症與 AI 溝通能力
+心盲症（Aphantasia）是指人在清醒時無法在腦海中自主產生視覺影像的現象（ Zeman
+et al., 2015 ） 。簡單來說，當我們閉上眼睛想著「蘋果」時，一般人腦中會浮現蘋果的
+畫面，但心盲者腦中卻是一片空白。神經科學研究發現，這並不代表他們無法思考，
+而是他們更傾向於使用「概念」與「事實」來處理資訊，而非依賴圖像（ Milton et al.,
+2021） 。目前的生成式 AI 在操作上，往往要求使用者描述細節。這對心盲者造成了獨
+特的困難：一般人是「看著腦中的圖說故事」 ，心盲者卻必須憑空「檢索事實來拼湊描
+述」 。根據 Sweller（1988）的認知負荷理論，當學習者缺乏輔助思考的內在影像時，
+大腦必須消耗更多資源來處理資訊。因此，本研究推論，強迫心盲者進行視覺描述，
+會導致他們承受比一般人更重的認知負荷。
+
+TWELF2026
+2.2. 運算思維
+Wing（2006）將運算思維定義為利用電腦科學的概念（如拆解問題、抽象化）來解決
+問 題 的 能力 。 近 期 OpenAI 創始成員 Karpathy（2024） 提 出的 「氛 圍 編 碼」 （Vibe
+Coding）概念也指出，未來的程式開發與 AI 互動，將更重視「邏輯意圖」的表達，而
+非瑣碎的細節。對心盲者來說運算思維能作為另一種與 AI 互動的策略：
+1. 拆解（Decomposition）：將一張複雜的圖，拆解成「主體、背景、風格」等獨立模
+組來描述。
+2. 抽象化（Abstraction） ：忽略不必要的視覺細節，專注於描述圖片的功能或給人的
+感覺。
+藉由上述邏輯策略的輔助，心盲使用者即便沒有視覺參照，亦能精準引導 AI 生成目標
+內容。研究結果顯示，運算思維可視為一種關鍵的補償能力；只要具備清晰的邏輯架
+構，即便缺乏內在視覺，使用者仍能高效操作 AI 工具並獲致滿意的成果。
+3. 研究方法
+3.1. 研究對象與程序
+本研究以具備生成式 AI 工具使用經驗的大學一年級學生為對象進行問卷調查。共回收
+有效問卷 103 份。為探討心盲特質的影響，依據 VVIQ 量表得分將受試者分為兩組：
+一般視覺組 (N=89) 與心盲傾向組 (N=14)。心盲組定義為 VVIQ 平均分數 ≤2.5，顯示其
+視覺想像清晰度極低或完全缺乏。
+3.2. 研究工具
+本研究採用結構化問卷，各量表均引用自具信效度之文獻，並經信度檢驗確認內部一
+致性良好（Cronbach's α>.79）。
+1. 生動視覺意象測驗 (VVIQ)：
+採用 Marks (1973) 的量表，包含親友、風景等 16 個情境。受試者需閉眼想像並評
+分影像清晰度（1=完全無影像，5=完全清晰） 。本研究中 α=.975。
+2. 運算思維傾向 (CT)：
+改編自 Hwang 等人 (2020) 之量表，測量受試者運用「拆解」 、 「模式識別」與「演
+算法思維」解決問題的傾向。共 6 題，本研究中 α=.926。
+3. 認知負荷 (Cognitive Load)：
+參照 Klepsch 等人 (2017) 架構，針對 AI 提示工程情境設計。主要測量將內在概念
+轉譯為文字描述時的心智努力程度。共 4 題，本研究中 α=.791。
+4. AI 使用滿意度 (Satisfaction)：
+整合 Chu 等人 (2010) 的學習滿意度量表，測量使用者對 AI 產出結果及協作過程的
+滿意程度。共 4 題，本研究中 α=.803。
+3.3. 研究工具
+本研究以獨立樣本 t 檢定比較心盲傾向組與一般視覺組在認知負荷上的差異。接著，採
+用多元迴歸分析，將視覺想像力與運算思維作為預測變項，檢驗其對 AI 使用滿意度的
+影響力，以驗證運算思維是否具有關鍵的效果。
+
+TWELF2026
+4. 研究結果
+4.1. 研究對象與程序
+為檢驗心盲者在操作 AI 時是否面臨較高的心理負擔，本研究以獨立樣本 t 檢定比較兩
+組受試者的認知負荷得分。結果如圖 4-1 所示，心盲傾向組的認知負荷平均數
+(M=4.09) 顯著高於一般視覺組 (M=3.48)，t(20.88)=2.38,p<.05。這證實本研究的推論：
+缺乏內在視覺參考的個體，在將抽象概念轉化為 AI 提示詞的過程中有較高的負荷。
+圖 1、一般視覺組與心盲傾向組之認知負荷差異
+4.2. 運算思維對 AI 滿意度
+本研究進一步以迴歸分析檢驗「運算思維 (CT)」與「視覺意象 (VVIQ)」對 AI 使用滿
+意度的影響。分析結果（表 4-1）呈現了極具意義的發現：
+1. 視覺想像力對滿意度正向影響 (p=.039)，顯示想像力越豐富，使用體驗越好。
+2. 運算思維對滿意度的影響更為顯著 (p=.002)，其預測力甚至強於視覺想像力。
+結果顯示心盲者雖負荷較高，但透過運算思維的強化而能與 AI 進行良好的協作互動。
+如下圖 2 所示，高運算思維組（藍線）在整體滿意度上皆高於低運算思維組（橘線） 。
+即便是在左側的低想像力區間（心盲區） ，具備高運算思維的使用者仍能獲得不錯的滿
+意度。這證實運算思維能有效補償視覺想像的不足，是提升 AI 互動品質的關鍵能力。
+表 1 、視覺想像力與運算思維對 AI 滿意度之迴歸分析
+預測變項 係數 (Coef) 標準誤 (SE) t p
+常數截距 (Intercept) 3.83 0.06 60.64 .000***
+視覺意象 (VVIQ_Z) 0.14 0.07 2.09 .039*
+運算思維 (CT_Z) 0.20 0.06 3.18 .002**
+交互作用 (VVIQ CT) -0.04 0.06 -0.79 .430
+
+TWELF2026
+圖 2、 運算思維傾向對 AI 使用滿意度之預測效果
+5. 結論與建議
+5.1. 結論
+本研究透過量化數據證實，對於缺乏內在視覺心像的「心盲傾向者」而言，將抽象概
+念轉譯為 AI 提示詞的過程，確實伴隨著顯著較高的認知負荷（p<.05） 。然而，研究亦
+發現「運算思維」具備強大的補償效應。高運算思維能力不僅能顯著預測 AI 使用滿意
+度（p<.01） ，更能協助使用者跨越先天感官的限制。這顯示在人機協作的時代，邏輯
+拆解與抽象化能力，已成為比視覺想像更為關鍵的認知資產。
+5.2. 未來建議
+基於上述發現，本研究針對未來 AI 應用教育提出以下建議：
+1. 超越直觀的感官描述：
+傳統教學過度依賴直覺敘述與形容詞堆疊，易使心盲學習者產生高認知負荷。
+教育者應避免單一的視覺引導，減少學習門檻。
+2. 導入運算思維的邏輯結構：
+課程應納入拆解與抽象化訓練，以類似 Vibe Coding 的邏輯建構方式，協助心盲
+者繞過視覺短板，直接以精確的邏輯意圖驅動 AI。
+3. 差異化的教學模式：
+著重於邏輯架構的建立提升生成結果的精確性與可控性 。除能有效減輕心盲學
+生的認知負擔外，亦有助於深化全體學生對生成式 AI 的掌握度，從而具體實踐
+人機協作的教育理想。
+
+TWELF2026
+參考文獻
+Chu, H. C., Hwang, G. J., Tsai, C. C., & Tseng, J. C. (2010). A two-tier test approach to
+developing location-aware mobile learning systems for natural science
+courses. Computers & Education, 55(4), 1618–
+1627. https://doi.org/10.1016/j.compedu.2010.07.004
+Hwang, G. J., Lee, K. C., & Lai, C. L. (2020). Trends and strategies for conducting effective
+STEM research and applications: A mobile and ubiquitous learning
+perspective. International Journal of Mobile Learning and Organisation, 14(2), 161–
+183. https://doi.org/10.1504/IJMLO.2020.106152
+Karpathy, A. (2024, February 20). Vibe coding: The new paradigm of programming.
+Retrieved from https://karpathy.ai/
+Klepsch, M., Schmitz, F., & Seufert, T. (2017). Development and validation of two
+instruments measuring intrinsic, extraneous, and germane cognitive load. Frontiers in
+Psychology, 8, 1997. https://doi.org/10.3389/fpsyg.2017.01997
+Marks, D. F. (1973). Visual imagery differences in the recall of pictures. British Journal of
+Psychology, 64(1), 17–24. https://doi.org/10.1111/j.2044-8295.1973.tb01322.x
+Milton, F., Fulford, J., Dance, C., Gaddum, J., Heuerman-Williamson, B., Jones, K., Knight,
+K. F., MacKisack, M., Winlove, C., & Zeman, A. (2021). Behavioral and neural
+signatures of visual imagery vividness extremes: Aphantasia versus
+hyperphantasia. Cerebral Cortex Communications, 2(2),
+tgab035. https://doi.org/10.1093/texcom/tgab035
+Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. Cognitive
+Science, 12(2), 257–285. https://doi.org/10.1207/s15516709cog1202_4
+Wing, J. M. (2006). Computational thinking. Communications of the ACM, 49(3), 33–
+35. https://doi.org/10.1145/1118178.1118215
+Zeman, A., Dewar, M., & Della Sala, S. (2015). Lives without imagery – Congenital
+aphantasia. Cortex, 73, 378–380. https://doi.org/10.1016/j.cortex.2015.05.019

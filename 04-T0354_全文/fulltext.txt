@@ -1,0 +1,473 @@
+From Traditional Semantic Analysis to Generative AI: Research on
+Cybersecurity and Privacy Challenges in Cloud-Based Educational task
+Automation
+Yu-Ting Shih1, Chun-Jan Tseng2*, Ming-Han Chang2, Ching-Lung Kuo2
+1 Graduate Institute of Educational Information and Measurement, National Taichung University of Educa-
+tion, Taichung, Taiwan
+2 Management College, National Defense University, Taipei, Taiwan
+ottolan0728@gmail.com
+摘要
+大語言模型 (LLM) 的快速發展已將對話代理轉變為
+自動化複雜資訊任務的強大工具。然而，在教育和行政環
+境中部署基於 LLM 的系統往往會受到後端複雜性和高維
+護 需 求 的 阻 礙 。 本 研 究 介 紹GenAI Cloud Executive
+Secretary，這是一個用於教育任務自動化的輕量級、無伺
+服器對話框架。該框架基於 Google Apps Script (GAS) 構建，
+以 Gemini 2.0 Flash 作為推理核心，並與 LINE Messaging
+API 集成，提供自然語言互動，並透過意圖識別和結構化
+回饋自主協調 Google Workspace 服務（例如Google雲端
+硬碟、Google日曆、Gmail等）。
+除了上述功能之外，本研究所提出框架更強調雲端安
+全和隱私，透過應用安全設計原則來降低未經授權的存取、
+資料外洩和對抗性提示等風險。細粒度存取控制、加密通
+訊和權限管理等機制確保符合教育資料保護標準。比較分
+析凸顯了基於規則的自動化和LLM驅動的方法在面臨錯
+誤分類、幻覺和惡意查詢操縱等威脅時的不同復原能力。
+在教育環境中的案例實作證明，我們提出架構不僅提
+升了任務效率和使用者體驗，還能以低成本和最小的技術
+門檻提供安全、隱私保護的自動化功能。研究結果凸顯了
+我們所提框架在可擴展教育任務自動化方面的潛力，以及
+其對雲端安全、應用服務安全和隱私感知型人工智慧應用
+的廣泛影響。
+關鍵詞：大語言模型、教育任務自動化、無伺服器對話框
+架、雲端安全與隱私、應用服務安全
+ABSTRACT
+The rapid growth of large language models (LLMs) has
+advanced conversational agents into powerful tools for automating
+complex information tasks. However, deploying LLM-based
+systems in educational and administrative contexts is often
+hindered by backend complexity and high maintenance demands.
+This study introduces the GenAI Cloud Executive Secretary, a
+lightweight, serverless conversational framework for educational
+* Corresponding Author: Management College, National Defense University, No.70, Sec. 2, Zhongyang N. Rd., Beitou Dist., Tai-
+pei City 112305
+E-mail: ottolan0728@gmail.com
+task automation. Built on Google Apps Script (GAS) with Gemini
+2.0 Flash as the reasoning core, the framework integrates with the
+LINE Messaging API to provide natural language interaction and
+autonomously coordinates Google Workspace services (e.g., Drive,
+Calendar, Gmail) through intent recognition and structured
+responses.
+Beyond functionality, the framework emphasizes cloud
+security and privacy by applying security-by-design principles to
+mitigate risks such as unauthorized access, data leakage, and
+adversarial prompts. Mechanisms including fine-grained access
+control, encrypted communication, and permission management
+ensure compliance with educational data protection standards.
+Comparative analysis highlights the differing resilience of rule-
+based automation and LLM-driven approaches when exposed to
+threats like misclassification, hallucination, and malicious query
+manipulation.
+Case implementation demonstrates that our proposed
+architecture not only improves task efficiency and user experience
+but also provides secure, privacy-preserving automation at low
+cost with minimal technical barriers. The findings underscore the
+framework’s potential for scalable educational task automation
+and its broader implications for cloud security, application service
+safety, and privacy-aware AI adoption.
+Keywords: Large Language Models (LLMs), Educational Task
+Automation, Serverless Conversational Framework, Cloud Security
+and Privacy, Application Service Safety
+I. INTRODUCTION
+The rapid advancement of generative artificial intelligence
+(AI) has profoundly transformed the landscape of educational
+task automation, shifting from traditional semantic analysis
+methods to sophisticated AI-driven approaches [1]. This
+evolution brings unprecedented opportunities to enhance
+learning experiences and streamline educational processes by
+leveraging cloud-based platforms. However, the integration of
+generative AI within these cloud environments also raises
+significant cybersecurity and privacy challenges, which merit
+rigorous investigation. This paper explores the emerging threats
+and vulnerabilities associated with deploying generative AI
+technologies in educational settings, focusing on the protection
+
+of sensitive data and the integrity of automated systems. By
+critically examining current security frameworks and identifying
+gaps, this research aims to contribute to the development of
+robust strategies that safeguard both learners and educators in
+the increasingly digital and AI-powered educational ecosystem
+[2].
+As educational institutions progressively adopt cloud-based
+solutions to facilitate task automation, the reliance on generative
+AI models introduces complex security concerns [3]. These
+concerns stem from the models' inherent capabilities to generate
+and process vast amounts of data, which often include personally
+identifiable information and academic records. Traditional
+semantic analysis techniques, while effective in structured and
+rule-based environments, struggle to address the dynamic and
+evolving nature of AI-generated content, thus necessitating new
+approaches to cybersecurity and privacy protection [4].
+Moreover, the cloud infrastructure supporting these AI
+systems presents additional attack surfaces, including
+vulnerabilities related to data transmission, storage, and multi-
+tenant access. The increasing sophistication of cyber-attacks
+targeting educational technologies underscores the urgency for
+proactive research and comprehensive security frameworks
+tailored to this context. This study systematically investigates
+the current state of cybersecurity measures in cloud-based
+educational automation, analyzing the interplay between AI
+capabilities and potential threats [5].
+By integrating insights from both traditional semantic
+analysis and modern generative AI methodologies, this research
+outlines challenges and proposes novel solutions to mitigate
+risks. Ultimately, it seeks to foster a secure and privacy-
+respecting environment that can fully leverage the benefits of
+AI-driven automation in education while minimizing adverse
+impacts on stakeholders [6].
+This paper is structured as follows: First, we provide a
+comprehensive review of traditional semantic analysis
+techniques and their applications in educational task automation,
+highlighting their limitations in the current AI-driven landscape.
+Next, we examine the transformative role of generative AI
+technologies, focusing on their architecture, functionalities, and
+integration within cloud-based educational platforms.
+Subsequently, we delve into the core cybersecurity and privacy
+challenges arising from this integration, including data breaches,
+unauthorized access, and algorithmic vulnerabilities.
+Following the identification of these challenges, we discuss
+existing defense mechanisms and their adequacy in addressing
+the unique risks posed by generative AI in education. To bridge
+identified gaps, we propose an enhanced security framework
+that combines advanced encryption methods, privacy-
+preserving AI techniques, and adaptive threat detection systems.
+This framework aims to ensure data confidentiality, integrity,
+and availability while maintaining the operational efficiency of
+automated educational tasks.
+Finally, this study concludes with future research directions
+and practical recommendations for policymakers, educators, and
+technology developers. Through this interdisciplinary approach,
+the study contributes to a deeper understanding of securing
+cloud-based educational automation in the era of generative AI,
+promoting safer and more trustworthy learning environments.
+II. THE SYSTEM
+The proposed system architecture, graphically delineated in
+Fig. 1, is systematically engineered for cloud-based educational
+task automation. This design integrates Generative AI
+functionalities while maintaining stringent compliance with the
+foundational principles of cybersecurity and privacy.
+Structurally, the architecture is realized as a concatenation of
+distinct, highly interconnected layers, ensuring the simultaneous
+achievement of robust security protocols, privacy preservation
+mechanisms, and the efficient execution of educational
+workflows.
+
+Figure 1. The proposed system architecture.
+A. Guiding Principles
+The architecture's foundational layer is governed by three
+Guiding Principles: Security-by-Design, Privacy-Preserving,
+and Cloud Privacy, which mandate the proactive embedding of
+security and privacy controls from the initial design phase. Fig.
+2 depicts the interconnected modules, underscoring these critical,
+underlying principles.
+Figure 2. Conceptual Architecture of the Task Automation System. The
+diagram illustrates the core processing flow from the User, secured by
+Guiding Principles, through the LINE Messenger interface, down to the
+Serverless Framework for processing, and final integration with External
+Services (Google Workspace Tools).
+B. Description of the System Architecture Process Flow
+Step 1: User Interaction and Encrypted Communication
+Channel (Transport Layer Security, TLS)
+The operational workflow is initiated when the User submits
+a natural language directive or query (e.g., "Book me a meeting
+room at 2 p.m. next Wednesday") via the LINE Messenger
+platform. All subsequent communication between the client-side
+interface and the backend system is established through an
+Encrypted Communication Channel (TLS). This layer of
+TLS establishes a robust cryptographic baseline, ensuring the
+confidentiality and integrity of the data stream from the point of
+origin.
+Step 2: Ingress into the Serverless Execution Backbone
+ LINE Messenger -> Encrypted Webhook
+(HyperText Transfer Protocol Secure, HTTPS):
+The LINE platform securely forwards client
+messages to the designated backend system via an
+Encrypted Webhook (over HTTPS). This mechanism
+implements an event-driven API architecture: upon
+the reception of a user message, the LINE service
+automatically triggers a call to a predefined backend
+URL, thereby ensuring secure, real-time data ingress
+and maintaining processing immediacy.
+ Serverless Framework on Google Apps Script
+(GAS) Execution Backbone: This framework
+constitutes the system's core computational backbone.
+The strategic selection of the GAS environment as
+the serverless platform offers several critical
+advantages: its inherently lightweight architecture,
+high deployability, and seamless integration with the
+broader Google Workspace ecosystem. Furthermore,
+leveraging GAS significantly reduces the system's
+maintenance and operational burden, as the
+management of the underlying server infrastructure is
+fully delegated to the cloud provider (Google).
+As shown in Fig. 3, Steps 1 and 2 collectively define the
+secure ingress pipeline, fundamentally emphasizing the
+criticality of cryptographic protocols in securing the initial user-
+system boundary.
+Figure 3. Initial Communication and Security Layers. The diagram
+highlights the sequential transition from the User through the
+LINE Messenger platform, secured first by an Encrypted Communication
+Channel (TLS), followed by the Encrypted Webhook (HTTPS), ensuring data
+integrity upon ingress to the Core Backend Framework.
+Step 3: Cybersecurity and Privacy Subsystem (core defense
+layer)
+Upon processing a user request, the system immediately
+routes the input into the Cybersecurity & Privacy Subsystem
+(marked in red in Figure 1 and Figure 4). This immediate
+interception embodies a concrete manifestation of the Security-
+by-Design principle, establishing the core defense layer prior to
+any generative or functional processing. Fig. 4 illustrates how a
+request traverses three fundamental security and privacy
+checkpoints after entering the backend:
+ Access Control Mechanism: This mechanism
+functions as the primary security demarcation point,
+rigorously verifying the identity and authentication
+status of the incoming request. It mandates that only
+validated and approved user identifiers are permitted
+to proceed, thereby serving as the critical first line of
+defense against unauthorized system access.
+ Fine-grained Permission Management: Operating
+beyond initial authentication, this layer enforces the
+Principle of Least Privilege (PoLP). It ensures that
+the subsequent processing modules are granted access
+only to the minimal set of specific data resources and
+external services strictly requisite for the current task.
+
+This isolation prevents unwarranted data exposure,
+such as precluding one user from accessing the
+private calendar data of another.
+ Privacy-Preserving Data Handling: This
+mechanism governs the mandatory transformation of
+user data prior to its transmission to external or third-
+party AI services. Sensitive Personally Identifiable
+Information (PII), such as names, student identifiers,
+and email content, undergoes essential de-
+identification, pseudonymization, or masking to
+mitigate the risk of data leakage. This critical step
+ensures strict alignment with the overarching
+Privacy-Preserving principle throughout the
+operational lifecycle.
+Figure 4. The security mechanism of Cybersecurity & Privacy Subsystem.
+Step 4: Intent Recognition & Task Planning (AI Core Brain)
+Following successful completion of the security and privacy
+checkpoints, the system commences the Intent Recognition &
+Task Planning phase, which constitutes the system's core
+cognitive function. The primary mechanism driving this phase
+is the interaction with the Gemini API Generative Reasoning
+Core.
+ Intent Recognition & Task Planning: The process
+strategically extracts the incoming User Query and
+then leverages the generative AI core to synthesize a
+Structured Plan. This plan is not merely a semantic
+interpretation but a detailed, machine-executable
+sequence of actions derived through advanced
+reasoning of the user's intent.
+ Gemini API Generative Reasoning Core: The pre-
+processed and privacy-vetted query is transmitted to
+the Gemini API. This model is specifically employed
+for its capacity to perform reasoning beyond basic
+semantic comprehension, enabling the generation of a
+deterministic, structured action plan. This plan is
+formatted as a set of machine-executable steps,
+exemplified by: { "action": "create_calendar_event",
+"params": { "title": "Conference Room
+Appointment", "time": "Next Wednesday 14:00" } }.
+The utilization of this core signifies the crucial
+architectural shift "From Traditional Semantic
+Analysis to Generative AI," thereby enabling the
+sophisticated understanding and dynamic, non-
+linear orchestration necessary for complex
+educational task automation.
+Fig. 5 visually depicts this cognitive component,
+demonstrating the mechanism by which the Gemini API
+converts ambiguous natural language directives into structured,
+programmatic instructions.
+Figure 5. Functional Diagram of the Intent Recognition & Task Planning
+Module.
+Step 5: Action Execution and External Service Integration
+ Action Execution: This core function serves as the
+definitive point of realization for the user's intent,
+transforming the abstract plan from the generative AI
+core into functional, real-world task completion.
+ External Service: The architecture mandates
+seamless integration with Google Workspace Tools,
+which serves as the representative suite of external
+cloud services prevalent in educational environments.
+Specifically, the system interfaces with distinct
+services for specialized functions:
+ Google Calendar for automated scheduling and
+event management.
+ Google Drive for secure file storage, retrieval,
+and necessary document manipulation.
+ Google Mail for communication, notification,
+and task-related correspondence functionalities.
+Step 6: Response generation and post back
+Upon successful completion of the automated task, the
+system transitions into the final phase to generate feedback and
+securely close the interaction loop, as depicted in Fig. 6.
+ Formulate Response: Immediately following the
+Action Execution (regardless of success or failure),
+the system generates a natural language response
+based on the execution outcome. This function
+ensures the user receives clear, contextual feedback
+regarding the task's disposition.
+ Encrypted Response (HTTPS): The generated
+response is securely transmitted back to the LINE
+platform via an encrypted HTTPS channel. This
+maintains the confidentiality of the final
+communication and reinforces end-to-end transport
+layer security.
+
+ LINE Messenger → User: The LINE platform
+delivers the final response to the User, concluding the
+complete, closed-loop automation cycle.
+Figure 6. The Response Generation and Post-Back Mechanism.
+The proposed architecture establishes a complete closed-
+loop system, effectively integrating front-end interaction, robust
+backend processing, and external service orchestration. Its
+paramount architectural strength resides in its strategic
+positioning of security and privacy protection as foundational
+checkpoints, rather than as optional augmentations. The
+adoption of a serverless design inherently streamlines
+deployment complexity, while the strategic integration of
+advanced generative AI (Gemini) enables sophisticated and
+dynamic task planning. Consequently, the resultant system
+delivers not only robust functionality but also the requisite level
+of security and privacy essential for operation within sensitive
+data environments, such as the educational sector.
+III. ACTUAL DEPLOYMENT RESULTS
+This empirical study was initially implemented for a
+practical educational automation task within a university
+environment. The resultant operational data was systematically
+collected over a defined period, specifically from September 1
+to 25, 2025, yielding a comprehensive corpus of 1,120
+interaction logs.
+The aggregated user interaction metrics for the reporting
+period provide compelling empirical validation for the system's
+core mechanism: Cloud-based Educational Task Automation
+(CETA). A high frequency of recorded UNIFIED_INTENT
+instances, specifically reaching 483 occurrences, demonstrates
+the system's robust capability to successfully translate complex
+natural language input into structured, executable intentions.
+The successful invocation of high-frequency intents, such as
+LOG_NOTE (for structured note logging),
+SEARCH_GOOGLE (for external information retrieval), and
+CREATE_CALENDAR_EVENT (for scheduling operations),
+serves as direct evidence of the CETA's superiority in semantic
+comprehension and functional abstraction. This operational
+success conclusively validates the design objective of
+abstracting complex API orchestration into simplified
+conversational directives, significantly enhancing the utility and
+accessibility of cloud-based task automation.
+The system underwent a crucial post-deployment calibration
+phase. Following this, where continuity test errors were
+attributed to single-event anomalies, the system achieved an
+effective login success rate of 79.6%. This operational resilience
+is significant, as it indicates the system's capacity for actively
+blocking approximately 20% of malicious attacks. This data not
+only reflects the system's high stability under normal use
+conditions but also underscores the inherent iterative nature
+required for robust, real-world AI system deployment. Further
+detailed analysis, including daily interaction trends, distribution
+of major action types, user intent distribution (Top 5), and
+uploaded file type analysis, is presented in Fig. 7-10.
+Figure 7. Daily interaction trends.
+Figure 8. Distribution of major action types.
+Figure 9. U ser intent distribution (Top 5).
+Figure 10. Uploaded file type analysis.
+
+A. Descriptive Statistics
+Table 1 presents descriptive statistics for the number of daily
+interactions within the system during the analysis period. The
+results show considerable variability in the number of daily
+interactions (standard deviation = 34.22), with peak days
+experiencing significantly higher than average interactions,
+which may be related to specific academic activities or project
+deadlines.
+TABLE I. DESCRIPTIVE STATISTICS OF DAILY INTERACTIONS
+Statistics Volume
+Number of observation days (*N*) 15
+Total number of interactions (Sum) 632
+Mean (*M*) 35.11
+Standard deviation (*SD*) 34.22
+Minimum (Min) 5
+Maximum (Max) 121
+B. Frequency Distribution of User Intention
+To gain a deeper understanding of system usage patterns, the
+following tables present the distribution of the main action types
+and user intents. Table 2 shows that "UNIFIED INTENT" and "
+UPLOAD SUCCESS” are the two most common activities,
+accounting for 77.6% of total activity. Table 3 shows that among
+all analyzed intents, "SEARCH GOOGLE" and "LOG NOTE"
+are the most core user needs.
+TABLE II. FREQUENCY AND PERCENTAGE DISTRIBUTION OF MAIN
+ACTION TYPES (TOP 5)
+Action type Frequency Percentage (%)
+UNIFIED INTENT 483 43.1
+UPLOAD SUCCESS 386 34.5
+SEARCH GOOGLE 45 4.0
+TASK SUCCESS 41 3.7
+SYSTEM 30 2.7
+TABLE III. FREQUENCY AND PERCENTAGE DISTRIBUTION OF MAIN
+USER INTENTIONS (TOP 5)
+User intention Frequency Percentage (%)
+UPLOAD FAIL 28 2.5
+POST TO THREADS FAIL 20 1.8
+SCHEDULED TASK 18 1.6
+UNIFIED INTENT 483 43.1
+UPLOAD SUCCESS 386 34.5
+C. Cybersecurity analysis
+The system leverages the security inherent in the Google
+Apps Script Execution Backbone, a managed serverless
+environment. This choice offloads significant security
+responsibilities, including underlying operating system patching,
+runtime environment security, and network firewall
+management, to the cloud provider. By operating on a secure
+cloud backbone, the architecture benefits from continuous
+security updates and robust infrastructure protection, reinforcing
+the Cloud Privacy guiding principle.
+In summation, the system’s cybersecurity framework is a
+multi-layered defense strategy, combining robust end-to-end
+encryption with internal, process-level control mechanisms to
+ensure both the security of the operational environment and the
+rigorous protection of user privacy throughout the automated
+task lifecycle.
+IV. CONCLUSION
+The rapid advancement of generative AI has profoundly
+transformed the landscape of educational task automation,
+shifting from traditional semantic analysis methods to
+sophisticated AI-driven approaches. This evolution brings
+unprecedented opportunities to enhance learning experiences
+and streamline educational processes by leveraging cloud-based
+platforms. However, the integration of generative AI within
+these cloud environments also raises significant cybersecurity
+and privacy challenges, which merit rigorous investigation. This
+paper explores the emerging threats and vulnerabilities
+associated with deploying generative AI technologies in
+educational settings, focusing on the protection of sensitive data
+and the integrity of automated systems. This research
+contributes to developing robust strategies that protect learners
+and educators in an increasingly digital, AI-powered educational
+ecosystem.
+REFERENCES
+[1] V. Kumar and D. Sharma, “E-learning theories, components, and cloud
+computing-based learning platforms,” Int. J. Web-Based Learn. Teach.
+Technol. (IJWLTT), vol. 16, no. 3, pp. 1–16, 2021.
+[2] Y. K. Dwivedi, N. Kshetri, L. Hughes, E. L. Slade, A. Jeyaraj, A. K.
+Kar, … and R. Wright, “Opinion paper: ‘So what if ChatGPT wrote it?’
+Multidisciplinary perspectives on opportunities, challenges and
+implications of generative conversational AI for research, practice and
+policy,” Int. J. Inf. Manage., vol. 71, p. 102642, 2023.
+[3] R. AlAli and Y. Wardat, “Opportunities and challenges of integrating
+generative artificial intelligence in education,” Int. J. Religion, vol. 5, no.
+7, pp. 784–793, 2024.
+[4] D. T. K. Ng, E. K. C. Chan, and C. K. Lo, “Opportunities, challenges and
+school strategies for integrating generative AI in education,” Comput.
+Educ.: Artif. Intell., p. 100373, 2025.
+[5] S. K. Sundaramurthy, N. Ravichandran, A. C. Inaganti, and R.
+Muppalaneni, “AI-driven threat detection: Leveraging machine learning
+for real-time cybersecurity in cloud environments,” Artif. Intell. Mach.
+Learn. Rev., vol. 6, no. 1, pp. 23–43, 2025.
+[6] A. Gupta and R. Goyal, “A generative AI-driven method-level semantic
+clone detection based on the structural and semantical comparison of
+methods,” IEEE Access, vol. 12, pp. 70773–70791, 2024.

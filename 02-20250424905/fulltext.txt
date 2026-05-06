@@ -1,0 +1,372 @@
+AI 輔助程式設計與數據分析學習中的人機
+互動行為分析
+Behavioral Analysis of Student–AI Interactions in AI-
+Assisted Programming and Data Science Learning
+施育廷¹ 李政軒 2
+SHIH, YU-TING¹ LI, CHENG-HSUAN2
+國立臺中教育大學 教育資訊與測驗統計研究所
+E-mail：cms112103@gm.ntcu.edu.tw¹ chli@mail.ntcu.edu.tw.2
+摘要
+隨著人工智慧技術的迅速進展，資料科學與程式設計已日益被視為高等教
+育中不可或缺的核心素養。對非資訊相關背景的大學生而言，程式設計所要求
+的邏輯推理與抽象概念理解，常成為其學習歷程中的顯著挑戰。近年來，生成
+式人工智慧（Generative AI, GenAI ）特別是大型語言模型（ Large Language
+Models, LLMs）在程式教學中的應用日益普及，惟學生與 AI 互動歷程中所展現
+的認知策略與學習行為，尚缺乏系統性的分析與理解。
+本研究以修習某大學「資料科學與問題解決」通識課程之 103 位學生為對
+象，蒐集其與 AI 虛擬學習夥伴互動歷程中所產生的 710 則對話紀錄，並運用滯
+後序列分析法，探討學生在學習過程中展現的七類行為模式與轉移結構。分析
+結果顯示，「任務提交（TS）」為最常見的互動行為，顯示學生多將 AI 虛擬學
+習夥伴作為作業成果回報管道，該行為類型呈現高度的自我連續性，學生完成
+學習任務會修正並重複的提交，反映其學習過程具明確的任務導向特性。此外，
+「資訊尋求（IS）」與「認知／後設認知互動（CM）」之間呈現雙向顯著轉移，
+構成一種持續反覆的「學習探索循環」，表示學生會在思考與反省後主動向 AI
+尋求補充資訊，進而再進行整合與評估，深化學習歷程。而在獲得知識理解之
+後，學生亦傾向接續提出具體的任務請求（IS→TO），如請求 AI 提供程式範例
+或應用於生活情境中的解題建議，進行實務操作練習顯示知識運用能力的展現。
+此外，學生常以「請問」、「你好」作為互動開場，並以「謝謝」作為結束語，
+社交互動（SE）與任務請求（TO）間的雙向轉移反映出學生在與 AI 互動時，
+展現出社會性對話習慣，將 AI 視為具人際特質的學習夥伴。
+綜合上述，本研究呈現 AI 輔助學習環境中學生的多樣行為轉移模式與潛在
+學習策略，並提供教師與系統開發者於教學設計與互動優化上的具體依據。未
+來可結合學習成效資料與質性訪談，探索 AI 介入下之學習動態與個別差異。
+關鍵字：行為序列分析、生成式 AI、程式設計教育、學習分析、人機互動
+2025 數位學習與教育科技國際研討會於 2025 年 06 月 04 日假國立政治大學公共行政與企業管理教育中心舉辦
+
+Abstract
+The rapid advancement of artificial intelligence (AI) has positioned data science and
+programming as essential competencies in higher education. However, students without
+a computer science background often struggle with the abstract reasoning required for
+programming. This study explores how 103 undergraduates interacted with an AI-based
+virtual learning partner during a general education course, analyzing 710 dialogue
+records through lag sequential analysis.
+Results identified seven behavior types and revealed that task submission (TS) was the
+most frequent, reflecting a highly task-oriented learning style. A key finding was the
+bidirectional transition between information seeking (IS) and cognitive/metacognitive
+interaction (CM), forming a "learning exploration loop" indicative of reflective and
+integrative learning strategies. Transitions from IS to task-oriented requests (TO)
+further showed students applying knowledge to concrete tasks. Social engagement (SE)
+patterns, including greetings and thanks, revealed that students treated the AI as an
+interactive partner.
+This study provides empirical insights into student behavior in AI-supported learning
+environments and suggests directions for enhancing interaction design and instructional
+strategies in programming education.
+Keywords: Lag Sequential Analysis, Generative AI, Programming Education,
+Learning
+Analytics, Human-Computer Interaction
+2025 數位學習與教育科技國際研討會於 2025 年 06 月 04 日假國立政治大學公共行政與企業管理教育中心舉辦
+
+壹、緒論
+一、研究背景與動機
+近年來，人工智慧技術的快速發展，正深刻影響高等教育的教學模式與學
+習樣態（Ouyang & Jiao, 2021）。其中，資料科學與程式設計不再僅是資訊相關
+科系的專業技能，而逐漸成為所有大學生應具備的核心素養。對於非資訊背景
+的大學生而言，程式設計的抽象概念、複雜語法及嚴謹邏輯，常形成顯著的學
+習障礙。
+大 型 語 言 模 型 （Large Language Models, LLMs ） 為 基 礎 的 生 成 式 AI
+（Generative AI, GenAI ）工具，近年被廣泛應用於程式設計教學中。這些工具
+具備即時生成程式碼、解釋概念、協助除錯與提供回饋等能力，展現了顯著的
+學習支持潛力（Zhai, 2022; Kasneci et al., 2023 ）。然而，如何適切將這些 AI 工
+具納入課程結構與教學流程，以發揮其最大潛力，並避免學生產生過度依賴或
+學術誠信問題，仍是教育實務中的重要挑戰。雖已有研究肯定 GenAI 對學習成
+效之提升潛力（Denny et al., 2023 ；Kazemitabaar et al., 2023 ），但對學生與 AI
+互動過程中的行為序列結構、策略遷移路徑與其與認知層次之關聯，尚缺乏量
+化實證與細緻分析。本研究採用序列分析法，探討學生在與 AI 互動歷程中所展
+現之動態行為模式與潛在學習策略。
+二、研究目的
+本研究聚焦於大學入門級「資料科學與問題解決」課程中，學生與 AI 虛擬
+學習夥伴之間的互動紀錄，透過行為編碼與滯後序列分析方法，深入探討學生
+的人機互動樣態與潛在的學習行為。具體研究目的如下：
+1.
+分析互動行為類別的出現頻率與分佈：了解學生在 AI 輔助學習環境
+中，採取哪些類型的互動行為及其比例差異。
+2. 運用行為序列分析技術，辨識常見的互動轉移模式與學習策略：探究
+學生在與 AI 互動時，是否展現出特定的行為序列與學習方式。
+3. 反思研究結果對課程設計與 AI 工具優化的啟示：提出具體建議，以提
+升 AI 在程式設計與資料科學教學中的教育價值與應用效能。
+貳、文獻探討
+一、生成式 AI 於程式設計教育之應用與挑戰
+近年來，生成式人工智慧（ Generative AI, GenAI ）在程式設計教育中展現
+出多元的應用潛力。以大型語言模型（LLMs）為核心的 GenAI 工具，能協助學
+生進行程式碼生成、解釋抽象概念與演算法、偵測錯誤並提供即時回饋，有助
+於降低程式學習的門檻與挫折感（Zhai, 2022；Kasneci et al., 2023 ；Denny et al.,
+2023）。儘管如此，GenAI 的應用亦伴隨諸多挑戰。初學者可能因過度依賴 AI
+而影響自我建構知識的能力，亦可能無法判斷 AI 生成內容的正確性。此外，生
+2025 數位學習與教育科技國際研討會於 2025 年 06 月 04 日假國立政治大學公共行政與企業管理教育中心舉辦
+
+成內容在學術誠信上的風險與評量準則的模糊，也對教師與課程設計者提出新
+的挑戰（Kasneci et al., 2023 ）。因此，如何在發揮 GenAI 優勢的同時，避免學
+習遷移與依賴性問題，並建立合宜的評量與引導機制，已成為教育研究與實務
+急需探討的重要議題。
+二、學生與 AI 互動模式研究
+理解學生與 AI 工具之間的互動模式，是評估其教學效益的關鍵。互動行為
+的差異，常受任務性質、系統設計與個人習慣等因素影響（ Norman, 2013 ）。
+教育領域中，AI 工具的「任務執行能力」被視為影響有效性的重要條件之一。
+近期研究逐漸從互動頻率的觀點，轉向對「互動意圖」與「對話結構」的關注。
+例如 Winkler 與 Söllner（2018）強調，區分學生互動的目的有助於理解其學習
+策略。然而，目前針對學生與 GenAI 工具互動行為的分類、遞移路徑與學習意
+涵，仍有待更多實證研究加以釐清。
+綜上所述，儘管生成式 AI 於程式教育之應用日趨廣泛，其互動過程中所展
+現的學習行為仍有待深入探究。特別是透過行為序列視角，辨識學生與 AI 互動
+的潛在模式，將有助於開展更具策略性的教學設計。
+三、學習分析與序列分析方法
+學習分析（Learning Analytics, LA）是以學習歷程中產生的數據為依據，藉
+此理解與優化教學與學習行為（Siemens & Baker, 2012 ）。在 LA 的眾多方法中，
+序列分析（Sequential Analysis ）是一項關注事件之間時間順序與轉移關係的重
+要技術。傳統的學習行為分析多著重於出現頻率，然而序列分析則能揭示學習
+歷程中行為的動態過程與轉移邏輯。例如，學生是否在提問後立即尋求任務協
+助，或是否經歷過反思與整合，這些行為之間的時序關係，有助於推論其學習
+策略。
+本研究採用的滯後序列分析（ Lag-Sequential Analysis ）可分析特定行為後
+接續行為的發生機率，藉此建立行為遷移模式，辨識學生學習傾向與潛在困難，
+為學習行為的機制提供實證佐證。
+參、研究方法
+一、研究對象與資料收集
+本研究以修習某大學一年級「資料科學與問題解決」課程的 103 位非資訊
+相關科系學生為研究對象。課程期間學生與 AI 虛擬學習夥伴的互動記錄共收集
+710 條訊息。本研究開發的虛擬學習夥伴是一個基於 Line 平台的聊天機器人，
+整合了 Gemini 和自訂的輔助功能。學生在向 AI 虛擬學習夥伴發送訊息，透過
+透過自動化機制記錄互動資料。
+2025 數位學習與教育科技國際研討會於 2025 年 06 月 04 日假國立政治大學公共行政與企業管理教育中心舉辦
+
+二、行為編碼
+為了探討學生與 AI 虛擬學習夥伴互動的學習行為，將對話記錄進行行為編
+碼。本研究行為分類包含七個主要類別如下，定義與學習模式關聯如表 1 所示：
+● 社交互動 (SE - Social Engagement): 發起或回應非特定任務導向的社交性
+對話，有助於理解學習情境中的社交動態。
+● 任務導向請求 (TO - Task-Oriented Request): 學生要求聊天機器人執行具體
+任務的行為，直接反映其學習目標導向性。
+● 資訊尋求 (IS - Information Seeking): 學生詢問特定知識或程序性資訊的行
+為，顯示其知識建構或問題解決的嘗試。
+● 認知/後設認知互動 (CM - Cognitive/Metacognitive): 學生展現反思、監控、
+評估或澄清理解等高層次思維的互動(Ali et al., 2022)。
+● 任務提交 (TS - Task Submission): 學生提交指定學習任務的行為。
+● 離題/不當互動 (OT - Off-Task/Inappropriate): 與學習任務無關或不適當的
+互動，可能指示學習分心、挫敗感或參與度不足。
+● 系統確認/簡單應答 (SA - System Acknowledgement/Testing): 簡短的、功能
+性的或探索性的輸入。
+表 1：聊天機器人互動行為分類定義與學習模式關聯
+代
+碼
+分類名
+稱
+定義 與學習模式的關聯
+(參考 Ali et al., 2022)
+SE 社交互
+動
+發起或回應非特定任務導向的社交性
+對話，建立或維持互動關係。
+影響學習氣氛與歸屬感，間
+接關聯參與度。
+T
+O
+任務導
+向請求
+要求聊天機器人執行具體任務，如生
+成內容、提供建議、執行動作等。
+核心任務參與行為，與學習
+目標達成、學習毅力相關。
+IS 資訊尋
+求
+詢問事實、定義、概念解釋、程序性
+知識或特定領域資訊。
+主動學習、知識建構行為，
+反映學習困境或資訊尋求。
+C
+M
+認知/後
+設認知
+互動
+表現出更深層次的思考、監控、評估
+或澄清理解的互動，包含尋求回饋、
+報告問題、規劃等。
+反映深度學習、自我調節能
+力。
+TS 任務提
+交
+提交指定任務的連結或文件，通常是
+課程作業。
+學習過程的里程碑，反映任
+務完成情況。
+O
+T
+離題/不
+當互動
+發出與學習任務、聊天機器人功能無
+關，或帶有攻擊性、不適當的言論。
+可能指示學習分心、低參與
+度、挫折感或退出。
+S
+A
+系統確
+認/簡單
+應答
+非常簡短的輸入，目的可能是測試系
+統是否正常、簡單應答或無明確意義
+的輸入。
+低層次互動，需結合序列分
+析判斷其意義，可能與初步
+探索或不確定性有關。
+三、資料分析方法：序列分析
+本研究採用滯後序列分析（ Lag-Sequential Analysis ），探討相鄰兩個行為
+事件之間的轉移模式。分析過程使用 Chen(2024)開發的工具完成。進行頻率分
+析與轉換概率分析，能夠捕捉學習過程的動態性和複雜性。
+2025 數位學習與教育科技國際研討會於 2025 年 06 月 04 日假國立政治大學公共行政與企業管理教育中心舉辦
+
+肆、研究結果
+一、互動行為描述性統計
+在 710 筆學生與 AI 虛擬學習夥伴的互動紀錄中，不同行為類別呈現明顯的
+比例差異。其中，以任務提交（ TS）佔比最高（ 74.4%），顯示多數學生傾向
+於將 AI 作為作業成果呈交或驗證之媒介，行為目的清晰且任務導向明確。其次
+為認知／後設認知互動（ CM）（7.9%），反映部分學生會在互動中展現思考、
+監控與澄清的學習策略。資訊尋求（ IS）、任務導向請求（ TO）與社交互動
+（SE）比例接近（約 5~6%），顯示學生在實作過程中會適時向 AI 提問，並透
+過禮貌語言建立互動關係。離題／不當互動（ OT）與系統確認（ SA）發生次
+數極低（<1%），代表大多數互動皆與課程學習目標相關。如表 2 所示。
+表 2：互動行為事件統計表
+事件編碼 出現頻率 出現百分比
+TS 528 74.4%
+CM 56 7.9%
+SE 42 5.9%
+TO 42 5.9%
+IS 39 5.5%
+SA 5 0.7%
+OT 3 0.4%
+總數 710 100.0%
+二、行為序列轉移模式分析
+(一) 顯著的自我轉移模式（慣性）：
+所有七種行為都表現出極其顯著的自我連續性，調整後殘差均遠大於 1.96
+（例如，TS -> TS: a=20.915; SA -> SA: a=18.634; CM -> CM: a=14.662）。特別
+是任務提交與認知互動類型。這表示學生在進行特定互動時，常連續進行同類
+行為，呈現階段性任務集中特徵。例如，完成一項任務後常緊接著提交下一項；
+進行概念釐清後亦可能延續反思性對話。這種行為慣性特徵顯示學習歷程可能
+呈現片段化，學生傾向在短時間內聚焦於單一類型行為。
+(二) 顯著的跨類別正向轉移模式：
+● 學習探索循環： IS 與
+CM 之間存在顯著的雙向轉移（CM -> IS: a=3.543;
+IS -> CM: a=3.192）。構成反覆進行思考、確認與補充資訊的學習歷程。
+例如，學生可能先釐清不理解的程式邏輯 ，接著提出具體問題詢問，再
+回頭反思與整合，形成一種動態且具層次的「學習探索循環」。
+● 社交與任務連結： SE 與 TO 之間存在顯著的雙向轉移（ TO -> SE:
+a=4.570; SE -> TO: a=3.293 ）。學生常透過社交性語言與 AI 互動，例如
+以「請問」、「你好」作為提問開場，以「謝謝」結束對話，突顯學生
+在任務互動中融合社交禮儀，顯示其對 AI 具有擬人化與情境對話的認知。
+2025 數位學習與教育科技國際研討會於 2025 年 06 月 04 日假國立政治大學公共行政與企業管理教育中心舉辦
+
+● 資訊尋求驅動任務： IS -> TO 的轉移顯著（a=2.507）。表示學生在理解
+概念或取得知識後，會進一步請求 AI 協助完成實際任務，展現知識轉化
+為應用的遷移歷程，如撰寫特定程式語句、請求演算法建議等。
+● 離題行為的關聯： OT -> SE (a=2.211) 和 OT -> TO (a=2.124) 的轉移顯著，
+而 SE -> OT (a=2.819) 也顯著。反映部分學生在學習過程中因困惑或試探
+功能而產生偏離主題的互動行為。
+(三) 顯著的抑制轉移模式：
+從 TS 出發到其他主要類別 (CM, IS, SE, TO) 的轉移均顯著低於隨機期望
+（TS -> CM: a=-10.964）。說明此行為常發生於任務階段的結尾，為明確收束性
+的行為類型，非屬學習探索或互動延伸的主要節點。
+三、可視化呈現
+圖 1 本研究行為序列轉移模型
+行為序列轉移圖如圖 1 所示，以粗紅箭頭標示統計上顯著的轉移關係，形
+象呈現出「探索— 應用—回饋」之行為環，以及社交互動如何包裹於任務執行
+之前後。此結構凸顯 AI 互動歷程中多重學習策略與心理歷程交織的特徵，亦有
+助於未來設計更具引導性與個別化調適的 AI 教學輔助系統。
+伍、討論
+一、主要互動模式
+本研究結果顯示，學生在 AI 輔助學習環境中的互動以「任務提交（TS）」
+為主，反映出學生傾向於將 AI 虛擬學習夥伴作為學習成果呈交並以任務驅動為
+主要學習策略，顯示部分學生尚未充分發揮 AI 在學習歷程中作為「互動對話夥
+伴」的潛力。
+2025 數位學習與教育科技國際研討會於 2025 年 06 月 04 日假國立政治大學公共行政與企業管理教育中心舉辦
+
+二、學習探索歷程與人機互動表現
+觀察到的「資訊尋求（IS）」與「認知／後設認知互動（CM）」之雙向轉
+移，顯示學生會在理解不足時，透過 AI 提出問題獲取新知，並在獲得回饋後進
+行反思與整合，形構出一種具有遞回性質的學習探索循環。此結果與自我調節
+學習（SRL）理論中的「監控－求助－評估」歷程一致（ Zimmerman, 2002 ），
+指出 AI 互動歷程中可觸發高階思維行為，具有促進深度學習的潛力。學生在獲
+得資訊後，常緊接著提出具體任務請求（ IS→TO），顯示其具有將新知應用於
+解決實際問題的傾向。此遷移歷程對於程式設計學習特別關鍵，亦反映學生將
+AI 視為協助建構問題解法與演算法設計的工具，展現從認知理解走向實作應用
+的學習歷程。SE 與 TO 之間的顯著雙向轉移顯示，學生在與 AI 互動時會依循人
+際互動習慣，透過禮貌用語啟動對話並結尾致謝。此一結果指出，學生已逐漸
+將 AI 虛擬學習夥伴視為具社交特質的互動對象，而非單一功能性工具。此現象
+呼應 Følstad 等人（
+2018）提出「社交存在感」對用戶接受 AI 系統之影響，亦
+為未來 AI 介面設計提供重要參考。
+三、研究限制
+本研究結果的解釋應考慮以下限制：分析結果可能高度受到本研究特定的
+課程設計、AI 功能設定以及學生群體特徵的影響，推論至其他課程或 AI 工具
+時需持保留態度。聚焦於行為模式，未能直接將這些模式與學生的實際學習成
+效進行關聯分析。可能忽略更長時間跨度的行為模式或更複雜的序列結構。
+陸、結論與建議
+一、研究結論
+本研究透過行為編碼與滯後序列分析技術，分析大學課程中學生與 AI 虛擬
+學習夥伴的互動歷程，主要結論如下：
+1. 學生在 AI 輔助環境中的互動以任務提交為主，展現強烈任務導向之學
+習特徵。
+2. 學生在資訊尋求與認知互動之間展現學習探索循環，顯示 AI 有助於支
+持高層次思維歷程。
+3. 在資訊理解後學生傾向進行任務請求，體現從知識掌握到應用遷移的
+學習邏輯。
+4. 社交互動與任務互動之間的交織，顯示 AI 在學習場域中亦扮演具情感
+性與溝通性的角色。
+二、實務建議
+1. 教學設計方面：教師應引導學生掌握與 AI 互動的策略性思維，如如何
+發問、如何從回饋中整合概念，以發揮 AI 在知識建構與自我調節歷程
+中的輔助潛力。
+2025 數位學習與教育科技國際研討會於 2025 年 06 月 04 日假國立政治大學公共行政與企業管理教育中心舉辦
+
+2. AI 系統設計方面：建議設計具引導與反饋能力的 AI 模組，如能在任務
+提交後主動發問、於資訊回應後引導反思，促進互動連貫性與學習深
+度。
+3. 研究與評量應用：未來應結合學習表現數據，分析不同行為序列與學
+習成效之關聯，並探索不同背景學生的互動模式差異，作為個別化學
+習與系統推薦之基礎。
+參考文獻
+Ali, M., Ashaari, N. S., Noor, S. M., & Zainudin, S. (2022). Identifying students'
+learning patterns in online learning environments: A literature review.
+International Journal of Emerging Technologies in Learning (iJET), 17(8)
+, 189-
+205.
+Allison, P. D., & Liker, J. K. (1982). Analyzing sequential categorical data on dyadic
+interaction: A comment on Gottman. Psychological Bulletin, 91(2), 393–403.
+Baker, R. S., & Inventado, P. S. (2016). Educational data mining and learning
+analytics. In Learning analytics . 61-75.
+Chen, P.-Y. (2024). HTML-Lag-Sequential-Analysis [Computer software]. Zenodo.
+https://doi.org/10.5281/zenodo.12514965
+Denny, P., Kumar, V., & Pateras, N. (2023). Conversing with Copilot: Exploring
+prompt engineering for solving Python problems. Proceedings of the 2023
+Conference on Innovation and Technology in Computer Science Education, 1,
+22-29.
+Følstad, A., Nordheim, C. B., & Bjørkli, C. A. (2018). What makes users trust a
+chatbot for customer service? An exploratory interview study. In Internet
+Science: 5th International Conference, INSCI 2018 (pp. 194-208).
+Kasneci, E., Seßler, K., Küchemann, S., Bannert, M., Dementieva, D., Fischer, F., ...
+& Kasneci, G. (2023). ChatGPT for good? On opportunities and challenges of
+large language models for education. Learning and individual differences, 103,
+102274.
+Kazemitabaar, M. A., Bumbacher, E., Petersen, A., Louie, S., Rangwala, H., Montell,
+Y., Thaker, K., Ibrahim, M., Klemmer, S. (2023). Studying the effect of AI code
+generators on introductory programming. Proceedings of the 54th ACM
+Technical Symposium on Computer Science Education, 547
+-553.
+Matcha, W., Gašević, D., & Pardo, A. (2019). A systematic review of empirical
+studies on learning analytics dashboards: A self-regulated learning
+perspective. IEEE transactions on learning
+technologies, 13(2), 226-
+245.Norman, D. A. (2013). The design of everyday things: Revised and
+expanded edition. Basic Books.
+2025 數位學習與教育科技國際研討會於 2025 年 06 月 04 日假國立政治大學公共行政與企業管理教育中心舉辦
+
+Ezzaim, A., Kharroubi, F., Dahbi, A., Aqqal, A., & Haidine, A. (2022). Artificial
+intelligence in education-State of the art. Artificial intelligence, 20(21), 22.
+Siemens, G., & Baker, R. S. (2012). Learning analytics and educational data mining:
+Towards communication and collaboration. Proceedings of the 2nd International
+Conference on Learning Analytics and Knowledge, 252-254.
+Winkler, R., & Söllner, M. (2018). Unleashing the potential of chatbots in education:
+A state-of-the-art analysis. Academy of Management Annual Meeting
+Proceedings, 2018(1).
+Zhai, X. (2022). ChatGPT user experience: Implications for education. SSRN
+Electronic Journal.
+Zimmerman, B. J. (2002). Becoming a self-regulated learner: An overview. Theory
+into Practice, 41(2), 64-70.
+2025 數位學習與教育科技國際研討會於 2025 年 06 月 04 日假國立政治大學公共行政與企業管理教育中心舉辦
