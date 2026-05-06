@@ -1,4 +1,4 @@
-# 20250424905
+# 優化教學與學習效率的輕量級無伺服器AI代理人於教育場域之應用
 
 作者：施育廷
 
@@ -8,6 +8,6 @@
 
 - [`article.md`](./article.md)：文章版整理
 - [`metadata.json`](./metadata.json)：基本資訊
-- `images/`：抽取出的內部圖片（共 3 張）
+- `images/`：抽取出的內部圖片（共 7 張）
 
 - [images/](./images/)

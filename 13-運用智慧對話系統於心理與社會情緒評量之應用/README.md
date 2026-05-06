@@ -1,4 +1,4 @@
-# 20250424905
+# 運用智慧對話系統於心理與社會情緒評量之應用
 
 作者：施育廷
 
@@ -8,6 +8,4 @@
 
 - [`article.md`](./article.md)：文章版整理
 - [`metadata.json`](./metadata.json)：基本資訊
-- `images/`：抽取出的內部圖片（共 3 張）
-
-- [images/](./images/)
+- `images/`：抽取出的內部圖片（共 0 張）

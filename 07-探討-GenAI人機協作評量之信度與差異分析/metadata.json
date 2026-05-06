@@ -1,0 +1,23 @@
+{
+  "index": 7,
+  "title": "探討 GenAI人機協作評量之信度與差異分析",
+  "author": "施育廷",
+  "source_name": "探討 GenAI人機協作評量之信度與差異分析_張敦程_施育廷.pdf",
+  "page_count": 2,
+  "keywords": [
+    "學習評量",
+    "生成式人工智慧",
+    "評分者間信度",
+    "人機協作",
+    "自動化評分"
+  ],
+  "image_count": 2,
+  "files": {
+    "article": "article.md",
+    "readme": "README.md",
+    "images": [
+      "images/figure-01.png",
+      "images/figure-02.png"
+    ]
+  }
+}

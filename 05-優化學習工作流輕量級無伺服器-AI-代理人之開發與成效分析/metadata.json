@@ -1,0 +1,22 @@
+{
+  "index": 5,
+  "title": "優化學習工作流輕量級無伺服器 AI 代理人之開發與成效分析",
+  "author": "施育廷",
+  "source_name": "優化學習工作流輕量級無伺服器 AI 代理人之開發與成效分析.docx.pdf",
+  "page_count": 7,
+  "keywords": [
+    "Lightweight Architecture",
+    "Artificial Intelligence Agent",
+    "Technology Acceptance Model"
+  ],
+  "image_count": 3,
+  "files": {
+    "article": "article.md",
+    "readme": "README.md",
+    "images": [
+      "images/figure-01.png",
+      "images/figure-02.png",
+      "images/figure-03.png"
+    ]
+  }
+}

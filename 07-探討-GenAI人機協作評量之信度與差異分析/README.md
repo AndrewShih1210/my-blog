@@ -1,4 +1,4 @@
-# 20250424905
+# 探討 GenAI人機協作評量之信度與差異分析
 
 作者：施育廷
 
@@ -8,6 +8,6 @@
 
 - [`article.md`](./article.md)：文章版整理
 - [`metadata.json`](./metadata.json)：基本資訊
-- `images/`：抽取出的內部圖片（共 3 張）
+- `images/`：抽取出的內部圖片（共 2 張）
 
 - [images/](./images/)

@@ -1,20 +1,21 @@
 {
   "index": 1,
-  "folder_name": "01-2023bemst全文",
-  "source_name": "2023bemst全文.pdf",
-  "generated_at": "2026-05-06T09:58:55.673497+00:00",
   "title": "2023bemst全文",
-  "extracted_title": "研討會摘要樣板",
-  "author": "may",
-  "subject": "",
-  "producer": "Microsoft® Word LTSC",
+  "author": "施育廷",
+  "source_name": "2023bemst全文.pdf",
   "page_count": 5,
-  "pdf_metadata": {
-    "Title": "研討會摘要樣板",
-    "Author": "may",
-    "Creator": "Microsoft® Word LTSC",
-    "CreationDate": "D:20230415164051+08'00'",
-    "ModDate": "D:20230415164051+08'00'",
-    "Producer": "Microsoft® Word LTSC"
+  "keywords": [
+    "AI 科技認知與態度",
+    "整合性科技接受度",
+    "使用意願"
+  ],
+  "image_count": 2,
+  "files": {
+    "article": "article.md",
+    "readme": "README.md",
+    "images": [
+      "images/figure-01.png",
+      "images/figure-02.png"
+    ]
   }
 }
