@@ -1,6 +1,8 @@
 # Reliability and Difference Analysis of GenAI Human-Machine Collaborative Assessment
 
-Author: Yu-Ting Shih
+Authors: Yu-Ting Shih and Dun-Cheng Chang
+
+Presentation details: Shih, Y.-T., and Chang, D.-C. (June 6, 2026). Reliability and Difference Analysis of GenAI Human-Machine Collaborative Assessment [Conference presentation]. 7th Taiwan Conference on Business Education and Management, Tainan, Taiwan.
 
 ## Overview
 
