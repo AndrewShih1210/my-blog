@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>證照與證明專區 | 施育廷學術網站</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="wrap topbar">
+    <a class="brand" href="../index.html">Yu-Ting Shih Academic Site</a>
+    <nav class="topnav">
+      <a href="../index.html">學術首頁</a>
+      <a href="../author-works/index.html">研究成果</a>
+      <a href="../ai-course-site/index.html">AI 教材</a>
+      <a href="../sitemap.html">網站導覽</a>
+      <a href="./index_en.html">English</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Credentials Archive</p>
+          <h1>證照、證書與證明文件專區</h1>
+          <p class="lead">本頁彙整施育廷於專業證照、學術發表、研習進修、教學服務、講座貢獻與學術身分相關的證明文件，作為對外展示、學術履歷補充與合作交流時的公開材料入口。</p>
+          <div class="button-row">
+            <a class="button primary" href="#collections">瀏覽分類展示</a>
+            <a class="button" href="../author-works/index.html">查看研究成果</a>
+            <a class="button" href="./index_en.html">English Version</a>
+          </div>
+          <div class="stats" id="stats"></div>
+        </div>
+        <aside class="panel hero-side">
+          <div>
+            <p class="eyebrow">Archive Scope</p>
+            <h3>從技能認證到學術發表的公開證明整理</h3>
+            <p class="muted">內容包括 Google 與專業證照、研習培訓證明、論文發表紀錄、聘書、感謝狀、專利證書與博士候選人證明，採圖文卡片方式展示，便於快速檢視與分享。</p>
+          </div>
+          <div class="chip-row">
+            <span class="chip">證照</span>
+            <span class="chip">研習</span>
+            <span class="chip">發表</span>
+            <span class="chip">聘書</span>
+            <span class="chip">專利</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="collections">
+      <div class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Collections</p>
+            <h2>分類展示</h2>
+          </div>
+          <p class="muted">以下依證照、研習、發表、聘書與感謝狀等類型整理，方便公開瀏覽與學術履歷使用。</p>
+        </div>
+        <div class="filters" id="filters"></div>
+        <div class="section-grid" id="gallery"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="證明文件預覽">
+      <div class="modal-top">
+        <div>
+          <p class="eyebrow">Preview</p>
+          <h2 id="modal-title"></h2>
+        </div>
+        <button class="modal-close" id="modal-close" type="button">關閉</button>
+      </div>
+      <div id="modal-meta" class="muted"></div>
+      <div id="modal-description" class="muted" style="margin-bottom:16px;"></div>
+      <p><a class="button primary" id="modal-link" href="#" target="_blank" rel="noreferrer">開啟原圖</a></p>
+      <figure class="modal-figure">
+        <img id="modal-image" src="" alt="" />
+      </figure>
+    </div>
+  </div>
+
+  <footer class="wrap footer">
+    <p>本專區由施育廷整理製作，作為公開版證明文件展示入口；若後續新增證照或證明圖片，可重跑 <code>scripts/build_certificate_site.ps1</code> 重新產生資料清單與展示圖庫。</p>
+  </footer>
+
+  <script src="./data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
