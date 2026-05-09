@@ -1,363 +1,105 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>生成式 AI 教學與實作：教育、研究與工作現場的應用教材 | Course Guide</title>
-  <style>
-    :root { --paper:#fffdf8; --ink:#203231; --muted:#5c6d69; --line:#d9d0c2; --accent:#0f766e; }
-    * { box-sizing:border-box; }
-    body { margin:0; background:linear-gradient(180deg,#efe7da 0%,#f7f3ec 42%,#f5f1e8 100%); color:var(--ink); font-family:"Noto Sans TC","Segoe UI",sans-serif; line-height:1.8; }
-    a { color:var(--accent); }
-    .wrap { width:min(920px, calc(100vw - 32px)); margin:0 auto; }
-    header { padding:24px 0 8px; }
-    nav { display:flex; flex-wrap:wrap; gap:12px; }
-    nav a { text-decoration:none; padding:9px 14px; border-radius:999px; background:rgba(255,255,255,.76); border:1px solid rgba(32,50,49,.08); color:var(--ink); }
-    main { background:var(--paper); border:1px solid var(--line); border-radius:28px; padding:32px; margin:12px auto 40px; box-shadow:0 18px 40px rgba(32,50,49,.08); }
-    h1 { font-size:clamp(30px, 4vw, 48px); line-height:1.15; margin:0 0 18px; }
-    h2 { margin:28px 0 12px; font-size:28px; }
-    h3 { margin:22px 0 8px; font-size:21px; }
-    p { margin:0 0 14px; }
-    ul { margin:0 0 16px 20px; }
-    li { margin-bottom:8px; }
-    figure { margin:24px 0; }
-    img { max-width:100%; display:block; border-radius:18px; border:1px solid var(--line); background:#fff; }
-  </style>
+  <title>Source Guide | Generative AI Teaching and Practice</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="wrap">
-    <nav>
-      <a href="../index_en.html">Academic Site</a>
-      <a href="../author-works/index_en.html">Works</a>
-      <a href="../sitemap_en.html">Sitemap</a>
-    </nav>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="index_en.html">Generative AI Teaching and Practice</a>
+      <nav class="nav">
+        <a href="index_en.html">Home</a>
+        <a href="teaching-plan_en.html">Teaching Plan</a>
+        <a href="projects_en.html">Projects</a>
+        <a href="../index_en.html">Academic Site</a>
+        <a href="guide.html">中文</a>
+      </nav>
+    </div>
   </header>
-  <main class="wrap">
-    <h1>生成式 AI 教學與實作：教育、研究與工作現場的應用教材</h1>
-<p>本教材為依據 `classfile` 內 AI 相關素材重新整編的原創線上版本，目的在於建立一份可公開使用、具教學邏輯且可直接上線閱讀的教材。內容避開《AI時代，我與它的對話》既有章節寫法與原文表述，改以新的教學路徑、案例順序與任務設計呈現。</p>
-<h2>線上版本入口</h2>
-<ul>
-<li>網站首頁：<a href="./index.html">`index.html`</a></li>
-<li>英文首頁：<a href="./index_en.html">`index_en.html`</a></li>
-<li>教學計畫：<a href="./teaching-plan.html">`teaching-plan.html`</a></li>
-<li>英文教學計畫：<a href="./teaching-plan_en.html">`teaching-plan_en.html`</a></li>
-<li>專題任務：<a href="./projects.html">`projects.html`</a></li>
-<li>英文專題任務：<a href="./projects_en.html">`projects_en.html`</a></li>
-<li>單元頁面：</li>
-</ul>
-<p>  - <a href="./units/unit01.html">`units/unit01.html`</a></p>
-<p>  - <a href="./units/unit01_en.html">`units/unit01_en.html`</a></p>
-<p>  - <a href="./units/unit02.html">`units/unit02.html`</a></p>
-<p>  - <a href="./units/unit02_en.html">`units/unit02_en.html`</a></p>
-<p>  - <a href="./units/unit03.html">`units/unit03.html`</a></p>
-<p>  - <a href="./units/unit03_en.html">`units/unit03_en.html`</a></p>
-<p>  - <a href="./units/unit04.html">`units/unit04.html`</a></p>
-<p>  - <a href="./units/unit04_en.html">`units/unit04_en.html`</a></p>
-<p>  - <a href="./units/unit05.html">`units/unit05.html`</a></p>
-<p>  - <a href="./units/unit05_en.html">`units/unit05_en.html`</a></p>
-<p>  - <a href="./units/unit06.html">`units/unit06.html`</a></p>
-<p>  - <a href="./units/unit06_en.html">`units/unit06_en.html`</a></p>
-<p>  - <a href="./units/unit07.html">`units/unit07.html`</a></p>
-<p>  - <a href="./units/unit07_en.html">`units/unit07_en.html`</a></p>
-<p>  - <a href="./units/unit08.html">`units/unit08.html`</a></p>
-<p>  - <a href="./units/unit08_en.html">`units/unit08_en.html`</a></p>
-<h2>GitHub Pages 建議</h2>
-<ul>
-<li>目前根目錄已包含 `index.html`，可直接作為 GitHub Pages 首頁。</li>
-<li>已新增 `.nojekyll`，可降低靜態資源在 GitHub Pages 上被 Jekyll 處理的干擾。</li>
-<li>若要發布，將整個 `AI_線上教材_原創整合版` 作為 repo 根目錄，或放進 `docs/` 也可以。</li>
-</ul>
-<h2>教材定位</h2>
-<ul>
-<li>適用對象：大學生、研究生、教師、行政人員、跨領域初學者</li>
-<li>教學目標：理解生成式 AI 的核心概念，熟悉常見工具，能設計 AI 協作流程，並將其應用於教學、研究與工作任務</li>
-<li>建議形式：8 週課程、工作坊、社群讀書會、自學教材</li>
-<li>先備能力：基本數位工具使用能力，願意操作雲端平台與文字型介面</li>
-</ul>
-<h2>學習成果</h2>
-<p>完成本教材後，學習者應能：</p>
-<p>1. 解釋生成式 AI、機器學習、多模態系統與 AI Agent 的基本差異。</p>
-<p>2. 使用 ChatGPT、Gemini、Copilot、NotebookLM 或相近工具完成指定任務。</p>
-<p>3. 撰寫結構化提示詞，提升輸出品質與可控性。</p>
-<p>4. 以雲端工具建立簡易的 AI 工作流，例如資料整理、回饋生成、課程設計或研究摘要。</p>
-<p>5. 將 AI 融入教學、學術研究、行政服務或專題實作。</p>
-<p>6. 評估 AI 使用中的錯誤風險、資料安全與學術倫理問題。</p>
-<h2>教材地圖</h2>
-<p>本教材採用「觀念建立 -&gt; 工具操作 -&gt; 工作流整合 -&gt; 專題應用 -&gt; 倫理反思」的主線，共分為八個單元。</p>
-<h3>單元 1：認識生成式 AI 與數位工作新模式</h3>
-<p>本單元不從技術名詞堆疊開始，而是先幫學習者建立一個判斷框架：為什麼現在的 AI 和過去的數位工具不一樣？它究竟只是搜尋加速器、文字生成器，還是新的工作接口？</p>
-<p>學習重點：</p>
-<ul>
-<li>人工智慧、機器學習、深度學習、生成式 AI 的基本關係</li>
-<li>分析型 AI 與生成型 AI 的差別</li>
-<li>文字、圖片、聲音、影片的多模態概念</li>
-<li>從「使用工具」轉向「與工具協作」的工作型態</li>
-</ul>
-<p>建議教學流程：</p>
-<p>1. 先用三個真實任務開場：摘要文章、產生教案、產生程式。</p>
-<p>2. 引導學習者比較傳統搜尋與生成式 AI 回應的差異。</p>
-<p>3. 討論 AI 為何能看起來像懂你，但其實仍可能出錯。</p>
-<p>課堂活動：</p>
-<ul>
-<li>小組討論「AI 是助手、顧問、編輯，還是共同作者？」</li>
-<li>用一個相同題目，分別請不同工具作答並比較</li>
-</ul>
-<p>課後任務：</p>
-<ul>
-<li>撰寫一段 200 字反思：AI 最可能改變你哪一種學習或工作方式？</li>
-</ul>
-<h3>單元 2：提示詞設計與對話策略</h3>
-<p>這一單元聚焦在最常被低估的能力：提問。多數初學者以為 AI 的關鍵在模型名稱，其實實務上更常決定成果品質的是任務描述是否清楚、輸出格式是否具體、是否有上下文與限制條件。</p>
-<p>學習重點：</p>
-<ul>
-<li>提示詞的四個基本元素：角色、任務、條件、輸出格式</li>
-<li>一輪問答與多輪對話的差異</li>
-<li>如何要求表格、步驟、比較、範例與修訂</li>
-<li>如何降低模糊回答、過度自信與空泛敘述</li>
-</ul>
-<p>推薦提示詞骨架：</p>
-<p>```text</p>
-<p>你現在扮演：</p>
-<p>任務目標：</p>
-<p>使用對象：</p>
-<p>限制條件：</p>
-<p>輸出格式：</p>
-<p>請先列出步驟，再提供結果。</p>
-<p>```</p>
-<p>課堂活動：</p>
-<ul>
-<li>把「幫我寫報告」改寫成三個不同難度的高品質提示詞</li>
-<li>比較「一句話提問」與「結構化提問」的輸出差異</li>
-</ul>
-<p>課後任務：</p>
-<ul>
-<li>針對自己的課程或研究主題，設計 5 條可重用的提示詞模板</li>
-</ul>
-<h3>單元 3：常見 AI 工具與平台選擇</h3>
-<p>本單元不是要列工具清單，而是幫助學習者建立「任務導向」的工具選擇觀。你不是因為工具熱門才使用它，而是因為它適合某一類工作。</p>
-<p>可對照的工具方向：</p>
-<ul>
-<li>ChatGPT：快速對話、內容草稿、程式協助</li>
-<li>Gemini：Google 生態整合、多模態、雲端延展</li>
-<li>Copilot：Office 文件、簡報、工作情境整合</li>
-<li>NotebookLM：文件導向整理、摘要、知識問答</li>
-<li>AI Studio / API 平台：進階應用、原型開發、模型測試</li>
-</ul>
-<p>教學建議：</p>
-<ul>
-<li>用「同一任務跨平台試作」代替「平台逐一介紹」</li>
-<li>任務例子可包含：</li>
-</ul>
-<p>  - 讀一份 PDF 並整理重點</p>
-<p>  - 將課程大綱改寫成學習單</p>
-<p>  - 生成一份研究口頭報告架構</p>
-<p>  - 協助修正程式或資料清理步驟</p>
-<p>課堂活動：</p>
-<ul>
-<li>工具配對遊戲：根據任務決定最適合的平台</li>
-</ul>
-<p>課後任務：</p>
-<ul>
-<li>建立一張「我自己的 AI 工具選擇表」</li>
-</ul>
-<h3>單元 4：AI 與教學設計</h3>
-<p>這一單元把 AI 拉回教育現場，處理真正重要的問題：如何讓 AI 成為教學助力，而不是讓課堂失去主體性。</p>
-<p>應用場景：</p>
-<ul>
-<li>課程大綱改寫為學習目標</li>
-<li>生成教學活動、課堂提問與分層任務</li>
-<li>協助教材轉譯：長文轉重點、概念轉生活例子</li>
-<li>形成性評量題目與回饋建議</li>
-<li>學習歷程與反思引導</li>
-</ul>
-<p>教學提醒：</p>
-<ul>
-<li>AI 適合協助「起草、變形、補充、比較」</li>
-<li>教師仍須掌握「判斷、選擇、修訂、脈絡化」</li>
-<li>好的教學不是把內容交給 AI，而是把 AI 放進明確的教學設計中</li>
-</ul>
-<p>課堂活動：</p>
-<ul>
-<li>將一段傳統講義改寫成互動式課程任務</li>
-<li>讓 AI 分別生成「初階版」與「進階版」同主題教材</li>
-</ul>
-<p>課後任務：</p>
-<ul>
-<li>完成一份 50 分鐘教案，明確標示 AI 在哪個環節介入、為何介入</li>
-</ul>
-<h3>單元 5：AI 與學術研究</h3>
-<p>在 `classfile` 的 AI 研究、研討會與學術應用素材中，可以看出一條很明確的脈絡：AI 不是只拿來寫文章，而是可以介入研究流程中的多個環節。</p>
-<p>可導入的研究流程：</p>
-<ul>
-<li>題目收斂與研究焦點釐清</li>
-<li>文獻摘要與比較表初稿</li>
-<li>研究方法草案整理</li>
-<li>問卷題項潤飾與分類</li>
-<li>資料清理與分析說明草稿</li>
-<li>口頭發表簡報架構生成</li>
-</ul>
-<p>重要原則：</p>
-<ul>
-<li>AI 可以協助整理，但不能取代研究者對內容真實性的判斷</li>
-<li>文獻、數據、引文與理論來源必須人工核對</li>
-<li>涉及研究倫理與學術誠信時，必須事先設定使用邊界</li>
-</ul>
-<p>課堂活動：</p>
-<ul>
-<li>用 AI 將三篇摘要整理成文獻比較表</li>
-<li>讓 AI 生成一份研究簡報大綱，再由學生自行修正</li>
-</ul>
-<p>課後任務：</p>
-<ul>
-<li>以自己的研究主題為例，寫出一份「AI 可用 / 不可用」的研究流程規範</li>
-</ul>
-<h3>單元 6：AI 工作流與雲端整合</h3>
-<p>本單元是整份教材的轉折點。前面幾個單元讓學習者會用 AI，這一單元則要讓學習者開始思考：我能不能把 AI 接進自己的流程裡，而不是每次都從空白對話重新開始？</p>
-<p>核心觀念：</p>
-<ul>
-<li>工作流不是單一回應，而是一串可重複的任務步驟</li>
-<li>雲端整合的價值，在於讓資料、觸發條件與輸出結果能持續接續</li>
-<li>即使不是工程師，也能理解基礎自動化架構</li>
-</ul>
-<p>建議介紹的實作觀念：</p>
-<ul>
-<li>Google Sheets 當作輕量資料表</li>
-<li>Google Apps Script 當作流程控制層</li>
-<li>API / Webhook / Trigger 的基本概念</li>
-<li>表單、試算表、Gmail、Drive、日曆與 AI 回應的串接想像</li>
-</ul>
-<p>示例任務：</p>
-<ul>
-<li>學生提交反思後，自動生成個別回饋</li>
-<li>收到表單資料後，自動分類與整理</li>
-<li>將簡報重點轉為課後摘要</li>
-</ul>
-<p>課堂活動：</p>
-<ul>
-<li>畫出自己的 AI 工作流草圖：輸入、處理、輸出</li>
-</ul>
-<p>課後任務：</p>
-<ul>
-<li>完成一張「我的雲端 AI 工作流設計圖」</li>
-</ul>
-<h3>單元 7：AI Agent、聊天機器人與互動服務</h3>
-<p>在 `classfile` 中可見 LINE Bot、Google 整合、Gemini 與各類互動專題的素材脈絡，因此本單元聚焦在「AI 作為互動系統」而非只是回應工具。</p>
-<p>學習重點：</p>
-<ul>
-<li>什麼是 AI Agent</li>
-<li>聊天機器人與一般對話介面的差異</li>
-<li>記憶、角色、人設、工具呼叫的基本概念</li>
-<li>多模態助理的想像：文字、圖片、檔案與情境輸入</li>
-</ul>
-<p>可引導的應用情境：</p>
-<ul>
-<li>校園問答助理</li>
-<li>行政流程助理</li>
-<li>專題學習陪伴機器人</li>
-<li>心理支持與反思引導原型</li>
-</ul>
-<p>教學提醒：</p>
-<ul>
-<li>不必一開始就教程式</li>
-<li>可先從「功能設計圖」開始：這個 Agent 幫誰？解決什麼？有什麼風險？</li>
-</ul>
-<p>課堂活動：</p>
-<ul>
-<li>設計一個 3 分鐘可說明清楚的 AI Agent 原型</li>
-</ul>
-<p>課後任務：</p>
-<ul>
-<li>繪製 Agent 功能藍圖：對象、任務、資料來源、回應方式、限制條件</li>
-</ul>
-<h3>單元 8：AI 使用倫理、風險與品質控管</h3>
-<p>如果一份 AI 教材沒有談驗證、偏誤與責任，它就不完整。本單元讓學習者學會把 AI 當成高效但不可靠的協作夥伴。</p>
-<p>應處理的核心問題：</p>
-<ul>
-<li>幻覺與錯誤資訊</li>
-<li>資料隱私與敏感內容</li>
-<li>著作權與重製風險</li>
-<li>學術倫理與引用問題</li>
-<li>過度依賴 AI 導致能力外包</li>
-</ul>
-<p>建議建立的檢核表：</p>
-<p>1. 這段內容是否可被查證？</p>
-<p>2. 這份資料是否可以上傳？</p>
-<p>3. 這個輸出是否涉及他人作品重製？</p>
-<p>4. 我是否能解釋 AI 回答背後的邏輯？</p>
-<p>5. 若 AI 錯了，後果是什麼？</p>
-<p>課堂活動：</p>
-<ul>
-<li>讓學生找出一則 AI 回答中的三個潛在問題</li>
-</ul>
-<p>課後任務：</p>
-<ul>
-<li>完成一份個人版「AI 使用守則」</li>
-</ul>
-<h2>建議課程安排</h2>
-<h3>八週版本</h3>
-<p>1. 第 1 週：生成式 AI 與數位工作新模式</p>
-<p>2. 第 2 週：提示詞設計與對話策略</p>
-<p>3. 第 3 週：常見 AI 工具與平台選擇</p>
-<p>4. 第 4 週：AI 與教學設計</p>
-<p>5. 第 5 週：AI 與學術研究</p>
-<p>6. 第 6 週：AI 工作流與雲端整合</p>
-<p>7. 第 7 週：AI Agent、聊天機器人與互動服務</p>
-<p>8. 第 8 週：倫理、驗證與成果發表</p>
-<h3>單日工作坊版本</h3>
-<ul>
-<li>上午：觀念、提示詞、工具比較</li>
-<li>下午：教學 / 研究 / 工作流應用</li>
-<li>收尾：倫理與專題原型發表</li>
-</ul>
-<h2>專題任務設計</h2>
-<p>學習者可從以下三類專題中擇一完成：</p>
-<ul>
-<li>教學型：設計一個 AI 輔助教學活動或教材頁</li>
-<li>研究型：設計一個 AI 輔助研究流程或文獻整理流程</li>
-<li>服務型：設計一個 AI Agent 或自動化工作流原型</li>
-</ul>
-<p>專題輸出建議包含：</p>
-<ul>
-<li>專題名稱</li>
-<li>問題情境</li>
-<li>目標使用者</li>
-<li>使用的 AI 工具</li>
-<li>工作流程圖</li>
-<li>範例輸入與輸出</li>
-<li>風險與限制</li>
-</ul>
-<h2>評量方式</h2>
-<ul>
-<li>平時任務 40%</li>
-<li>課堂活動與參與 20%</li>
-<li>期末專題 30%</li>
-<li>反思與倫理檢核 10%</li>
-</ul>
-<h2>教師使用建議</h2>
-<ul>
-<li>若對象為初學者，先以「可立即有感」的工具任務建立信心</li>
-<li>若對象為研究生，可強化文獻整理、分析解釋與研究倫理</li>
-<li>若對象為教師社群，可聚焦在教案、評量與課程設計</li>
-<li>若對象為行政或專題團隊，可聚焦在工作流與 Agent 原型</li>
-</ul>
-<h2>教材特色</h2>
-<ul>
-<li>不直接重製既有付費內容，而是重新設計學習路徑</li>
-<li>將 AI 工具、教學應用、研究支持與系統整合放在同一張地圖中</li>
-<li>適合延伸成網站、社群課、工作坊講義或 LMS 模組</li>
-</ul>
-<h2>後續可擴充方向</h2>
-<ul>
-<li>補上每單元示範影片與操作截圖</li>
-<li>將每單元拆分為獨立頁面</li>
-<li>加入作業單、簡報版與教學者手冊</li>
-<li>建立雙語版本或國際交流版本</li>
-</ul>
-<h2>檔案建議</h2>
-<ul>
-<li>線上閱讀版：<a href="./index.html">index.html</a></li>
-<li>編修原稿版：`README.md`</li>
-</ul>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumb"><a href="index_en.html">Home</a> / Source Guide</p>
+      <p class="eyebrow">Source Guide</p>
+      <h1>How the course site was updated from the sourcebook archive</h1>
+      <p class="lead">
+        This page explains how the ai-course-site was refreshed using the sourcebook docx set and slide-based interface materials stored in classfile.
+      </p>
+    </div>
+  </section>
+
+  <main class="wrap main-stack">
+    <section class="summary-box">
+      <h2>Update method</h2>
+      <ul class="clean-list">
+        <li>The sourcebook chapters were mapped back into the eight-unit public course structure.</li>
+        <li>The site keeps the course-web format but now carries a stronger chapter backbone and workflow logic.</li>
+        <li>Interface screenshots from slide materials were added so the course can show actual tools rather than only describe them.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <p class="section-label">Source Documents</p>
+          <h2>Primary text sources</h2>
+        </div>
+        <p class="section-text">
+          The main textual sources are <code>AI時代，我與它的對話.docx</code>, <code>AI 教學與互動工具書製作.docx</code>, and CH1 through CH7.
+        </p>
+      </div>
+      <div class="plan-grid">
+        <article class="lesson-card">
+          <h3>CH1-CH3</h3>
+          <p>These chapters reinforce generative AI architecture, Python x Colab, Google Apps Script, and cloud deployment for Units 2, 3, and 6.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>CH4</h3>
+          <p>This chapter strengthens Unit 1 with the long arc of technology shifts, generative AI logic, and multimodal foundations.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>CH5-CH6</h3>
+          <p>These chapters reinforce serverless cloud AI applications, GAS+Sheets+Sites architecture, LINE Bot, and AI agent practice for Units 6 and 7.</p>
+        </article>
+        <article class="lesson-card">
+          <h3>CH7</h3>
+          <p>This chapter adds data storytelling, learning dashboards, predictive analysis, and prescriptive analysis to Units 5 and 8.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <p class="section-label">Visual Assets</p>
+          <h2>Slide-based interface references</h2>
+        </div>
+        <p class="section-text">
+          These visuals were collected from classfile slide materials and are now used to support tool comparison, platform explanation, and workflow design.
+        </p>
+      </div>
+      <div class="figure-grid">
+        <article class="panel figure-card"><img src="assets/sourcebook/notebooklm-home.png" alt="NotebookLM interface" /></article>
+        <article class="panel figure-card"><img src="assets/sourcebook/ai-studio-home.png" alt="Google AI Studio interface" /></article>
+        <article class="panel figure-card"><img src="assets/sourcebook/copilot-chat.png" alt="Copilot chat interface" /></article>
+        <article class="panel figure-card"><img src="assets/sourcebook/apps-script-editor.png" alt="Apps Script editor interface" /></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <article class="panel">
+        <p class="section-label">Workflow Translation</p>
+        <h2>How the materials were translated into the course pages</h2>
+        <ul class="clean-list">
+          <li>The homepage now includes a sourcebook edition block so readers can see where the deeper structure comes from.</li>
+          <li>The teaching-plan page now includes chapter-to-week alignment for instructors and workshop planners.</li>
+          <li>The guide page has been rewritten as a real source explanation page rather than a simple list of entry links.</li>
+        </ul>
+      </article>
+    </section>
   </main>
 </body>
 </html>
