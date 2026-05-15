@@ -206,13 +206,20 @@
       ? items
       : items.filter((item) => item.categoryKey === activeCategory);
 
+    const ordered = [...current].sort((a, b) => {
+      const yearA = Number.parseInt(a.year || "0", 10) || 0;
+      const yearB = Number.parseInt(b.year || "0", 10) || 0;
+      if (yearA !== yearB) return yearB - yearA;
+      return (b.sort || 0) - (a.sort || 0);
+    });
+
     galleryRoot.innerHTML = "";
-    if (!current.length) {
+    if (!ordered.length) {
       galleryRoot.innerHTML = `<div class="empty">${i18n.noItems}</div>`;
       return;
     }
 
-    current.forEach((item) => {
+    ordered.forEach((item) => {
       const card = document.createElement("article");
       card.className = "card";
       card.innerHTML = `
