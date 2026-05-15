@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>證照與證明專區 | 施育廷學術網站</title>
+  <title>證照與證明 | 施育廷學術網站</title>
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
@@ -23,10 +23,10 @@
       <div class="hero-grid">
         <div>
           <p class="eyebrow">Credentials Archive</p>
-          <h1>證照、證書與證明文件專區</h1>
-          <p class="lead">本頁彙整施育廷於專業證照、學術發表、研習進修、教學服務、講座貢獻與學術身分相關的證明文件，作為對外展示、學術履歷補充與合作交流時的公開材料入口。</p>
+          <h1>證照、獎項與正式證明彙整</h1>
+          <p class="lead">本頁整理施育廷公開展示用的專業證照、論文發表證明、研習與培訓證書、教學聘書、感謝狀、專利證明與學術身分文件，作為對外瀏覽與學術履歷補充之用。</p>
           <div class="button-row">
-            <a class="button primary" href="#collections">瀏覽分類展示</a>
+            <a class="button primary" href="#collections">瀏覽分類內容</a>
             <a class="button" href="../author-works/index.html">查看研究成果</a>
             <a class="button" href="./index_en.html">English Version</a>
           </div>
@@ -35,12 +35,12 @@
         <aside class="panel hero-side">
           <div>
             <p class="eyebrow">Archive Scope</p>
-            <h3>從技能認證到學術發表的公開證明整理</h3>
-            <p class="muted">內容包括 Google 與專業證照、研習培訓證明、論文發表紀錄、聘書、感謝狀、專利證書與博士候選人證明，採圖文卡片方式展示，便於快速檢視與分享。</p>
+            <h3>從技能證照到學術發表的完整紀錄</h3>
+            <p class="muted">目前收錄 Google 相關認證、專業證照、研習與培訓證明、論文發表與獲獎紀錄、教學聘書、感謝狀、專利證書，以及博士階段學術身分證明。</p>
           </div>
           <div class="chip-row">
             <span class="chip">證照</span>
-            <span class="chip">研習</span>
+            <span class="chip">培訓</span>
             <span class="chip">發表</span>
             <span class="chip">聘書</span>
             <span class="chip">專利</span>
@@ -54,9 +54,9 @@
         <div class="section-head">
           <div>
             <p class="eyebrow">Collections</p>
-            <h2>分類展示</h2>
+            <h2>依類別瀏覽</h2>
           </div>
-          <p class="muted">以下依證照、研習、發表、聘書與感謝狀等類型整理，方便公開瀏覽與學術履歷使用。</p>
+          <p class="muted">可依證照、培訓、發表、聘任與感謝紀錄等類型快速篩選，提升對外瀏覽與檢視體驗。</p>
         </div>
         <div class="filters" id="filters"></div>
         <div class="section-grid" id="gallery"></div>
@@ -75,7 +75,7 @@
       </div>
       <div id="modal-meta" class="muted"></div>
       <div id="modal-description" class="muted" style="margin-bottom:16px;"></div>
-      <p><a class="button primary" id="modal-link" href="#" target="_blank" rel="noreferrer">開啟原圖</a></p>
+      <p><a class="button primary" id="modal-link" href="#" target="_blank" rel="noreferrer">開啟原始圖片</a></p>
       <figure class="modal-figure">
         <img id="modal-image" src="" alt="" />
       </figure>
@@ -83,7 +83,7 @@
   </div>
 
   <footer class="wrap footer">
-    <p>本專區由施育廷整理製作，作為公開版證明文件展示入口；若後續新增證照或證明圖片，可重跑 <code>scripts/build_certificate_site.ps1</code> 重新產生資料清單與展示圖庫。</p>
+    <p>本頁由施育廷整理製作，作為公開版證照與證明檔案展示頁。新增證照或證明後，可重新執行 <code>scripts/build_certificate_site.ps1</code> 更新內容。</p>
   </footer>
 
   <script src="./data.js"></script>

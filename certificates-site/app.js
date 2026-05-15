@@ -5,15 +5,15 @@
   const i18n = {
     zh: {
       total: "公開展示項目",
-      categories: "分類",
+      categories: "分類數量",
       years: "可辨識年份",
-      featured: "代表類型",
+      featured: "主要展示面向",
       all: "全部",
-      open: "開啟大圖",
-      browse: "瀏覽原圖",
+      open: "開啟預覽",
+      browse: "查看原圖",
       issuer: "核發或主辦單位",
       original: "原始檔名",
-      noItems: "目前沒有符合條件的項目。",
+      noItems: "目前沒有符合此篩選條件的項目。",
       yearLabel: "年份",
       descriptionLabel: "說明",
     },
@@ -30,74 +30,74 @@
       noItems: "No items match this filter.",
       yearLabel: "Year",
       descriptionLabel: "Description",
-    }
+    },
   }[pageLang];
 
   const categoryInfo = {
     google: {
       zh: "Google 證照與技能認證",
       en: "Google Credentials and Skills",
-      groupZh: "國際技能認證",
+      groupZh: "全球技能認證",
       groupEn: "Global Skills Credentials",
-      descZh: "聚焦 Google、Google Cloud 與 Gemini 相關的技能認證、課程完訓與教育應用證明。",
-      descEn: "Credentials and completion records related to Google, Google Cloud, Gemini, and educator-facing digital skills."
+      descZh: "與 Google、Google Cloud、Gemini 及教育者數位技能相關的證照與完訓紀錄。",
+      descEn: "Credentials and completion records related to Google, Google Cloud, Gemini, and educator-facing digital skills.",
     },
     license: {
       zh: "專業證照",
       en: "Professional Certifications",
       groupZh: "專業能力",
       groupEn: "Professional Capability",
-      descZh: "涵蓋資料庫、程式設計、架構框架與教育科技等專業證照。",
-      descEn: "Professional certifications covering databases, programming, architecture frameworks, and educational technology."
+      descZh: "涵蓋資料庫、程式設計、架構框架與教育科技相關的專業證照。",
+      descEn: "Professional certifications covering databases, programming, architecture frameworks, and educational technology.",
     },
     training: {
-      zh: "研習與培訓證明",
+      zh: "研習與培訓",
       en: "Training and Workshop Records",
-      groupZh: "研習進修",
+      groupZh: "持續專業成長",
       groupEn: "Continuous Professional Learning",
-      descZh: "彙整參與 AI、數位學習、EMI 與教學創新相關研習、論壇與工作坊的證明。",
-      descEn: "Records of workshops, forums, and training events related to AI, digital learning, EMI, and teaching innovation."
+      descZh: "收錄 AI、數位學習、EMI 與教學創新相關的研習、論壇與工作坊紀錄。",
+      descEn: "Records of workshops, forums, and training events related to AI, digital learning, EMI, and teaching innovation.",
     },
     presentation: {
       zh: "論文發表與學術成果",
       en: "Presentations and Scholarly Outputs",
-      groupZh: "研究與發表",
+      groupZh: "研究與擴散",
       groupEn: "Research and Dissemination",
-      descZh: "收錄論文發表證明、參與證明、獎項與期刊成果紀錄。",
-      descEn: "Presentation records, participation certificates, awards, and journal-related evidence."
+      descZh: "包含論文發表、參與證明、獲獎紀錄與期刊相關佐證資料。",
+      descEn: "Presentation records, participation certificates, awards, and journal-related evidence.",
     },
     appointment: {
       zh: "聘書與教學服務",
       en: "Appointment Letters and Teaching Service",
       groupZh: "教學服務",
       groupEn: "Teaching Service",
-      descZh: "呈現教學與課程服務相關聘書與聘任紀錄。",
-      descEn: "Appointment letters and service records related to teaching and course support."
+      descZh: "與教學、課程支援及學術服務相關的聘任與服務紀錄。",
+      descEn: "Appointment letters and service records related to teaching and course support.",
     },
     appreciation: {
-      zh: "感謝狀與講座貢獻",
+      zh: "感謝狀與推廣服務",
       en: "Appreciation and Outreach Recognition",
-      groupZh: "社群與貢獻",
+      groupZh: "社群連結",
       groupEn: "Community Engagement",
-      descZh: "彙整因講座、分享與教學推廣所獲得的感謝狀與致謝文件。",
-      descEn: "Letters of appreciation received for talks, outreach, and instructional contributions."
+      descZh: "演講、推廣活動與教學貢獻所獲頒的感謝狀與致謝紀錄。",
+      descEn: "Letters of appreciation received for talks, outreach, and instructional contributions.",
     },
     patent: {
       zh: "專利與智慧財產",
       en: "Patent and Intellectual Property",
       groupZh: "代表成果",
       groupEn: "Featured Output",
-      descZh: "專利證書與代表性研發成果之正式證明。",
-      descEn: "Formal evidence of patent registration and featured innovation output."
+      descZh: "專利證書與正式登錄資料，呈現代表性研究與應用成果。",
+      descEn: "Formal evidence of patent registration and featured innovation output.",
     },
     status: {
       zh: "學術身分證明",
       en: "Academic Status Documentation",
-      groupZh: "學術歷程",
+      groupZh: "學術里程碑",
       groupEn: "Academic Milestones",
-      descZh: "包含學術身分與進修階段的正式證明文件。",
-      descEn: "Formal documents that verify academic status and doctoral-stage milestones."
-    }
+      descZh: "用於證明學術身分、博士階段進程與正式狀態的文件。",
+      descEn: "Formal documents that verify academic status and doctoral-stage milestones.",
+    },
   };
 
   const byId = (id) => document.getElementById(id);
