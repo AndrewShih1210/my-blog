@@ -615,6 +615,18 @@ window.CERTIFICATE_ITEMS = [
         "id":  "cert-052",
         "sort":  52,
         "image":  "./items/item-052.jpg",
+        "originalFile":  "【發表】2026_ETS佳作論文獎.jpg",
+        "titleZh":  "2026_ETS佳作論文獎",
+        "titleEn":  "Presentation Record: 2026_ETS佳作論文獎",
+        "categoryKey":  "presentation",
+        "issuerZh":  "Relevant issuing or hosting body",
+        "issuerEn":  "Relevant issuing or hosting body",
+        "year":  "2026"
+    },
+    {
+        "id":  "cert-053",
+        "sort":  53,
+        "image":  "./items/item-053.jpg",
         "originalFile":  "【發表】2026_TWELF.jpg",
         "titleZh":  "2026_TWELF",
         "titleEn":  "Presentation Record: 2026_TWELF",
@@ -624,9 +636,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "2026"
     },
     {
-        "id":  "cert-053",
-        "sort":  53,
-        "image":  "./items/item-053.jpg",
+        "id":  "cert-054",
+        "sort":  54,
+        "image":  "./items/item-054.jpg",
         "originalFile":  "【發表】AEIT_2025.jpg",
         "titleZh":  "AEIT_2025",
         "titleEn":  "Presentation Record: AEIT_2025",
@@ -636,9 +648,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "2025"
     },
     {
-        "id":  "cert-054",
-        "sort":  54,
-        "image":  "./items/item-054.jpg",
+        "id":  "cert-055",
+        "sort":  55,
+        "image":  "./items/item-055.jpg",
         "originalFile":  "【發表】Education Sciences.jpg",
         "titleZh":  "Education Sciences",
         "titleEn":  "Presentation Record: Education Sciences",
@@ -648,9 +660,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-055",
-        "sort":  55,
-        "image":  "./items/item-055.png",
+        "id":  "cert-056",
+        "sort":  56,
+        "image":  "./items/item-056.png",
         "originalFile":  "【發表】ICEET2025.png",
         "titleZh":  "ICEET2025",
         "titleEn":  "Presentation Record: ICEET2025",
@@ -660,9 +672,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "2025"
     },
     {
-        "id":  "cert-056",
-        "sort":  56,
-        "image":  "./items/item-056.png",
+        "id":  "cert-057",
+        "sort":  57,
+        "image":  "./items/item-057.png",
         "originalFile":  "【發表】ICEET-O01.png",
         "titleZh":  "ICEET-O01",
         "titleEn":  "Presentation Record: ICEET-O01",
@@ -672,9 +684,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-057",
-        "sort":  57,
-        "image":  "./items/item-057.png",
+        "id":  "cert-058",
+        "sort":  58,
+        "image":  "./items/item-058.png",
         "originalFile":  "【發表】ICEET--O04.png",
         "titleZh":  "ICEET--O04",
         "titleEn":  "Presentation Record: ICEET--O04",
@@ -684,9 +696,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-058",
-        "sort":  58,
-        "image":  "./items/item-058.jpg",
+        "id":  "cert-059",
+        "sort":  59,
+        "image":  "./items/item-059.jpg",
         "originalFile":  "【發表】ICEET最佳論文獎.jpg",
         "titleZh":  "ICEET最佳論文獎",
         "titleEn":  "Presentation Record: ICEET最佳論文獎",
@@ -696,9 +708,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-059",
-        "sort":  59,
-        "image":  "./items/item-059.jpg",
+        "id":  "cert-060",
+        "sort":  60,
+        "image":  "./items/item-060.jpg",
         "originalFile":  "【發表】ICEET論文優選獎.jpg",
         "titleZh":  "ICEET論文優選獎",
         "titleEn":  "Presentation Record: ICEET論文優選獎",
@@ -708,9 +720,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-060",
-        "sort":  60,
-        "image":  "./items/item-060.jpg",
+        "id":  "cert-061",
+        "sort":  61,
+        "image":  "./items/item-061.jpg",
         "originalFile":  "【發表】測驗學會.jpg",
         "titleZh":  "測驗學會",
         "titleEn":  "Presentation Record: 測驗學會",
@@ -720,9 +732,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-061",
-        "sort":  61,
-        "image":  "./items/item-061.jpg",
+        "id":  "cert-062",
+        "sort":  62,
+        "image":  "./items/item-062.jpg",
         "originalFile":  "【感謝狀】111高教深耕感謝狀.jpg",
         "titleZh":  "111高教深耕感謝狀",
         "titleEn":  "Letter of Appreciation: 111高教深耕感謝狀",
@@ -732,9 +744,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "111"
     },
     {
-        "id":  "cert-062",
-        "sort":  62,
-        "image":  "./items/item-062.jpg",
+        "id":  "cert-063",
+        "sort":  63,
+        "image":  "./items/item-063.jpg",
         "originalFile":  "【感謝狀】AI工具應用,關於醫療與放射科輔助工作,Gemini 雲端整合與提示詞工程 (1).jpg",
         "titleZh":  "AI工具應用,關於醫療與放射科輔助工作,Gemini 雲端整合與提示詞工程 (1)",
         "titleEn":  "Letter of Appreciation: AI工具應用,關於醫療與放射科輔助工作,Gemini 雲端整合與提示詞工程 (1)",
@@ -744,9 +756,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-063",
-        "sort":  63,
-        "image":  "./items/item-063.jpg",
+        "id":  "cert-064",
+        "sort":  64,
+        "image":  "./items/item-064.jpg",
         "originalFile":  "【感謝狀】運用AI輔助學習講座講師.jpg",
         "titleZh":  "運用AI輔助學習講座講師",
         "titleEn":  "Letter of Appreciation: 運用AI輔助學習講座講師",
@@ -756,9 +768,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-064",
-        "sort":  64,
-        "image":  "./items/item-064.jpg",
+        "id":  "cert-065",
+        "sort":  65,
+        "image":  "./items/item-065.jpg",
         "originalFile":  "【聘書】NTCU_110-2.jpg",
         "titleZh":  "NTCU_110-2",
         "titleEn":  "Appointment Letter: NTCU_110-2",
@@ -768,9 +780,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-065",
-        "sort":  65,
-        "image":  "./items/item-065.jpg",
+        "id":  "cert-066",
+        "sort":  66,
+        "image":  "./items/item-066.jpg",
         "originalFile":  "【聘書】NTCU_111-1.jpg",
         "titleZh":  "NTCU_111-1",
         "titleEn":  "Appointment Letter: NTCU_111-1",
@@ -780,9 +792,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-066",
-        "sort":  66,
-        "image":  "./items/item-066.jpg",
+        "id":  "cert-067",
+        "sort":  67,
+        "image":  "./items/item-067.jpg",
         "originalFile":  "【聘書】NTCU_111-2.jpg",
         "titleZh":  "NTCU_111-2",
         "titleEn":  "Appointment Letter: NTCU_111-2",
@@ -792,9 +804,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-067",
-        "sort":  67,
-        "image":  "./items/item-067.jpg",
+        "id":  "cert-068",
+        "sort":  68,
+        "image":  "./items/item-068.jpg",
         "originalFile":  "【聘書】NTCU_112.jpg",
         "titleZh":  "NTCU_112",
         "titleEn":  "Appointment Letter: NTCU_112",
@@ -804,9 +816,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-068",
-        "sort":  68,
-        "image":  "./items/item-068.jpg",
+        "id":  "cert-069",
+        "sort":  69,
+        "image":  "./items/item-069.jpg",
         "originalFile":  "【聘書】NTCU_113-1.jpg",
         "titleZh":  "NTCU_113-1",
         "titleEn":  "Appointment Letter: NTCU_113-1",
@@ -816,9 +828,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-069",
-        "sort":  69,
-        "image":  "./items/item-069.jpg",
+        "id":  "cert-070",
+        "sort":  70,
+        "image":  "./items/item-070.jpg",
         "originalFile":  "【聘書】NTCU_113-2.jpg",
         "titleZh":  "NTCU_113-2",
         "titleEn":  "Appointment Letter: NTCU_113-2",
@@ -828,9 +840,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-070",
-        "sort":  70,
-        "image":  "./items/item-070.jpg",
+        "id":  "cert-071",
+        "sort":  71,
+        "image":  "./items/item-071.jpg",
         "originalFile":  "【聘書】NTCU_114-1.jpg",
         "titleZh":  "NTCU_114-1",
         "titleEn":  "Appointment Letter: NTCU_114-1",
@@ -840,9 +852,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-071",
-        "sort":  71,
-        "image":  "./items/item-071.jpg",
+        "id":  "cert-072",
+        "sort":  72,
+        "image":  "./items/item-072.jpg",
         "originalFile":  "【聘書】NTCU_114-2.jpg",
         "titleZh":  "NTCU_114-2",
         "titleEn":  "Appointment Letter: NTCU_114-2",
@@ -852,9 +864,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-072",
-        "sort":  72,
-        "image":  "./items/item-072.jpg",
+        "id":  "cert-073",
+        "sort":  73,
+        "image":  "./items/item-073.jpg",
         "originalFile":  "【證明】博士候選人證明書.jpg",
         "titleZh":  "博士候選人證明書",
         "titleEn":  "Academic Proof: 博士候選人證明書",
@@ -864,9 +876,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-073",
-        "sort":  73,
-        "image":  "./items/item-073.jpg",
+        "id":  "cert-074",
+        "sort":  74,
+        "image":  "./items/item-074.jpg",
         "originalFile":  "【證照】(MTA)Microsoft Technology Associate：Database Administration Fundamentals1.jpg",
         "titleZh":  "(MTA)Microsoft Technology Associate：Database Administration Fundamentals1",
         "titleEn":  "Certification: (MTA)Microsoft Technology Associate：Database Administration Fundamentals1",
@@ -876,9 +888,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-074",
-        "sort":  74,
-        "image":  "./items/item-074.jpg",
+        "id":  "cert-075",
+        "sort":  75,
+        "image":  "./items/item-075.jpg",
         "originalFile":  "【證照】(MTA)Microsoft Technology Associate：Database Administration Fundamentals2.jpg",
         "titleZh":  "(MTA)Microsoft Technology Associate：Database Administration Fundamentals2",
         "titleEn":  "Certification: (MTA)Microsoft Technology Associate：Database Administration Fundamentals2",
@@ -888,9 +900,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-075",
-        "sort":  75,
-        "image":  "./items/item-075.jpg",
+        "id":  "cert-076",
+        "sort":  76,
+        "image":  "./items/item-076.jpg",
         "originalFile":  "【證照】Foundation Certificate in EPC Architecture Framework.jpg",
         "titleZh":  "Foundation Certificate in EPC Architecture Framework",
         "titleEn":  "Certification: Foundation Certificate in EPC Architecture Framework",
@@ -900,9 +912,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-076",
-        "sort":  76,
-        "image":  "./items/item-076.png",
+        "id":  "cert-077",
+        "sort":  77,
+        "image":  "./items/item-077.png",
         "originalFile":  "【證照】Google 認證教育工作者第 1 級.png",
         "titleZh":  "Google 認證教育工作者第 1 級",
         "titleEn":  "Certification: Google 認證教育工作者第 1 級",
@@ -912,9 +924,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-077",
-        "sort":  77,
-        "image":  "./items/item-077.png",
+        "id":  "cert-078",
+        "sort":  78,
+        "image":  "./items/item-078.png",
         "originalFile":  "【證照】Google 認證教育工作者第 2 級.png",
         "titleZh":  "Google 認證教育工作者第 2 級",
         "titleEn":  "Certification: Google 認證教育工作者第 2 級",
@@ -924,9 +936,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-078",
-        "sort":  78,
-        "image":  "./items/item-078.jpg",
+        "id":  "cert-079",
+        "sort":  79,
+        "image":  "./items/item-079.jpg",
         "originalFile":  "【證照】Oracle Certified Java Programmer (OCJP).jpg",
         "titleZh":  "Oracle Certified Java Programmer (OCJP)",
         "titleEn":  "Certification: Oracle Certified Java Programmer (OCJP)",
