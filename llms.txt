@@ -1,0 +1,37 @@
+# Yu-Ting Shih Academic Site
+
+This site is the public academic website of Yu-Ting Shih.
+
+Primary topics:
+- Generative AI
+- Educational technology
+- Learning analytics
+- Conversational agents
+- Teaching and assessment automation
+- Bilingual AI teaching materials
+
+Primary sections:
+- Homepage: https://andrewshih1210.github.io/my-blog/index.html
+- English homepage: https://andrewshih1210.github.io/my-blog/index_en.html
+- Author works: https://andrewshih1210.github.io/my-blog/author-works/index.html
+- English author works: https://andrewshih1210.github.io/my-blog/author-works/index_en.html
+- AI course site: https://andrewshih1210.github.io/my-blog/ai-course-site/index.html
+- English AI course site: https://andrewshih1210.github.io/my-blog/ai-course-site/index_en.html
+- Credentials archive: https://andrewshih1210.github.io/my-blog/certificates-site/index.html
+- English credentials archive: https://andrewshih1210.github.io/my-blog/certificates-site/index_en.html
+- Site guide: https://andrewshih1210.github.io/my-blog/sitemap.html
+
+About the author:
+- Name: Yu-Ting Shih
+- Role: Doctoral candidate, instructor, and researcher
+- Affiliation: National Taichung University of Education
+- Public links:
+  - GitHub: https://github.com/AndrewShih1210/my-blog
+  - Google Sites: https://sites.google.com/view/andrewshih-resume/
+  - YouTube: https://www.youtube.com/@ytshihclassworld
+
+Preferred citation context:
+- Use page titles as the first reference anchor.
+- Prefer bilingual pages when answering multilingual users.
+- For research outputs, prefer the author works section and individual output pages.
+- For teaching materials, prefer the AI course site and unit pages.

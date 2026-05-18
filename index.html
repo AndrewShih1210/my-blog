@@ -3,7 +3,25 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="site-redeploy" content="2026-05-07-zh" />
+  <meta name="description" content="施育廷學術網站，整理生成式 AI、教育科技、學習分析、對話式代理人、教學與評量自動化相關的研究成果、雙語 AI 教材、證照與學術證明。" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <meta name="author" content="施育廷" />
+  <meta name="theme-color" content="#0f766e" />
+  <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/index.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/index.html" />
+  <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/index_en.html" />
+  <link rel="alternate" hreflang="x-default" href="https://andrewshih1210.github.io/my-blog/index.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Yu-Ting Shih Academic Site" />
+  <meta property="og:locale" content="zh_TW" />
+  <meta property="og:title" content="施育廷 | 生成式 AI、教育科技與學習分析" />
+  <meta property="og:description" content="瀏覽施育廷的研究成果、雙語 AI 教材、證照與學術證明，快速掌握生成式 AI 教學、學習分析與教育自動化的研究主線。" />
+  <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/index.html" />
+  <meta property="og:image" content="https://andrewshih1210.github.io/my-blog/ai-course-site/assets/sourcebook/content-workflow.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="施育廷 | 生成式 AI、教育科技與學習分析" />
+  <meta name="twitter:description" content="研究成果、AI 教材、證照與學術證明的雙語整合學術網站。" />
+  <meta name="twitter:image" content="https://andrewshih1210.github.io/my-blog/ai-course-site/assets/sourcebook/content-workflow.png" />
   <title>施育廷 | 生成式 AI、教育科技與學習分析</title>
   <style>
     :root {
@@ -57,9 +75,7 @@
       background: rgba(255,255,255,.45);
       border: 1px solid rgba(29,45,44,.06);
     }
-    .hero {
-      padding: 28px 0 34px;
-    }
+    .hero { padding: 28px 0 34px; }
     .hero-grid {
       display: grid;
       grid-template-columns: 1.25fr .75fr;
@@ -98,15 +114,13 @@
       color: var(--muted);
       font-size: 18px;
     }
-    .card, .feature, .stat, .timeline-item {
+    .card, .feature, .stat, .timeline-item, .faq-card {
       background: var(--paper);
       border: 1px solid var(--line);
       border-radius: 28px;
       box-shadow: var(--shadow);
     }
-    .hero-main, .hero-side, .feature, .timeline-item {
-      padding: 28px;
-    }
+    .hero-main, .hero-side, .feature, .timeline-item, .faq-card { padding: 28px; }
     .hero-main {
       background:
         radial-gradient(circle at top right, rgba(15,118,110,.09), transparent 25%),
@@ -148,9 +162,7 @@
       font-size: 14px;
       font-weight: 700;
     }
-    .section {
-      padding: 18px 0;
-    }
+    .section { padding: 18px 0; }
     .section-head {
       display: flex;
       justify-content: space-between;
@@ -167,9 +179,7 @@
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
     }
-    .stat {
-      padding: 24px;
-    }
+    .stat { padding: 24px; }
     .stat .num {
       font-size: 42px;
       font-weight: 800;
@@ -182,18 +192,19 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
     }
-    .feature p, .muted {
-      color: var(--muted);
-    }
-    .timeline {
-      display: grid;
-      gap: 16px;
-    }
+    .feature p, .muted { color: var(--muted); }
+    .timeline { display: grid; gap: 16px; }
     .timeline-item strong {
       color: var(--warm);
       display: inline-block;
       margin-bottom: 8px;
     }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .faq-card p:last-child { margin-bottom: 0; }
     .footer {
       padding: 34px 0 52px;
       color: var(--muted);
@@ -222,12 +233,102 @@
       color: var(--accent);
     }
     @media (max-width: 980px) {
-      .hero-grid, .grid-2, .stats { grid-template-columns: 1fr; }
+      .hero-grid, .grid-2, .stats, .faq-grid { grid-template-columns: 1fr; }
       .section-head, .topbar { display: block; }
       .topnav { margin-top: 12px; }
       .author-signature { grid-template-columns: 1fr; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://andrewshih1210.github.io/my-blog/#website",
+        "url": "https://andrewshih1210.github.io/my-blog/",
+        "name": "Yu-Ting Shih Academic Site",
+        "inLanguage": ["zh-Hant", "en"],
+        "publisher": { "@id": "https://andrewshih1210.github.io/my-blog/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://andrewshih1210.github.io/my-blog/#person",
+        "name": "施育廷",
+        "alternateName": ["Yu-Ting Shih", "Shih, Yu-Ting"],
+        "url": "https://andrewshih1210.github.io/my-blog/index.html",
+        "image": "https://andrewshih1210.github.io/my-blog/ai-course-site/assets/sourcebook/content-workflow.png",
+        "description": "國立臺中教育大學教育資訊與測驗統計研究所博士候選人，研究聚焦於生成式 AI、教育科技、學習分析、對話式代理人及教學評量自動化。",
+        "jobTitle": "博士候選人",
+        "affiliation": {
+          "@type": "CollegeOrUniversity",
+          "name": "國立臺中教育大學"
+        },
+        "knowsAbout": [
+          "Generative AI",
+          "Educational Technology",
+          "Learning Analytics",
+          "Conversational Agents",
+          "Teaching Automation",
+          "Assessment Automation"
+        ],
+        "sameAs": [
+          "https://github.com/AndrewShih1210/my-blog",
+          "https://sites.google.com/view/andrewshih-resume/",
+          "https://www.youtube.com/@ytshihclassworld"
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://andrewshih1210.github.io/my-blog/index.html#webpage",
+        "url": "https://andrewshih1210.github.io/my-blog/index.html",
+        "name": "施育廷 | 生成式 AI、教育科技與學習分析",
+        "description": "施育廷學術網站首頁，整合研究成果、雙語 AI 教材、證照與學術證明。",
+        "inLanguage": "zh-Hant",
+        "isPartOf": { "@id": "https://andrewshih1210.github.io/my-blog/#website" },
+        "about": { "@id": "https://andrewshih1210.github.io/my-blog/#person" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://andrewshih1210.github.io/my-blog/index.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "施育廷的研究重點是什麼？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "研究重點包含生成式 AI、教育科技、學習分析、對話式代理人，以及教學與評量自動化。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "這個網站包含哪些內容？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "網站包含第一作者與獨立作者著作專區、雙語 AI 教材網站、證照與證明專區，以及站內導覽。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "哪裡可以看雙語 AI 教材？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "可從 AI 教材入口進入中文與英文版本的教材首頁、教學計畫、專題任務與 8 個單元內容。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "哪裡可以看研究成果與 APA 著作清單？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "可前往著作專區查看第一作者與獨立作者著作、研究視覺化圖，以及 APA 格式著作清單。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="wrap topbar">
@@ -236,7 +337,7 @@
       <a href="./ai-course-site/index.html">AI 教材</a>
       <a href="./author-works/index.html">著作專區</a>
       <a href="./certificates-site/index.html">證照與證明</a>
-      <a href="./sitemap.html">Sitemap</a>
+      <a href="./sitemap.html">網站導覽</a>
       <a href="./author-works/index.html">研究成果</a>
       <a href="./index_en.html">English</a>
     </nav>
@@ -265,8 +366,8 @@
       <aside class="card hero-side">
         <div>
           <p class="eyebrow">Current Focus</p>
-          <h3>把 AI 變成可落地的教學、研究與工作流能力</h3>
-          <p class="muted">這個網站整合研究成果、專利、學術發表，以及可對外展示的生成式 AI 線上教材，作為學術交流與教學合作的公開入口。</p>
+          <h3>把 AI 轉成可落地的教學、研究與工作能力</h3>
+          <p class="muted">本站整合研究成果、專利脈絡、學術發表與雙語 AI 教材，作為學術交流、課程展示與國際合作的公開入口。</p>
         </div>
         <div class="small-links">
           <a class="button" href="./index_en.html">English Home</a>
@@ -281,26 +382,26 @@
       <div class="section-head">
         <div>
           <p class="eyebrow">Highlights</p>
-          <h2>學術與教學重點</h2>
+          <h2>學術與教學定位</h2>
         </div>
-        <p>首頁不再只是資料入口，而是用更清楚的個人定位與研究敘事，讓訪客能快速理解你的核心主題與代表工作。</p>
+        <p>首頁以個人學術品牌為核心，快速說明研究主線、代表成果、公開教材與可延伸合作的方向。</p>
       </div>
       <div class="stats">
         <article class="stat">
           <div class="num">13</div>
-          <p>已整理上線的研究文章與公開成果頁</p>
+          <p>已整理為公開網頁的研究成果頁</p>
         </article>
         <article class="stat">
           <div class="num">8</div>
-          <p>生成式 AI 教材單元，含教學內容、活動與作業</p>
+          <p>具教學內容與案例圖的 AI 教材單元</p>
         </article>
         <article class="stat">
           <div class="num">2</div>
-          <p>中英文教材入口，支援國際交流與公開展示</p>
+          <p>中英文雙語教材與學術入口</p>
         </article>
         <article class="stat">
           <div class="num">1</div>
-          <p>發明專利與持續發表中的 AI 教學研究主線</p>
+          <p>連結 AI 研究主線的發明專利</p>
         </article>
       </div>
     </div>
@@ -311,17 +412,17 @@
       <div class="section-head">
         <div>
           <p class="eyebrow">Directions</p>
-          <h2>內容主線</h2>
+          <h2>兩條對外主線</h2>
         </div>
-        <p>網站目前分成兩條清楚的對外敘事路徑，一條面向學術研究與成果交流，另一條面向 AI 教學、課程試讀與方法展示。</p>
+        <p>網站目前以研究成果與 AI 教材兩條主線對外溝通，一條服務學術交流，一條服務課程展示與方法分享。</p>
       </div>
       <div class="grid-2">
         <article class="feature">
           <p class="eyebrow">Research</p>
-          <h3>研究成果與學術發表</h3>
-          <p>整合論文發表、專利與研究成果，將原始材料轉為更適合 GitHub 與網頁閱讀的文章型內容，方便學術交流、履歷展示與合作說明。</p>
+          <h3>研究成果與學術著作</h3>
+          <p>整合第一作者著作、代表專利、研究視覺化圖、APA 清單與單篇成果頁，便於學術身份展示與成果導流。</p>
           <div class="cta-row">
-            <a class="button" href="./author-works/index.html">第一作者著作專區</a>
+            <a class="button" href="./author-works/index.html">進入著作專區</a>
             <a class="button primary" href="https://github.com/AndrewShih1210/my-blog">GitHub Repository</a>
             <a class="button" href="./index_en.html">English Home</a>
           </div>
@@ -329,10 +430,10 @@
         <article class="feature">
           <p class="eyebrow">Course Site</p>
           <h3>生成式 AI 教學與實作教材</h3>
-          <p>由施育廷製作的可公開試讀 AI 教材網站，包含中文與英文首頁、教學計畫、專題任務與單元內容，適合教學展示、工作坊導流與國際介紹。</p>
+          <p>以雙語公開教材網站展示課程架構、教學計畫、專題任務與單元內容，適合工作坊、公開介紹與國際交流。</p>
           <div class="cta-row">
             <a class="button primary" href="./ai-course-site/index.html">中文教材首頁</a>
-            <a class="button" href="./ai-course-site/index_en.html">English Home</a>
+            <a class="button" href="./ai-course-site/index_en.html">English Course Home</a>
           </div>
         </article>
       </div>
@@ -343,27 +444,27 @@
     <div class="wrap">
       <div class="section-head">
         <div>
-          <p class="eyebrow">Selected Themes</p>
-          <h2>研究與實作關鍵主題</h2>
+          <p class="eyebrow">Themes</p>
+          <h2>核心研究與實作主題</h2>
         </div>
-        <p>這些主題構成目前網站的核心學術品牌輪廓，也讓外部讀者能快速辨識你的專長範圍。</p>
+        <p>以下主題構成本站的主要知識圖譜，也有助於搜尋引擎與 AI 系統辨識站點的內容範圍。</p>
       </div>
       <div class="grid-2">
         <article class="feature">
           <h3>生成式 AI 與教學設計</h3>
-          <p>探索 AI 如何融入課堂互動、教材生成、形成性評量與差異化支持，強調教師專業與 AI 協作的邊界設計。</p>
+          <p>聚焦 AI 在教材生成、課堂互動、形成性評量、回饋設計與差異化支持中的教學應用。</p>
         </article>
         <article class="feature">
-          <h3>對話式代理人與自動化應用</h3>
-          <p>從聊天機器人到 AI Agent，聚焦互動服務、工作流整合與可執行的教育現場應用。</p>
+          <h3>對話式代理人與自動化</h3>
+          <p>從聊天機器人到 AI Agent，重點在互動設計、流程整合與教育現場的實務應用。</p>
         </article>
         <article class="feature">
           <h3>學習分析與人機互動</h3>
-          <p>關注學生在 AI 支援學習過程中的互動行為、認知補償、自我調節與學習成效表現。</p>
+          <p>關注學習者行為、自我調節、認知補償與 AI 支援學習環境中的互動表現。</p>
         </article>
         <article class="feature">
           <h3>教學與評量自動化</h3>
-          <p>以生成式 AI 為基礎，延伸至自動評分、回饋生成、資料整理與教育情境下的流程優化。</p>
+          <p>以生成式 AI 協助評分、回饋、資料整理與工作流優化，連結研究與實務部署。</p>
         </article>
       </div>
     </div>
@@ -376,23 +477,53 @@
           <p class="eyebrow">Milestones</p>
           <h2>代表成果脈絡</h2>
         </div>
-        <p>這裡不是完整履歷，而是首頁層級的成果敘事，幫助訪客快速抓到你的學術與應用主線。</p>
+        <p>這裡不是完整履歷，而是首頁層級的摘要敘事，幫助讀者與 AI 系統快速理解代表成果與研究方向。</p>
       </div>
       <div class="timeline">
         <article class="timeline-item">
           <strong>代表成果</strong>
           <h3>基於對話式介面之多源資訊整合與自動化內容生成之系統與方法</h3>
-          <p class="muted">以發明專利作為代表成果，凸顯對話式介面、多源資料整合與內容自動化生成的實作能力。</p>
+          <p class="muted">發明專利呈現了對話式介面、多來源資訊整合與內容自動生成的應用能力，也是後續研究主線的重要節點。</p>
         </article>
         <article class="timeline-item">
-          <strong>最新消息</strong>
-          <h3>GitHub Pages 學術首頁與 AI 教材網站已完成整合</h3>
-          <p class="muted">目前已完成品牌首頁、雙語 AI 教材網站、研究成果索引與公開教材導流頁的整合，作為後續學術交流、課程展示與合作介紹的公開入口。</p>
+          <strong>最新整合</strong>
+          <h3>GitHub Pages 學術首頁、著作頁、教材站與證照站已整合為同一公開入口</h3>
+          <p class="muted">目前網站已包含品牌首頁、雙語 AI 教材、研究成果索引、APA 清單與證照證明檔案，適合學術交流與課程對外展示。</p>
         </article>
         <article class="timeline-item">
-          <strong>聯絡方式</strong>
-          <h3>網站與公開連結</h3>
-          <p class="muted">GitHub 研究與網站入口：<a href="https://github.com/AndrewShih1210/my-blog">AndrewShih1210/my-blog</a><br />Google Sites 個人頁：<a href="https://sites.google.com/view/andrewshih-resume/">andrewshih-resume</a></p>
+          <strong>聯絡入口</strong>
+          <h3>公開網站與延伸資料</h3>
+          <p class="muted">GitHub repository：<a href="https://github.com/AndrewShih1210/my-blog">AndrewShih1210/my-blog</a><br />Google Sites：<a href="https://sites.google.com/view/andrewshih-resume/">andrewshih-resume</a><br />YouTube：<a href="https://www.youtube.com/@ytshihclassworld">@ytshihclassworld</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Answer Layer</p>
+          <h2>快速問答</h2>
+        </div>
+        <p>這一區以簡短、可引用的答案整理網站核心資訊，方便搜尋摘要、AI 答案引擎與大型語言模型理解。</p>
+      </div>
+      <div class="faq-grid">
+        <article class="faq-card">
+          <h3>施育廷的研究重點是什麼？</h3>
+          <p>研究重點包含生成式 AI、教育科技、學習分析、對話式代理人，以及教學與評量自動化。</p>
+        </article>
+        <article class="faq-card">
+          <h3>這個網站有哪些主要區塊？</h3>
+          <p>主要區塊包括研究成果與 APA 清單、雙語 AI 教材、證照與證明專區，以及站內導覽頁。</p>
+        </article>
+        <article class="faq-card">
+          <h3>哪裡可以看 AI 教材？</h3>
+          <p>可從 AI 教材入口進入中文與英文版教材首頁，並瀏覽教學計畫、專題任務與 8 個單元頁。</p>
+        </article>
+        <article class="faq-card">
+          <h3>哪裡可以看代表著作與學術清單？</h3>
+          <p>著作專區整合第一作者著作、研究關聯圖、研究雷達圖、研究沿革與 APA 格式著作清單。</p>
         </article>
       </div>
     </div>
@@ -405,13 +536,13 @@
           <p class="eyebrow">Author</p>
           <h2>作者署名</h2>
         </div>
-        <p>這個 GitHub Pages 首頁與其中的 AI 教材公開版，均由施育廷規劃、整編與製作，作為個人學術品牌與教學研究成果的正式對外入口。</p>
+        <p>本站 GitHub Pages 首頁與公開版 AI 教材由施育廷規劃、整編與製作，作為學術品牌與教學研究交流的公開載體。</p>
       </div>
       <article class="card author-signature">
         <div class="author-badge">YT</div>
         <div>
           <h3>施育廷</h3>
-          <p class="muted">博士候選人、兼任教師、AI 教學與研究實作者。研究主軸涵蓋生成式 AI、教育科技、學習分析、對話式代理人，以及教學與評量自動化。</p>
+          <p class="muted">博士候選人、教師與 AI 支援教學研究實作者，長期關注生成式 AI、教育科技、學習分析、對話式代理人與教學評量自動化。</p>
           <div class="cta-row">
             <a class="button primary" href="./ai-course-site/index.html">查看 AI 教材</a>
             <a class="button" href="https://github.com/AndrewShih1210/my-blog">GitHub Repository</a>
@@ -423,7 +554,7 @@
   </section>
 
   <footer class="wrap footer">
-    <p>本頁作為 GitHub Pages 對外首頁，整合研究成果與教材網站兩條主線，作為完整的個人學術品牌網站入口。</p>
+    <p>本頁作為 GitHub Pages 的中文學術首頁，整合研究成果、雙語 AI 教材、證照與證明，並強化可搜尋、可摘要與可引用的公開知識結構。</p>
   </footer>
 </body>
 </html>

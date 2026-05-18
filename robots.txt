@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://andrewshih1210.github.io/my-blog/sitemap.xml

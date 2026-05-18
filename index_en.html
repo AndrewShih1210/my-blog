@@ -1,9 +1,27 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="site-redeploy" content="2026-05-07-en" />
+  <meta name="description" content="Yu-Ting Shih's academic website featuring research outputs, a bilingual generative AI course site, credentials, and public-facing materials on educational technology, learning analytics, and AI-supported teaching workflows." />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <meta name="author" content="Yu-Ting Shih" />
+  <meta name="theme-color" content="#0f766e" />
+  <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/index_en.html" />
+  <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/index_en.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/index.html" />
+  <link rel="alternate" hreflang="x-default" href="https://andrewshih1210.github.io/my-blog/index.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Yu-Ting Shih Academic Site" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Yu-Ting Shih | Generative AI, Educational Technology, and Learning Analytics" />
+  <meta property="og:description" content="Explore Yu-Ting Shih's research outputs, bilingual AI course site, academic credentials, and public-facing resources on generative AI, educational technology, and workflow automation." />
+  <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/index_en.html" />
+  <meta property="og:image" content="https://andrewshih1210.github.io/my-blog/ai-course-site/assets/sourcebook/content-workflow.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Yu-Ting Shih | Generative AI, Educational Technology, and Learning Analytics" />
+  <meta name="twitter:description" content="Research outputs, bilingual AI course materials, credentials, and public-facing academic resources." />
+  <meta name="twitter:image" content="https://andrewshih1210.github.io/my-blog/ai-course-site/assets/sourcebook/content-workflow.png" />
   <title>Yu-Ting Shih | Generative AI, Educational Technology, and Learning Analytics</title>
   <style>
     :root {
@@ -96,13 +114,13 @@
       color: var(--muted);
       font-size: 18px;
     }
-    .card, .feature, .stat, .timeline-item {
+    .card, .feature, .stat, .timeline-item, .faq-card {
       background: var(--paper);
       border: 1px solid var(--line);
       border-radius: 28px;
       box-shadow: var(--shadow);
     }
-    .hero-main, .hero-side, .feature, .timeline-item { padding: 28px; }
+    .hero-main, .hero-side, .feature, .timeline-item, .faq-card { padding: 28px; }
     .hero-main {
       background:
         radial-gradient(circle at top right, rgba(15,118,110,.09), transparent 25%),
@@ -181,6 +199,12 @@
       display: inline-block;
       margin-bottom: 8px;
     }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .faq-card p:last-child { margin-bottom: 0; }
     .footer {
       padding: 34px 0 52px;
       color: var(--muted);
@@ -209,12 +233,102 @@
       color: var(--accent);
     }
     @media (max-width: 980px) {
-      .hero-grid, .grid-2, .stats { grid-template-columns: 1fr; }
+      .hero-grid, .grid-2, .stats, .faq-grid { grid-template-columns: 1fr; }
       .section-head, .topbar { display: block; }
       .topnav { margin-top: 12px; }
       .author-signature { grid-template-columns: 1fr; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://andrewshih1210.github.io/my-blog/#website",
+        "url": "https://andrewshih1210.github.io/my-blog/",
+        "name": "Yu-Ting Shih Academic Site",
+        "inLanguage": ["en", "zh-Hant"],
+        "publisher": { "@id": "https://andrewshih1210.github.io/my-blog/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://andrewshih1210.github.io/my-blog/#person",
+        "name": "Yu-Ting Shih",
+        "alternateName": ["施育廷", "Shih, Yu-Ting"],
+        "url": "https://andrewshih1210.github.io/my-blog/index_en.html",
+        "image": "https://andrewshih1210.github.io/my-blog/ai-course-site/assets/sourcebook/content-workflow.png",
+        "description": "Doctoral candidate whose work focuses on generative AI, educational technology, learning analytics, conversational agents, and the automation of teaching and assessment workflows.",
+        "jobTitle": "Doctoral Candidate",
+        "affiliation": {
+          "@type": "CollegeOrUniversity",
+          "name": "National Taichung University of Education"
+        },
+        "knowsAbout": [
+          "Generative AI",
+          "Educational Technology",
+          "Learning Analytics",
+          "Conversational Agents",
+          "Teaching Automation",
+          "Assessment Automation"
+        ],
+        "sameAs": [
+          "https://github.com/AndrewShih1210/my-blog",
+          "https://sites.google.com/view/andrewshih-resume/",
+          "https://www.youtube.com/@ytshihclassworld"
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://andrewshih1210.github.io/my-blog/index_en.html#webpage",
+        "url": "https://andrewshih1210.github.io/my-blog/index_en.html",
+        "name": "Yu-Ting Shih | Generative AI, Educational Technology, and Learning Analytics",
+        "description": "English academic homepage for research outputs, bilingual AI course materials, credentials, and public-facing academic resources.",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://andrewshih1210.github.io/my-blog/#website" },
+        "about": { "@id": "https://andrewshih1210.github.io/my-blog/#person" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://andrewshih1210.github.io/my-blog/index_en.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What does Yu-Ting Shih research?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "His work focuses on generative AI, educational technology, learning analytics, conversational agents, and the automation of teaching and assessment workflows."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is included on this website?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The website includes research outputs, an author works section, a bilingual AI course site, a credentials archive, and a site guide."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where can I find the bilingual AI course materials?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The AI course site includes Chinese and English entry pages, teaching plans, project pages, and eight instructional units."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where can I find research outputs and APA-style publication lists?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The author works section provides first-author and sole-author outputs, research visualizations, and APA-style publication lists."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="wrap topbar">
@@ -270,20 +384,20 @@
           <p class="eyebrow">Highlights</p>
           <h2>Academic and teaching profile</h2>
         </div>
-        <p>This homepage is designed as a branding-oriented academic landing page, helping visitors quickly understand the major research themes and publicly available teaching resources.</p>
+        <p>This homepage functions as a public academic landing page that helps people and machines quickly understand the major research areas, public teaching materials, and collaboration-facing outputs.</p>
       </div>
       <div class="stats">
         <article class="stat">
           <div class="num">13</div>
-          <p>Research articles and public-facing output pages already organized online</p>
+          <p>Research output pages already organized online</p>
         </article>
         <article class="stat">
           <div class="num">8</div>
-          <p>AI course units with teaching content, activities, and assignments</p>
+          <p>AI course units with teaching content, visuals, and assignments</p>
         </article>
         <article class="stat">
           <div class="num">2</div>
-          <p>Bilingual course entry points for public sharing and international communication</p>
+          <p>Bilingual entry points for public sharing and international exchange</p>
         </article>
         <article class="stat">
           <div class="num">1</div>
@@ -298,15 +412,15 @@
       <div class="section-head">
         <div>
           <p class="eyebrow">Directions</p>
-          <h2>Two content tracks</h2>
+          <h2>Two outward-facing tracks</h2>
         </div>
-        <p>The site currently follows two clear outward-facing narratives: one for research outputs and academic exchange, and one for AI teaching, course preview, and public methodology sharing.</p>
+        <p>The site currently follows two clear narratives: one for research visibility and academic exchange, and one for AI teaching, public methodology sharing, and bilingual course communication.</p>
       </div>
       <div class="grid-2">
         <article class="feature">
           <p class="eyebrow">Research</p>
           <h3>Research outputs and academic publications</h3>
-          <p>Collected publications, patent-related work, and project outcomes are organized into GitHub-friendly pages for scholarly exchange, academic identity, and collaboration visibility.</p>
+          <p>Collected publications, patent-related work, research visuals, and formal citation pages are organized for scholarly exchange, academic identity, and collaboration visibility.</p>
           <div class="cta-row">
             <a class="button" href="./author-works/index_en.html">First-Author Works</a>
             <a class="button primary" href="https://github.com/AndrewShih1210/my-blog">GitHub Repository</a>
@@ -333,7 +447,7 @@
           <p class="eyebrow">Themes</p>
           <h2>Core research and practice themes</h2>
         </div>
-        <p>These themes form the current academic brand profile presented across the site.</p>
+        <p>These themes help define the site's entity profile and make it easier for search engines and AI systems to understand what this academic website is about.</p>
       </div>
       <div class="grid-2">
         <article class="feature">
@@ -363,7 +477,7 @@
           <p class="eyebrow">Milestones</p>
           <h2>Representative achievement narrative</h2>
         </div>
-        <p>This section is not a full CV. It is a homepage-level storyline that helps readers quickly grasp the research and application arc.</p>
+        <p>This is not a full CV. It is a homepage-level summary designed to help readers and AI answer systems quickly grasp the major research and application arc.</p>
       </div>
       <div class="timeline">
         <article class="timeline-item">
@@ -372,14 +486,44 @@
           <p class="muted">The invention patent highlights applied capability in conversational interfaces, information integration, and automated content generation.</p>
         </article>
         <article class="timeline-item">
-          <strong>Latest Update</strong>
-          <h3>The GitHub Pages academic homepage and bilingual AI course site are now integrated</h3>
-          <p class="muted">The site currently combines a branding-oriented homepage, a bilingual AI course site, research output indexes, and public-facing course previews for academic communication and teaching outreach.</p>
+          <strong>Latest Integration</strong>
+          <h3>The GitHub Pages academic homepage, works pages, course site, and credentials archive are now connected</h3>
+          <p class="muted">The site now combines a branding-oriented homepage, a bilingual AI course site, research output indexes, APA lists, and a credentials archive for academic communication and teaching outreach.</p>
         </article>
         <article class="timeline-item">
-          <strong>Contact</strong>
-          <h3>Public website links</h3>
-          <p class="muted">GitHub repository: <a href="https://github.com/AndrewShih1210/my-blog">AndrewShih1210/my-blog</a><br />Google Sites profile: <a href="https://sites.google.com/view/andrewshih-resume/">andrewshih-resume</a></p>
+          <strong>Public Links</strong>
+          <h3>Academic and media entry points</h3>
+          <p class="muted">GitHub repository: <a href="https://github.com/AndrewShih1210/my-blog">AndrewShih1210/my-blog</a><br />Google Sites profile: <a href="https://sites.google.com/view/andrewshih-resume/">andrewshih-resume</a><br />YouTube: <a href="https://www.youtube.com/@ytshihclassworld">@ytshihclassworld</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Answer Layer</p>
+          <h2>Quick answers</h2>
+        </div>
+        <p>This section summarizes the site's core information in concise, answer-ready language for search snippets, AI answer engines, and large language models.</p>
+      </div>
+      <div class="faq-grid">
+        <article class="faq-card">
+          <h3>What does Yu-Ting Shih research?</h3>
+          <p>His work focuses on generative AI, educational technology, learning analytics, conversational agents, and the automation of teaching and assessment workflows.</p>
+        </article>
+        <article class="faq-card">
+          <h3>What does this website include?</h3>
+          <p>The website includes research outputs, an author works section, a bilingual AI course site, a credentials archive, and a site guide.</p>
+        </article>
+        <article class="faq-card">
+          <h3>Where can I find the AI course materials?</h3>
+          <p>The AI course site provides Chinese and English entry pages, teaching plans, project pages, and eight instructional units.</p>
+        </article>
+        <article class="faq-card">
+          <h3>Where can I find research outputs and APA-style publication lists?</h3>
+          <p>The author works section provides first-author and sole-author outputs, research visualizations, and APA-style publication lists.</p>
         </article>
       </div>
     </div>
@@ -390,9 +534,9 @@
       <div class="section-head">
         <div>
           <p class="eyebrow">Author</p>
-          <h2>Author Signature</h2>
+          <h2>Author signature</h2>
         </div>
-        <p>This GitHub Pages homepage and the public-facing AI course materials were planned, organized, and produced by Yu-Ting Shih as part of his academic brand and teaching-research communication work.</p>
+        <p>This GitHub Pages homepage and the public-facing bilingual AI course materials were planned, organized, and produced by Yu-Ting Shih as part of his academic brand and teaching-research communication work.</p>
       </div>
       <article class="card author-signature">
         <div class="author-badge">YT</div>
@@ -410,7 +554,7 @@
   </section>
 
   <footer class="wrap footer">
-    <p>This page serves as the English academic homepage for GitHub Pages, connecting research visibility and the bilingual AI course site in one coherent public-facing profile.</p>
+    <p>This English academic homepage connects research visibility, bilingual AI teaching materials, credentials, and public-facing academic resources in a single, machine-readable, answer-friendly profile.</p>
   </footer>
 </body>
 </html>
