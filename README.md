@@ -18,6 +18,8 @@
 
 施育廷（2026）。基於對話式介面之多源資訊整合與自動化內容生成之系統與方法（I918530）。中華民國經濟部智慧財產局。
 
+官方專利頁：https://tiponet.tipo.gov.tw/twpat5/twpatc/twpatkm?!!FRURLI918530
+
 ![專利圖片](https://eapi.pcloud.com/getpubthumb?code=XZX5SGZIwgxU0pNloz6Qmo9WPMbmX79tJ3y&linkpassword=&size=1080x1528&crop=0&type=auto)
 
 ## 研究文章

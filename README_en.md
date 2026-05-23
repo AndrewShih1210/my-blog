@@ -18,7 +18,9 @@ The biography above is adapted from `施育廷_2026.docx.pdf`.
 
 ## Patent
 
-Shih, Y.-T. (2026). System and method for multi-source information integration and automated content generation based on a conversational interface (I918530). Taiwan Intellectual Property Office, Ministry of Economic Affairs.
+Shih, Y.-T. (2026). SYSTEM AND METHOD FOR MULTI-SOURCE INFORMATION INTEGRATION AND AUTOMATED CONTENT GENERATION BASED ON CONVERSATIONAL INTERFACE (I918530). Taiwan Intellectual Property Office, Ministry of Economic Affairs.
+
+Official patent page: https://tiponet.tipo.gov.tw/twpat5/twpatc/twpatkm?!!FRURLI918530
 
 ![Patent Image](https://eapi.pcloud.com/getpubthumb?code=XZX5SGZIwgxU0pNloz6Qmo9WPMbmX79tJ3y&linkpassword=&size=1080x1528&crop=0&type=auto)
 
