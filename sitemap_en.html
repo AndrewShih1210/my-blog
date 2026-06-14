@@ -3,146 +3,142 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Site guide for Yu-Ting Shih's academic website, covering the homepage, author works section, APA lists, bilingual AI course site, and credentials archive." />
-  <meta name="robots" content="index,follow" />
+  <meta name="description" content="Site guide for Yu-Ting Shih's academic website, covering the homepage, research works, APA lists, AI course site, and credentials archive." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="author" content="Yu-Ting Shih" />
   <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/sitemap_en.html" />
   <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/sitemap_en.html" />
   <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/sitemap.html" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Sitemap | Yu-Ting Shih Academic Site" />
-  <meta property="og:description" content="Quick access to research outputs, the bilingual AI course site, and the credentials archive." />
+  <meta property="og:description" content="Quick access to the homepage, research works, AI course site, and credentials archive." />
+  <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/sitemap_en.html" />
   <title>Sitemap | Yu-Ting Shih Academic Site</title>
   <style>
-    :root {
-      --bg: #f5efe6;
-      --paper: rgba(255, 253, 248, 0.96);
-      --ink: #1d2d2c;
-      --muted: #5f6d6a;
-      --line: #d8ccbc;
-      --accent: #0f766e;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Segoe UI", "Noto Sans", sans-serif;
-      color: var(--ink);
-      line-height: 1.8;
-      background:
-        radial-gradient(circle at top left, rgba(15,118,110,.12), transparent 24%),
-        linear-gradient(180deg, #efe7d9 0%, #f7f2ea 30%, #f5efe6 100%);
-    }
-    a { color: var(--accent); }
-    .wrap { width: min(1040px, calc(100vw - 32px)); margin: 0 auto; }
-    header { padding: 28px 0 12px; }
-    nav { display: flex; flex-wrap: wrap; gap: 12px; }
-    nav a {
-      text-decoration: none;
-      color: var(--ink);
-      background: rgba(255,255,255,.72);
-      border: 1px solid rgba(29,45,44,.08);
-      border-radius: 999px;
-      padding: 10px 14px;
-    }
-    main { padding: 12px 0 40px; }
-    .hero, .section {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 28px;
-      margin-bottom: 18px;
-      box-shadow: 0 18px 40px rgba(29, 45, 44, 0.08);
-    }
-    h1, h2, p { margin-top: 0; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-    }
-    .card {
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 20px;
-      background: rgba(255,255,255,.82);
-    }
-    .card ul {
-      margin: 0;
-      padding-left: 18px;
-    }
-    .muted { color: var(--muted); }
+    :root { --bg:#f4f7fb; --paper:rgba(255,255,255,.92); --paper-strong:#fff; --ink:#0f172a; --muted:#475569; --line:#dbe3ee; --accent:#1d4ed8; --accent-soft:rgba(37,99,235,.08); --shadow:0 18px 42px rgba(15,23,42,.08); --radius-card:18px; --radius-button:8px; }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(circle at top left, rgba(59,130,246,.14), transparent 28%),radial-gradient(circle at top right, rgba(15,23,42,.08), transparent 24%),linear-gradient(180deg,#eef4fb 0%,#f8fbff 44%,#f4f7fb 100%);color:var(--ink);font-family:"Inter","Segoe UI","Noto Sans",Arial,sans-serif;line-height:1.8;padding-top:92px}
+    a{color:inherit}.wrap{width:min(1180px,calc(100vw - 32px));margin:0 auto}
+    .site-header{position:fixed;inset:0 0 auto 0;z-index:50;border-bottom:1px solid rgba(148,163,184,.18);background:rgba(248,251,255,.84);backdrop-filter:blur(18px);box-shadow:0 6px 22px rgba(15,23,42,.04)}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 0}
+    .nav{display:flex;flex-wrap:nowrap;gap:12px;overflow-x:auto;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}
+    .nav a,.button{min-height:44px;display:inline-flex;align-items:center;padding:10px 16px;border-radius:var(--radius-button);border:1px solid rgba(148,163,184,.22);background:rgba(255,255,255,.74);text-decoration:none;font-weight:700;white-space:nowrap}
+    .button.primary{background:linear-gradient(135deg,#1d4ed8,#2563eb);border-color:#1d4ed8;color:#fff}
+    .hero,.section{padding:24px 0}
+    .eyebrow{display:inline-block;padding:6px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+    h1,h2,h3,p{margin-top:0} h1{font-size:clamp(36px,5vw,58px);line-height:1.06;margin:14px 0;letter-spacing:-.03em} h2{font-size:clamp(28px,3vw,38px);margin-bottom:14px;letter-spacing:-.02em} h3{font-size:22px;line-height:1.25;margin-bottom:10px}
+    .lead,.muted{color:var(--muted)}
+    .card,.link-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-card);box-shadow:var(--shadow)}
+    .card,.link-card{padding:26px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .link-card ul{margin:0;padding-left:20px}
+    .link-card li{margin-bottom:10px}
+    .section-head{display:flex;justify-content:space-between;gap:18px;align-items:end;margin-bottom:18px}
+    .section-head p{max-width:620px;color:var(--muted)}
+    .footer{padding:20px 0 48px;color:var(--muted);font-size:15px}
+    @media (max-width:980px){body{padding-top:108px}.topbar,.section-head{display:block}.nav{margin-top:12px}.grid{grid-template-columns:1fr}}
   </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "Yu-Ting Shih Academic Site main entries",
-    "url": "https://andrewshih1210.github.io/my-blog/sitemap_en.html",
-    "numberOfItems": 4,
-    "itemListElement": [
-      { "@type": "SiteNavigationElement", "position": 1, "name": "Home", "url": "https://andrewshih1210.github.io/my-blog/index_en.html" },
-      { "@type": "SiteNavigationElement", "position": 2, "name": "Author Works", "url": "https://andrewshih1210.github.io/my-blog/author-works/index_en.html" },
-      { "@type": "SiteNavigationElement", "position": 3, "name": "AI Course Site", "url": "https://andrewshih1210.github.io/my-blog/ai-course-site/index_en.html" },
-      { "@type": "SiteNavigationElement", "position": 4, "name": "Credentials", "url": "https://andrewshih1210.github.io/my-blog/certificates-site/index_en.html" }
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://andrewshih1210.github.io/my-blog/sitemap_en.html#page",
+        "url": "https://andrewshih1210.github.io/my-blog/sitemap_en.html",
+        "name": "Sitemap | Yu-Ting Shih Academic Site",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://andrewshih1210.github.io/my-blog/sitemap_en.html#items",
+        "name": "Main entries of Yu-Ting Shih Academic Site",
+        "itemListElement": [
+          { "@type": "SiteNavigationElement", "position": 1, "name": "Home", "url": "https://andrewshih1210.github.io/my-blog/index_en.html" },
+          { "@type": "SiteNavigationElement", "position": 2, "name": "Research Works", "url": "https://andrewshih1210.github.io/my-blog/author-works/index_en.html" },
+          { "@type": "SiteNavigationElement", "position": 3, "name": "AI Course Site", "url": "https://andrewshih1210.github.io/my-blog/ai-course-site/index_en.html" },
+          { "@type": "SiteNavigationElement", "position": 4, "name": "Credentials", "url": "https://andrewshih1210.github.io/my-blog/certificates-site/index_en.html" }
+        ]
+      }
     ]
   }
   </script>
 </head>
 <body>
-  <header class="wrap">
-    <nav>
-      <a href="./index_en.html">Academic Home</a>
-      <a href="./index.html">Chinese Home</a>
-      <a href="./author-works/index_en.html">Research Works</a>
-      <a href="./author-works/index.html">Chinese Works Page</a>
-      <a href="./ai-course-site/index_en.html">AI Course Site</a>
-      <a href="./ai-course-site/index.html">Chinese Course Site</a>
-      <a href="./certificates-site/index_en.html">Credentials</a>
-      <a href="./certificates-site/index.html">Chinese Credentials Page</a>
-    </nav>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a href="./index_en.html"><strong>Yu-Ting Shih Academic Site</strong></a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="./index_en.html">Home</a>
+        <a href="./author-works/index_en.html">Works</a>
+        <a href="./ai-course-site/index_en.html">AI Course</a>
+        <a href="./certificates-site/index_en.html">Credentials</a>
+        <a href="./sitemap.html">中文</a>
+      </nav>
+    </div>
   </header>
-  <main class="wrap">
-    <section class="hero">
-      <h1>Sitemap</h1>
-      <p class="muted">This page summarizes the main entry points of Yu-Ting Shih's academic website so readers, search engines, and AI systems can understand the overall site structure quickly.</p>
-    </section>
 
-    <section class="section">
-      <h2>Main Sections</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Academic Homepage</h3>
-          <ul>
-            <li><a href="./index_en.html">English Homepage</a></li>
-            <li><a href="./index.html">Chinese Homepage</a></li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Research Works</h3>
-          <ul>
-            <li><a href="./author-works/index_en.html">First-Author and Sole-Author Works</a></li>
-            <li><a href="./author-works/index.html">Chinese Works Page</a></li>
-            <li><a href="./author-works/apa_en.html">APA Publication List</a></li>
-            <li><a href="./author-works/apa.html">Chinese APA List</a></li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>AI Course Site</h3>
-          <ul>
-            <li><a href="./ai-course-site/index_en.html">English Course Homepage</a></li>
-            <li><a href="./ai-course-site/index.html">Chinese Course Homepage</a></li>
-            <li><a href="./ai-course-site/teaching-plan_en.html">Teaching Plan</a></li>
-            <li><a href="./ai-course-site/projects_en.html">Projects</a></li>
-            <li><a href="https://moocs.moe.edu.tw/moocs/#/course/detail/10002657">MOE MOOC: Python Basics, Data Visualization, and Data Analysis</a></li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Credentials Archive</h3>
-          <ul>
-            <li><a href="./certificates-site/index_en.html">English Credentials Page</a></li>
-            <li><a href="./certificates-site/index.html">Chinese Credentials Page</a></li>
-          </ul>
-        </article>
+  <section class="hero">
+    <div class="wrap card">
+      <p class="eyebrow">Sitemap</p>
+      <h1>Sitemap</h1>
+      <p class="lead">This page summarizes the main entry points of Yu-Ting Shih's academic website so readers, search engines, and AI systems can understand the structure of the site quickly.</p>
+      <p class="muted">If you are new to the site, start from the homepage. If you want publications, open the works page. If you want instructional content, move into the AI course site.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;">
+        <a class="button primary" href="./index_en.html">Open Homepage</a>
+        <a class="button" href="./author-works/index_en.html">Open Works Page</a>
+        <a class="button" href="./ai-course-site/index_en.html">Open AI Course</a>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap section-head">
+      <div>
+        <p class="eyebrow">Main Sections</p>
+        <h2>Main Sections</h2>
+      </div>
+      <p>Each section includes bilingual pages and cross-links so research outputs, course materials, and credentials can guide visitors back into the broader site.</p>
+    </div>
+    <div class="wrap grid">
+      <article class="link-card">
+        <h3>Homepage and brand entry</h3>
+        <ul>
+          <li><a href="./index_en.html">English Homepage</a></li>
+          <li><a href="./index.html">Chinese Homepage</a></li>
+        </ul>
+      </article>
+      <article class="link-card">
+        <h3>Research works and publication lists</h3>
+        <ul>
+          <li><a href="./author-works/index_en.html">First-Author and Sole-Author Works</a></li>
+          <li><a href="./author-works/index.html">Chinese Works Page</a></li>
+          <li><a href="./author-works/apa_en.html">APA Publication List</a></li>
+          <li><a href="./author-works/apa.html">Chinese APA List</a></li>
+        </ul>
+      </article>
+      <article class="link-card">
+        <h3>AI course site and teaching content</h3>
+        <ul>
+          <li><a href="./ai-course-site/index_en.html">English Course Homepage</a></li>
+          <li><a href="./ai-course-site/index.html">Chinese Course Homepage</a></li>
+          <li><a href="./ai-course-site/teaching-plan_en.html">Teaching Plan</a></li>
+          <li><a href="./ai-course-site/projects_en.html">Projects</a></li>
+          <li><a href="https://moocs.moe.edu.tw/moocs/#/course/detail/10002657">MOE MOOC Course</a></li>
+        </ul>
+      </article>
+      <article class="link-card">
+        <h3>Credentials, certificates, and proof pages</h3>
+        <ul>
+          <li><a href="./certificates-site/index_en.html">English Credentials Page</a></li>
+          <li><a href="./certificates-site/index.html">Chinese Credentials Page</a></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <footer class="wrap footer">
+    <p>This page is the human-readable site guide. For search engine submission, use <a href="./sitemap.xml">sitemap.xml</a>.</p>
+  </footer>
 </body>
 </html>

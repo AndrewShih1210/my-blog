@@ -1,0 +1,315 @@
+{
+  "updated": "2026-06-14",
+  "yearNotes": {
+    "zh": {
+      "2026": "專利與最新研究發表",
+      "2025": "AI 教育、代理人與評量相關成果",
+      "2018": "較早期虛擬助教與適性支持研究"
+    },
+    "en": {
+      "2026": "Patent and latest conference outputs",
+      "2025": "AI education, agents, and assessment-related outputs",
+      "2018": "Earlier virtual teaching assistant work"
+    }
+  },
+  "patent": {
+    "year": 2026,
+    "zh": {
+      "title": "基於對話式介面之多源資訊整合與自動化內容生成之系統與方法（I918530）",
+      "citation": "施育廷（2026）。基於對話式介面之多源資訊整合與自動化內容生成之系統與方法（I918530）。中華民國經濟部智慧財產局。"
+    },
+    "en": {
+      "title": "System and method for multi-source information integration and automated content generation based on conversational interface (I918530)",
+      "citation": "Shih, Y.-T. (2026). System and method for multi-source information integration and automated content generation based on conversational interface (I918530). Taiwan Intellectual Property Office, Ministry of Economic Affairs."
+    },
+    "url": "https://tiponet.tipo.gov.tw/twpat5/twpatc/twpatkm?!!FRURLI918530"
+  },
+  "works": [
+    {
+      "year": 2026,
+      "sort": 1,
+      "zh": {
+        "title": "探討 GenAI人機協作評量之信度與差異分析",
+        "cardTitle": "2026｜探討 GenAI人機協作評量之信度與差異分析",
+        "meta": "施育廷、張敦程（2026年6月6日）。2026年第七屆台灣商業教育與管理研討會，臺南，臺灣。",
+        "summary": "本研究聚焦 GenAI 與人類教師協作評量時的信度與差異，連結生成式 AI 評分、回饋系統與教育評量研究主線。",
+        "apaAuthors": "施育廷、張敦程",
+        "apaDate": "2026年6月6日",
+        "apaVenue": "2026年第七屆台灣商業教育與管理研討會，臺南，臺灣。",
+        "apaLabel": "【論文發表】"
+      },
+      "en": {
+        "title": "Reliability and difference analysis of GenAI human-machine collaborative assessment",
+        "cardTitle": "2026 | Reliability and Difference Analysis of GenAI Human-Machine Collaborative Assessment",
+        "meta": "Shih, Y.-T., & Chang, D.-C. (2026, June 6). 7th Taiwan Conference on Business Education and Management, Tainan, Taiwan.",
+        "summary": "This study examines reliability and scoring differences in GenAI-supported human-machine collaborative assessment and extends the research line on AI-based educational evaluation and feedback.",
+        "apaAuthors": "Shih, Y.-T., & Chang, D.-C.",
+        "apaDate": "2026, June 6",
+        "apaVenue": "7th Taiwan Conference on Business Education and Management, Tainan, Taiwan.",
+        "apaLabel": "[Conference presentation]"
+      },
+      "pageZh": "../07-探討-GenAI人機協作評量之信度與差異分析/index.html",
+      "pageEn": "../07-探討-GenAI人機協作評量之信度與差異分析/index_en.html"
+    },
+    {
+      "year": 2026,
+      "sort": 2,
+      "zh": {
+        "title": "生成式AI自動評分與回饋系統之滿意度與需求分析",
+        "cardTitle": "2026｜生成式AI自動評分與回饋系統之滿意度與需求分析",
+        "meta": "施育廷、張敦程（2026年5月20日）。2026 ICEET數位學習與教育科技國際研討會，臺北，臺灣。",
+        "summary": "聚焦於生成式 AI 自動評分與回饋系統的滿意度、需求與使用接受情形，延伸施育廷在教育 AI 評量回饋系統上的研究主線。",
+        "apaAuthors": "施育廷、張敦程",
+        "apaDate": "2026年5月20日",
+        "apaVenue": "2026 ICEET數位學習與教育科技國際研討會，臺北，臺灣。",
+        "apaLabel": "【論文發表】"
+      },
+      "en": {
+        "title": "Satisfaction and needs analysis of a generative AI automated scoring and feedback system",
+        "cardTitle": "2026 | Satisfaction and Needs Analysis of a Generative AI Automated Scoring and Feedback System",
+        "meta": "Shih, Y.-T., & Chang, D.-C. (2026, May 20). 2026 ICEET International Conference, Taipei, Taiwan.",
+        "summary": "This work focuses on the satisfaction, needs, and acceptance of a generative AI automated scoring and feedback system in higher education.",
+        "apaAuthors": "Shih, Y.-T., & Chang, D.-C.",
+        "apaDate": "2026, May 20",
+        "apaVenue": "2026 ICEET International Conference on Digital Learning and Educational Technology, Taipei, Taiwan.",
+        "apaLabel": "[Conference presentation]"
+      },
+      "pageZh": "../10-生成式AI自動評分與回饋系統之滿意度與需求分析/index.html",
+      "pageEn": "../10-生成式AI自動評分與回饋系統之滿意度與需求分析/index_en.html"
+    },
+    {
+      "year": 2026,
+      "sort": 3,
+      "zh": {
+        "title": "優化學習工作流輕量級無伺服器AI代理人之開發與成效分析",
+        "cardTitle": "2026｜優化學習工作流輕量級無伺服器AI代理人之開發與成效分析",
+        "meta": "施育廷、林育慶（2026年5月15日）。2026年工程、技術與STEM教育學術研討會，臺中，臺灣。",
+        "summary": "以學習工作流為焦點，分析輕量級無伺服器 AI 代理人在教學與學習任務中的整合方式與成效。",
+        "apaAuthors": "施育廷、林育慶",
+        "apaDate": "2026年5月15日",
+        "apaVenue": "2026年工程、技術與STEM教育學術研討會，臺中，臺灣。",
+        "apaLabel": "【論文發表】"
+      },
+      "en": {
+        "title": "Development and effectiveness analysis of a lightweight serverless AI agent for optimizing learning workflows",
+        "cardTitle": "2026 | Development and Effectiveness Analysis of a Lightweight Serverless AI Agent for Optimizing Learning Workflows",
+        "meta": "Shih, Y.-T., & Lin, Y.-C. (2026, May 15). Engineering, Technology, and STEM Education Conference, Taichung, Taiwan.",
+        "summary": "This study examines how lightweight serverless AI agents can be integrated into learning workflows and educational tasks.",
+        "apaAuthors": "Shih, Y.-T., & Lin, Y.-C.",
+        "apaDate": "2026, May 15",
+        "apaVenue": "Engineering, Technology, and STEM Education Conference, Taichung, Taiwan.",
+        "apaLabel": "[Conference presentation]"
+      },
+      "pageZh": "../05-優化學習工作流輕量級無伺服器AI代理人之開發與成效分析/index.html",
+      "pageEn": "../05-優化學習工作流輕量級無伺服器AI代理人之開發與成效分析/index_en.html"
+    },
+    {
+      "year": 2026,
+      "sort": 4,
+      "zh": {
+        "title": "從心盲到心流：運算思維在生成式AI互動中的認知補償與效益",
+        "cardTitle": "2026｜從心盲到心流：運算思維在生成式AI互動中的認知補償與效益",
+        "meta": "施育廷、李政軒（2026年3月5日-6日）。第二十一屆台灣數位學習發展研討會，南投，臺灣。",
+        "summary": "結合運算思維與生成式 AI 互動，探討認知補償、學習支持與互動效益，延伸到人機互動與學習分析視角。",
+        "apaAuthors": "施育廷、李政軒",
+        "apaDate": "2026年3月5日-6日",
+        "apaVenue": "第二十一屆台灣數位學習發展研討會，南投，臺灣。",
+        "apaLabel": "【論文發表】"
+      },
+      "en": {
+        "title": "From mind blindness to flow: Cognitive compensation and benefits of computational thinking in generative AI interaction",
+        "cardTitle": "2026 | From Mind Blindness to Flow",
+        "meta": "Shih, Y.-T., & Li, C.-H. (2026, March 5-6). TWELF 2026, Nantou, Taiwan.",
+        "summary": "This presentation connects computational thinking with cognitive compensation and the benefits of generative AI interaction.",
+        "apaAuthors": "Shih, Y.-T., & Li, C.-H.",
+        "apaDate": "2026, March 5-6",
+        "apaVenue": "TWELF 2026, Nantou, Taiwan.",
+        "apaLabel": "[Conference presentation]"
+      },
+      "pageZh": "../09-從心盲到心流-運算思維在生成式AI互動中的認知補償與效益/index.html",
+      "pageEn": "../09-從心盲到心流-運算思維在生成式AI互動中的認知補償與效益/index_en.html"
+    },
+    {
+      "year": 2025,
+      "sort": 1,
+      "zh": {
+        "title": "優化教學場域與學習效率之輕量級無伺服器AI代理人應用",
+        "cardTitle": "2025｜優化教學場域與學習效率之輕量級無伺服器AI代理人應用",
+        "meta": "施育廷、李政軒（2025年10月31日-11月2日）。APERA-TERA2025 International Conference，高雄，臺灣。",
+        "summary": "將 AI 代理人與教學工作流、學習效率優化相連結，呈現伺服器輕量化與教育現場整合的研究方向。",
+        "apaAuthors": "施育廷、李政軒",
+        "apaDate": "2025年10月31日-11月2日",
+        "apaVenue": "APERA-TERA2025 International Conference，高雄，臺灣。",
+        "apaLabel": "【論文發表】"
+      },
+      "en": {
+        "title": "Application of a lightweight serverless AI agent for optimizing teaching contexts and learning efficiency",
+        "cardTitle": "2025 | Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency",
+        "meta": "Shih, Y.-T., & Li, C.-H. (2025, October 31-November 2). APERA-TERA 2025, Kaohsiung, Taiwan.",
+        "summary": "This work extends AI agent design into classroom workflow optimization and learning-efficiency improvement.",
+        "apaAuthors": "Shih, Y.-T., & Li, C.-H.",
+        "apaDate": "2025, October 31-November 2",
+        "apaVenue": "APERA-TERA 2025 International Conference, Kaohsiung, Taiwan.",
+        "apaLabel": "[Conference presentation]"
+      },
+      "pageZh": "../06-優化教學場域與學習效率之輕量級無伺服器AI代理人應用/index.html",
+      "pageEn": "../06-優化教學場域與學習效率之輕量級無伺服器AI代理人應用/index_en.html"
+    },
+    {
+      "year": 2025,
+      "sort": 2,
+      "zh": {
+        "title": "運用智慧對話系統於心理與社會情緒評量之應用",
+        "cardTitle": "2025｜運用智慧對話系統於心理與社會情緒評量之應用",
+        "meta": "施育廷、王煒豪、李政軒（2025年10月24日-25日）。2025中國測驗學會年會，臺南，臺灣。",
+        "summary": "將對話式系統延伸到心理與社會情緒評量應用，連接 AI 互動服務與評量研究。",
+        "apaAuthors": "施育廷、王煒豪、李政軒",
+        "apaDate": "2025年10月24日-25日",
+        "apaVenue": "2025中國測驗學會年會，臺南，臺灣。",
+        "apaLabel": "【論文發表】"
+      },
+      "en": {
+        "title": "Application of intelligent dialogue systems in psychological and social-emotional assessment",
+        "cardTitle": "2025 | Application of Intelligent Dialogue Systems in Psychological and Social-Emotional Assessment",
+        "meta": "Shih, Y.-T., Wang, W.-H., & Li, C.-H. (2025, October 24-25). Chinese Testing Society Annual Meeting, Tainan, Taiwan.",
+        "summary": "This study extends conversational systems into psychological and socio-emotional assessment settings.",
+        "apaAuthors": "Shih, Y.-T., Wang, W.-H., & Li, C.-H.",
+        "apaDate": "2025, October 24-25",
+        "apaVenue": "Chinese Testing Society Annual Meeting, Tainan, Taiwan.",
+        "apaLabel": "[Conference presentation]"
+      },
+      "pageZh": "../13-運用智慧對話系統於心理與社會情緒評量之應用/index.html",
+      "pageEn": "../13-運用智慧對話系統於心理與社會情緒評量之應用/index_en.html"
+    },
+    {
+      "year": 2025,
+      "sort": 3,
+      "zh": {
+        "title": "From Traditional Semantic Analysis to Generative AI: Research on Cybersecurity and Privacy Challenges in Cloud-Based Educational Task Automation",
+        "cardTitle": "2025｜From Traditional Semantic Analysis to Generative AI",
+        "meta": "Shih, Y.-T., Tseng, C.-J., Chang, M.-H., & Kuo, C.-L. (2025, October 10-12). TANET 2025, Yilan, Taiwan.",
+        "summary": "由傳統語意分析延伸至雲端教育自動化情境中的生成式 AI、資安與隱私議題，呈現技術轉型與風險意識。",
+        "apaAuthors": "Shih, Y.-T., Tseng, C.-J., Chang, M.-H., & Kuo, C.-L.",
+        "apaDate": "2025, October 10-12",
+        "apaVenue": "Taiwan Academic Network Conference, Yilan, Taiwan.",
+        "apaLabel": "[Oral presentation]"
+      },
+      "en": {
+        "title": "From Traditional Semantic Analysis to Generative AI: Research on Cybersecurity and Privacy Challenges in Cloud-Based Educational Task Automation",
+        "cardTitle": "2025 | From Traditional Semantic Analysis to Generative AI",
+        "meta": "Shih, Y.-T., Tseng, C.-J., Chang, M.-H., & Kuo, C.-L. (2025, October 10-12). TANET 2025, Yilan, Taiwan.",
+        "summary": "This work connects generative AI with cybersecurity and privacy issues in cloud-based educational task automation.",
+        "apaAuthors": "Shih, Y.-T., Tseng, C.-J., Chang, M.-H., & Kuo, C.-L.",
+        "apaDate": "2025, October 10-12",
+        "apaVenue": "Taiwan Academic Network Conference, Yilan, Taiwan.",
+        "apaLabel": "[Oral presentation]"
+      },
+      "pageZh": "../04-From-Traditional-Semantic-Analysis-to-Generative-AI-Research-on-Cybersecurity-and-Privacy-Challenges-in-Cloud-Based-Educational-Task-Automation/index.html",
+      "pageEn": "../04-From-Traditional-Semantic-Analysis-to-Generative-AI-Research-on-Cybersecurity-and-Privacy-Challenges-in-Cloud-Based-Educational-Task-Automation/index_en.html"
+    },
+    {
+      "year": 2025,
+      "sort": 4,
+      "zh": {
+        "title": "AI 輔助程式設計與數據分析學習中的人機互動行為分析",
+        "cardTitle": "2025｜AI 輔助程式設計與數據分析學習中的人機互動行為分析",
+        "meta": "施育廷、李政軒（2025年6月4日）。ICEET 2025 數位學習與教育科技國際研討會，臺北，臺灣。",
+        "summary": "分析學生在 AI 輔助程式設計與資料分析學習中的互動行為，是學習分析與生成式 AI 教學研究的重要節點。",
+        "apaAuthors": "施育廷、李政軒",
+        "apaDate": "2025年6月4日",
+        "apaVenue": "ICEET 2025 數位學習與教育科技國際研討會，臺北，臺灣。",
+        "apaLabel": "【論文發表】"
+      },
+      "en": {
+        "title": "Behavioral analysis of human-AI interaction in AI-assisted programming and data science learning",
+        "cardTitle": "2025 | Behavioral Analysis of Human-AI Interaction in AI-Assisted Programming and Data Science Learning",
+        "meta": "Shih, Y.-T., & Li, C.-H. (2025, June 4). ICEET 2025, Taipei, Taiwan.",
+        "summary": "This study analyzes learners’ interaction patterns when AI is used to support programming and data science learning.",
+        "apaAuthors": "Shih, Y.-T., & Li, C.-H.",
+        "apaDate": "2025, June 4",
+        "apaVenue": "ICEET 2025 International Conference on Digital Learning and Educational Technology, Taipei, Taiwan.",
+        "apaLabel": "[Conference presentation]"
+      },
+      "pageZh": "../02-AI-輔助程式設計與數據分析學習中的人機互動行為分析/index.html",
+      "pageEn": "../02-AI-輔助程式設計與數據分析學習中的人機互動行為分析/index_en.html"
+    },
+    {
+      "year": 2025,
+      "sort": 5,
+      "zh": {
+        "title": "生成式AI於資料科學課程的導入時長效應：比較不同介入週數對非資訊背景大學生學習成效之影響",
+        "cardTitle": "2025｜生成式AI於資料科學課程的導入時長效應",
+        "meta": "施育廷（2025年5月24日）。2025 第六屆台灣商業教育與管理學術研討會，臺南，臺灣。",
+        "summary": "以獨立作者形式探討不同介入週數對非資訊背景大學生學習成效的影響，聚焦教學設計與長時程導入效果。",
+        "apaAuthors": "施育廷",
+        "apaDate": "2025年5月24日",
+        "apaVenue": "2025第六屆台灣商業教育與管理學術研討會，臺南，臺灣。",
+        "apaLabel": "【論文發表】"
+      },
+      "en": {
+        "title": "Duration effects of introducing generative AI into a data science course: Comparing learning outcomes across different intervention weeks for non-computer-science undergraduates",
+        "cardTitle": "2025 | Duration Effects of Introducing Generative AI into a Data Science Course",
+        "meta": "Shih, Y.-T. (2025, May 24). Taiwan Business Education and Management Conference, Tainan, Taiwan.",
+        "summary": "This sole-author work examines how different intervention lengths affect learning outcomes among non-CS undergraduates.",
+        "apaAuthors": "Shih, Y.-T.",
+        "apaDate": "2025, May 24",
+        "apaVenue": "6th Taiwan Conference on Business Education and Management, Tainan, Taiwan.",
+        "apaLabel": "[Conference presentation]"
+      },
+      "pageZh": "../11-生成式AI於資料科學課程的導入時長效應-比較不同介入週數對非資訊背景大學生學習成效之影響/index.html",
+      "pageEn": "../11-生成式AI於資料科學課程的導入時長效應-比較不同介入週數對非資訊背景大學生學習成效之影響/index_en.html"
+    },
+    {
+      "year": 2025,
+      "sort": 6,
+      "zh": {
+        "title": "Enhancing learning outcomes and reducing anxiety in programming courses through AI integration",
+        "cardTitle": "2025｜Enhancing learning outcomes and reducing anxiety in programming courses through AI integration",
+        "meta": "Shih, Y.-T., Li, C.-H., & Chen, H.-R. (2025, January 10-12). 6th International Conference on Advances in Education and Information Technology, Fukuoka, Japan.",
+        "summary": "關注程式設計課程中 AI 整合對學習成效與焦慮降低的影響，是施育廷早期生成式 AI 教學應用的重要國際發表之一。",
+        "apaAuthors": "Shih, Y.-T., Li, C.-H., & Chen, H.-R.",
+        "apaDate": "2025, January 10-12",
+        "apaVenue": "6th International Conference on Advances in Education and Information Technology, Fukuoka, Japan.",
+        "apaLabel": "[Oral presentation]"
+      },
+      "en": {
+        "title": "Enhancing learning outcomes and reducing anxiety in programming courses through AI integration",
+        "cardTitle": "2025 | Enhancing Learning Outcomes and Reducing Anxiety in Programming Courses Through AI Integration",
+        "meta": "Shih, Y.-T., Li, C.-H., & Chen, H.-R. (2025, January 10-12). ICAEIT 2025, Fukuoka, Japan.",
+        "summary": "An early international presentation in Yu-Ting Shih’s generative AI teaching line, focusing on programming learning and anxiety reduction.",
+        "apaAuthors": "Shih, Y.-T., Li, C.-H., & Chen, H.-R.",
+        "apaDate": "2025, January 10-12",
+        "apaVenue": "6th International Conference on Advances in Education and Information Technology, Fukuoka, Japan.",
+        "apaLabel": "[Oral presentation]"
+      },
+      "pageZh": "../03-Enhancing-learning-outcomes-and-reducing-anxiety-in-programming-courses-through-AI-integration/index.html",
+      "pageEn": "../03-Enhancing-learning-outcomes-and-reducing-anxiety-in-programming-courses-through-AI-integration/index_en.html"
+    },
+    {
+      "year": 2018,
+      "sort": 1,
+      "zh": {
+        "title": "即時適性虛擬助教之設計與學習成效分析",
+        "cardTitle": "2018｜即時適性虛擬助教之設計與學習成效分析",
+        "meta": "施育廷、陳鴻仁（2018年3月23日-24日）。第十三屆台灣數位學習發展研討會，臺中，臺灣。",
+        "summary": "以虛擬助教與學習成效分析為核心，代表施育廷研究沿革中較早期的對話式教學輔助與適性支持主題。",
+        "apaAuthors": "施育廷、陳鴻仁",
+        "apaDate": "2018年3月23日-24日",
+        "apaVenue": "第十三屆台灣數位學習發展研討會，臺中，臺灣。",
+        "apaLabel": "【口頭發表】"
+      },
+      "en": {
+        "title": "Design and learning effectiveness analysis of an instant adaptive virtual teaching assistant",
+        "cardTitle": "2018 | Design and Learning Effectiveness Analysis of an Instant Adaptive Virtual Teaching Assistant",
+        "meta": "Shih, Y.-T., & Chen, H.-R. (2018, March 23-24). TWELF 2018, Taichung, Taiwan.",
+        "summary": "This early work foregrounds adaptive teaching support and virtual assistance, themes that later develop into conversational and AI-assisted educational systems.",
+        "apaAuthors": "Shih, Y.-T., & Chen, H.-R.",
+        "apaDate": "2018, March 23-24",
+        "apaVenue": "TWELF 2018, Taichung, Taiwan.",
+        "apaLabel": "[Oral presentation]"
+      },
+      "pageZh": null,
+      "pageEn": null
+    }
+  ]
+}

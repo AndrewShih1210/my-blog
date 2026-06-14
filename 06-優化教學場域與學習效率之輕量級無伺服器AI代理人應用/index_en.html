@@ -1,59 +1,169 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency | Research Page</title>
+  <meta name="description" content="This article centers on Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency and highlights the…" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="author" content="Yu-Ting Shih" />
+  <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/06-優化教學場域與學習效率之輕量級無伺服器AI代理人應用/index_en.html" />
+  <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/06-優化教學場域與學習效率之輕量級無伺服器AI代理人應用/index_en.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/06-優化教學場域與學習效率之輕量級無伺服器AI代理人應用/index.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency" />
+  <meta property="og:description" content="This article centers on Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency and highlights the…" />
+  <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/06-優化教學場域與學習效率之輕量級無伺服器AI代理人應用/index_en.html" />
+  <meta property="og:image" content="https://andrewshih1210.github.io/my-blog/06-優化教學場域與學習效率之輕量級無伺服器AI代理人應用/images/figure-01.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency | Research Page</title>
   <style>
-    :root { --paper:#fffdf8; --ink:#203231; --muted:#5c6d69; --line:#d9d0c2; --accent:#0f766e; }
-    * { box-sizing:border-box; }
-    body { margin:0; background:linear-gradient(180deg,#efe7da 0%,#f7f3ec 42%,#f5f1e8 100%); color:var(--ink); font-family:"Noto Sans TC","Segoe UI",sans-serif; line-height:1.8; }
-    a { color:var(--accent); }
-    .wrap { width:min(920px, calc(100vw - 32px)); margin:0 auto; }
-    header { padding:24px 0 8px; }
-    nav { display:flex; flex-wrap:wrap; gap:12px; }
-    nav a { text-decoration:none; padding:9px 14px; border-radius:999px; background:rgba(255,255,255,.76); border:1px solid rgba(32,50,49,.08); color:var(--ink); }
-    main { background:var(--paper); border:1px solid var(--line); border-radius:28px; padding:32px; margin:12px auto 40px; box-shadow:0 18px 40px rgba(32,50,49,.08); }
-    h1 { font-size:clamp(30px, 4vw, 48px); line-height:1.15; margin:0 0 18px; }
-    h2 { margin:28px 0 12px; font-size:28px; }
-    h3 { margin:22px 0 8px; font-size:21px; }
-    p { margin:0 0 14px; }
-    ul { margin:0 0 16px 20px; }
-    li { margin-bottom:8px; }
-    figure { margin:24px 0; }
-    img { max-width:100%; display:block; border-radius:18px; border:1px solid var(--line); background:#fff; }
+    :root { --bg:#f4f7fb; --paper:rgba(255,255,255,.94); --paper-strong:#fff; --ink:#0f172a; --muted:#475569; --line:#dbe3ee; --accent:#1d4ed8; --accent-soft:rgba(37,99,235,.08); --shadow:0 18px 42px rgba(15,23,42,.08); --radius-card:18px; --radius-button:8px; }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);font-family:"Inter","Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.8;background:radial-gradient(circle at top left, rgba(59,130,246,.14), transparent 28%),radial-gradient(circle at top right, rgba(15,23,42,.08), transparent 24%),linear-gradient(180deg,#eef4fb 0%,#f8fbff 44%,#f4f7fb 100%);padding-top:92px}
+    a{color:inherit} .wrap{width:min(1100px,calc(100vw - 32px));margin:0 auto}
+    .site-header{position:fixed;inset:0 0 auto 0;z-index:50;border-bottom:1px solid rgba(148,163,184,.18);background:rgba(248,251,255,.84);backdrop-filter:blur(18px);box-shadow:0 6px 22px rgba(15,23,42,.04)}
+    .topbar,.section-head{display:flex;justify-content:space-between;gap:18px;align-items:end} .topbar{padding:16px 0;align-items:center}
+    .nav{display:flex;flex-wrap:nowrap;gap:12px;overflow-x:auto;scrollbar-width:none} .nav::-webkit-scrollbar{display:none}
+    .nav a,.button{min-height:44px;display:inline-flex;align-items:center;padding:10px 16px;border-radius:var(--radius-button);border:1px solid rgba(148,163,184,.22);background:rgba(255,255,255,.74);text-decoration:none;font-weight:700;white-space:nowrap}
+    .button.primary{background:linear-gradient(135deg,#1d4ed8,#2563eb);border-color:#1d4ed8;color:#fff}
+    .hero,.section{padding:24px 0}
+    .eyebrow,.tag{display:inline-flex;align-items:center}
+    .eyebrow{padding:6px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+    h1,h2,h3,p{margin-top:0} h1{font-size:clamp(36px,5vw,58px);line-height:1.06;margin:14px 0;letter-spacing:-.03em} h2{font-size:clamp(28px,3vw,38px);margin-bottom:14px;letter-spacing:-.02em} h3{font-size:22px;line-height:1.25;margin-bottom:10px}
+    .lead,.muted,.section-head p,.note{color:var(--muted)}
+    .card,.figure-card,.info-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-card);box-shadow:var(--shadow);padding:26px}
+    .hero-grid,.grid-2,.figure-grid{display:grid;gap:18px} .hero-grid{grid-template-columns:1.2fr .8fr} .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))} .figure-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .meta,.actions{display:flex;flex-wrap:wrap;gap:10px} .meta{margin:14px 0 0} .actions{margin-top:20px}
+    .tag{padding:6px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:14px;font-weight:700}
+    .section-head{margin-bottom:18px} .section-head p{max-width:620px}
+    ul{margin:0;padding-left:20px} li{margin-bottom:10px}
+    .figure-card img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);background:#fff}
+    .footer{padding:20px 0 48px;color:var(--muted);font-size:15px}
+    @media (max-width:980px){body{padding-top:108px}.topbar,.section-head{display:block}.nav{margin-top:12px}.hero-grid,.grid-2,.figure-grid{grid-template-columns:1fr}}
   </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency",
+  "inLanguage": "en",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Yu-Ting Shih"
+    }
+  ],
+  "url": "https://andrewshih1210.github.io/my-blog/06-優化教學場域與學習效率之輕量級無伺服器AI代理人應用/index_en.html",
+  "image": [
+    "https://andrewshih1210.github.io/my-blog/06-優化教學場域與學習效率之輕量級無伺服器AI代理人應用/images/figure-01.png",
+    "https://andrewshih1210.github.io/my-blog/06-優化教學場域與學習效率之輕量級無伺服器AI代理人應用/images/figure-02.png",
+    "https://andrewshih1210.github.io/my-blog/06-優化教學場域與學習效率之輕量級無伺服器AI代理人應用/images/figure-03.png",
+    "https://andrewshih1210.github.io/my-blog/06-優化教學場域與學習效率之輕量級無伺服器AI代理人應用/images/figure-04.png",
+    "https://andrewshih1210.github.io/my-blog/06-優化教學場域與學習效率之輕量級無伺服器AI代理人應用/images/figure-05.png",
+    "https://andrewshih1210.github.io/my-blog/06-優化教學場域與學習效率之輕量級無伺服器AI代理人應用/images/figure-06.png",
+    "https://andrewshih1210.github.io/my-blog/06-優化教學場域與學習效率之輕量級無伺服器AI代理人應用/images/figure-07.png"
+  ]
+}
+  </script>
 </head>
 <body>
-  <header class="wrap">
-    <nav>
-      <a href="../index_en.html">Home</a>
-      <a href="../author-works/index_en.html">Works</a>
-      <a href="../sitemap_en.html">Sitemap</a>
-    </nav>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a href="../index_en.html"><strong>Yu-Ting Shih Academic Site</strong></a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="../index_en.html">Home</a>
+        <a href="../author-works/index_en.html">Author Works</a>
+        <a href="../author-works/apa_en.html">APA List</a>
+        <a href="../sitemap_en.html">Sitemap</a>
+        <a href="./index.html">中文</a>
+      </nav>
+    </div>
   </header>
-  <main class="wrap">
-    <h1>Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency</h1>
-<p>Author: Yu-Ting Shih</p>
-<h2>Overview</h2>
-<p>This article centers on Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency and highlights the study background, method, findings, and practical implications.</p>
-<h2>Key Points</h2>
-<ul>
-<li>Background: This article centers on Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency and highlights the study background, method, findings, and practical implications.</li>
-<li>Method: The study presents a clear research design that can support further work in educational technology and AI-supported learning.</li>
-<li>Findings: The article highlights the value and applicability of AI-related approaches in educational and learning contexts.</li>
-<li>Significance: This article can serve as a reference point for future research design, instructional practice, or system development.</li>
-</ul>
-<h2>Summary</h2>
-<p>This article centers on Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency and highlights the study background, method, findings, and practical implications.</p>
-<h2>Extracted Figures</h2>
-<figure><img src="./images/figure-01.png" alt="Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency - figure-01.png" /></figure>
-<figure><img src="./images/figure-02.png" alt="Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency - figure-02.png" /></figure>
-<figure><img src="./images/figure-03.png" alt="Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency - figure-03.png" /></figure>
-<figure><img src="./images/figure-04.png" alt="Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency - figure-04.png" /></figure>
-<figure><img src="./images/figure-05.png" alt="Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency - figure-05.png" /></figure>
-<figure><img src="./images/figure-06.png" alt="Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency - figure-06.png" /></figure>
-<figure><img src="./images/figure-07.png" alt="Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency - figure-07.png" /></figure>
-  </main>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <article class="card">
+        <p class="eyebrow">Research Page</p>
+        <h1>Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency</h1>
+        <p class="lead">This article centers on Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency and highlights the study background, method, findings, and practical implications.</p>
+        <div class="meta">
+          <span class="tag">Author: Yu-Ting Shih</span>
+          <span class="tag">12 pages</span>
+          <span class="tag">7 figures</span>
+        </div>
+        <div class="actions">
+          <a class="button primary" href="../author-works/index_en.html">Back to Works Page</a>
+          <a class="button" href="../author-works/apa_en.html">View APA List</a>
+        </div>
+      </article>
+      <article class="info-card">
+        <h2>Publication Info</h2>
+        <p class="muted">Source file: 優化教學與學習效率的輕量級無伺服器AI代理人於教育場域之應用 (2).docx.pdf</p>
+        <p class="note">This page is generated from the shared research-page structure and uses the site-wide template.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid-2">
+      <article class="card">
+        <h2>Overview</h2>
+            <p>This article centers on Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency and highlights the study background, method, findings, and practical implications.</p>
+      </article>
+      <article class="card">
+        <h2>Key Points</h2>
+            <ul>
+              <li>Background: This article centers on Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency and highlights the study background, method, findings, and practical implications.</li>
+              <li>Method: The study presents a clear research design that can support further work in educational technology and AI-supported learning.</li>
+              <li>Findings: The article highlights the value and applicability of AI-related approaches in educational and learning contexts.</li>
+              <li>Significance: This article can serve as a reference point for future research design, instructional practice, or system development.</li>
+            </ul>
+      </article>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="wrap card">
+      <h2>Summary</h2>
+            <p>This article centers on Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency and highlights the study background, method, findings, and practical implications.</p>
+    </div>
+  </section>
+  
+    <section class="section">
+    <div class="wrap section-head">
+      <div>
+        <p class="eyebrow">Figures</p>
+        <h2>Extracted Figures</h2>
+      </div>
+      <p>Original extracted figures are retained for visual reference and contextual reading.</p>
+    </div>
+    <div class="wrap figure-grid">
+      <article class="figure-card">
+        <img src="images/figure-01.png" alt="Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency - figure-01.png" />
+      </article>
+      <article class="figure-card">
+        <img src="images/figure-02.png" alt="Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency - figure-02.png" />
+      </article>
+      <article class="figure-card">
+        <img src="images/figure-03.png" alt="Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency - figure-03.png" />
+      </article>
+      <article class="figure-card">
+        <img src="images/figure-04.png" alt="Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency - figure-04.png" />
+      </article>
+      <article class="figure-card">
+        <img src="images/figure-05.png" alt="Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency - figure-05.png" />
+      </article>
+      <article class="figure-card">
+        <img src="images/figure-06.png" alt="Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency - figure-06.png" />
+      </article>
+      <article class="figure-card">
+        <img src="images/figure-07.png" alt="Application of a Lightweight Serverless AI Agent for Optimizing Teaching Contexts and Learning Efficiency - figure-07.png" />
+      </article>
+    </div>
+  </section>
+
+  <footer class="wrap footer">
+    <p>This page is generated from the shared research-page structure and uses the site-wide template. This page links back to the works page, APA list, and sitemap.</p>
+  </footer>
 </body>
 </html>

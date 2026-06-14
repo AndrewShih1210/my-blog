@@ -42,19 +42,22 @@
   </script>
 </head>
 <body>
-  <header class="wrap topbar">
-    <a class="brand" href="../index_en.html">Yu-Ting Shih Academic Site</a>
-    <nav class="topnav">
-      <a href="../index_en.html">Academic Home</a>
-      <a href="../author-works/index_en.html">Research Works</a>
-      <a href="../ai-course-site/index_en.html">AI Course Site</a>
-      <a href="../sitemap_en.html">Sitemap</a>
-      <a href="./index.html">中文</a>
-    </nav>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="../index_en.html">Yu-Ting Shih Academic Site</a>
+      <nav class="topnav" aria-label="Primary">
+        <a href="../index_en.html">Home</a>
+        <a href="../author-works/index_en.html">Research</a>
+        <a href="../ai-course-site/index_en.html">AI Course</a>
+        <a href="../sitemap_en.html">Sitemap</a>
+        <a href="#collections">Collections</a>
+        <a href="./index.html">中文</a>
+      </nav>
+    </div>
   </header>
 
   <main class="wrap">
-    <section class="hero">
+    <section class="hero" id="overview">
       <div class="hero-grid">
         <div>
           <p class="eyebrow">Credentials Archive</p>
@@ -63,7 +66,7 @@
           <div class="button-row">
             <a class="button primary" href="#collections">Browse collections</a>
             <a class="button" href="../author-works/index_en.html">View research works</a>
-            <a class="button" href="./index.html">中文版本</a>
+            <a class="button" href="./index.html">Chinese Version</a>
           </div>
           <div class="stats" id="stats"></div>
         </div>
@@ -91,7 +94,7 @@
             <p class="eyebrow">Collections</p>
             <h2>Collections by category</h2>
           </div>
-          <p class="muted">Materials are grouped into certificates, training, presentations, appointments, and appreciation records for easier public browsing.</p>
+          <p class="muted">Materials are grouped into certificates, training, presentations, appointments, appreciation records, patent evidence, and academic status documents for easier browsing.</p>
         </div>
         <div class="filters" id="filters"></div>
         <div class="section-grid" id="gallery"></div>
@@ -118,7 +121,7 @@
   </div>
 
   <footer class="wrap footer">
-    <p>This archive page was organized and produced by Yu-Ting Shih as a public credentials portfolio. The build script <code>scripts/build_certificate_site.ps1</code> can be rerun whenever new items are added.</p>
+    <p>This archive page was organized and produced by Yu-Ting Shih as a public credentials portfolio. New items can be added to the archive and published through the same certificate site workflow.</p>
   </footer>
 
   <script src="./data.js"></script>

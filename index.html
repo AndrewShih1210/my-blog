@@ -6,7 +6,7 @@
   <meta name="description" content="施育廷學術網站，聚焦生成式 AI、AI 教育、AI 教育應用、AI 應用、教育科技、學習分析與教學評量自動化，整理國立臺中教育大學（NTCU／台中教育大學）相關研究成果、雙語 AI 教材、證照與學術證明。" />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
   <meta name="author" content="施育廷" />
-  <meta name="theme-color" content="#0f766e" />
+  <meta name="theme-color" content="#0f172a" />
   <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/index.html" />
   <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/index.html" />
   <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/index_en.html" />
@@ -17,68 +17,98 @@
   <meta property="og:title" content="施育廷｜生成式 AI、AI 教育與學術應用" />
   <meta property="og:description" content="瀏覽施育廷的研究成果、雙語 AI 教材、證照與學術證明，快速掌握生成式 AI、AI 教育、學習分析與教育自動化的研究主線。" />
   <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/index.html" />
-  <meta property="og:image" content="https://andrewshih1210.github.io/my-blog/ai-course-site/assets/sourcebook/content-workflow.png" />
+  <meta property="og:image" content="https://andrewshih1210.github.io/my-blog/assets/profile-portrait.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="施育廷｜生成式 AI、AI 教育與學術應用" />
   <meta name="twitter:description" content="研究成果、雙語 AI 教材、公開課程、證照與學術入口整合於同一網站。" />
-  <meta name="twitter:image" content="https://andrewshih1210.github.io/my-blog/ai-course-site/assets/sourcebook/content-workflow.png" />
+  <meta name="twitter:image" content="https://andrewshih1210.github.io/my-blog/assets/profile-portrait.jpg" />
   <title>施育廷｜生成式 AI、AI 教育與學術應用</title>
   <style>
     :root {
-      --bg: #f5efe6;
-      --paper: rgba(255, 253, 248, 0.94);
-      --ink: #1d2d2c;
-      --muted: #5f6d6a;
-      --line: #d8ccbc;
-      --accent: #0f766e;
-      --accent-soft: rgba(15, 118, 110, 0.1);
-      --warm: #9a6700;
-      --shadow: 0 18px 48px rgba(29, 45, 44, 0.08);
+      --bg: #f4f7fb;
+      --paper: rgba(255, 255, 255, 0.92);
+      --paper-strong: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #dbe3ee;
+      --accent: #1d4ed8;
+      --accent-soft: rgba(37, 99, 235, 0.08);
+      --accent-strong: #0f172a;
+      --warm: #1e40af;
+      --shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
+      --shadow-sm: 0 8px 20px rgba(15, 23, 42, 0.06);
+      --radius-card: 18px;
+      --radius-button: 8px;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
       color: var(--ink);
-      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-      line-height: 1.85;
+      font-family: "Inter", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.75;
       background:
-        radial-gradient(circle at top left, rgba(15,118,110,.12), transparent 24%),
-        radial-gradient(circle at top right, rgba(154,103,0,.09), transparent 22%),
-        linear-gradient(180deg, #efe7d9 0%, #f7f2ea 30%, #f5efe6 100%);
+        radial-gradient(circle at top left, rgba(59,130,246,.14), transparent 28%),
+        radial-gradient(circle at top right, rgba(15,23,42,.08), transparent 24%),
+        linear-gradient(180deg, #eef4fb 0%, #f8fbff 44%, #f4f7fb 100%);
+      padding-top: 92px;
     }
     a { color: inherit; }
-    .wrap { width: min(1160px, calc(100vw - 32px)); margin: 0 auto; }
+    .wrap { width: min(1180px, calc(100vw - 32px)); margin: 0 auto; }
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+      background: rgba(248, 251, 255, 0.84);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 6px 22px rgba(15, 23, 42, 0.04);
+    }
     .topbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 16px;
-      padding: 18px 0;
+      padding: 16px 0;
     }
     .brand {
-      font-weight: 800;
-      letter-spacing: .02em;
+      font-weight: 700;
+      letter-spacing: -.01em;
       text-decoration: none;
     }
     .topnav {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       gap: 12px;
       color: var(--muted);
       font-weight: 600;
+      overflow-x: auto;
+      scrollbar-width: none;
     }
+    .topnav::-webkit-scrollbar { display: none; }
     .topnav a {
       text-decoration: none;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.45);
-      border: 1px solid rgba(29,45,44,.06);
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 14px;
+      border-radius: var(--radius-button);
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(148, 163, 184, .22);
+      white-space: nowrap;
+      transition: background-color .18s ease-out, border-color .18s ease-out, color .18s ease-out;
     }
-    .hero { padding: 28px 0 34px; }
+    .topnav a:hover,
+    .topnav a:focus-visible {
+      background: var(--paper-strong);
+      border-color: rgba(37, 99, 235, .24);
+      color: var(--accent-strong);
+      outline: none;
+    }
+    .hero { padding: 22px 0 34px; }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.25fr .75fr;
+      grid-template-columns: 1.1fr .9fr;
       gap: 24px;
       align-items: stretch;
     }
@@ -96,12 +126,14 @@
     h1, h2, h3, p { margin-top: 0; }
     h1 {
       margin: 16px 0 14px;
-      font-size: clamp(36px, 5vw, 64px);
-      line-height: 1.1;
+      font-size: clamp(40px, 5vw, 68px);
+      line-height: 1.02;
+      letter-spacing: -.035em;
     }
     h2 {
-      font-size: clamp(28px, 3vw, 38px);
-      line-height: 1.2;
+      font-size: clamp(30px, 3vw, 40px);
+      line-height: 1.1;
+      letter-spacing: -.02em;
       margin-bottom: 14px;
     }
     h3 {
@@ -110,27 +142,42 @@
       margin-bottom: 10px;
     }
     .lead {
-      max-width: 820px;
+      max-width: 62ch;
       color: var(--muted);
       font-size: 18px;
     }
     .card, .feature, .stat, .timeline-item, .faq-card {
       background: var(--paper);
       border: 1px solid var(--line);
-      border-radius: 28px;
+      border-radius: var(--radius-card);
       box-shadow: var(--shadow);
     }
     .hero-main, .hero-side, .feature, .timeline-item, .faq-card { padding: 28px; }
     .hero-main {
+      position: relative;
+      overflow: hidden;
       background:
-        radial-gradient(circle at top right, rgba(15,118,110,.09), transparent 25%),
-        linear-gradient(180deg, rgba(255,253,248,.96), rgba(255,253,248,.9));
+        linear-gradient(135deg, rgba(29, 78, 216, 0.08), rgba(255, 255, 255, 0) 40%),
+        linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.92));
+      box-shadow: var(--shadow-sm);
+    }
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -72px;
+      top: -72px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.18), rgba(37, 99, 235, 0));
+      pointer-events: none;
     }
     .hero-side {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 16px;
+      gap: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(247,250,255,.92));
     }
     .cta-row, .small-links, .pill-row {
       display: flex;
@@ -142,27 +189,38 @@
       align-items: center;
       justify-content: center;
       padding: 12px 18px;
-      border-radius: 999px;
+      border-radius: var(--radius-button);
       border: 1px solid var(--line);
-      background: #fff;
+      background: var(--paper-strong);
       text-decoration: none;
       font-weight: 700;
+      min-height: 46px;
+      transition: transform .16s ease-out, box-shadow .16s ease-out, border-color .16s ease-out;
+    }
+    .button:hover,
+    .button:focus-visible {
+      border-color: rgba(37, 99, 235, .24);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.08);
+      transform: translateY(-1px);
+      outline: none;
     }
     .button.primary {
-      background: var(--accent);
-      border-color: var(--accent);
+      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      border-color: #1d4ed8;
       color: #fff;
     }
     .pill {
       display: inline-flex;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: rgba(15,118,110,.08);
+      padding: 8px 12px;
+      border-radius: var(--radius-button);
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(148, 163, 184, .22);
       color: var(--accent);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
     }
     .section { padding: 18px 0; }
+    section[id] { scroll-margin-top: 108px; }
     .section-head {
       display: flex;
       justify-content: space-between;
@@ -179,18 +237,60 @@
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
     }
-    .stat { padding: 24px; }
+    .stat {
+      padding: 24px;
+      background: rgba(255,255,255,.82);
+      box-shadow: var(--shadow-sm);
+    }
     .stat .num {
       font-size: 42px;
       font-weight: 800;
       line-height: 1;
       margin-bottom: 8px;
-      color: var(--accent);
+      color: var(--accent-strong);
     }
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
+    }
+    .route-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .route-card {
+      position: relative;
+      overflow: hidden;
+      padding: 24px;
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(255,255,255,0) 36%),
+        linear-gradient(180deg, rgba(255,255,255,.98), rgba(246, 249, 255, .92));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-sm);
+    }
+    .route-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: linear-gradient(180deg, #1d4ed8, #60a5fa);
+    }
+    .route-step {
+      display: inline-flex;
+      margin-bottom: 12px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.06);
+      color: var(--accent-strong);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .route-card p:last-of-type {
+      margin-bottom: 18px;
     }
     .feature p, .muted { color: var(--muted); }
     .timeline { display: grid; gap: 16px; }
@@ -217,26 +317,73 @@
       align-items: center;
       padding: 28px;
     }
-    .author-badge {
+    .portrait-frame,
+    .author-photo-frame {
+      overflow: hidden;
+      border-radius: 20px;
+      border: 1px solid rgba(148, 163, 184, .22);
+      background: linear-gradient(180deg, #dbeafe, #ffffff);
+      box-shadow: var(--shadow-sm);
+    }
+    .portrait-frame {
+      min-height: 420px;
+    }
+    .portrait-frame img,
+    .author-photo-frame img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .author-photo-frame {
       width: 150px;
       height: 150px;
-      border-radius: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background:
-        radial-gradient(circle at top left, rgba(15,118,110,.18), transparent 36%),
-        linear-gradient(180deg, #f4ead8, #fffdf8);
-      border: 1px solid var(--line);
-      font-size: 54px;
-      font-weight: 800;
-      color: var(--accent);
+      border-radius: 18px;
+    }
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .mini-card {
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, .18);
+      background: rgba(248, 250, 252, .9);
+    }
+    .mini-card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+      color: var(--accent-strong);
+    }
+    .mini-card span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .surface-note {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      background: rgba(255,255,255,.72);
+      color: var(--muted);
     }
     @media (max-width: 980px) {
-      .hero-grid, .grid-2, .stats, .faq-grid { grid-template-columns: 1fr; }
+      body { padding-top: 108px; }
+      .hero-grid, .grid-2, .stats, .faq-grid, .mini-grid, .author-signature, .route-grid { grid-template-columns: 1fr; }
       .section-head, .topbar { display: block; }
       .topnav { margin-top: 12px; }
-      .author-signature { grid-template-columns: 1fr; }
+      .portrait-frame { min-height: 320px; }
+      .author-photo-frame {
+        width: 112px;
+        height: 112px;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button, .topnav a { transition: none; }
     }
   </style>
   <script type="application/ld+json">
@@ -257,7 +404,7 @@
         "name": "施育廷",
         "alternateName": ["Yu-Ting Shih", "Shih, Yu-Ting"],
         "url": "https://andrewshih1210.github.io/my-blog/index.html",
-        "image": "https://andrewshih1210.github.io/my-blog/ai-course-site/assets/sourcebook/content-workflow.png",
+        "image": "https://andrewshih1210.github.io/my-blog/assets/profile-portrait.jpg",
         "description": "國立臺中教育大學（NTCU，常見寫法為台中教育大學）教育資訊與測驗統計研究所博士候選人，研究聚焦於生成式 AI、AI 教育、AI 教育應用、AI 應用、教育科技、學習分析、對話式代理人及教學評量自動化。",
         "jobTitle": "博士候選人",
         "affiliation": {
@@ -328,21 +475,24 @@
   </script>
 </head>
 <body>
-  <header class="wrap topbar">
-    <a class="brand" href="./index.html">Yu-Ting Shih Academic Site</a>
-    <nav class="topnav">
-      <a href="./ai-course-site/index.html">AI 教材</a>
-      <a href="./author-works/index.html">著作專區</a>
-      <a href="./certificates-site/index.html">證照與證明</a>
-      <a href="./sitemap.html">網站導覽</a>
-      <a href="./index_en.html">English</a>
-    </nav>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="./index.html">Yu-Ting Shih Academic Site</a>
+      <nav class="topnav" aria-label="主要導覽">
+        <a href="#overview">總覽</a>
+        <a href="./author-works/index.html">研究成果</a>
+        <a href="./ai-course-site/index.html">AI 教材</a>
+        <a href="./certificates-site/index.html">證照證明</a>
+        <a href="#media">YouTube</a>
+        <a href="./index_en.html">EN</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero">
+  <section class="hero" id="overview">
     <div class="wrap hero-grid">
       <article class="card hero-main">
-        <p class="eyebrow">Academic Brand Site</p>
+        <p class="eyebrow">AI Education / Research</p>
         <h1>施育廷</h1>
         <p class="lead">國立臺中教育大學（NTCU，常見寫法：台中教育大學）教育資訊與測驗統計研究所博士候選人，研究與實作聚焦於生成式 AI、AI 教育、AI 教育應用、AI 應用、教育科技、學習分析、對話式代理人，以及教學與評量自動化應用。</p>
         <div class="pill-row">
@@ -358,13 +508,27 @@
           <a class="button" href="./certificates-site/index.html">查看證照與證明</a>
           <a class="button" href="https://moocs.moe.edu.tw/moocs/#/course/detail/10002657">edu 磨課師+</a>
         </div>
+        <div class="surface-note">首頁導覽列固定在畫面頂端，優先縮短研究成果、教材與證照頁的切換路徑。</div>
       </article>
 
       <aside class="card hero-side">
+        <div class="portrait-frame">
+          <img src="./assets/profile-portrait.jpg" alt="施育廷大頭照" />
+        </div>
         <div>
           <p class="eyebrow">Current Focus</p>
-          <h3>把 AI 轉成可落地的教學、研究與工作能力</h3>
+          <h3>把 AI 轉成可落地的教學、研究與工作流能力</h3>
           <p class="muted">本站整合研究成果、代表專利、學術發表、雙語 AI 教材與公開課程，作為學術交流、課程展示、國際合作與 AI 搜尋理解的公開入口。</p>
+        </div>
+        <div class="mini-grid">
+          <div class="mini-card">
+            <strong>Institution</strong>
+            <span>National Taichung University of Education</span>
+          </div>
+          <div class="mini-card">
+            <strong>Focus</strong>
+            <span>Generative AI, AI Education, Applied AI</span>
+          </div>
         </div>
         <div class="small-links">
           <a class="button" href="./index_en.html">English Home</a>
@@ -374,7 +538,39 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="routes">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Routes</p>
+          <h2>三個主要入口</h2>
+        </div>
+        <p>把根首頁設計成品牌首頁後，最重要的是讓不同目的的訪客在三步內進到正確內容，而不是先閱讀整站說明。</p>
+      </div>
+      <div class="route-grid">
+        <article class="route-card">
+          <span class="route-step">Route 01</span>
+          <h3>研究成果與著作</h3>
+          <p class="muted">適合查代表專利、第一作者著作、APA 清單、研究視覺化圖與單篇成果頁。</p>
+          <a class="button primary" href="./author-works/index.html">進入研究成果</a>
+        </article>
+        <article class="route-card">
+          <span class="route-step">Route 02</span>
+          <h3>AI 教材與公開課程</h3>
+          <p class="muted">適合查雙語 AI 教材、教學計畫、單元內容、公開課程與工作坊導入路徑。</p>
+          <a class="button primary" href="./ai-course-site/index.html">進入 AI 教材</a>
+        </article>
+        <article class="route-card">
+          <span class="route-step">Route 03</span>
+          <h3>證照、證明與佐證文件</h3>
+          <p class="muted">適合查研習、發表、獎項、證書與其他能支持學術與教學經歷的公開證明。</p>
+          <a class="button primary" href="./certificates-site/index.html">進入證照證明</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="themes">
     <div class="wrap">
       <div class="section-head">
         <div>
@@ -404,7 +600,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="outputs">
     <div class="wrap">
       <div class="section-head">
         <div>
@@ -438,7 +634,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="media">
     <div class="wrap">
       <div class="section-head">
         <div>
@@ -598,7 +794,9 @@
         <p>這個 GitHub Pages 學術首頁與公開版雙語 AI 教材，皆由施育廷規劃、整編與製作，用於學術品牌、教學展示與研究對外溝通。</p>
       </div>
       <article class="card author-signature">
-        <div class="author-badge">YT</div>
+        <div class="author-photo-frame">
+          <img src="./assets/profile-portrait.jpg" alt="施育廷大頭照" />
+        </div>
         <div>
           <h3>施育廷</h3>
           <p class="muted">國立臺中教育大學（NTCU／台中教育大學）博士候選人、教師與 AI 支援教學研究實作者，長期關注生成式 AI、AI 教育、AI 教育應用、AI 應用、教育科技、學習分析、對話式代理人與教學評量自動化。</p>

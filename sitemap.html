@@ -3,145 +3,142 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="施育廷學術網站導覽頁，整合首頁、著作專區、APA 清單、雙語 AI 教材與證照證明頁的主要入口。" />
-  <meta name="robots" content="index,follow" />
+  <meta name="description" content="施育廷學術網站導覽頁，整理首頁、著作專區、APA 清單、AI 教材與證照證明等主要入口。" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="author" content="施育廷" />
   <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/sitemap.html" />
   <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/sitemap.html" />
   <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/sitemap_en.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="網站導覽 | 施育廷學術網站" />
-  <meta property="og:description" content="快速進入研究成果、雙語 AI 教材、證照與證明等網站主要區塊。" />
-  <title>網站導覽 | 施育廷學術網站</title>
+  <meta property="og:title" content="網站導覽｜施育廷學術網站" />
+  <meta property="og:description" content="快速進入首頁、著作專區、AI 教材與證照證明頁面。" />
+  <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/sitemap.html" />
+  <title>網站導覽｜施育廷學術網站</title>
   <style>
-    :root {
-      --bg: #f5efe6;
-      --paper: rgba(255, 253, 248, 0.96);
-      --ink: #1d2d2c;
-      --muted: #5f6d6a;
-      --line: #d8ccbc;
-      --accent: #0f766e;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-      color: var(--ink);
-      line-height: 1.8;
-      background:
-        radial-gradient(circle at top left, rgba(15,118,110,.12), transparent 24%),
-        linear-gradient(180deg, #efe7d9 0%, #f7f2ea 30%, #f5efe6 100%);
-    }
-    a { color: var(--accent); }
-    .wrap { width: min(1040px, calc(100vw - 32px)); margin: 0 auto; }
-    header { padding: 28px 0 12px; }
-    nav { display: flex; flex-wrap: wrap; gap: 12px; }
-    nav a {
-      text-decoration: none;
-      color: var(--ink);
-      background: rgba(255,255,255,.72);
-      border: 1px solid rgba(29,45,44,.08);
-      border-radius: 999px;
-      padding: 10px 14px;
-    }
-    main { padding: 12px 0 40px; }
-    .hero, .section {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 28px;
-      margin-bottom: 18px;
-      box-shadow: 0 18px 40px rgba(29, 45, 44, 0.08);
-    }
-    h1, h2, p { margin-top: 0; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-    }
-    .card {
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 20px;
-      background: rgba(255,255,255,.82);
-    }
-    .card ul {
-      margin: 0;
-      padding-left: 18px;
-    }
-    .muted { color: var(--muted); }
+    :root { --bg:#f4f7fb; --paper:rgba(255,255,255,.92); --paper-strong:#fff; --ink:#0f172a; --muted:#475569; --line:#dbe3ee; --accent:#1d4ed8; --accent-soft:rgba(37,99,235,.08); --shadow:0 18px 42px rgba(15,23,42,.08); --radius-card:18px; --radius-button:8px; }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(circle at top left, rgba(59,130,246,.14), transparent 28%),radial-gradient(circle at top right, rgba(15,23,42,.08), transparent 24%),linear-gradient(180deg,#eef4fb 0%,#f8fbff 44%,#f4f7fb 100%);color:var(--ink);font-family:"Inter","Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.8;padding-top:92px}
+    a{color:inherit}.wrap{width:min(1180px,calc(100vw - 32px));margin:0 auto}
+    .site-header{position:fixed;inset:0 0 auto 0;z-index:50;border-bottom:1px solid rgba(148,163,184,.18);background:rgba(248,251,255,.84);backdrop-filter:blur(18px);box-shadow:0 6px 22px rgba(15,23,42,.04)}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 0}
+    .nav{display:flex;flex-wrap:nowrap;gap:12px;overflow-x:auto;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}
+    .nav a,.button{min-height:44px;display:inline-flex;align-items:center;padding:10px 16px;border-radius:var(--radius-button);border:1px solid rgba(148,163,184,.22);background:rgba(255,255,255,.74);text-decoration:none;font-weight:700;white-space:nowrap}
+    .button.primary{background:linear-gradient(135deg,#1d4ed8,#2563eb);border-color:#1d4ed8;color:#fff}
+    .hero,.section{padding:24px 0}
+    .eyebrow{display:inline-block;padding:6px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+    h1,h2,h3,p{margin-top:0} h1{font-size:clamp(36px,5vw,58px);line-height:1.06;margin:14px 0;letter-spacing:-.03em} h2{font-size:clamp(28px,3vw,38px);margin-bottom:14px;letter-spacing:-.02em} h3{font-size:22px;line-height:1.25;margin-bottom:10px}
+    .lead,.muted{color:var(--muted)}
+    .card,.link-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-card);box-shadow:var(--shadow)}
+    .card,.link-card{padding:26px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .link-card ul{margin:0;padding-left:20px}
+    .link-card li{margin-bottom:10px}
+    .section-head{display:flex;justify-content:space-between;gap:18px;align-items:end;margin-bottom:18px}
+    .section-head p{max-width:620px;color:var(--muted)}
+    .footer{padding:20px 0 48px;color:var(--muted);font-size:15px}
+    @media (max-width:980px){body{padding-top:108px}.topbar,.section-head{display:block}.nav{margin-top:12px}.grid{grid-template-columns:1fr}}
   </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "施育廷學術網站主要入口",
-    "url": "https://andrewshih1210.github.io/my-blog/sitemap.html",
-    "numberOfItems": 4,
-    "itemListElement": [
-      { "@type": "SiteNavigationElement", "position": 1, "name": "首頁", "url": "https://andrewshih1210.github.io/my-blog/index.html" },
-      { "@type": "SiteNavigationElement", "position": 2, "name": "著作專區", "url": "https://andrewshih1210.github.io/my-blog/author-works/index.html" },
-      { "@type": "SiteNavigationElement", "position": 3, "name": "AI 教材", "url": "https://andrewshih1210.github.io/my-blog/ai-course-site/index.html" },
-      { "@type": "SiteNavigationElement", "position": 4, "name": "證照與證明", "url": "https://andrewshih1210.github.io/my-blog/certificates-site/index.html" }
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://andrewshih1210.github.io/my-blog/sitemap.html#page",
+        "url": "https://andrewshih1210.github.io/my-blog/sitemap.html",
+        "name": "網站導覽｜施育廷學術網站",
+        "inLanguage": "zh-Hant"
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://andrewshih1210.github.io/my-blog/sitemap.html#items",
+        "name": "施育廷學術網站主要入口",
+        "itemListElement": [
+          { "@type": "SiteNavigationElement", "position": 1, "name": "首頁", "url": "https://andrewshih1210.github.io/my-blog/index.html" },
+          { "@type": "SiteNavigationElement", "position": 2, "name": "著作專區", "url": "https://andrewshih1210.github.io/my-blog/author-works/index.html" },
+          { "@type": "SiteNavigationElement", "position": 3, "name": "AI 教材", "url": "https://andrewshih1210.github.io/my-blog/ai-course-site/index.html" },
+          { "@type": "SiteNavigationElement", "position": 4, "name": "證照與證明", "url": "https://andrewshih1210.github.io/my-blog/certificates-site/index.html" }
+        ]
+      }
     ]
   }
   </script>
 </head>
 <body>
-  <header class="wrap">
-    <nav>
-      <a href="./index.html">學術首頁</a>
-      <a href="./index_en.html">English Home</a>
-      <a href="./author-works/index.html">著作專區</a>
-      <a href="./author-works/index_en.html">Research Works</a>
-      <a href="./ai-course-site/index.html">AI 教材</a>
-      <a href="./ai-course-site/index_en.html">AI Course Site</a>
-      <a href="./certificates-site/index.html">證照與證明</a>
-      <a href="./certificates-site/index_en.html">Credentials</a>
-    </nav>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a href="./index.html"><strong>Yu-Ting Shih Academic Site</strong></a>
+      <nav class="nav" aria-label="主要導覽">
+        <a href="./index.html">首頁</a>
+        <a href="./author-works/index.html">著作專區</a>
+        <a href="./ai-course-site/index.html">AI 教材</a>
+        <a href="./certificates-site/index.html">證照與證明</a>
+        <a href="./sitemap_en.html">EN</a>
+      </nav>
+    </div>
   </header>
-  <main class="wrap">
-    <section class="hero">
-      <h1>網站導覽</h1>
-      <p class="muted">本頁整理施育廷學術網站的主要入口，方便讀者、搜尋引擎與 AI 系統快速理解站點結構。</p>
-    </section>
 
-    <section class="section">
-      <h2>主要區塊</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>學術首頁</h3>
-          <ul>
-            <li><a href="./index.html">中文首頁</a></li>
-            <li><a href="./index_en.html">英文首頁</a></li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>研究成果</h3>
-          <ul>
-            <li><a href="./author-works/index.html">第一作者與獨立作者著作專區</a></li>
-            <li><a href="./author-works/index_en.html">First-Author and Sole-Author Works</a></li>
-            <li><a href="./author-works/apa.html">APA 著作清單</a></li>
-            <li><a href="./author-works/apa_en.html">APA Publication List</a></li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>AI 教材網站</h3>
-          <ul>
-            <li><a href="./ai-course-site/index.html">中文教材首頁</a></li>
-            <li><a href="./ai-course-site/index_en.html">英文教材首頁</a></li>
-            <li><a href="./ai-course-site/teaching-plan.html">教學計畫</a></li>
-            <li><a href="./ai-course-site/projects.html">專題任務</a></li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>證照與證明</h3>
-          <ul>
-            <li><a href="./certificates-site/index.html">中文證照頁</a></li>
-            <li><a href="./certificates-site/index_en.html">English Credentials Page</a></li>
-          </ul>
-        </article>
+  <section class="hero">
+    <div class="wrap card">
+      <p class="eyebrow">Sitemap</p>
+      <h1>網站導覽</h1>
+      <p class="lead">本頁整理施育廷學術網站的主要入口，方便讀者、搜尋引擎與 AI 系統快速理解整體網站結構，並在首頁、著作、教材與證照之間順暢切換。</p>
+      <p class="muted">若你是第一次進入網站，建議先看首頁；若要查研究成果，直接進入著作專區；若要看課程內容，則可從 AI 教材頁開始。</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;">
+        <a class="button primary" href="./index.html">前往首頁</a>
+        <a class="button" href="./author-works/index.html">查看著作專區</a>
+        <a class="button" href="./ai-course-site/index.html">查看 AI 教材</a>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap section-head">
+      <div>
+        <p class="eyebrow">Main Sections</p>
+        <h2>主要區塊</h2>
+      </div>
+      <p>各區塊皆提供中英文頁面，並保留跨站導流，讓研究成果、教材與證明資料可以互相連回。</p>
+    </div>
+    <div class="wrap grid">
+      <article class="link-card">
+        <h3>首頁與品牌入口</h3>
+        <ul>
+          <li><a href="./index.html">中文首頁</a></li>
+          <li><a href="./index_en.html">英文首頁</a></li>
+        </ul>
+      </article>
+      <article class="link-card">
+        <h3>著作與研究成果</h3>
+        <ul>
+          <li><a href="./author-works/index.html">第一作者與獨立作者著作專區</a></li>
+          <li><a href="./author-works/index_en.html">First-Author and Sole-Author Works</a></li>
+          <li><a href="./author-works/apa.html">APA 格式著作清單</a></li>
+          <li><a href="./author-works/apa_en.html">APA Publication List</a></li>
+        </ul>
+      </article>
+      <article class="link-card">
+        <h3>AI 教材與課程內容</h3>
+        <ul>
+          <li><a href="./ai-course-site/index.html">中文教材首頁</a></li>
+          <li><a href="./ai-course-site/index_en.html">English Course Homepage</a></li>
+          <li><a href="./ai-course-site/teaching-plan.html">教學計畫</a></li>
+          <li><a href="./ai-course-site/projects.html">專題任務</a></li>
+          <li><a href="https://moocs.moe.edu.tw/moocs/#/course/detail/10002657">教育部磨課師課程</a></li>
+        </ul>
+      </article>
+      <article class="link-card">
+        <h3>證照、證書與發表證明</h3>
+        <ul>
+          <li><a href="./certificates-site/index.html">中文證照頁</a></li>
+          <li><a href="./certificates-site/index_en.html">English Credentials Page</a></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <footer class="wrap footer">
+    <p>本頁為網站導覽頁；若需提交給搜尋引擎，可使用 <a href="./sitemap.xml">sitemap.xml</a>。</p>
+  </footer>
 </body>
 </html>
