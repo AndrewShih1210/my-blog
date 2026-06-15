@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="教學分享技能應用發布版，整理 presentations、documents、spreadsheets、pdf、crossref-apa-bibliography、execution-recovery-guardrails、openai-docs 與 external-agent-orchestrator 在教師研習、學術分享、教學評量與 AI 教學應用示範中的實務用法。" />
+  <meta name="description" content="以學習流程為核心的教學分享頁，整理 presentations、documents、spreadsheets、pdf、crossref-apa-bibliography、execution-recovery-guardrails、openai-docs 與 external-agent-orchestrator 的通用用法，協助教師理解 AI 教學分享的設計邏輯、操作步驟與練習過程。" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="author" content="施育廷" />
   <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/teaching-share/index.html" />
   <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/teaching-share/index.html" />
   <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/teaching-share/index_en.html" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="教學分享技能應用發布版" />
-  <meta property="og:description" content="將 AI 教學分享所需的文件、簡報、資料分析、文獻整理與流程驗證工具，整理成可直接發布的教學頁面與下載講義。" />
+  <meta property="og:title" content="AI 教學分享流程教材" />
+  <meta property="og:description" content="用流程、節點與練習循環理解教學分享 skill，而不是只記工具名稱或最後成品。" />
   <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/teaching-share/index.html" />
-  <title>教學分享技能應用發布版</title>
+  <title>AI 教學分享流程教材</title>
   <style>
     :root { --bg:#f4f7fb; --paper:rgba(255,255,255,.95); --ink:#0f172a; --muted:#475569; --line:#dbe3ee; --accent:#1d4ed8; --accent-soft:rgba(37,99,235,.08); --shadow:0 18px 42px rgba(15,23,42,.08); --radius:18px; --button:8px; }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { margin:0; color:var(--ink); font-family:"Inter","Noto Sans TC","Microsoft JhengHei",sans-serif; line-height:1.75; background:radial-gradient(circle at top left, rgba(59,130,246,.14), transparent 28%),radial-gradient(circle at top right, rgba(15,23,42,.08), transparent 24%),linear-gradient(180deg,#eef4fb 0%,#f8fbff 44%,#f4f7fb 100%); padding-top:92px; }
+    body { margin:0; color:var(--ink); font-family:"Inter","Noto Sans TC","Microsoft JhengHei",sans-serif; line-height:1.78; background:radial-gradient(circle at top left, rgba(59,130,246,.14), transparent 28%),radial-gradient(circle at top right, rgba(15,23,42,.08), transparent 24%),linear-gradient(180deg,#eef4fb 0%,#f8fbff 44%,#f4f7fb 100%); padding-top:92px; }
     a { color: inherit; }
     .wrap { width:min(1160px, calc(100vw - 32px)); margin:0 auto; }
     .site-header { position:fixed; inset:0 0 auto 0; z-index:50; border-bottom:1px solid rgba(148,163,184,.18); background:rgba(248,251,255,.84); backdrop-filter:blur(18px); box-shadow:0 6px 22px rgba(15,23,42,.04); }
@@ -26,30 +26,32 @@
     .brand { font-weight:700; text-decoration:none; }
     .topnav { display:flex; flex-wrap:nowrap; gap:12px; overflow-x:auto; scrollbar-width:none; }
     .topnav::-webkit-scrollbar { display:none; }
-    .topnav a, .button { min-height:44px; display:inline-flex; align-items:center; padding:10px 14px; border-radius:var(--button); border:1px solid rgba(148,163,184,.22); background:rgba(255,255,255,.74); text-decoration:none; font-weight:700; white-space:nowrap; }
+    .topnav a,.button { min-height:44px; display:inline-flex; align-items:center; padding:10px 14px; border-radius:var(--button); border:1px solid rgba(148,163,184,.22); background:rgba(255,255,255,.74); text-decoration:none; font-weight:700; white-space:nowrap; }
     .button.primary { background:linear-gradient(135deg,#1d4ed8,#2563eb); border-color:#1d4ed8; color:#fff; }
-    .hero, .section { padding:24px 0; }
+    .hero,.section { padding:24px 0; }
     .eyebrow { display:inline-block; padding:6px 12px; border-radius:999px; background:var(--accent-soft); color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
-    .card, .skill-card, .note, .table-wrap { background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); }
-    .card, .note, .table-wrap { padding:28px; }
-    h1, h2, h3, p { margin-top:0; }
+    .card,.panel,.table-wrap { background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); }
+    .card,.panel,.table-wrap { padding:28px; }
+    h1,h2,h3,p { margin-top:0; }
     h1 { margin:16px 0 14px; font-size:clamp(36px,5vw,60px); line-height:1.04; letter-spacing:-.03em; }
     h2 { font-size:clamp(28px,3vw,38px); line-height:1.12; margin-bottom:14px; letter-spacing:-.02em; }
-    h3 { font-size:21px; margin-bottom:10px; }
-    .lead, .muted { color:var(--muted); }
-    .cta-row, .pill-row { display:flex; flex-wrap:wrap; gap:12px; }
+    h3 { font-size:20px; margin-bottom:10px; }
+    .lead,.muted { color:var(--muted); }
+    .cta-row,.pill-row { display:flex; flex-wrap:wrap; gap:12px; }
     .pill { display:inline-flex; padding:8px 12px; border-radius:999px; border:1px solid rgba(148,163,184,.22); background:rgba(255,255,255,.7); color:var(--accent); font-size:13px; font-weight:700; }
-    .grid-2, .grid-3 { display:grid; gap:18px; }
+    .grid-2,.grid-3,.grid-4 { display:grid; gap:18px; }
     .grid-2 { grid-template-columns:repeat(2, minmax(0, 1fr)); }
     .grid-3 { grid-template-columns:repeat(3, minmax(0, 1fr)); }
-    .skill-card { padding:22px; background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(248,251,255,.92)); }
+    .grid-4 { grid-template-columns:repeat(4, minmax(0, 1fr)); }
+    .stage { padding:22px; background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(248,251,255,.92)); border:1px solid var(--line); border-radius:16px; }
+    .stage-num { display:inline-flex; width:34px; height:34px; border-radius:999px; align-items:center; justify-content:center; background:#dbeafe; color:#1d4ed8; font-weight:800; margin-bottom:12px; }
     table { width:100%; border-collapse:collapse; font-size:15px; }
-    th, td { padding:14px 12px; border-bottom:1px solid var(--line); vertical-align:top; text-align:left; }
+    th,td { padding:14px 12px; border-bottom:1px solid var(--line); vertical-align:top; text-align:left; }
     th { background:#eef4fb; color:#1e3a8a; font-weight:800; }
-    ul, ol { margin:0; padding-left:22px; }
+    ul,ol { margin:0; padding-left:22px; }
     li { margin-bottom:8px; }
     .footer { padding:20px 0 48px; color:var(--muted); font-size:15px; }
-    @media (max-width:980px) { body{padding-top:108px}.topbar{display:block}.topnav{margin-top:12px}.grid-2,.grid-3{grid-template-columns:1fr}.table-wrap{overflow-x:auto}table{min-width:720px} }
+    @media (max-width:980px) { body{padding-top:108px}.topbar{display:block}.topnav{margin-top:12px}.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}.table-wrap{overflow-x:auto}table{min-width:760px} }
   </style>
 </head>
 <body>
@@ -66,99 +68,204 @@
       </nav>
     </div>
   </header>
+
   <section class="hero">
     <div class="wrap card">
-      <p class="eyebrow">Teaching Release</p>
-      <h1>教學分享技能應用發布版</h1>
-      <p class="lead">這一頁將教學分享常用的文件、簡報、資料分析、文獻整理與 AI 示範工具，整理成可直接對外發布的教學內容。重點不是列工具名稱，而是讓教師看懂：不同分享情境下，應該用哪一組 skill、產出什麼成品，以及怎麼驗證內容可重做。</p>
+      <p class="eyebrow">Process Guide</p>
+      <h1>AI 教學分享流程教材</h1>
+      <p class="lead">這不是一份工具清單，也不是展示某個 `skill.md` 成品的頁面。這一頁的重點是幫教師學會：面對不同教學分享任務時，如何判斷需求、挑選合適的 skill 類型、安排操作順序、建立驗證節點，最後形成自己能重做的工作流程。</p>
       <div class="pill-row" style="margin-bottom:20px;">
-        <span class="pill">教師研習</span>
-        <span class="pill">學術分享</span>
-        <span class="pill">教學評量分析</span>
-        <span class="pill">AI 教學應用</span>
+        <span class="pill">流程導向</span>
+        <span class="pill">學習過程</span>
+        <span class="pill">教學設計</span>
+        <span class="pill">可重做工作流</span>
       </div>
       <div class="cta-row">
-        <a class="button primary" href="../downloads/teaching-share-release.docx">下載 DOCX 講義</a>
-        <a class="button" href="#skills">查看技能總覽</a>
-        <a class="button" href="#workflow">查看發布流程</a>
+        <a class="button primary" href="#stages">學習流程</a>
+        <a class="button" href="#skill-types">通用 skill 類型</a>
+        <a class="button" href="#practice">練習循環</a>
       </div>
     </div>
   </section>
-  <section class="section" id="skills">
-    <div class="wrap">
-      <p class="eyebrow">Skill Map</p>
-      <h2>適合教學分享的核心技能</h2>
-      <div class="grid-3">
-        <article class="skill-card"><h3>`presentations:Presentations`</h3><p class="muted">最直接產出 PPTX。適合研習、課堂分享與成果發表，用來控制現場節奏與視覺重點。</p></article>
-        <article class="skill-card"><h3>`documents:documents`</h3><p class="muted">最適合做講義、教案、研習手冊與 Word 報告。若要形成可下載、可留存的教學文件，通常應作為主文件。</p></article>
-        <article class="skill-card"><h3>`spreadsheets:Spreadsheets`</h3><p class="muted">適合整理教學數據、前後測成績、課程表與量表結果。建議先完成欄位清理與圖表，再回寫到講義或投影片。</p></article>
-        <article class="skill-card"><h3>`pdf:pdf`</h3><p class="muted">適合從既有論文或教材 PDF 抽取重點、重組素材，再轉成教師能實際使用的教材內容。</p></article>
-        <article class="skill-card"><h3>`crossref-apa-bibliography`</h3><p class="muted">適合找文獻、整理 APA 參考文獻。研究導向分享、教學研究簡報與研討會講稿都非常實用。</p></article>
-        <article class="skill-card"><h3>`execution-recovery-guardrails`</h3><p class="muted">適合用來說明 AI 工作流程如何避免重踩同樣錯誤，能補足示範最常欠缺的驗證與修正邏輯。</p></article>
-      </div>
-      <div class="grid-2" style="margin-top:18px;">
-        <article class="skill-card"><h3>`openai-docs`</h3><p class="muted">適合補足官方文件與功能依據，降低 AI 教學應用示範時講錯模型能力或操作限制的風險。</p></article>
-        <article class="skill-card"><h3>`external-agent-orchestrator`</h3><p class="muted">適合展示多工具、多代理如何分工與驗證，讓進階示範不只是展示結果，而是展示完整工作流。</p></article>
-      </div>
-    </div>
-  </section>
+
   <section class="section">
+    <div class="wrap grid-2">
+      <article class="panel">
+        <p class="eyebrow">定位</p>
+        <h2>這份教材在教什麼</h2>
+        <p class="muted">核心不是記住工具名字，而是理解教學分享的決策順序。教師通常不是卡在「不知道有哪些工具」，而是卡在「不知道現在該先做哪一步、怎麼組合工具、怎麼確認結果可靠」。</p>
+      </article>
+      <article class="panel">
+        <p class="eyebrow">原則</p>
+        <h2>先流程，再成品</h2>
+        <p class="muted">若只看最後產出的簡報、講義或分析表，很容易誤以為重點在格式。實際上，真正可複製的能力來自流程：需求界定、資料準備、工具搭配、驗證與修正。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="stages">
+    <div class="wrap">
+      <p class="eyebrow">Learning Stages</p>
+      <h2>學習這類 skill 的四個階段</h2>
+      <div class="grid-4">
+        <article class="stage">
+          <div class="stage-num">1</div>
+          <h3>辨識任務</h3>
+          <p class="muted">先判斷這次分享的主要任務是說明概念、展示成果、分析資料，還是示範操作。這一步決定你要以講義、簡報、分析表或流程圖作為主體。</p>
+        </article>
+        <article class="stage">
+          <div class="stage-num">2</div>
+          <h3>配對 skill 類型</h3>
+          <p class="muted">把任務對應到合適的 skill 類型，例如文件產出、簡報設計、資料整理、文獻支援或流程驗證，而不是一開始就追逐特定工具名稱。</p>
+        </article>
+        <article class="stage">
+          <div class="stage-num">3</div>
+          <h3>建立節點</h3>
+          <p class="muted">把工作拆成輸入、處理、輸出、檢查四個節點。這樣每一步都有明確目的，也比較容易教別人跟著做。</p>
+        </article>
+        <article class="stage">
+          <div class="stage-num">4</div>
+          <h3>反覆修正</h3>
+          <p class="muted">學習不在第一次跑通，而在每做完一次就回頭檢查：內容是否更清楚、流程是否更短、錯誤是否更容易被發現。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skill-types">
     <div class="wrap table-wrap">
-      <p class="eyebrow">Use Cases</p>
-      <h2>依教學分享情境搭配技能組合</h2>
+      <p class="eyebrow">Generic Skill Types</p>
+      <h2>個別 skill 的通用版本理解</h2>
       <table>
-        <thead><tr><th>分享情境</th><th>建議 skill 組合</th><th>主要成品</th><th>實務說明</th></tr></thead>
+        <thead>
+          <tr>
+            <th>skill 類型</th>
+            <th>通用角色</th>
+            <th>學習重點</th>
+            <th>教師常見誤區</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td>教師研習</td><td>`presentations` + `documents`</td><td>投影片 + 講義</td><td>簡報處理現場節奏，講義補足步驟、案例與延伸閱讀，最適合 60 至 90 分鐘的實作型研習。</td></tr>
-          <tr><td>學術分享</td><td>`crossref-apa-bibliography` + `documents` + `presentations`</td><td>講稿 + 文獻 + 簡報</td><td>強調理論脈絡、引用格式與論述完整性，不宜只靠投影片臨場講述。</td></tr>
-          <tr><td>教學評量分析</td><td>`spreadsheets` + `documents`</td><td>分析表 + 說明文件</td><td>先處理分數、量表與圖表，再把結果翻譯成教師與行政端都能理解的敘述。</td></tr>
-          <tr><td>AI 教學應用示範</td><td>`openai-docs` + `external-agent-orchestrator`</td><td>示範腳本 + 流程說明</td><td>說清楚官方依據、多工具分工與驗證點，避免示範只剩炫技卻無法重做。</td></tr>
+          <tr>
+            <td>`presentations`</td>
+            <td>把內容轉成適合現場講述的節奏與視覺結構</td>
+            <td>學的是取捨重點、安排順序與控制每張投影片的訊息量</td>
+            <td>誤以為投影片越完整越好，結果變成把講義貼上去</td>
+          </tr>
+          <tr>
+            <td>`documents`</td>
+            <td>把概念、步驟與案例整理成可反覆閱讀的文件</td>
+            <td>學的是段落結構、說明層次與如何把口語示範轉成可讀文字</td>
+            <td>只想著排版，忽略教師真正需要的是可操作的說明</td>
+          </tr>
+          <tr>
+            <td>`spreadsheets`</td>
+            <td>把數據、欄位、計算與比較邏輯整理清楚</td>
+            <td>學的是欄位設計、資料清理、圖表判讀與結果解釋</td>
+            <td>直接把原始資料丟進簡報，沒有先做整理與轉譯</td>
+          </tr>
+          <tr>
+            <td>`pdf`</td>
+            <td>從既有材料中抽出可重組的知識片段</td>
+            <td>學的是摘要、重組與轉寫，不是直接搬運原檔內容</td>
+            <td>把 PDF 當成最終教材，而不是當作素材來源</td>
+          </tr>
+          <tr>
+            <td>`crossref-apa-bibliography`</td>
+            <td>建立研究依據與引用清單</td>
+            <td>學的是如何從主題找文獻、比對來源並維持格式一致</td>
+            <td>只貼參考文獻，不說明文獻在這場分享中扮演什麼角色</td>
+          </tr>
+          <tr>
+            <td>`openai-docs`</td>
+            <td>補足官方文件、功能說明與版本依據</td>
+            <td>學的是查核能力，而不是只背模型名稱</td>
+            <td>把網路上零散說法當成官方事實</td>
+          </tr>
+          <tr>
+            <td>`external-agent-orchestrator`</td>
+            <td>安排多工具分工與前後順序</td>
+            <td>學的是角色配置、任務切分與回收驗證</td>
+            <td>只看結果，不理解哪個工具在什麼時點介入</td>
+          </tr>
+          <tr>
+            <td>`execution-recovery-guardrails`</td>
+            <td>建立失敗檢查點與修正規則</td>
+            <td>學的是如何把錯誤變成可教、可修的流程知識</td>
+            <td>把失敗當例外，而不是當教材的一部分</td>
+          </tr>
         </tbody>
       </table>
     </div>
   </section>
-  <section class="section" id="workflow">
+
+  <section class="section">
     <div class="wrap grid-2">
-      <article class="note">
-        <p class="eyebrow">Workflow</p>
-        <h2>把技能轉成可發布教學文件的流程</h2>
-        <ol>
-          <li>先界定分享目標，決定主成品是 PPTX、DOCX 還是分析報告。</li>
-          <li>選定主文件，若要留存教材，通常以 `documents` 為核心。</li>
-          <li>先整理資料與文獻，再回寫到簡報或講義，不要在投影片上硬做分析。</li>
-          <li>若有 AI 主題，補上官方依據與工具分工，避免錯誤示範。</li>
-          <li>建立驗證節點，清楚說明常見錯誤與修正方式。</li>
-          <li>發布前統一檔名、版本與下載格式，必要時再另存 PDF。</li>
-        </ol>
-      </article>
-      <article class="note">
-        <p class="eyebrow">Checklist</p>
-        <h2>發布前檢核</h2>
+      <article class="panel">
+        <p class="eyebrow">Scenario Paths</p>
+        <h2>四種教學分享情境的流程差異</h2>
         <ul>
-          <li>是否已說明分享對象、目標與成品型態。</li>
-          <li>是否已區分主工具與輔助工具，而非只列工具清單。</li>
-          <li>若有資料分析內容，是否已完成欄位整理、計算與圖表檢查。</li>
-          <li>若有 AI 示範，是否已補上官方依據、流程分工與驗證方法。</li>
-          <li>若有研究或引用，是否已整理 APA 或其他一致格式的參考資料。</li>
-          <li>最終成品是否能直接下載、發放或提供校內留存。</li>
+          <li>教師研習：先定義活動流程，再決定簡報與講義如何分工。</li>
+          <li>學術分享：先補足研究與文獻，再做簡報濃縮。</li>
+          <li>教學評量分析：先清理欄位與比較架構，再討論教學意義。</li>
+          <li>AI 教學示範：先確認功能依據，再安排工具順序與驗證節點。</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <p class="eyebrow">Teacher Questions</p>
+        <h2>教師最值得反覆問自己的問題</h2>
+        <ul>
+          <li>這次我要教的是一個概念、一步操作，還是一個完整流程？</li>
+          <li>如果參與者回去自己做，最可能卡在哪一步？</li>
+          <li>哪個地方需要圖表，哪個地方需要文字說明？</li>
+          <li>我現在展示的是成品，還是展示成品背後的思考路徑？</li>
         </ul>
       </article>
     </div>
   </section>
-  <section class="section">
-    <div class="wrap card">
-      <p class="eyebrow">Download</p>
-      <h2>下載與延伸使用</h2>
-      <p class="lead">若需要離線講義、校內分享附件或研習後下載檔，可直接使用本頁對應的 DOCX 版本。若後續需要，也可以再延伸成 PPTX 版本或校內研習講義版。</p>
-      <div class="cta-row">
-        <a class="button primary" href="../downloads/teaching-share-release.docx">下載發布版講義</a>
-        <a class="button" href="../index.html">返回品牌首頁</a>
-        <a class="button" href="../sitemap.html">查看網站導覽</a>
+
+  <section class="section" id="practice">
+    <div class="wrap">
+      <p class="eyebrow">Practice Cycle</p>
+      <h2>建議的學習與練習循環</h2>
+      <div class="grid-3">
+        <article class="stage">
+          <h3>第一次練習</h3>
+          <p class="muted">只做最小版本。先拿一個真實主題，嘗試完成一頁講義或三張投影片，不求完整，只求流程走通。</p>
+        </article>
+        <article class="stage">
+          <h3>第二次練習</h3>
+          <p class="muted">加入驗證。檢查資料來源、段落順序、圖表是否能解釋，以及工具分工是否合理。</p>
+        </article>
+        <article class="stage">
+          <h3>第三次練習</h3>
+          <p class="muted">換情境重做。把同一主題改成研習版、學術版或分析版，訓練自己不是只會做單一格式。</p>
+        </article>
       </div>
     </div>
   </section>
+
+  <section class="section">
+    <div class="wrap grid-2">
+      <article class="panel">
+        <p class="eyebrow">Common Errors</p>
+        <h2>最常見的三種失誤</h2>
+        <ol>
+          <li>把 skill 當成內容本身，而不是內容處理的方法。</li>
+          <li>只展示漂亮成品，沒有交代中間判斷與修正過程。</li>
+          <li>只會在單一情境使用工具，換任務就不知道怎麼調整。</li>
+        </ol>
+      </article>
+      <article class="panel">
+        <p class="eyebrow">Teaching Aim</p>
+        <h2>這頁面真正想讓讀者帶走什麼</h2>
+        <p class="muted">希望讀者學會的不是某份檔案，而是一套判斷方式：看到任務後，能先拆解需求，再選擇工具類型，接著安排流程、設定檢查點，最後形成自己的教學分享工作法。</p>
+      </article>
+    </div>
+  </section>
+
   <footer class="wrap footer">
-    <p>本頁將教學分享技能選用、情境搭配、成品規劃與發布檢核整合為同一份公開教材，方便教師研習、課堂分享與學術型交流直接使用。</p>
+    <p>本頁以流程、學習歷程與教學判斷為主軸，將 skill 理解成可遷移的工作方法，而不是只看最終成品或特定設定檔。</p>
   </footer>
 </body>
 </html>

@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Teaching release page summarizing how presentations, documents, spreadsheets, pdf, crossref-apa-bibliography, execution-recovery-guardrails, openai-docs, and external-agent-orchestrator can support teacher workshops, academic presentations, assessment analysis, and AI-in-education demonstrations." />
+  <meta name="description" content="A process-centered teaching guide explaining generic uses of presentations, documents, spreadsheets, pdf, crossref-apa-bibliography, execution-recovery-guardrails, openai-docs, and external-agent-orchestrator for teacher workshops, academic talks, assessment analysis, and AI-in-education demonstrations." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="author" content="Yu-Ting Shih" />
   <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/teaching-share/index_en.html" />
   <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/teaching-share/index_en.html" />
   <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/teaching-share/index.html" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Teaching Skills Release Guide" />
-  <meta property="og:description" content="A publishable guide for teacher workshops, academic talks, assessment analysis, and AI teaching demonstrations." />
+  <meta property="og:title" content="AI Teaching Process Guide" />
+  <meta property="og:description" content="Learn skill usage through workflow, learning stages, and validation loops instead of focusing only on final deliverables." />
   <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/teaching-share/index_en.html" />
-  <title>Teaching Skills Release Guide</title>
+  <title>AI Teaching Process Guide</title>
   <style>
     :root { --bg:#f4f7fb; --paper:rgba(255,255,255,.95); --ink:#0f172a; --muted:#475569; --line:#dbe3ee; --accent:#1d4ed8; --accent-soft:rgba(37,99,235,.08); --shadow:0 18px 42px rgba(15,23,42,.08); --radius:18px; --button:8px; }
     *{box-sizing:border-box} html{scroll-behavior:smooth}
-    body{margin:0;color:var(--ink);font-family:"Inter","Segoe UI",sans-serif;line-height:1.75;background:radial-gradient(circle at top left, rgba(59,130,246,.14), transparent 28%),radial-gradient(circle at top right, rgba(15,23,42,.08), transparent 24%),linear-gradient(180deg,#eef4fb 0%,#f8fbff 44%,#f4f7fb 100%);padding-top:92px}
+    body{margin:0;color:var(--ink);font-family:"Inter","Segoe UI",sans-serif;line-height:1.78;background:radial-gradient(circle at top left, rgba(59,130,246,.14), transparent 28%),radial-gradient(circle at top right, rgba(15,23,42,.08), transparent 24%),linear-gradient(180deg,#eef4fb 0%,#f8fbff 44%,#f4f7fb 100%);padding-top:92px}
     a{color:inherit}.wrap{width:min(1160px,calc(100vw - 32px));margin:0 auto}
     .site-header{position:fixed;inset:0 0 auto 0;z-index:50;border-bottom:1px solid rgba(148,163,184,.18);background:rgba(248,251,255,.84);backdrop-filter:blur(18px);box-shadow:0 6px 22px rgba(15,23,42,.04)}
     .topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 0}
@@ -26,17 +26,18 @@
     .topnav a,.button{min-height:44px;display:inline-flex;align-items:center;padding:10px 14px;border-radius:var(--button);border:1px solid rgba(148,163,184,.22);background:rgba(255,255,255,.74);text-decoration:none;font-weight:700;white-space:nowrap}
     .button.primary{background:linear-gradient(135deg,#1d4ed8,#2563eb);border-color:#1d4ed8;color:#fff}
     .hero,.section{padding:24px 0}.eyebrow{display:inline-block;padding:6px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
-    .card,.skill-card,.note,.table-wrap{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .card,.note,.table-wrap{padding:28px}
-    h1,h2,h3,p{margin-top:0} h1{margin:16px 0 14px;font-size:clamp(36px,5vw,60px);line-height:1.04;letter-spacing:-.03em} h2{font-size:clamp(28px,3vw,38px);line-height:1.12;margin-bottom:14px;letter-spacing:-.02em} h3{font-size:21px;margin-bottom:10px}
+    .card,.panel,.table-wrap{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .card,.panel,.table-wrap{padding:28px}
+    h1,h2,h3,p{margin-top:0} h1{margin:16px 0 14px;font-size:clamp(36px,5vw,60px);line-height:1.04;letter-spacing:-.03em} h2{font-size:clamp(28px,3vw,38px);line-height:1.12;margin-bottom:14px;letter-spacing:-.02em} h3{font-size:20px;margin-bottom:10px}
     .lead,.muted{color:var(--muted)} .cta-row,.pill-row{display:flex;flex-wrap:wrap;gap:12px}
     .pill{display:inline-flex;padding:8px 12px;border-radius:999px;border:1px solid rgba(148,163,184,.22);background:rgba(255,255,255,.7);color:var(--accent);font-size:13px;font-weight:700}
-    .grid-2,.grid-3{display:grid;gap:18px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .skill-card{padding:22px;background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(248,251,255,.92))}
+    .grid-2,.grid-3,.grid-4{display:grid;gap:18px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .stage{padding:22px;background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(248,251,255,.92));border:1px solid var(--line);border-radius:16px}
+    .stage-num{display:inline-flex;width:34px;height:34px;border-radius:999px;align-items:center;justify-content:center;background:#dbeafe;color:#1d4ed8;font-weight:800;margin-bottom:12px}
     table{width:100%;border-collapse:collapse;font-size:15px} th,td{padding:14px 12px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
     th{background:#eef4fb;color:#1e3a8a;font-weight:800} ul,ol{margin:0;padding-left:22px} li{margin-bottom:8px}
     .footer{padding:20px 0 48px;color:var(--muted);font-size:15px}
-    @media (max-width:980px){body{padding-top:108px}.topbar{display:block}.topnav{margin-top:12px}.grid-2,.grid-3{grid-template-columns:1fr}.table-wrap{overflow-x:auto}table{min-width:720px}}
+    @media (max-width:980px){body{padding-top:108px}.topbar{display:block}.topnav{margin-top:12px}.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}.table-wrap{overflow-x:auto}table{min-width:760px}}
   </style>
 </head>
 <body>
@@ -53,81 +54,132 @@
       </nav>
     </div>
   </header>
+
   <section class="hero">
     <div class="wrap card">
-      <p class="eyebrow">Teaching Release</p>
-      <h1>Teaching Skills Release Guide</h1>
-      <p class="lead">This page turns a tool list into a publishable teaching resource. It helps teachers choose the right skill combinations for workshops, academic talks, assessment analysis, and AI teaching demonstrations, while making the expected deliverables and validation steps explicit.</p>
+      <p class="eyebrow">Process Guide</p>
+      <h1>AI Teaching Process Guide</h1>
+      <p class="lead">This is not a page about one final `skill.md` file. It is a learning page about how teachers can understand, sequence, and practice skill usage through workflow thinking: defining the task, selecting a skill type, building checkpoints, and revising the process.</p>
       <div class="pill-row" style="margin-bottom:20px;">
-        <span class="pill">Teacher Workshop</span>
-        <span class="pill">Academic Talk</span>
-        <span class="pill">Assessment Analysis</span>
-        <span class="pill">AI in Education</span>
+        <span class="pill">Workflow-first</span>
+        <span class="pill">Learning process</span>
+        <span class="pill">Teaching design</span>
+        <span class="pill">Reusable practice</span>
       </div>
       <div class="cta-row">
-        <a class="button primary" href="../downloads/teaching-share-release.docx">Download DOCX Handout</a>
-        <a class="button" href="#skills">Skill Overview</a>
-        <a class="button" href="#workflow">Release Workflow</a>
+        <a class="button primary" href="#stages">Learning stages</a>
+        <a class="button" href="#skill-types">Generic skill types</a>
+        <a class="button" href="#practice">Practice cycle</a>
       </div>
     </div>
   </section>
-  <section class="section" id="skills">
-    <div class="wrap">
-      <p class="eyebrow">Skill Map</p>
-      <h2>Core skills for teaching-oriented communication</h2>
-      <div class="grid-3">
-        <article class="skill-card"><h3>`presentations:Presentations`</h3><p class="muted">Best for direct PPTX creation in workshops, classes, and showcase talks.</p></article>
-        <article class="skill-card"><h3>`documents:documents`</h3><p class="muted">Best for handouts, lesson plans, workshop guides, and structured Word reports.</p></article>
-        <article class="skill-card"><h3>`spreadsheets:Spreadsheets`</h3><p class="muted">Useful for pre/post tests, scale scores, course schedules, and teaching data organization.</p></article>
-        <article class="skill-card"><h3>`pdf:pdf`</h3><p class="muted">Useful for extracting and reorganizing core ideas from existing papers or teaching PDFs.</p></article>
-        <article class="skill-card"><h3>`crossref-apa-bibliography`</h3><p class="muted">Useful for literature search and APA-formatted bibliography building in research-oriented sharing.</p></article>
-        <article class="skill-card"><h3>`execution-recovery-guardrails`</h3><p class="muted">Useful for showing how an AI workflow avoids repeated mistakes and stays reproducible.</p></article>
-      </div>
-    </div>
-  </section>
+
   <section class="section">
+    <div class="wrap grid-2">
+      <article class="panel">
+        <p class="eyebrow">Focus</p>
+        <h2>What this guide teaches</h2>
+        <p class="muted">The goal is not to memorize tool names. The goal is to understand how teaching tasks should be analyzed and matched to the right kind of skill support.</p>
+      </article>
+      <article class="panel">
+        <p class="eyebrow">Principle</p>
+        <h2>Process before product</h2>
+        <p class="muted">A polished slide deck or handout can hide weak reasoning. This guide emphasizes the path behind the output: task framing, source preparation, tool pairing, validation, and revision.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="stages">
+    <div class="wrap">
+      <p class="eyebrow">Learning Stages</p>
+      <h2>Four stages for learning skill-based teaching workflows</h2>
+      <div class="grid-4">
+        <article class="stage"><div class="stage-num">1</div><h3>Identify the task</h3><p class="muted">Decide whether the teaching need is explanation, presentation, data interpretation, or live demonstration.</p></article>
+        <article class="stage"><div class="stage-num">2</div><h3>Match the skill type</h3><p class="muted">Choose document, slide, spreadsheet, literature, validation, or orchestration support based on the task instead of starting with a fixed tool.</p></article>
+        <article class="stage"><div class="stage-num">3</div><h3>Build checkpoints</h3><p class="muted">Separate each workflow into input, processing, output, and review so the method can be taught clearly.</p></article>
+        <article class="stage"><div class="stage-num">4</div><h3>Revise intentionally</h3><p class="muted">Learning improves when each run is reviewed for clarity, efficiency, and error detection, not just for completion.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skill-types">
     <div class="wrap table-wrap">
-      <p class="eyebrow">Use Cases</p>
-      <h2>Recommended combinations by teaching scenario</h2>
+      <p class="eyebrow">Generic Skill Types</p>
+      <h2>How to understand each skill in a transferable way</h2>
       <table>
-        <thead><tr><th>Scenario</th><th>Recommended skills</th><th>Main deliverable</th><th>Why it fits</th></tr></thead>
+        <thead><tr><th>Skill type</th><th>Generic role</th><th>What the learner should practice</th><th>Common mistake</th></tr></thead>
         <tbody>
-          <tr><td>Teacher workshop</td><td>`presentations` + `documents`</td><td>Slides + handout</td><td>Slides manage live pacing, while documents keep steps, examples, and follow-up reading.</td></tr>
-          <tr><td>Academic sharing</td><td>`crossref-apa-bibliography` + `documents` + `presentations`</td><td>Talk script + references + slides</td><td>Supports complete argument structure, traceable sources, and formal citation practice.</td></tr>
-          <tr><td>Assessment analysis</td><td>`spreadsheets` + `documents`</td><td>Analysis sheet + explanatory brief</td><td>Data should be cleaned and interpreted before being turned into a teacher-facing narrative.</td></tr>
-          <tr><td>AI teaching demonstration</td><td>`openai-docs` + `external-agent-orchestrator`</td><td>Demo script + workflow explanation</td><td>Helps keep demonstrations grounded in official documentation and clear tool roles.</td></tr>
+          <tr><td>`presentations`</td><td>Turns content into live teaching rhythm and visual pacing</td><td>Practice selection, sequencing, and slide-level signal control</td><td>Treating slides as a full handout</td></tr>
+          <tr><td>`documents`</td><td>Turns concepts and procedures into readable teaching material</td><td>Practice structure, explanation depth, and conversion from spoken process to written guidance</td><td>Focusing only on formatting instead of instructional clarity</td></tr>
+          <tr><td>`spreadsheets`</td><td>Organizes fields, calculations, comparisons, and chart logic</td><td>Practice data cleaning, column design, interpretation, and translation into teaching language</td><td>Jumping to presentation before analysis is ready</td></tr>
+          <tr><td>`pdf`</td><td>Extracts reusable knowledge from existing materials</td><td>Practice summarizing, regrouping, and rewriting for new audiences</td><td>Using the original PDF as the final teaching product</td></tr>
+          <tr><td>`crossref-apa-bibliography`</td><td>Builds the research and citation backbone</td><td>Practice source retrieval, comparison, and citation consistency</td><td>Listing references without showing how they support the teaching argument</td></tr>
+          <tr><td>`openai-docs`</td><td>Provides official capability and product grounding</td><td>Practice verification, version awareness, and source checking</td><td>Treating informal online claims as official documentation</td></tr>
+          <tr><td>`external-agent-orchestrator`</td><td>Plans tool roles and sequence across a workflow</td><td>Practice decomposition, coordination, and return-path validation</td><td>Looking only at the final result instead of tool timing and role assignment</td></tr>
+          <tr><td>`execution-recovery-guardrails`</td><td>Turns failure points into teachable validation rules</td><td>Practice checkpoint design and error recovery logic</td><td>Seeing failure as a side issue instead of part of the teaching process</td></tr>
         </tbody>
       </table>
     </div>
   </section>
-  <section class="section" id="workflow">
+
+  <section class="section">
     <div class="wrap grid-2">
-      <article class="note">
-        <p class="eyebrow">Workflow</p>
-        <h2>How to turn tools into a publishable teaching file</h2>
-        <ol>
-          <li>Define the communication goal and decide whether the core asset should be a PPTX, DOCX, or analysis report.</li>
-          <li>Select one main file type; if the material needs to be downloaded and reused, documents should usually be the anchor deliverable.</li>
-          <li>Process data and references first, then move the cleaned results into slides or handouts.</li>
-          <li>For AI topics, add official documentation and clear role separation between tools.</li>
-          <li>Build verification checkpoints so the audience can reproduce the process rather than only watch the outcome.</li>
-        </ol>
-      </article>
-      <article class="note">
-        <p class="eyebrow">Checklist</p>
-        <h2>Release checklist</h2>
+      <article class="panel">
+        <p class="eyebrow">Scenario Paths</p>
+        <h2>How workflows shift across teaching scenarios</h2>
         <ul>
-          <li>Target audience, goal, and deliverable type are clearly stated.</li>
-          <li>Main and supporting skills are separated instead of mixed into a flat tool list.</li>
-          <li>Any data-driven section has already been cleaned, calculated, and checked.</li>
-          <li>Any AI demonstration includes source evidence, workflow logic, and validation steps.</li>
-          <li>The final output can be directly downloaded, shared, or archived.</li>
+          <li>Teacher workshops start with activity design, then split roles between slides and handouts.</li>
+          <li>Academic talks start with evidence and literature, then compress into presentation form.</li>
+          <li>Assessment analysis starts with field cleaning and comparison structure before interpretation.</li>
+          <li>AI demonstrations start with capability verification, then move into tool order and checkpoints.</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <p class="eyebrow">Teacher Questions</p>
+        <h2>Questions worth repeating during practice</h2>
+        <ul>
+          <li>Am I teaching a concept, a step, or a full workflow?</li>
+          <li>Where would a participant most likely get stuck when doing this alone?</li>
+          <li>Which part needs a chart, and which part needs explanation?</li>
+          <li>Am I showing a product, or am I showing the reasoning behind the product?</li>
         </ul>
       </article>
     </div>
   </section>
+
+  <section class="section" id="practice">
+    <div class="wrap">
+      <p class="eyebrow">Practice Cycle</p>
+      <h2>Suggested learning loop</h2>
+      <div class="grid-3">
+        <article class="stage"><h3>First run</h3><p class="muted">Build the smallest workable version. One page, three slides, or one analysis view is enough.</p></article>
+        <article class="stage"><h3>Second run</h3><p class="muted">Add validation. Check sources, sequence, chart meaning, and whether the workflow can be followed by others.</p></article>
+        <article class="stage"><h3>Third run</h3><p class="muted">Rebuild the same topic for a different setting so the learner practices transfer instead of repetition.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid-2">
+      <article class="panel">
+        <p class="eyebrow">Common Errors</p>
+        <h2>Three errors that weaken learning</h2>
+        <ol>
+          <li>Treating the skill as the content instead of the method for shaping content.</li>
+          <li>Showing polished outputs without exposing the judgment and revision steps.</li>
+          <li>Learning one template for one scenario and failing to transfer it elsewhere.</li>
+        </ol>
+      </article>
+      <article class="panel">
+        <p class="eyebrow">Teaching Aim</p>
+        <h2>What the learner should take away</h2>
+        <p class="muted">The intended outcome is a way of thinking: identify the task, choose the right support type, sequence the workflow, set checkpoints, and refine the result through repeated practice.</p>
+      </article>
+    </div>
+  </section>
+
   <footer class="wrap footer">
-    <p>This page publishes a practical teaching guide that connects scenarios, tools, deliverables, and validation into one reusable resource.</p>
+    <p>This page frames skill usage as a transferable teaching workflow rather than a single output file or a fixed configuration document.</p>
   </footer>
 </body>
 </html>
