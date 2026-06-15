@@ -30,8 +30,8 @@
     .button.primary { background:linear-gradient(135deg,#1d4ed8,#2563eb); border-color:#1d4ed8; color:#fff; }
     .hero,.section { padding:24px 0; }
     .eyebrow { display:inline-block; padding:6px 12px; border-radius:999px; background:var(--accent-soft); color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
-    .card,.panel,.table-wrap { background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); }
-    .card,.panel,.table-wrap { padding:28px; }
+    .card,.panel,.table-wrap,.manual-card,.author-card { background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); }
+    .card,.panel,.table-wrap,.manual-card,.author-card { padding:28px; }
     h1,h2,h3,p { margin-top:0; }
     h1 { margin:16px 0 14px; font-size:clamp(36px,5vw,60px); line-height:1.04; letter-spacing:-.03em; }
     h2 { font-size:clamp(28px,3vw,38px); line-height:1.12; margin-bottom:14px; letter-spacing:-.02em; }
@@ -45,13 +45,19 @@
     .grid-4 { grid-template-columns:repeat(4, minmax(0, 1fr)); }
     .stage { padding:22px; background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(248,251,255,.92)); border:1px solid var(--line); border-radius:16px; }
     .stage-num { display:inline-flex; width:34px; height:34px; border-radius:999px; align-items:center; justify-content:center; background:#dbeafe; color:#1d4ed8; font-weight:800; margin-bottom:12px; }
+    .manual-grid { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:18px; }
+    .manual-card { background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(248,251,255,.92)); }
+    .manual-card code { font-size:15px; font-weight:700; color:#1d4ed8; }
+    .manual-label { display:block; margin:14px 0 6px; font-size:13px; font-weight:800; color:#1e3a8a; text-transform:uppercase; letter-spacing:.03em; }
+    .author-card { display:grid; grid-template-columns:160px 1fr; gap:20px; align-items:center; }
+    .author-mark { width:140px; height:140px; border-radius:20px; background:linear-gradient(135deg,#dbeafe,#eff6ff); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; color:#1d4ed8; font-size:44px; font-weight:800; }
     table { width:100%; border-collapse:collapse; font-size:15px; }
     th,td { padding:14px 12px; border-bottom:1px solid var(--line); vertical-align:top; text-align:left; }
     th { background:#eef4fb; color:#1e3a8a; font-weight:800; }
     ul,ol { margin:0; padding-left:22px; }
     li { margin-bottom:8px; }
     .footer { padding:20px 0 48px; color:var(--muted); font-size:15px; }
-    @media (max-width:980px) { body{padding-top:108px}.topbar{display:block}.topnav{margin-top:12px}.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}.table-wrap{overflow-x:auto}table{min-width:760px} }
+    @media (max-width:980px) { body{padding-top:108px}.topbar{display:block}.topnav{margin-top:12px}.grid-2,.grid-3,.grid-4,.manual-grid,.author-card{grid-template-columns:1fr}.table-wrap{overflow-x:auto}table{min-width:760px}.author-mark{width:100%;max-width:140px} }
   </style>
 </head>
 <body>
@@ -199,6 +205,96 @@
     </div>
   </section>
 
+  <section class="section" id="skill-manual">
+    <div class="wrap">
+      <p class="eyebrow">Skill.md Guide</p>
+      <h2>把 skill.md 內容轉成易讀的教學導讀</h2>
+      <p class="lead">這一區不是原始設定檔全文，而是把每個 skill 在 `skill.md` 中真正重要的資訊拆成「它處理什麼、通常吃什麼輸入、會吐出什麼結果、教師要學會看哪個判斷點」，方便初學者理解。</p>
+      <div class="manual-grid">
+        <article class="manual-card">
+          <h3><code>presentations:Presentations</code></h3>
+          <p class="muted">適合把一段教學主題整理成可上台講述的簡報流程。</p>
+          <span class="manual-label">典型輸入</span>
+          <p>主題、對象、時間限制、要講的案例或數據。</p>
+          <span class="manual-label">典型輸出</span>
+          <p>分頁清楚的 PPTX、簡報段落順序、每張投影片的重點配置。</p>
+          <span class="manual-label">教學判斷點</span>
+          <p>重點不是做很多張，而是每張投影片只承載一個主要訊息。</p>
+        </article>
+        <article class="manual-card">
+          <h3><code>documents:documents</code></h3>
+          <p class="muted">適合把講述內容轉成講義、教案、手冊或正式說明文件。</p>
+          <span class="manual-label">典型輸入</span>
+          <p>教學步驟、案例說明、操作提示、延伸閱讀或研習內容。</p>
+          <span class="manual-label">典型輸出</span>
+          <p>可閱讀、可留存、可列印的教學文件結構。</p>
+          <span class="manual-label">教學判斷點</span>
+          <p>要檢查讀者不在現場時，是否仍能依文件理解並重做。</p>
+        </article>
+        <article class="manual-card">
+          <h3><code>spreadsheets:Spreadsheets</code></h3>
+          <p class="muted">適合處理成績、量表、課程記錄與教學數據。</p>
+          <span class="manual-label">典型輸入</span>
+          <p>原始欄位、問卷分數、前後測結果、出缺席或教學紀錄。</p>
+          <span class="manual-label">典型輸出</span>
+          <p>乾淨欄位、統整表、圖表與可解釋的比較結果。</p>
+          <span class="manual-label">教學判斷點</span>
+          <p>資料是否已先整理到能講清楚，再拿去做投影片或報告。</p>
+        </article>
+        <article class="manual-card">
+          <h3><code>pdf:pdf</code></h3>
+          <p class="muted">適合把既有 PDF 材料重整成新的教學素材。</p>
+          <span class="manual-label">典型輸入</span>
+          <p>論文 PDF、教材 PDF、講義原檔或報告附件。</p>
+          <span class="manual-label">典型輸出</span>
+          <p>摘要、重點段落、教學再編版本或可放進新教材的結構化內容。</p>
+          <span class="manual-label">教學判斷點</span>
+          <p>不是照搬原文，而是看能否抽出適合教學的知識片段。</p>
+        </article>
+        <article class="manual-card">
+          <h3><code>crossref-apa-bibliography</code></h3>
+          <p class="muted">適合研究導向分享的文獻支援與引註整理。</p>
+          <span class="manual-label">典型輸入</span>
+          <p>研究主題、關鍵詞、DOI、作者資訊或期刊資訊。</p>
+          <span class="manual-label">典型輸出</span>
+          <p>APA 格式參考文獻、文獻清單與引用基礎。</p>
+          <span class="manual-label">教學判斷點</span>
+          <p>文獻是否真的支撐教學論點，而不是只為了看起來完整。</p>
+        </article>
+        <article class="manual-card">
+          <h3><code>openai-docs</code></h3>
+          <p class="muted">適合查核官方模型能力、API 功能與操作限制。</p>
+          <span class="manual-label">典型輸入</span>
+          <p>功能問題、模型比較、官方用法、參數與產品操作需求。</p>
+          <span class="manual-label">典型輸出</span>
+          <p>可追溯的官方依據、正確的產品說明與避免誤講的查核結果。</p>
+          <span class="manual-label">教學判斷點</span>
+          <p>當分享內容牽涉模型功能時，要優先查核，而不是憑印象講解。</p>
+        </article>
+        <article class="manual-card">
+          <h3><code>external-agent-orchestrator</code></h3>
+          <p class="muted">適合示範多工具協作時的分工順序與驗證回路。</p>
+          <span class="manual-label">典型輸入</span>
+          <p>多步驟任務、不同工具角色、驗證需求與成本控制條件。</p>
+          <span class="manual-label">典型輸出</span>
+          <p>清楚的角色切分、誰先做什麼、誰負責檢查什麼的流程。</p>
+          <span class="manual-label">教學判斷點</span>
+          <p>讀者是否能說出每個工具的責任，而不是只看到最後結果。</p>
+        </article>
+        <article class="manual-card">
+          <h3><code>execution-recovery-guardrails</code></h3>
+          <p class="muted">適合把錯誤處理、回復策略與重做規則變成教材內容。</p>
+          <span class="manual-label">典型輸入</span>
+          <p>常見失敗點、重複錯誤、流程中斷情境與修正經驗。</p>
+          <span class="manual-label">典型輸出</span>
+          <p>檢核表、回復規則、修正步驟與更穩定的工作流程。</p>
+          <span class="manual-label">教學判斷點</span>
+          <p>是否已把失敗經驗轉成可教的規則，而不是只說「這次成功了」。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="wrap grid-2">
       <article class="panel">
@@ -264,8 +360,19 @@
     </div>
   </section>
 
+  <section class="section" id="author">
+    <div class="wrap author-card">
+      <div class="author-mark">YT</div>
+      <div>
+        <p class="eyebrow">作者</p>
+        <h2>作者資訊</h2>
+        <p class="muted">本頁由施育廷整理與製作，內容聚焦於 AI 教學分享、教學流程設計、研究導向教學溝通，以及不同 skill 在教師研習與學術分享情境中的可遷移用法。網站中的研究成果、AI 教材、教學分享與證照頁面皆由同一學術品牌架構統整。</p>
+      </div>
+    </div>
+  </section>
+
   <footer class="wrap footer">
-    <p>本頁以流程、學習歷程與教學判斷為主軸，將 skill 理解成可遷移的工作方法，而不是只看最終成品或特定設定檔。</p>
+    <p>本頁以流程、學習歷程與教學判斷為主軸，將 skill 理解成可遷移的工作方法，而不是只看最終成品或特定設定檔。作者：施育廷。</p>
   </footer>
 </body>
 </html>

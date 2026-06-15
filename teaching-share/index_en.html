@@ -11,7 +11,7 @@
   <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/teaching-share/index.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="AI Teaching Process Guide" />
-  <meta property="og:description" content="Learn skill usage through workflow, learning stages, and validation loops instead of focusing only on final deliverables." />
+  <meta property="og:description" content="Learn skill usage through workflow, learning stages, validation loops, and readable skill.md interpretation." />
   <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/teaching-share/index_en.html" />
   <title>AI Teaching Process Guide</title>
   <style>
@@ -26,18 +26,24 @@
     .topnav a,.button{min-height:44px;display:inline-flex;align-items:center;padding:10px 14px;border-radius:var(--button);border:1px solid rgba(148,163,184,.22);background:rgba(255,255,255,.74);text-decoration:none;font-weight:700;white-space:nowrap}
     .button.primary{background:linear-gradient(135deg,#1d4ed8,#2563eb);border-color:#1d4ed8;color:#fff}
     .hero,.section{padding:24px 0}.eyebrow{display:inline-block;padding:6px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
-    .card,.panel,.table-wrap{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .card,.panel,.table-wrap{padding:28px}
+    .card,.panel,.table-wrap,.manual-card,.author-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .card,.panel,.table-wrap,.manual-card,.author-card{padding:28px}
     h1,h2,h3,p{margin-top:0} h1{margin:16px 0 14px;font-size:clamp(36px,5vw,60px);line-height:1.04;letter-spacing:-.03em} h2{font-size:clamp(28px,3vw,38px);line-height:1.12;margin-bottom:14px;letter-spacing:-.02em} h3{font-size:20px;margin-bottom:10px}
     .lead,.muted{color:var(--muted)} .cta-row,.pill-row{display:flex;flex-wrap:wrap;gap:12px}
     .pill{display:inline-flex;padding:8px 12px;border-radius:999px;border:1px solid rgba(148,163,184,.22);background:rgba(255,255,255,.7);color:var(--accent);font-size:13px;font-weight:700}
     .grid-2,.grid-3,.grid-4{display:grid;gap:18px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
     .stage{padding:22px;background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(248,251,255,.92));border:1px solid var(--line);border-radius:16px}
     .stage-num{display:inline-flex;width:34px;height:34px;border-radius:999px;align-items:center;justify-content:center;background:#dbeafe;color:#1d4ed8;font-weight:800;margin-bottom:12px}
+    .manual-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .manual-card{background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(248,251,255,.92))}
+    .manual-card code{font-size:15px;font-weight:700;color:#1d4ed8}
+    .manual-label{display:block;margin:14px 0 6px;font-size:13px;font-weight:800;color:#1e3a8a;text-transform:uppercase;letter-spacing:.03em}
+    .author-card{display:grid;grid-template-columns:160px 1fr;gap:20px;align-items:center}
+    .author-mark{width:140px;height:140px;border-radius:20px;background:linear-gradient(135deg,#dbeafe,#eff6ff);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:#1d4ed8;font-size:44px;font-weight:800}
     table{width:100%;border-collapse:collapse;font-size:15px} th,td{padding:14px 12px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
     th{background:#eef4fb;color:#1e3a8a;font-weight:800} ul,ol{margin:0;padding-left:22px} li{margin-bottom:8px}
     .footer{padding:20px 0 48px;color:var(--muted);font-size:15px}
-    @media (max-width:980px){body{padding-top:108px}.topbar{display:block}.topnav{margin-top:12px}.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}.table-wrap{overflow-x:auto}table{min-width:760px}}
+    @media (max-width:980px){body{padding-top:108px}.topbar{display:block}.topnav{margin-top:12px}.grid-2,.grid-3,.grid-4,.manual-grid,.author-card{grid-template-columns:1fr}.table-wrap{overflow-x:auto}table{min-width:760px}.author-mark{width:100%;max-width:140px}}
   </style>
 </head>
 <body>
@@ -59,7 +65,7 @@
     <div class="wrap card">
       <p class="eyebrow">Process Guide</p>
       <h1>AI Teaching Process Guide</h1>
-      <p class="lead">This is not a page about one final `skill.md` file. It is a learning page about how teachers can understand, sequence, and practice skill usage through workflow thinking: defining the task, selecting a skill type, building checkpoints, and revising the process.</p>
+      <p class="lead">This page is not centered on a single final `skill.md` file. It teaches how teachers can understand, sequence, and practice skill usage through workflow thinking: define the task, choose the right skill type, build checkpoints, interpret the meaning of each skill entry, and revise the process until it becomes teachable.</p>
       <div class="pill-row" style="margin-bottom:20px;">
         <span class="pill">Workflow-first</span>
         <span class="pill">Learning process</span>
@@ -69,7 +75,7 @@
       <div class="cta-row">
         <a class="button primary" href="#stages">Learning stages</a>
         <a class="button" href="#skill-types">Generic skill types</a>
-        <a class="button" href="#practice">Practice cycle</a>
+        <a class="button" href="#skill-manual">Skill.md guide</a>
       </div>
     </div>
   </section>
@@ -119,6 +125,96 @@
           <tr><td>`execution-recovery-guardrails`</td><td>Turns failure points into teachable validation rules</td><td>Practice checkpoint design and error recovery logic</td><td>Seeing failure as a side issue instead of part of the teaching process</td></tr>
         </tbody>
       </table>
+    </div>
+  </section>
+
+  <section class="section" id="skill-manual">
+    <div class="wrap">
+      <p class="eyebrow">Skill.md Guide</p>
+      <h2>Readable interpretation of skill.md content</h2>
+      <p class="lead">Instead of pasting raw configuration text, this section translates the core instructional meaning behind each skill entry: what kind of task it handles, what usually goes in, what comes out, and what a teacher should learn to notice while using it.</p>
+      <div class="manual-grid">
+        <article class="manual-card">
+          <h3><code>presentations:Presentations</code></h3>
+          <p class="muted">Used for turning a teaching topic into a live-facing slide structure.</p>
+          <span class="manual-label">Typical input</span>
+          <p>Topic, audience, time limit, examples, or data points.</p>
+          <span class="manual-label">Typical output</span>
+          <p>A slide deck with clear pacing, section order, and message-per-slide discipline.</p>
+          <span class="manual-label">Teaching checkpoint</span>
+          <p>The learner should ask whether each slide carries one primary teaching signal.</p>
+        </article>
+        <article class="manual-card">
+          <h3><code>documents:documents</code></h3>
+          <p class="muted">Used for turning steps, concepts, and examples into reusable written teaching material.</p>
+          <span class="manual-label">Typical input</span>
+          <p>Instructional steps, case explanations, workshop notes, or procedural guidance.</p>
+          <span class="manual-label">Typical output</span>
+          <p>A structured handout, guide, plan, or explanatory document.</p>
+          <span class="manual-label">Teaching checkpoint</span>
+          <p>The learner should check whether the text still works when the teacher is not present to explain it.</p>
+        </article>
+        <article class="manual-card">
+          <h3><code>spreadsheets:Spreadsheets</code></h3>
+          <p class="muted">Used for score tables, survey scales, schedules, and educational data handling.</p>
+          <span class="manual-label">Typical input</span>
+          <p>Raw columns, test scores, attendance, rubric data, or comparative records.</p>
+          <span class="manual-label">Typical output</span>
+          <p>Clean fields, summary tables, charts, and interpretable comparisons.</p>
+          <span class="manual-label">Teaching checkpoint</span>
+          <p>The learner should verify that the data is already interpretable before moving it into a talk or handout.</p>
+        </article>
+        <article class="manual-card">
+          <h3><code>pdf:pdf</code></h3>
+          <p class="muted">Used for extracting reusable ideas from existing PDF-based material.</p>
+          <span class="manual-label">Typical input</span>
+          <p>Research papers, slide exports, handouts, or report appendices in PDF form.</p>
+          <span class="manual-label">Typical output</span>
+          <p>Summaries, extracted sections, restructured content, or teaching-ready rewrites.</p>
+          <span class="manual-label">Teaching checkpoint</span>
+          <p>The learner should check whether the PDF has been transformed into teachable material instead of merely copied.</p>
+        </article>
+        <article class="manual-card">
+          <h3><code>crossref-apa-bibliography</code></h3>
+          <p class="muted">Used for research support and citation management in scholarly sharing.</p>
+          <span class="manual-label">Typical input</span>
+          <p>Topic keywords, DOI, author names, or journal references.</p>
+          <span class="manual-label">Typical output</span>
+          <p>APA references, source lists, and a clearer citation backbone.</p>
+          <span class="manual-label">Teaching checkpoint</span>
+          <p>The learner should know which references actually support the teaching claim being made.</p>
+        </article>
+        <article class="manual-card">
+          <h3><code>openai-docs</code></h3>
+          <p class="muted">Used for official capability checks, API guidance, and product-grounded explanations.</p>
+          <span class="manual-label">Typical input</span>
+          <p>Model questions, product comparisons, API usage, or official feature lookups.</p>
+          <span class="manual-label">Typical output</span>
+          <p>Traceable official explanations and lower-risk teaching statements.</p>
+          <span class="manual-label">Teaching checkpoint</span>
+          <p>The learner should practice verifying claims before presenting them as fact.</p>
+        </article>
+        <article class="manual-card">
+          <h3><code>external-agent-orchestrator</code></h3>
+          <p class="muted">Used for multi-tool sequencing, role assignment, and validation flow design.</p>
+          <span class="manual-label">Typical input</span>
+          <p>Complex tasks, multiple tool roles, verification rules, and cost constraints.</p>
+          <span class="manual-label">Typical output</span>
+          <p>A clearer workflow showing who does what, in what order, and where results are checked.</p>
+          <span class="manual-label">Teaching checkpoint</span>
+          <p>The learner should be able to explain the role of each tool, not just show the end product.</p>
+        </article>
+        <article class="manual-card">
+          <h3><code>execution-recovery-guardrails</code></h3>
+          <p class="muted">Used for turning repeated mistakes into teachable recovery logic.</p>
+          <span class="manual-label">Typical input</span>
+          <p>Failure cases, repeated errors, broken steps, or unstable process points.</p>
+          <span class="manual-label">Typical output</span>
+          <p>Checklists, recovery rules, and a more stable repeatable workflow.</p>
+          <span class="manual-label">Teaching checkpoint</span>
+          <p>The learner should ask whether failure has been converted into a rule others can follow.</p>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -178,8 +274,19 @@
     </div>
   </section>
 
+  <section class="section" id="author">
+    <div class="wrap author-card">
+      <div class="author-mark">YT</div>
+      <div>
+        <p class="eyebrow">Author</p>
+        <h2>Author information</h2>
+        <p class="muted">This page was organized and authored by Yu-Ting Shih. Its focus is AI teaching communication, instructional workflow design, research-oriented educational sharing, and the transferable use of skill-based methods across teacher workshops and academic presentations.</p>
+      </div>
+    </div>
+  </section>
+
   <footer class="wrap footer">
-    <p>This page frames skill usage as a transferable teaching workflow rather than a single output file or a fixed configuration document.</p>
+    <p>This page frames skill usage as a transferable teaching workflow rather than a single output file or a fixed configuration document. Author: Yu-Ting Shih.</p>
   </footer>
 </body>
 </html>
