@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="教學分享技能應用發布版，整理 presentations、documents、spreadsheets、pdf、crossref-apa-bibliography、execution-recovery-guardrails、openai-docs 與 external-agent-orchestrator 在教師研習、學術分享、教學評量與 AI 教學應用示範中的實務用法。" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="author" content="施育廷" />
+  <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/teaching-share/index.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/teaching-share/index.html" />
+  <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/teaching-share/index_en.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="教學分享技能應用發布版" />
+  <meta property="og:description" content="將 AI 教學分享所需的文件、簡報、資料分析、文獻整理與流程驗證工具，整理成可直接發布的教學頁面與下載講義。" />
+  <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/teaching-share/index.html" />
+  <title>教學分享技能應用發布版</title>
+  <style>
+    :root { --bg:#f4f7fb; --paper:rgba(255,255,255,.95); --ink:#0f172a; --muted:#475569; --line:#dbe3ee; --accent:#1d4ed8; --accent-soft:rgba(37,99,235,.08); --shadow:0 18px 42px rgba(15,23,42,.08); --radius:18px; --button:8px; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin:0; color:var(--ink); font-family:"Inter","Noto Sans TC","Microsoft JhengHei",sans-serif; line-height:1.75; background:radial-gradient(circle at top left, rgba(59,130,246,.14), transparent 28%),radial-gradient(circle at top right, rgba(15,23,42,.08), transparent 24%),linear-gradient(180deg,#eef4fb 0%,#f8fbff 44%,#f4f7fb 100%); padding-top:92px; }
+    a { color: inherit; }
+    .wrap { width:min(1160px, calc(100vw - 32px)); margin:0 auto; }
+    .site-header { position:fixed; inset:0 0 auto 0; z-index:50; border-bottom:1px solid rgba(148,163,184,.18); background:rgba(248,251,255,.84); backdrop-filter:blur(18px); box-shadow:0 6px 22px rgba(15,23,42,.04); }
+    .topbar { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:16px 0; }
+    .brand { font-weight:700; text-decoration:none; }
+    .topnav { display:flex; flex-wrap:nowrap; gap:12px; overflow-x:auto; scrollbar-width:none; }
+    .topnav::-webkit-scrollbar { display:none; }
+    .topnav a, .button { min-height:44px; display:inline-flex; align-items:center; padding:10px 14px; border-radius:var(--button); border:1px solid rgba(148,163,184,.22); background:rgba(255,255,255,.74); text-decoration:none; font-weight:700; white-space:nowrap; }
+    .button.primary { background:linear-gradient(135deg,#1d4ed8,#2563eb); border-color:#1d4ed8; color:#fff; }
+    .hero, .section { padding:24px 0; }
+    .eyebrow { display:inline-block; padding:6px 12px; border-radius:999px; background:var(--accent-soft); color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
+    .card, .skill-card, .note, .table-wrap { background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); }
+    .card, .note, .table-wrap { padding:28px; }
+    h1, h2, h3, p { margin-top:0; }
+    h1 { margin:16px 0 14px; font-size:clamp(36px,5vw,60px); line-height:1.04; letter-spacing:-.03em; }
+    h2 { font-size:clamp(28px,3vw,38px); line-height:1.12; margin-bottom:14px; letter-spacing:-.02em; }
+    h3 { font-size:21px; margin-bottom:10px; }
+    .lead, .muted { color:var(--muted); }
+    .cta-row, .pill-row { display:flex; flex-wrap:wrap; gap:12px; }
+    .pill { display:inline-flex; padding:8px 12px; border-radius:999px; border:1px solid rgba(148,163,184,.22); background:rgba(255,255,255,.7); color:var(--accent); font-size:13px; font-weight:700; }
+    .grid-2, .grid-3 { display:grid; gap:18px; }
+    .grid-2 { grid-template-columns:repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns:repeat(3, minmax(0, 1fr)); }
+    .skill-card { padding:22px; background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(248,251,255,.92)); }
+    table { width:100%; border-collapse:collapse; font-size:15px; }
+    th, td { padding:14px 12px; border-bottom:1px solid var(--line); vertical-align:top; text-align:left; }
+    th { background:#eef4fb; color:#1e3a8a; font-weight:800; }
+    ul, ol { margin:0; padding-left:22px; }
+    li { margin-bottom:8px; }
+    .footer { padding:20px 0 48px; color:var(--muted); font-size:15px; }
+    @media (max-width:980px) { body{padding-top:108px}.topbar{display:block}.topnav{margin-top:12px}.grid-2,.grid-3{grid-template-columns:1fr}.table-wrap{overflow-x:auto}table{min-width:720px} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="../index.html">Yu-Ting Shih Academic Site</a>
+      <nav class="topnav" aria-label="主要導覽">
+        <a href="../index.html">首頁</a>
+        <a href="../author-works/index.html">研究成果</a>
+        <a href="../ai-course-site/index.html">AI 教材</a>
+        <a href="../certificates-site/index.html">證照證明</a>
+        <a href="../sitemap.html">網站導覽</a>
+        <a href="./index_en.html">EN</a>
+      </nav>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="wrap card">
+      <p class="eyebrow">Teaching Release</p>
+      <h1>教學分享技能應用發布版</h1>
+      <p class="lead">這一頁將教學分享常用的文件、簡報、資料分析、文獻整理與 AI 示範工具，整理成可直接對外發布的教學內容。重點不是列工具名稱，而是讓教師看懂：不同分享情境下，應該用哪一組 skill、產出什麼成品，以及怎麼驗證內容可重做。</p>
+      <div class="pill-row" style="margin-bottom:20px;">
+        <span class="pill">教師研習</span>
+        <span class="pill">學術分享</span>
+        <span class="pill">教學評量分析</span>
+        <span class="pill">AI 教學應用</span>
+      </div>
+      <div class="cta-row">
+        <a class="button primary" href="../downloads/teaching-share-release.docx">下載 DOCX 講義</a>
+        <a class="button" href="#skills">查看技能總覽</a>
+        <a class="button" href="#workflow">查看發布流程</a>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="skills">
+    <div class="wrap">
+      <p class="eyebrow">Skill Map</p>
+      <h2>適合教學分享的核心技能</h2>
+      <div class="grid-3">
+        <article class="skill-card"><h3>`presentations:Presentations`</h3><p class="muted">最直接產出 PPTX。適合研習、課堂分享與成果發表，用來控制現場節奏與視覺重點。</p></article>
+        <article class="skill-card"><h3>`documents:documents`</h3><p class="muted">最適合做講義、教案、研習手冊與 Word 報告。若要形成可下載、可留存的教學文件，通常應作為主文件。</p></article>
+        <article class="skill-card"><h3>`spreadsheets:Spreadsheets`</h3><p class="muted">適合整理教學數據、前後測成績、課程表與量表結果。建議先完成欄位清理與圖表，再回寫到講義或投影片。</p></article>
+        <article class="skill-card"><h3>`pdf:pdf`</h3><p class="muted">適合從既有論文或教材 PDF 抽取重點、重組素材，再轉成教師能實際使用的教材內容。</p></article>
+        <article class="skill-card"><h3>`crossref-apa-bibliography`</h3><p class="muted">適合找文獻、整理 APA 參考文獻。研究導向分享、教學研究簡報與研討會講稿都非常實用。</p></article>
+        <article class="skill-card"><h3>`execution-recovery-guardrails`</h3><p class="muted">適合用來說明 AI 工作流程如何避免重踩同樣錯誤，能補足示範最常欠缺的驗證與修正邏輯。</p></article>
+      </div>
+      <div class="grid-2" style="margin-top:18px;">
+        <article class="skill-card"><h3>`openai-docs`</h3><p class="muted">適合補足官方文件與功能依據，降低 AI 教學應用示範時講錯模型能力或操作限制的風險。</p></article>
+        <article class="skill-card"><h3>`external-agent-orchestrator`</h3><p class="muted">適合展示多工具、多代理如何分工與驗證，讓進階示範不只是展示結果，而是展示完整工作流。</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap table-wrap">
+      <p class="eyebrow">Use Cases</p>
+      <h2>依教學分享情境搭配技能組合</h2>
+      <table>
+        <thead><tr><th>分享情境</th><th>建議 skill 組合</th><th>主要成品</th><th>實務說明</th></tr></thead>
+        <tbody>
+          <tr><td>教師研習</td><td>`presentations` + `documents`</td><td>投影片 + 講義</td><td>簡報處理現場節奏，講義補足步驟、案例與延伸閱讀，最適合 60 至 90 分鐘的實作型研習。</td></tr>
+          <tr><td>學術分享</td><td>`crossref-apa-bibliography` + `documents` + `presentations`</td><td>講稿 + 文獻 + 簡報</td><td>強調理論脈絡、引用格式與論述完整性，不宜只靠投影片臨場講述。</td></tr>
+          <tr><td>教學評量分析</td><td>`spreadsheets` + `documents`</td><td>分析表 + 說明文件</td><td>先處理分數、量表與圖表，再把結果翻譯成教師與行政端都能理解的敘述。</td></tr>
+          <tr><td>AI 教學應用示範</td><td>`openai-docs` + `external-agent-orchestrator`</td><td>示範腳本 + 流程說明</td><td>說清楚官方依據、多工具分工與驗證點，避免示範只剩炫技卻無法重做。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section class="section" id="workflow">
+    <div class="wrap grid-2">
+      <article class="note">
+        <p class="eyebrow">Workflow</p>
+        <h2>把技能轉成可發布教學文件的流程</h2>
+        <ol>
+          <li>先界定分享目標，決定主成品是 PPTX、DOCX 還是分析報告。</li>
+          <li>選定主文件，若要留存教材，通常以 `documents` 為核心。</li>
+          <li>先整理資料與文獻，再回寫到簡報或講義，不要在投影片上硬做分析。</li>
+          <li>若有 AI 主題，補上官方依據與工具分工，避免錯誤示範。</li>
+          <li>建立驗證節點，清楚說明常見錯誤與修正方式。</li>
+          <li>發布前統一檔名、版本與下載格式，必要時再另存 PDF。</li>
+        </ol>
+      </article>
+      <article class="note">
+        <p class="eyebrow">Checklist</p>
+        <h2>發布前檢核</h2>
+        <ul>
+          <li>是否已說明分享對象、目標與成品型態。</li>
+          <li>是否已區分主工具與輔助工具，而非只列工具清單。</li>
+          <li>若有資料分析內容，是否已完成欄位整理、計算與圖表檢查。</li>
+          <li>若有 AI 示範，是否已補上官方依據、流程分工與驗證方法。</li>
+          <li>若有研究或引用，是否已整理 APA 或其他一致格式的參考資料。</li>
+          <li>最終成品是否能直接下載、發放或提供校內留存。</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap card">
+      <p class="eyebrow">Download</p>
+      <h2>下載與延伸使用</h2>
+      <p class="lead">若需要離線講義、校內分享附件或研習後下載檔，可直接使用本頁對應的 DOCX 版本。若後續需要，也可以再延伸成 PPTX 版本或校內研習講義版。</p>
+      <div class="cta-row">
+        <a class="button primary" href="../downloads/teaching-share-release.docx">下載發布版講義</a>
+        <a class="button" href="../index.html">返回品牌首頁</a>
+        <a class="button" href="../sitemap.html">查看網站導覽</a>
+      </div>
+    </div>
+  </section>
+  <footer class="wrap footer">
+    <p>本頁將教學分享技能選用、情境搭配、成品規劃與發布檢核整合為同一份公開教材，方便教師研習、課堂分享與學術型交流直接使用。</p>
+  </footer>
+</body>
+</html>
