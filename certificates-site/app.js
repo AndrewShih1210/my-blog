@@ -4,15 +4,15 @@
 
   const i18n = {
     zh: {
-      total: "公開收錄項目",
+      total: "公開項目",
       categories: "分類數",
       years: "可辨識年份",
-      featured: "代表群組",
+      featured: "代表類群",
       all: "全部",
       open: "開啟預覽",
       browse: "開啟原圖",
-      issuer: "發證或主辦單位",
-      noItems: "目前沒有符合條件的項目。",
+      issuer: "頒發或主辦單位",
+      noItems: "目前沒有符合此篩選條件的項目。",
       yearLabel: "年份",
       descriptionLabel: "說明",
     },
@@ -33,11 +33,11 @@
 
   const categoryInfo = {
     google: {
-      zh: "Google 證照與技能",
+      zh: "Google 技能與認證",
       en: "Google Credentials and Skills",
-      groupZh: "全球技能證明",
+      groupZh: "國際技能認證",
       groupEn: "Global Skills Credentials",
-      descZh: "收錄 Google、Google Cloud、Gemini 與教育者數位技能相關證照與修課紀錄。",
+      descZh: "與 Google、Google Cloud、Gemini 及教育應用數位能力相關的完成證明與技能認證。",
       descEn: "Credentials and completion records related to Google, Google Cloud, Gemini, and educator-facing digital skills.",
     },
     license: {
@@ -45,7 +45,7 @@
       en: "Professional Certifications",
       groupZh: "專業能力",
       groupEn: "Professional Capability",
-      descZh: "涵蓋資料庫、程式設計、架構框架與教育科技等專業證照。",
+      descZh: "涵蓋資料庫、程式設計、架構框架與教育科技等面向的專業證照。",
       descEn: "Professional certifications covering databases, programming, architecture frameworks, and educational technology.",
     },
     training: {
@@ -53,15 +53,23 @@
       en: "Training and Workshop Records",
       groupZh: "持續專業成長",
       groupEn: "Continuous Professional Learning",
-      descZh: "整理 AI、數位學習、EMI 與教學創新相關論壇、工作坊與研習紀錄。",
+      descZh: "與 AI、數位學習、EMI 與教學創新相關的研習、論壇及工作坊紀錄。",
       descEn: "Records of workshops, forums, and training events related to AI, digital learning, EMI, and teaching innovation.",
     },
+    lecture: {
+      zh: "演講與教學分享",
+      en: "Lectures and Teaching Talks",
+      groupZh: "公開演講",
+      groupEn: "Public Lectures",
+      descZh: "校園、教師社群與公開分享場合的演講、教學示範與應用推廣紀錄。",
+      descEn: "Lecture, workshop-sharing, and teaching demonstration records delivered in schools, educator communities, and public events.",
+    },
     presentation: {
-      zh: "發表與學術成果",
+      zh: "論文發表與學術成果",
       en: "Presentations and Scholarly Outputs",
-      groupZh: "研究與擴散",
+      groupZh: "研究與發表",
       groupEn: "Research and Dissemination",
-      descZh: "包含研討會發表證明、參與證明、獎項與期刊相關佐證。",
+      descZh: "論文發表、參與證明、獲獎紀錄與期刊相關的學術成果證明。",
       descEn: "Presentation records, participation certificates, awards, and journal-related evidence.",
     },
     appointment: {
@@ -69,15 +77,15 @@
       en: "Appointment Letters and Teaching Service",
       groupZh: "教學服務",
       groupEn: "Teaching Service",
-      descZh: "整理與教學任用、課程支援與教學服務相關聘書與證明。",
+      descZh: "與授課、支援課程及教學服務相關的聘任與服務證明。",
       descEn: "Appointment letters and service records related to teaching and course support.",
     },
     appreciation: {
-      zh: "感謝函與推廣紀錄",
+      zh: "感謝狀與推廣肯定",
       en: "Appreciation and Outreach Recognition",
       groupZh: "社群參與",
       groupEn: "Community Engagement",
-      descZh: "收錄演講、推廣與教學貢獻相關感謝函與回饋紀錄。",
+      descZh: "因演講、推廣與教學貢獻所獲得的感謝狀與肯定紀錄。",
       descEn: "Letters of appreciation received for talks, outreach, and instructional contributions.",
     },
     patent: {
@@ -85,7 +93,7 @@
       en: "Patent and Intellectual Property",
       groupZh: "代表成果",
       groupEn: "Featured Output",
-      descZh: "整理專利登錄與智慧財產相關正式證明文件。",
+      descZh: "專利登錄與代表性創新成果的正式證明。",
       descEn: "Formal evidence of patent registration and featured innovation output.",
     },
     status: {
@@ -93,25 +101,72 @@
       en: "Academic Status Documentation",
       groupZh: "學術里程碑",
       groupEn: "Academic Milestones",
-      descZh: "用於佐證學術身分與博士階段歷程的正式文件。",
+      descZh: "用於證明學術身分與博士階段進程的正式文件。",
       descEn: "Formal documents that verify academic status and doctoral-stage milestones.",
     },
   };
 
-  const itemOverrides = {
-    "cert-055": {
-      titleZh: "2026_ETS 佳作論文獎",
-      titleEn: "Presentation Award: 2026_ETS Distinguished Paper Award",
-    },
-    "cert-060": {
-      titleZh: "ICEET2026 論文優選獎 A",
-      titleEn: "Presentation Award: ICEET2026 Excellent Paper Award A",
-    },
-    "cert-061": {
-      titleZh: "ICEET2026 論文優選獎 B",
-      titleEn: "Presentation Award: ICEET2026 Excellent Paper Award B",
-    },
-  };
+  function getItemOverride(item) {
+    const name = String(item.originalFile || "");
+
+    if (name.includes("2025-09-12")) {
+      return {
+        titleZh: "2025-09-12 崇倫國中 AI工具應用分享 教學、校務應用",
+        titleEn: "Lecture Record: 2025-09-12 Chong Lun Junior High School - AI Tool Applications for Teaching and School Administration",
+      };
+    }
+
+    if (name.includes("2026-04-12")) {
+      return {
+        titleZh: "線上分享_期刊與研討會投稿",
+        titleEn: "Lecture Record: Online Sharing - Journal and Conference Submission",
+      };
+    }
+
+    if (name.includes("2026-04-29")) {
+      return {
+        titleZh: "2026-04-29 新民高中 AI工具應用技巧 於文書行政、資料分析",
+        titleEn: "Lecture Record: 2026-04-29 Shin Min High School - AI Tool Application Skills for Administrative Writing and Data Analysis",
+      };
+    }
+
+    if (name.includes("2026-05-22")) {
+      return {
+        titleZh: "2026-05-22 臺中教育大學 用數據說故事，你就是AI時代的導演 Gemini & Vid 整合",
+        titleEn: "Lecture Record: 2026-05-22 National Taichung University of Education - Tell Stories with Data: Gemini and Vid Integration",
+      };
+    }
+
+    if (name.includes("2026-06-02")) {
+      return {
+        titleZh: "2026-06-02 臺中教育大學 AI工具應用於文書行政、資料分析與學術研究：Gemini整合",
+        titleEn: "Lecture Record: 2026-06-02 National Taichung University of Education - AI Tools for Administrative Writing, Data Analysis, and Academic Research: Gemini Integration",
+      };
+    }
+
+    if (name.includes("2025自主學習節優秀論文獎")) {
+      return {
+        titleZh: "2025 自主學習節優秀論文獎",
+        titleEn: "Presentation Award: 2025 Self-Directed Learning Festival Outstanding Paper Award",
+      };
+    }
+
+    if (name.includes("ICEET2026論文優選獎A")) {
+      return {
+        titleZh: "ICEET 2026 論文優選獎 A",
+        titleEn: "Presentation Award: ICEET 2026 Excellent Paper Award A",
+      };
+    }
+
+    if (name.includes("ICEET2026論文優選獎B")) {
+      return {
+        titleZh: "ICEET 2026 論文優選獎 B",
+        titleEn: "Presentation Award: ICEET 2026 Excellent Paper Award B",
+      };
+    }
+
+    return null;
+  }
 
   function cleanText(value) {
     if (typeof value !== "string") return "";
@@ -123,7 +178,7 @@
   }
 
   function textFor(item, field) {
-    const override = itemOverrides[item.id];
+    const override = getItemOverride(item);
     const primaryKey = pageLang === "en" ? `${field}En` : `${field}Zh`;
     const secondaryKey = pageLang === "en" ? `${field}Zh` : `${field}En`;
     const primary = override?.[primaryKey] ?? item[primaryKey];
@@ -158,7 +213,16 @@
   const modalDesc = byId("modal-description");
   const modalClose = byId("modal-close");
 
-  const categories = [...new Map(items.map((item) => [item.categoryKey, item])).values()];
+  const categoryOrder = ["google", "license", "training", "lecture", "presentation", "appreciation", "appointment", "patent", "status"];
+  const categories = [...new Map(items.map((item) => [item.categoryKey, item])).values()]
+    .sort((a, b) => {
+      const indexA = categoryOrder.indexOf(a.categoryKey);
+      const indexB = categoryOrder.indexOf(b.categoryKey);
+      const safeA = indexA === -1 ? Number.MAX_SAFE_INTEGER : indexA;
+      const safeB = indexB === -1 ? Number.MAX_SAFE_INTEGER : indexB;
+      return safeA - safeB;
+    });
+
   let activeCategory = "all";
 
   function createStat(number, label) {
@@ -181,6 +245,7 @@
 
   function renderFilters() {
     filterRoot.innerHTML = "";
+
     const allBtn = document.createElement("button");
     allBtn.className = "filter-btn active";
     allBtn.type = "button";
