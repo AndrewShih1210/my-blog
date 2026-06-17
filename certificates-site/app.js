@@ -106,68 +106,6 @@
     },
   };
 
-  function getItemOverride(item) {
-    const name = String(item.originalFile || "");
-
-    if (name.includes("2025-09-12")) {
-      return {
-        titleZh: "2025-09-12 崇倫國中 AI工具應用分享 教學、校務應用",
-        titleEn: "Lecture Record: 2025-09-12 Chong Lun Junior High School - AI Tool Applications for Teaching and School Administration",
-      };
-    }
-
-    if (name.includes("2026-04-12")) {
-      return {
-        titleZh: "線上分享_期刊與研討會投稿",
-        titleEn: "Lecture Record: Online Sharing - Journal and Conference Submission",
-      };
-    }
-
-    if (name.includes("2026-04-29")) {
-      return {
-        titleZh: "2026-04-29 新民高中 AI工具應用技巧 於文書行政、資料分析",
-        titleEn: "Lecture Record: 2026-04-29 Shin Min High School - AI Tool Application Skills for Administrative Writing and Data Analysis",
-      };
-    }
-
-    if (name.includes("2026-05-22")) {
-      return {
-        titleZh: "2026-05-22 臺中教育大學 用數據說故事，你就是AI時代的導演 Gemini & Vid 整合",
-        titleEn: "Lecture Record: 2026-05-22 National Taichung University of Education - Tell Stories with Data: Gemini and Vid Integration",
-      };
-    }
-
-    if (name.includes("2026-06-02")) {
-      return {
-        titleZh: "2026-06-02 臺中教育大學 AI工具應用於文書行政、資料分析與學術研究：Gemini整合",
-        titleEn: "Lecture Record: 2026-06-02 National Taichung University of Education - AI Tools for Administrative Writing, Data Analysis, and Academic Research: Gemini Integration",
-      };
-    }
-
-    if (name.includes("2025自主學習節優秀論文獎")) {
-      return {
-        titleZh: "2025 自主學習節優秀論文獎",
-        titleEn: "Presentation Award: 2025 Self-Directed Learning Festival Outstanding Paper Award",
-      };
-    }
-
-    if (name.includes("ICEET2026論文優選獎A")) {
-      return {
-        titleZh: "ICEET 2026 論文優選獎 A",
-        titleEn: "Presentation Award: ICEET 2026 Excellent Paper Award A",
-      };
-    }
-
-    if (name.includes("ICEET2026論文優選獎B")) {
-      return {
-        titleZh: "ICEET 2026 論文優選獎 B",
-        titleEn: "Presentation Award: ICEET 2026 Excellent Paper Award B",
-      };
-    }
-
-    return null;
-  }
-
   function cleanText(value) {
     if (typeof value !== "string") return "";
     return value
@@ -178,11 +116,10 @@
   }
 
   function textFor(item, field) {
-    const override = getItemOverride(item);
     const primaryKey = pageLang === "en" ? `${field}En` : `${field}Zh`;
     const secondaryKey = pageLang === "en" ? `${field}Zh` : `${field}En`;
-    const primary = override?.[primaryKey] ?? item[primaryKey];
-    const secondary = override?.[secondaryKey] ?? item[secondaryKey];
+    const primary = item[primaryKey];
+    const secondary = item[secondaryKey];
     return cleanText(primary) || cleanText(secondary) || "-";
   }
 

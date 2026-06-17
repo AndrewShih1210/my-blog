@@ -121,7 +121,14 @@ function Get-Year([string]$title, [string]$fileName) {
 }
 
 function Normalize-LectureTitle([string]$titleZh) {
-  return $titleZh
+  switch -Wildcard ($titleZh) {
+    '2025-09-12*' { return [string]::Concat('2025-09-12 ', $chongLunZh, ' AI', (U @(0x5DE5,0x5177,0x61C9,0x7528,0x5206,0x4EAB)), ' ', (U @(0x6559,0x5B78,0x3001,0x6821,0x52D9,0x61C9,0x7528))) }
+    '2026-04-12*' { return [string]::Concat($onlineZh, '_', (U @(0x671F,0x520A,0x8207,0x7814,0x8A0E,0x6703,0x6295,0x7A3F))) }
+    '2026-04-29*' { return [string]::Concat('2026-04-29 ', $shinMinZh, ' AI', (U @(0x5DE5,0x5177,0x61C9,0x7528,0x6280,0x5DE7)), ' ', (U @(0x65BC,0x6587,0x66F8,0x884C,0x653F,0x3001,0x8CC7,0x6599,0x5206,0x6790))) }
+    '2026-05-22*' { return [string]::Concat('2026-05-22 ', $ntcuShortZh, ' ', (U @(0x7528,0x6578,0x64DA,0x8AAA,0x6545,0x4E8B,0xFF0C,0x4F60,0x5C31,0x662F,0x0041,0x0049,0x6642,0x4EE3,0x7684,0x5C0E,0x6F14)), ' Gemini & Vid ', (U @(0x6574,0x5408))) }
+    '2026-06-02*' { return [string]::Concat('2026-06-02 ', $ntcuShortZh, ' AI', (U @(0x5DE5,0x5177,0x61C9,0x7528,0x65BC,0x6587,0x66F8,0x884C,0x653F,0x3001,0x8CC7,0x6599,0x5206,0x6790,0x8207,0x5B78,0x8853,0x7814,0x7A76,0xFF1A,0x0047,0x0065,0x006D,0x0069,0x006E,0x0069,0x6574,0x5408))) }
+    default { return $titleZh }
+  }
 }
 
 function Get-EffectiveCategoryKey([string]$fileName, [string]$titleZh, [string]$categoryKey) {
@@ -147,7 +154,7 @@ function Get-Overrides([string]$fileName) {
 
   if ($fileName -eq $appreciationDaming) {
     return @{
-      titleZh = '114 12 07 大明高中 如何運用AI輔助學習 講座講師'
+      titleZh = [string]::Concat('114 12 07 ', $daMingZh, ' ', (U @(0x5982,0x4F55,0x904B,0x7528,0x0041,0x0049,0x8F14,0x52A9,0x5B78,0x7FD2)))
       titleEn = 'Letter of Appreciation: December 7, 2025, Da Ming High School, How to Use AI to Support Learning'
       issuerZh = $daMingZh
       issuerEn = 'Da Ming High School'
