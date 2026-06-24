@@ -24,9 +24,9 @@
     *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:radial-gradient(circle at top left, rgba(59,130,246,.14), transparent 28%),radial-gradient(circle at top right, rgba(15,23,42,.08), transparent 24%),linear-gradient(180deg,#eef4fb 0%,#f8fbff 44%,#f4f7fb 100%);color:var(--ink);font-family:"Inter","Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.75;padding-top:92px}
     a{color:inherit}.wrap{width:min(1180px,calc(100vw - 32px));margin:0 auto}.site-header{position:fixed;inset:0 0 auto 0;z-index:50;border-bottom:1px solid rgba(148,163,184,.18);background:rgba(248,251,255,.84);backdrop-filter:blur(18px);box-shadow:0 6px 22px rgba(15,23,42,.04)}.topbar,.section-head{display:flex;justify-content:space-between;gap:18px;align-items:end}.topbar{padding:16px 0;align-items:center}.nav{display:flex;flex-wrap:nowrap;gap:12px;overflow-x:auto;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}.nav a,.button{padding:10px 16px;border:1px solid rgba(148,163,184,.22);background:rgba(255,255,255,.72);text-decoration:none;font-weight:700}.nav a{min-height:44px;display:inline-flex;align-items:center;border-radius:var(--radius-button);white-space:nowrap}.button{border-radius:var(--radius-button);background:var(--paper-strong)}.button.primary{background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;border-color:#1d4ed8}.hero{padding:26px 0 24px}.eyebrow{display:inline-block;padding:6px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
     h1,h2,h3,p{margin-top:0} h1{font-size:clamp(36px,5vw,60px);line-height:1.06;margin:14px 0;letter-spacing:-.03em} h2{font-size:clamp(28px,3vw,38px);margin-bottom:14px;letter-spacing:-.02em} h3{font-size:22px;line-height:1.25;margin-bottom:10px}.lead,.muted,.section-head p{color:var(--muted)} .hero-grid,.grid-2,.works-grid{display:grid;gap:18px}.hero-grid{grid-template-columns:1.2fr .8fr}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.works-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .card,.work-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-card);box-shadow:var(--shadow)} .card,.work-card{padding:26px}.section{padding:18px 0}.figure img{width:100%;height:auto;display:block;border-radius:18px}.meta{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.tag{display:inline-flex;padding:6px 12px;border-radius:999px;background:rgba(37,99,235,.08);color:var(--accent);font-size:14px;font-weight:700}.patent{display:grid;grid-template-columns:320px 1fr;gap:22px;align-items:center}.patent img{width:100%;border-radius:18px;border:1px solid var(--line)} section[id]{scroll-margin-top:108px}
+    .card,.work-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-card);box-shadow:var(--shadow)} .card,.work-card{padding:26px}.section{padding:18px 0}.figure img{width:100%;height:auto;display:block;border-radius:18px}.figure-note{margin-top:12px;font-size:14px;color:var(--muted)}.meta{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.tag{display:inline-flex;padding:6px 12px;border-radius:999px;background:rgba(37,99,235,.08);color:var(--accent);font-size:14px;font-weight:700}.patent{display:grid;grid-template-columns:320px 1fr;gap:22px;align-items:center}.patent img{width:100%;border-radius:18px;border:1px solid var(--line)}.timeline-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}.phase-card{padding:22px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(246,249,255,.92));box-shadow:var(--shadow)}.phase-card h3{margin-bottom:8px}.phase-card ul{margin:0;padding-left:20px;color:var(--muted)}.phase-card li{margin:0 0 6px}.phase-card p{margin-bottom:0;color:var(--muted)} section[id]{scroll-margin-top:108px}
     .footer{padding:36px 0 52px;color:var(--muted);font-size:15px}
-    @media (max-width:980px){body{padding-top:108px}.hero-grid,.grid-2,.works-grid,.patent{grid-template-columns:1fr}.topbar,.section-head{display:block}.nav{margin-top:12px}}
+    @media (max-width:980px){body{padding-top:108px}.hero-grid,.grid-2,.works-grid,.patent,.timeline-grid{grid-template-columns:1fr}.topbar,.section-head{display:block}.nav{margin-top:12px}}
   </style>
   <script type="application/ld+json">
   {
@@ -137,7 +137,7 @@
       <article class="card">
         <p class="eyebrow">First-Author Works</p>
         <h1>施育廷第一作者與獨立作者著作專區</h1>
-        <p class="lead">本專區整理施育廷作為第一作者或獨立作者的著作，聚焦生成式 AI、AI 教育、AI 教學、AI 融入教學、AI 教育應用、AI 應用、教育科技與學習分析，包含專利、研討會論文發表與期刊論文，並以中英文網頁、研究關聯圖、研究雷達圖、研究沿革與 APA 格式清單方式呈現。</p>
+        <p class="lead">本專區整理施育廷作為第一作者或獨立作者的著作，聚焦生成式 AI、AI 教育、AI 教學、AI 融入教學、AI 教育應用、AI 應用、教育科技與學習分析，包含專利、研討會論文發表與期刊論文，並以中英文網頁、ENA 研究關聯圖、研究雷達圖、研究階段比較圖、研究發展脈絡與 APA 格式清單方式呈現。</p>
         <div class="meta">
           <span class="tag">作者：施育廷</span>
           <span class="tag">第一作者著作</span>
@@ -152,7 +152,8 @@
         </div>
       </article>
       <article class="card figure">
-        <img src="./assets/research-map.svg" alt="研究關聯圖" />
+        <img src="./assets/ena-formalish-overall.svg" alt="ENA 研究關聯圖" />
+        <p class="figure-note">以 ENA 關聯圖呈現主要研究主題之間的共現結構，對照生成式 AI、評量、代理人系統、閱讀素養與高等教育等研究節點的關係。</p>
       </article>
     </div>
   </section>
@@ -178,8 +179,75 @@
 
   <section class="section">
     <div class="wrap grid-2">
-      <article class="card figure"><img src="./assets/research-radar.svg" alt="研究雷達圖" /></article>
-      <article class="card figure"><img src="./assets/research-timeline.svg" alt="研究沿革圖" /></article>
+      <article class="card figure">
+        <img src="./assets/research-radar.svg" alt="研究雷達圖" />
+        <p class="figure-note">研究雷達圖用來摘要生成式 AI、AI 教育、工作流、自動評分、對話代理與學習分析等主要方向的分布。</p>
+      </article>
+      <article class="card figure">
+        <img src="./assets/ena-phase-centroids.svg" alt="研究階段比較圖" />
+        <p class="figure-note">研究階段比較圖呈現 2015、2023、2025、2026 四個主要階段的主題重心，說明研究如何由學習基礎議題逐步擴展至 GenAI 教學互動與人機協作評量。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap section-head">
+      <div>
+        <p class="eyebrow">Research Timeline</p>
+        <h2>研究發展脈絡圖</h2>
+      </div>
+      <p>以下以階段方式整理施育廷研究主題的推進路徑，從學習與教學基礎議題，逐步延伸至 AI 接受、生成式 AI 教學互動、人機協作評量與跨場域應用。</p>
+    </div>
+    <div class="wrap timeline-grid">
+      <article class="phase-card">
+        <h3>2015 奠基期</h3>
+        <ul>
+          <li>自我調節學習</li>
+          <li>學習成效</li>
+          <li>認知負荷</li>
+        </ul>
+        <p>奠定教學與學習研究基礎。</p>
+      </article>
+      <article class="phase-card">
+        <h3>2023 接受與態度期</h3>
+        <ul>
+          <li>科技接受</li>
+          <li>使用意圖</li>
+          <li>學習成效</li>
+        </ul>
+        <p>開始關注 AI 應用的認知與態度。</p>
+      </article>
+      <article class="phase-card">
+        <h3>2025 GenAI 教學互動期</h3>
+        <ul>
+          <li>生成式 AI</li>
+          <li>程式設計</li>
+          <li>資料科學</li>
+          <li>人機協作</li>
+        </ul>
+        <p>聚焦 AI 輔助學習互動。</p>
+      </article>
+      <article class="phase-card">
+        <h3>2026 人機協作評量拓展期</h3>
+        <ul>
+          <li>自動評分</li>
+          <li>評分一致性</li>
+          <li>評分偏誤與校準</li>
+          <li>學習鷹架</li>
+          <li>運算思維</li>
+        </ul>
+        <p>從教學應用擴展至評量整合。</p>
+      </article>
+      <article class="phase-card">
+        <h3>延伸應用</h3>
+        <ul>
+          <li>代理人系統</li>
+          <li>虛擬學生</li>
+          <li>社會情緒評量</li>
+          <li>閱讀素養</li>
+        </ul>
+        <p>形成跨場域應用支線。</p>
+      </article>
     </div>
   </section>
 

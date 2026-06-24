@@ -21,9 +21,9 @@
     *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:radial-gradient(circle at top left, rgba(59,130,246,.14), transparent 28%),radial-gradient(circle at top right, rgba(15,23,42,.08), transparent 24%),linear-gradient(180deg,#eef4fb 0%,#f8fbff 44%,#f4f7fb 100%);color:var(--ink);font-family:"Inter","Segoe UI","Noto Sans",Arial,sans-serif;line-height:1.75;padding-top:92px}
     a{color:inherit}.wrap{width:min(1180px,calc(100vw - 32px));margin:0 auto}.site-header{position:fixed;inset:0 0 auto 0;z-index:50;border-bottom:1px solid rgba(148,163,184,.18);background:rgba(248,251,255,.84);backdrop-filter:blur(18px);box-shadow:0 6px 22px rgba(15,23,42,.04)}.topbar,.section-head{display:flex;justify-content:space-between;gap:18px;align-items:end}.topbar{padding:16px 0;align-items:center}.nav{display:flex;flex-wrap:nowrap;gap:12px;overflow-x:auto;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}.nav a,.button{padding:10px 16px;border:1px solid rgba(148,163,184,.22);background:rgba(255,255,255,.72);text-decoration:none;font-weight:700}.nav a{min-height:44px;display:inline-flex;align-items:center;border-radius:var(--radius-button);white-space:nowrap}.button{border-radius:var(--radius-button);background:var(--paper-strong)}.button.primary{background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;border-color:#1d4ed8}.hero{padding:26px 0 24px}.eyebrow{display:inline-block;padding:6px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
     h1,h2,h3,p{margin-top:0} h1{font-size:clamp(36px,5vw,60px);line-height:1.06;margin:14px 0;letter-spacing:-.03em} h2{font-size:clamp(28px,3vw,38px);margin-bottom:14px;letter-spacing:-.02em} h3{font-size:22px;line-height:1.25;margin-bottom:10px}.lead,.muted,.section-head p{color:var(--muted)} .hero-grid,.grid-2,.works-grid{display:grid;gap:18px}.hero-grid{grid-template-columns:1.2fr .8fr}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.works-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .card,.work-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-card);box-shadow:var(--shadow)} .card,.work-card{padding:26px}.section{padding:18px 0}.figure img{width:100%;height:auto;display:block;border-radius:18px}.meta{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.tag{display:inline-flex;padding:6px 12px;border-radius:999px;background:rgba(37,99,235,.08);color:var(--accent);font-size:14px;font-weight:700}.patent{display:grid;grid-template-columns:320px 1fr;gap:22px;align-items:center}.patent img{width:100%;border-radius:18px;border:1px solid var(--line)} section[id]{scroll-margin-top:108px}
+    .card,.work-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-card);box-shadow:var(--shadow)} .card,.work-card{padding:26px}.section{padding:18px 0}.figure img{width:100%;height:auto;display:block;border-radius:18px}.figure-note{margin-top:12px;font-size:14px;color:var(--muted)}.meta{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.tag{display:inline-flex;padding:6px 12px;border-radius:999px;background:rgba(37,99,235,.08);color:var(--accent);font-size:14px;font-weight:700}.patent{display:grid;grid-template-columns:320px 1fr;gap:22px;align-items:center}.patent img{width:100%;border-radius:18px;border:1px solid var(--line)}.timeline-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}.phase-card{padding:22px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(246,249,255,.92));box-shadow:var(--shadow)}.phase-card h3{margin-bottom:8px}.phase-card ul{margin:0;padding-left:20px;color:var(--muted)}.phase-card li{margin:0 0 6px}.phase-card p{margin-bottom:0;color:var(--muted)} section[id]{scroll-margin-top:108px}
     .footer{padding:36px 0 52px;color:var(--muted);font-size:15px}
-    @media (max-width:980px){body{padding-top:108px}.hero-grid,.grid-2,.works-grid,.patent{grid-template-columns:1fr}.topbar,.section-head{display:block}.nav{margin-top:12px}}
+    @media (max-width:980px){body{padding-top:108px}.hero-grid,.grid-2,.works-grid,.patent,.timeline-grid{grid-template-columns:1fr}.topbar,.section-head{display:block}.nav{margin-top:12px}}
   </style>
   <script type="application/ld+json">
   {
@@ -88,7 +88,7 @@
       <article class="card">
         <p class="eyebrow">First-Author Works</p>
         <h1>First-Author and Sole-Author Works of Yu-Ting Shih</h1>
-        <p class="lead">This section presents Yu-Ting Shih’s first-author and sole-author works in generative AI, AI education, AI applications, educational technology, and learning analytics, including a patent, conference presentations, and journal-related outputs through bilingual web pages, APA-style lists, a research relationship map, a research radar chart, and a research timeline.</p>
+        <p class="lead">This section presents Yu-Ting Shih’s first-author and sole-author works in generative AI, AI education, AI applications, educational technology, and learning analytics, including a patent, conference presentations, and journal-related outputs through bilingual web pages, an ENA relationship map, a research radar chart, a phase-centroid comparison, a readable research-development timeline, and APA-style lists.</p>
         <div class="meta">
           <span class="tag">Author: Yu-Ting Shih</span>
           <span class="tag">First Author</span>
@@ -102,7 +102,10 @@
           <a class="button" href="../certificates-site/index_en.html">View Credentials</a>
         </div>
       </article>
-      <article class="card figure"><img src="./assets/research-map.svg" alt="Research relationship map" /></article>
+      <article class="card figure">
+        <img src="./assets/ena-formalish-overall.svg" alt="ENA research relationship map" />
+        <p class="figure-note">This ENA relationship map highlights the co-occurrence structure among major research themes, including generative AI, assessment, agent systems, reading literacy, and higher-education teaching contexts.</p>
+      </article>
     </div>
   </section>
 
@@ -124,8 +127,72 @@
 
   <section class="section">
     <div class="wrap grid-2">
-      <article class="card figure"><img src="./assets/research-radar.svg" alt="Research radar chart" /></article>
-      <article class="card figure"><img src="./assets/research-timeline.svg" alt="Research timeline" /></article>
+      <article class="card figure">
+        <img src="./assets/research-radar.svg" alt="Research radar chart" />
+        <p class="figure-note">The radar chart summarizes the main distribution of themes across generative AI, AI education, workflow design, automated scoring, conversational agents, and learning analytics.</p>
+      </article>
+      <article class="card figure">
+        <img src="./assets/ena-phase-centroids.svg" alt="Research phase comparison" />
+        <p class="figure-note">The phase-centroid comparison visualizes the thematic centers of 2015, 2023, 2025, and 2026, showing how the work develops from foundational learning studies to GenAI teaching interaction and human-machine collaborative assessment.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap section-head">
+      <div><p class="eyebrow">Research Timeline</p><h2>Research development trajectory</h2></div>
+      <p>The timeline below summarizes how the research evolves from core teaching-and-learning questions toward AI acceptance, generative AI-supported interaction, collaborative assessment, and broader cross-context applications.</p>
+    </div>
+    <div class="wrap timeline-grid">
+      <article class="phase-card">
+        <h3>2015 Foundation phase</h3>
+        <ul>
+          <li>Self-regulated learning</li>
+          <li>Learning outcomes</li>
+          <li>Cognitive load</li>
+        </ul>
+        <p>This phase established the baseline for later teaching-and-learning research.</p>
+      </article>
+      <article class="phase-card">
+        <h3>2023 Acceptance and attitude phase</h3>
+        <ul>
+          <li>Technology acceptance</li>
+          <li>Usage intention</li>
+          <li>Learning outcomes</li>
+        </ul>
+        <p>The focus shifted to cognition and attitudes toward AI applications.</p>
+      </article>
+      <article class="phase-card">
+        <h3>2025 GenAI teaching interaction phase</h3>
+        <ul>
+          <li>Generative AI</li>
+          <li>Programming</li>
+          <li>Data science</li>
+          <li>Human-AI collaboration</li>
+        </ul>
+        <p>This phase centers on AI-supported learning interaction.</p>
+      </article>
+      <article class="phase-card">
+        <h3>2026 Human-machine collaborative assessment expansion</h3>
+        <ul>
+          <li>Automated scoring</li>
+          <li>Scoring consistency</li>
+          <li>Bias and calibration</li>
+          <li>Learning scaffolds</li>
+          <li>Computational thinking</li>
+        </ul>
+        <p>The work expands from teaching applications into integrated assessment.</p>
+      </article>
+      <article class="phase-card">
+        <h3>Extended applications</h3>
+        <ul>
+          <li>Agent systems</li>
+          <li>Virtual students</li>
+          <li>Social-emotional assessment</li>
+          <li>Reading literacy</li>
+        </ul>
+        <p>These themes form a cross-context application branch beyond the core line.</p>
+      </article>
     </div>
   </section>
 
