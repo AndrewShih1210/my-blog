@@ -530,31 +530,7 @@ window.CERTIFICATE_ITEMS = [
     {
         "id":  "cert-045",
         "sort":  45,
-        "image":  "./items/item-045.png",
-        "originalFile":  "【發表】2024-11-19 臺中教育大學 生成式AI互動技巧遊戲式教材製作.png",
-        "titleZh":  "2024-11-19 臺中教育大學 生成式AI互動技巧遊戲式教材製作",
-        "titleEn":  "Lecture Record: 2024-11-19 臺中教育大學 生成式AI互動技巧遊戲式教材製作",
-        "categoryKey":  "lecture",
-        "issuerZh":  "臺中教育大學",
-        "issuerEn":  "National Taichung University of Education",
-        "year":  "2024"
-    },
-    {
-        "id":  "cert-046",
-        "sort":  46,
-        "image":  "./items/item-046.png",
-        "originalFile":  "【發表】2024-11-21 臺中教育大學 使用ChatGPT製作動態響應式網站.png",
-        "titleZh":  "2024-11-21 臺中教育大學 使用ChatGPT製作動態響應式網站",
-        "titleEn":  "Lecture Record: 2024-11-21 臺中教育大學 使用ChatGPT製作動態響應式網站",
-        "categoryKey":  "lecture",
-        "issuerZh":  "臺中教育大學",
-        "issuerEn":  "National Taichung University of Education",
-        "year":  "2024"
-    },
-    {
-        "id":  "cert-047",
-        "sort":  47,
-        "image":  "./items/item-047.jpg",
+        "image":  "./items/item-045.jpg",
         "originalFile":  "【發表】2025 APERA-TERA.jpg",
         "titleZh":  "2025 APERA-TERA",
         "titleEn":  "Presentation Record: 2025 APERA-TERA",
@@ -564,9 +540,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "2025"
     },
     {
-        "id":  "cert-048",
-        "sort":  48,
-        "image":  "./items/item-048.jpg",
+        "id":  "cert-046",
+        "sort":  46,
+        "image":  "./items/item-046.jpg",
         "originalFile":  "【發表】2025 BEMST.jpg",
         "titleZh":  "2025 BEMST",
         "titleEn":  "Presentation Record: 2025 BEMST",
@@ -576,9 +552,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "2025"
     },
     {
-        "id":  "cert-049",
-        "sort":  49,
-        "image":  "./items/item-049.jpg",
+        "id":  "cert-047",
+        "sort":  47,
+        "image":  "./items/item-047.jpg",
         "originalFile":  "【發表】2025 TANET NCS.jpg",
         "titleZh":  "2025 TANET NCS",
         "titleEn":  "Presentation Record: 2025 TANET NCS",
@@ -588,33 +564,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "2025"
     },
     {
-        "id":  "cert-050",
-        "sort":  50,
-        "image":  "./items/item-050.jpg",
-        "originalFile":  "【發表】2025-09-04 東海大學 A1素養導向高教學習創新計劃 Chat Everywhere v2平台操作.jpg",
-        "titleZh":  "2025-09-04 東海大學 A1素養導向高教學習創新計劃 Chat Everywhere v2平台操作",
-        "titleEn":  "Lecture Record: 2025-09-04 東海大學 A1素養導向高教學習創新計劃 Chat Everywhere v2平台操作",
-        "categoryKey":  "lecture",
-        "issuerZh":  "東海大學",
-        "issuerEn":  "Tunghai University",
-        "year":  "2025"
-    },
-    {
-        "id":  "cert-051",
-        "sort":  51,
-        "image":  "./items/item-051.png",
-        "originalFile":  "【發表】2025-09-12 崇倫國中 AI工具應用分享 教學 校務應用.png",
-        "titleZh":  "2025-09-12 崇倫國中 AI工具應用分享 教學、校務應用",
-        "titleEn":  "Lecture Record: 2025-09-12 崇倫國中 AI工具應用分享 教學、校務應用",
-        "categoryKey":  "lecture",
-        "issuerZh":  "崇倫國中",
-        "issuerEn":  "Chong Lun Junior High School",
-        "year":  "2025"
-    },
-    {
-        "id":  "cert-052",
-        "sort":  52,
-        "image":  "./items/item-052.jpg",
+        "id":  "cert-048",
+        "sort":  48,
+        "image":  "./items/item-048.jpg",
         "originalFile":  "【發表】2025自主學習節_2.jpg",
         "titleZh":  "2025自主學習節_2",
         "titleEn":  "Presentation Record: 2025自主學習節_2",
@@ -624,9 +576,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "2025"
     },
     {
-        "id":  "cert-053",
-        "sort":  53,
-        "image":  "./items/item-053.jpg",
+        "id":  "cert-049",
+        "sort":  49,
+        "image":  "./items/item-049.jpg",
         "originalFile":  "【發表】2025自主學習節_參加證明.jpg",
         "titleZh":  "2025自主學習節_參加證明",
         "titleEn":  "Presentation Record: 2025自主學習節_參加證明",
@@ -636,9 +588,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "2025"
     },
     {
-        "id":  "cert-054",
-        "sort":  54,
-        "image":  "./items/item-054.jpg",
+        "id":  "cert-050",
+        "sort":  50,
+        "image":  "./items/item-050.jpg",
         "originalFile":  "【發表】2025自主學習節1.jpg",
         "titleZh":  "2025自主學習節1",
         "titleEn":  "Presentation Record: 2025自主學習節1",
@@ -648,9 +600,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "2025"
     },
     {
-        "id":  "cert-055",
-        "sort":  55,
-        "image":  "./items/item-055.jpg",
+        "id":  "cert-051",
+        "sort":  51,
+        "image":  "./items/item-051.jpg",
         "originalFile":  "【發表】2025自主學習節優秀論文獎.jpg",
         "titleZh":  "2025自主學習節優秀論文獎",
         "titleEn":  "Presentation Record: 2025自主學習節優秀論文獎",
@@ -660,9 +612,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "2025"
     },
     {
-        "id":  "cert-056",
-        "sort":  56,
-        "image":  "./items/item-056.jpg",
+        "id":  "cert-052",
+        "sort":  52,
+        "image":  "./items/item-052.jpg",
         "originalFile":  "【發表】2026_BEMST.jpg",
         "titleZh":  "2026_BEMST",
         "titleEn":  "Presentation Record: 2026_BEMST",
@@ -672,9 +624,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "2026"
     },
     {
-        "id":  "cert-057",
-        "sort":  57,
-        "image":  "./items/item-057.jpg",
+        "id":  "cert-053",
+        "sort":  53,
+        "image":  "./items/item-053.jpg",
         "originalFile":  "【發表】2026_BEMST_2.jpg",
         "titleZh":  "2026_BEMST_2",
         "titleEn":  "Presentation Record: 2026_BEMST_2",
@@ -684,9 +636,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "2026"
     },
     {
-        "id":  "cert-058",
-        "sort":  58,
-        "image":  "./items/item-058.jpg",
+        "id":  "cert-054",
+        "sort":  54,
+        "image":  "./items/item-054.jpg",
         "originalFile":  "【發表】2026_ETS.jpg",
         "titleZh":  "2026_ETS",
         "titleEn":  "Presentation Record: 2026_ETS",
@@ -696,9 +648,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "2026"
     },
     {
-        "id":  "cert-059",
-        "sort":  59,
-        "image":  "./items/item-059.jpg",
+        "id":  "cert-055",
+        "sort":  55,
+        "image":  "./items/item-055.jpg",
         "originalFile":  "【發表】2026_ETS佳作論文獎.jpg",
         "titleZh":  "2026_ETS佳作論文獎",
         "titleEn":  "Presentation Record: 2026_ETS佳作論文獎",
@@ -708,9 +660,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "2026"
     },
     {
-        "id":  "cert-060",
-        "sort":  60,
-        "image":  "./items/item-060.jpg",
+        "id":  "cert-056",
+        "sort":  56,
+        "image":  "./items/item-056.jpg",
         "originalFile":  "【發表】2026_TWELF.jpg",
         "titleZh":  "2026_TWELF",
         "titleEn":  "Presentation Record: 2026_TWELF",
@@ -720,81 +672,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "2026"
     },
     {
-        "id":  "cert-061",
-        "sort":  61,
-        "image":  "./items/item-061.webp",
-        "originalFile":  "【發表】2026-04-12 線上分享 期刊與研討會投稿.webp",
-        "titleZh":  "線上分享_期刊與研討會投稿",
-        "titleEn":  "Lecture Record: 線上分享_期刊與研討會投稿",
-        "categoryKey":  "lecture",
-        "issuerZh":  "線上分享",
-        "issuerEn":  "Online Sharing",
-        "year":  "2026"
-    },
-    {
-        "id":  "cert-062",
-        "sort":  62,
-        "image":  "./items/item-062.png",
-        "originalFile":  "【發表】2026-04-29 新民高中 AI工具應用技巧 於文書行政 資料分析.png",
-        "titleZh":  "2026-04-29 新民高中 AI工具應用技巧 於文書行政、資料分析",
-        "titleEn":  "Lecture Record: 2026-04-29 新民高中 AI工具應用技巧 於文書行政、資料分析",
-        "categoryKey":  "lecture",
-        "issuerZh":  "新民高中",
-        "issuerEn":  "Shin Min High School",
-        "year":  "2026"
-    },
-    {
-        "id":  "cert-063",
-        "sort":  63,
-        "image":  "./items/item-063.png",
-        "originalFile":  "【發表】2026-05-22 臺中教育大學 用數據說故事 你就是AI時代的導演 Gemini Vid 整合.png",
-        "titleZh":  "2026-05-22 臺中教育大學 用數據說故事，你就是AI時代的導演 Gemini \u0026 Vid 整合",
-        "titleEn":  "Lecture Record: 2026-05-22 臺中教育大學 用數據說故事，你就是AI時代的導演 Gemini \u0026 Vid 整合",
-        "categoryKey":  "lecture",
-        "issuerZh":  "臺中教育大學",
-        "issuerEn":  "National Taichung University of Education",
-        "year":  "2026"
-    },
-    {
-        "id":  "cert-064",
-        "sort":  64,
-        "image":  "./items/item-064.png",
-        "originalFile":  "【發表】2026-06-01 臺中教育大學 用 Codex 結合 Google Gemma 本地模型打造你的筆電 AI Agent 讓研究文獻自己動起來.png",
-        "titleZh":  "2026-06-01 臺中教育大學 用 Codex 結合 Google Gemma 本地模型打造你的筆電 AI Agent 讓研究文獻自己動起來",
-        "titleEn":  "Lecture Record: 2026-06-01 臺中教育大學 用 Codex 結合 Google Gemma 本地模型打造你的筆電 AI Agent 讓研究文獻自己動起來",
-        "categoryKey":  "lecture",
-        "issuerZh":  "臺中教育大學",
-        "issuerEn":  "National Taichung University of Education",
-        "year":  "2026"
-    },
-    {
-        "id":  "cert-065",
-        "sort":  65,
-        "image":  "./items/item-065.png",
-        "originalFile":  "【發表】2026-06-02 臺中教育大學 AI工具應用於文書行政 資料分析與學術研究 Gemini整合.png",
-        "titleZh":  "2026-06-02 臺中教育大學 AI工具應用於文書行政、資料分析與學術研究：Gemini整合",
-        "titleEn":  "Lecture Record: 2026-06-02 臺中教育大學 AI工具應用於文書行政、資料分析與學術研究：Gemini整合",
-        "categoryKey":  "lecture",
-        "issuerZh":  "臺中教育大學",
-        "issuerEn":  "National Taichung University of Education",
-        "year":  "2026"
-    },
-    {
-        "id":  "cert-066",
-        "sort":  66,
-        "image":  "./items/item-066.jpg",
-        "originalFile":  "【發表】2026-07-13 臺中教育大學 行政AI小幫手-CODEX初階班(下).jpg",
-        "titleZh":  "2026-07-13 臺中教育大學 行政AI小幫手-CODEX初階班(下)",
-        "titleEn":  "Lecture Record: 2026-07-13 臺中教育大學 行政AI小幫手-CODEX初階班(下)",
-        "categoryKey":  "lecture",
-        "issuerZh":  "臺中教育大學",
-        "issuerEn":  "National Taichung University of Education",
-        "year":  "2026"
-    },
-    {
-        "id":  "cert-067",
-        "sort":  67,
-        "image":  "./items/item-067.jpg",
+        "id":  "cert-057",
+        "sort":  57,
+        "image":  "./items/item-057.jpg",
         "originalFile":  "【發表】AEIT_2025.jpg",
         "titleZh":  "AEIT_2025",
         "titleEn":  "Presentation Record: AEIT_2025",
@@ -804,9 +684,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "2025"
     },
     {
-        "id":  "cert-068",
-        "sort":  68,
-        "image":  "./items/item-068.jpg",
+        "id":  "cert-058",
+        "sort":  58,
+        "image":  "./items/item-058.jpg",
         "originalFile":  "【發表】Education Sciences.jpg",
         "titleZh":  "Education Sciences",
         "titleEn":  "Presentation Record: Education Sciences",
@@ -816,9 +696,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-069",
-        "sort":  69,
-        "image":  "./items/item-069.png",
+        "id":  "cert-059",
+        "sort":  59,
+        "image":  "./items/item-059.png",
         "originalFile":  "【發表】ICEET2025.png",
         "titleZh":  "ICEET2025",
         "titleEn":  "Presentation Record: ICEET2025",
@@ -828,9 +708,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "2025"
     },
     {
-        "id":  "cert-070",
-        "sort":  70,
-        "image":  "./items/item-070.jpg",
+        "id":  "cert-060",
+        "sort":  60,
+        "image":  "./items/item-060.jpg",
         "originalFile":  "【發表】ICEET2026論文優選獎A.jpg",
         "titleZh":  "ICEET2026論文優選獎A",
         "titleEn":  "Presentation Record: ICEET2026論文優選獎A",
@@ -840,9 +720,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "2026"
     },
     {
-        "id":  "cert-071",
-        "sort":  71,
-        "image":  "./items/item-071.jpg",
+        "id":  "cert-061",
+        "sort":  61,
+        "image":  "./items/item-061.jpg",
         "originalFile":  "【發表】ICEET2026論文優選獎B.jpg",
         "titleZh":  "ICEET2026論文優選獎B",
         "titleEn":  "Presentation Record: ICEET2026論文優選獎B",
@@ -852,9 +732,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "2026"
     },
     {
-        "id":  "cert-072",
-        "sort":  72,
-        "image":  "./items/item-072.png",
+        "id":  "cert-062",
+        "sort":  62,
+        "image":  "./items/item-062.png",
         "originalFile":  "【發表】ICEET-O01.png",
         "titleZh":  "ICEET-O01",
         "titleEn":  "Presentation Record: ICEET-O01",
@@ -864,9 +744,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-073",
-        "sort":  73,
-        "image":  "./items/item-073.png",
+        "id":  "cert-063",
+        "sort":  63,
+        "image":  "./items/item-063.png",
         "originalFile":  "【發表】ICEET--O04.png",
         "titleZh":  "ICEET--O04",
         "titleEn":  "Presentation Record: ICEET--O04",
@@ -876,9 +756,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-074",
-        "sort":  74,
-        "image":  "./items/item-074.jpg",
+        "id":  "cert-064",
+        "sort":  64,
+        "image":  "./items/item-064.jpg",
         "originalFile":  "【發表】ICEET最佳論文獎.jpg",
         "titleZh":  "ICEET最佳論文獎",
         "titleEn":  "Presentation Record: ICEET最佳論文獎",
@@ -888,9 +768,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-075",
-        "sort":  75,
-        "image":  "./items/item-075.jpg",
+        "id":  "cert-065",
+        "sort":  65,
+        "image":  "./items/item-065.jpg",
         "originalFile":  "【發表】ICEET論文優選獎.jpg",
         "titleZh":  "ICEET論文優選獎",
         "titleEn":  "Presentation Record: ICEET論文優選獎",
@@ -900,9 +780,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-076",
-        "sort":  76,
-        "image":  "./items/item-076.jpg",
+        "id":  "cert-066",
+        "sort":  66,
+        "image":  "./items/item-066.jpg",
         "originalFile":  "【發表】測驗學會.jpg",
         "titleZh":  "測驗學會",
         "titleEn":  "Presentation Record: 測驗學會",
@@ -912,9 +792,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-077",
-        "sort":  77,
-        "image":  "./items/item-077.jpg",
+        "id":  "cert-067",
+        "sort":  67,
+        "image":  "./items/item-067.jpg",
         "originalFile":  "【感謝狀】111高教深耕感謝狀.jpg",
         "titleZh":  "111高教深耕感謝狀",
         "titleEn":  "Letter of Appreciation: 111高教深耕感謝狀",
@@ -924,33 +804,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "111"
     },
     {
-        "id":  "cert-078",
-        "sort":  78,
-        "image":  "./items/item-078.jpg",
-        "originalFile":  "【感謝狀】AI工具應用,關於醫療與放射科輔助工作,Gemini 雲端整合與提示詞工程 (1).jpg",
-        "titleZh":  "2026-02-11 中山醫學大學 關於醫療與放射科輔助工作,Gemini 雲端整合與提示詞工程",
-        "titleEn":  "Lecture Record: 2026-02-11 中山醫學大學 關於醫療與放射科輔助工作,Gemini 雲端整合與提示詞工程",
-        "categoryKey":  "lecture",
-        "issuerZh":  "中山醫學大學",
-        "issuerEn":  "Chung Shan Medical University",
-        "year":  "2026"
-    },
-    {
-        "id":  "cert-079",
-        "sort":  79,
-        "image":  "./items/item-079.jpg",
-        "originalFile":  "【感謝狀】育達科技大學.jpg",
-        "titleZh":  "2026-04-16 育達科技大學 【讓AI成為神隊友】教學現場的應用與創新實錄",
-        "titleEn":  "Lecture Record: 2026-04-16 育達科技大學 【讓AI成為神隊友】教學現場的應用與創新實錄",
-        "categoryKey":  "lecture",
-        "issuerZh":  "育達科技大學",
-        "issuerEn":  "Yuda University of Science and Technology",
-        "year":  "2026"
-    },
-    {
-        "id":  "cert-080",
-        "sort":  80,
-        "image":  "./items/item-080.jpg",
+        "id":  "cert-068",
+        "sort":  68,
+        "image":  "./items/item-068.jpg",
         "originalFile":  "【感謝狀】運用AI輔助學習講座講師.jpg",
         "titleZh":  "114 12 07 大明高中 如何運用AI輔助學習",
         "titleEn":  "Letter of Appreciation: 114 12 07 大明高中 如何運用AI輔助學習",
@@ -960,9 +816,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  "2025"
     },
     {
-        "id":  "cert-081",
-        "sort":  81,
-        "image":  "./items/item-081.jpg",
+        "id":  "cert-069",
+        "sort":  69,
+        "image":  "./items/item-069.jpg",
         "originalFile":  "【聘書】NTCU_110-2.jpg",
         "titleZh":  "NTCU_110-2",
         "titleEn":  "Appointment Letter: NTCU_110-2",
@@ -972,9 +828,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-082",
-        "sort":  82,
-        "image":  "./items/item-082.jpg",
+        "id":  "cert-070",
+        "sort":  70,
+        "image":  "./items/item-070.jpg",
         "originalFile":  "【聘書】NTCU_111-1.jpg",
         "titleZh":  "NTCU_111-1",
         "titleEn":  "Appointment Letter: NTCU_111-1",
@@ -984,9 +840,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-083",
-        "sort":  83,
-        "image":  "./items/item-083.jpg",
+        "id":  "cert-071",
+        "sort":  71,
+        "image":  "./items/item-071.jpg",
         "originalFile":  "【聘書】NTCU_111-2.jpg",
         "titleZh":  "NTCU_111-2",
         "titleEn":  "Appointment Letter: NTCU_111-2",
@@ -996,9 +852,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-084",
-        "sort":  84,
-        "image":  "./items/item-084.jpg",
+        "id":  "cert-072",
+        "sort":  72,
+        "image":  "./items/item-072.jpg",
         "originalFile":  "【聘書】NTCU_112.jpg",
         "titleZh":  "NTCU_112",
         "titleEn":  "Appointment Letter: NTCU_112",
@@ -1008,9 +864,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-085",
-        "sort":  85,
-        "image":  "./items/item-085.jpg",
+        "id":  "cert-073",
+        "sort":  73,
+        "image":  "./items/item-073.jpg",
         "originalFile":  "【聘書】NTCU_113-1.jpg",
         "titleZh":  "NTCU_113-1",
         "titleEn":  "Appointment Letter: NTCU_113-1",
@@ -1020,9 +876,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-086",
-        "sort":  86,
-        "image":  "./items/item-086.jpg",
+        "id":  "cert-074",
+        "sort":  74,
+        "image":  "./items/item-074.jpg",
         "originalFile":  "【聘書】NTCU_113-2.jpg",
         "titleZh":  "NTCU_113-2",
         "titleEn":  "Appointment Letter: NTCU_113-2",
@@ -1032,9 +888,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-087",
-        "sort":  87,
-        "image":  "./items/item-087.jpg",
+        "id":  "cert-075",
+        "sort":  75,
+        "image":  "./items/item-075.jpg",
         "originalFile":  "【聘書】NTCU_114-1.jpg",
         "titleZh":  "NTCU_114-1",
         "titleEn":  "Appointment Letter: NTCU_114-1",
@@ -1044,9 +900,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-088",
-        "sort":  88,
-        "image":  "./items/item-088.jpg",
+        "id":  "cert-076",
+        "sort":  76,
+        "image":  "./items/item-076.jpg",
         "originalFile":  "【聘書】NTCU_114-2.jpg",
         "titleZh":  "NTCU_114-2",
         "titleEn":  "Appointment Letter: NTCU_114-2",
@@ -1056,9 +912,165 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
+        "id":  "cert-077",
+        "sort":  77,
+        "image":  "./items/item-077.jpg",
+        "originalFile":  "【演講、感謝狀】AI工具應用,關於醫療與放射科輔助工作,Gemini 雲端整合與提示詞工程 (1).jpg",
+        "titleZh":  "【演講、感謝狀】AI工具應用,關於醫療與放射科輔助工作,Gemini 雲端整合與提示詞工程 (1)",
+        "titleEn":  "Academic Proof: 【演講、感謝狀】AI工具應用,關於醫療與放射科輔助工作,Gemini 雲端整合與提示詞工程 (1)",
+        "categoryKey":  "status",
+        "issuerZh":  "摮貉?頨怠??辣",
+        "issuerEn":  "Academic Documentation",
+        "year":  ""
+    },
+    {
+        "id":  "cert-078",
+        "sort":  78,
+        "image":  "./items/item-078.jpg",
+        "originalFile":  "【演講、感謝狀】育達科技大學.jpg",
+        "titleZh":  "【演講、感謝狀】育達科技大學",
+        "titleEn":  "Academic Proof: 【演講、感謝狀】育達科技大學",
+        "categoryKey":  "status",
+        "issuerZh":  "摮貉?頨怠??辣",
+        "issuerEn":  "Academic Documentation",
+        "year":  ""
+    },
+    {
+        "id":  "cert-079",
+        "sort":  79,
+        "image":  "./items/item-079.png",
+        "originalFile":  "【演講】2024-11-19 臺中教育大學 生成式AI互動技巧遊戲式教材製作.png",
+        "titleZh":  "2024-11-19 臺中教育大學 生成式AI互動技巧遊戲式教材製作",
+        "titleEn":  "Lecture Record: 2024-11-19 臺中教育大學 生成式AI互動技巧遊戲式教材製作",
+        "categoryKey":  "lecture",
+        "issuerZh":  "臺中教育大學",
+        "issuerEn":  "National Taichung University of Education",
+        "year":  "2024"
+    },
+    {
+        "id":  "cert-080",
+        "sort":  80,
+        "image":  "./items/item-080.png",
+        "originalFile":  "【演講】2024-11-21 臺中教育大學 使用ChatGPT製作動態響應式網站.png",
+        "titleZh":  "2024-11-21 臺中教育大學 使用ChatGPT製作動態響應式網站",
+        "titleEn":  "Lecture Record: 2024-11-21 臺中教育大學 使用ChatGPT製作動態響應式網站",
+        "categoryKey":  "lecture",
+        "issuerZh":  "臺中教育大學",
+        "issuerEn":  "National Taichung University of Education",
+        "year":  "2024"
+    },
+    {
+        "id":  "cert-081",
+        "sort":  81,
+        "image":  "./items/item-081.jpg",
+        "originalFile":  "【演講】2025-09-04 東海大學 A1素養導向高教學習創新計劃 Chat Everywhere v2平台操作.jpg",
+        "titleZh":  "2025-09-04 東海大學 A1素養導向高教學習創新計劃 Chat Everywhere v2平台操作",
+        "titleEn":  "Lecture Record: 2025-09-04 東海大學 A1素養導向高教學習創新計劃 Chat Everywhere v2平台操作",
+        "categoryKey":  "lecture",
+        "issuerZh":  "東海大學",
+        "issuerEn":  "Tunghai University",
+        "year":  "2025"
+    },
+    {
+        "id":  "cert-082",
+        "sort":  82,
+        "image":  "./items/item-082.png",
+        "originalFile":  "【演講】2025-09-12 崇倫國中 AI工具應用分享 教學 校務應用.png",
+        "titleZh":  "2025-09-12 崇倫國中 AI工具應用分享 教學、校務應用",
+        "titleEn":  "Lecture Record: 2025-09-12 崇倫國中 AI工具應用分享 教學、校務應用",
+        "categoryKey":  "lecture",
+        "issuerZh":  "崇倫國中",
+        "issuerEn":  "Chong Lun Junior High School",
+        "year":  "2025"
+    },
+    {
+        "id":  "cert-083",
+        "sort":  83,
+        "image":  "./items/item-083.webp",
+        "originalFile":  "【演講】2026-04-12 線上分享 期刊與研討會投稿.webp",
+        "titleZh":  "線上分享_期刊與研討會投稿",
+        "titleEn":  "Lecture Record: 線上分享_期刊與研討會投稿",
+        "categoryKey":  "lecture",
+        "issuerZh":  "線上分享",
+        "issuerEn":  "Online Sharing",
+        "year":  "2026"
+    },
+    {
+        "id":  "cert-084",
+        "sort":  84,
+        "image":  "./items/item-084.png",
+        "originalFile":  "【演講】2026-04-29 新民高中 AI工具應用技巧 於文書行政 資料分析.png",
+        "titleZh":  "2026-04-29 新民高中 AI工具應用技巧 於文書行政、資料分析",
+        "titleEn":  "Lecture Record: 2026-04-29 新民高中 AI工具應用技巧 於文書行政、資料分析",
+        "categoryKey":  "lecture",
+        "issuerZh":  "新民高中",
+        "issuerEn":  "Shin Min High School",
+        "year":  "2026"
+    },
+    {
+        "id":  "cert-085",
+        "sort":  85,
+        "image":  "./items/item-085.png",
+        "originalFile":  "【演講】2026-05-22 臺中教育大學 用數據說故事 你就是AI時代的導演 Gemini Vid 整合.png",
+        "titleZh":  "2026-05-22 臺中教育大學 用數據說故事，你就是AI時代的導演 Gemini \u0026 Vid 整合",
+        "titleEn":  "Lecture Record: 2026-05-22 臺中教育大學 用數據說故事，你就是AI時代的導演 Gemini \u0026 Vid 整合",
+        "categoryKey":  "lecture",
+        "issuerZh":  "臺中教育大學",
+        "issuerEn":  "National Taichung University of Education",
+        "year":  "2026"
+    },
+    {
+        "id":  "cert-086",
+        "sort":  86,
+        "image":  "./items/item-086.png",
+        "originalFile":  "【演講】2026-06-01 臺中教育大學 用 Codex 結合 Google Gemma 本地模型打造你的筆電 AI Agent 讓研究文獻自己動起來.png",
+        "titleZh":  "2026-06-01 臺中教育大學 用 Codex 結合 Google Gemma 本地模型打造你的筆電 AI Agent 讓研究文獻自己動起來",
+        "titleEn":  "Lecture Record: 2026-06-01 臺中教育大學 用 Codex 結合 Google Gemma 本地模型打造你的筆電 AI Agent 讓研究文獻自己動起來",
+        "categoryKey":  "lecture",
+        "issuerZh":  "臺中教育大學",
+        "issuerEn":  "National Taichung University of Education",
+        "year":  "2026"
+    },
+    {
+        "id":  "cert-087",
+        "sort":  87,
+        "image":  "./items/item-087.png",
+        "originalFile":  "【演講】2026-06-02 臺中教育大學 AI工具應用於文書行政 資料分析與學術研究 Gemini整合.png",
+        "titleZh":  "2026-06-02 臺中教育大學 AI工具應用於文書行政、資料分析與學術研究：Gemini整合",
+        "titleEn":  "Lecture Record: 2026-06-02 臺中教育大學 AI工具應用於文書行政、資料分析與學術研究：Gemini整合",
+        "categoryKey":  "lecture",
+        "issuerZh":  "臺中教育大學",
+        "issuerEn":  "National Taichung University of Education",
+        "year":  "2026"
+    },
+    {
+        "id":  "cert-088",
+        "sort":  88,
+        "image":  "./items/item-088.jpg",
+        "originalFile":  "【演講】2026-07-13 臺中教育大學 行政AI小幫手-CODEX初階班(下).jpg",
+        "titleZh":  "2026-07-13 臺中教育大學 行政AI小幫手-CODEX初階班(下)",
+        "titleEn":  "Lecture Record: 2026-07-13 臺中教育大學 行政AI小幫手-CODEX初階班(下)",
+        "categoryKey":  "lecture",
+        "issuerZh":  "臺中教育大學",
+        "issuerEn":  "National Taichung University of Education",
+        "year":  "2026"
+    },
+    {
         "id":  "cert-089",
         "sort":  89,
-        "image":  "./items/item-089.jpg",
+        "image":  "./items/item-089.jfif",
+        "originalFile":  "【演講】旅宿生成式AI與顧客服務自動化應用.jfif",
+        "titleZh":  "2026-06-30 旅宿生成式AI與顧客服務自動化應用",
+        "titleEn":  "Lecture Record: 2026-06-30 旅宿生成式AI與顧客服務自動化應用",
+        "categoryKey":  "lecture",
+        "issuerZh":  "苗栗縣政府文化觀光局／苗栗縣旅館商業同業公會",
+        "issuerEn":  "Miaoli County Government Culture and Tourism Bureau / Miaoli County Hotel Association",
+        "year":  "2026"
+    },
+    {
+        "id":  "cert-090",
+        "sort":  90,
+        "image":  "./items/item-090.jpg",
         "originalFile":  "【證明】博士候選人證明書.jpg",
         "titleZh":  "博士候選人證明書",
         "titleEn":  "Academic Proof: 博士候選人證明書",
@@ -1068,9 +1080,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-090",
-        "sort":  90,
-        "image":  "./items/item-090.jpg",
+        "id":  "cert-091",
+        "sort":  91,
+        "image":  "./items/item-091.jpg",
         "originalFile":  "【證照】(MTA)Microsoft Technology Associate：Database Administration Fundamentals1.jpg",
         "titleZh":  "(MTA)Microsoft Technology Associate：Database Administration Fundamentals1",
         "titleEn":  "Certification: (MTA)Microsoft Technology Associate：Database Administration Fundamentals1",
@@ -1080,9 +1092,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-091",
-        "sort":  91,
-        "image":  "./items/item-091.jpg",
+        "id":  "cert-092",
+        "sort":  92,
+        "image":  "./items/item-092.jpg",
         "originalFile":  "【證照】(MTA)Microsoft Technology Associate：Database Administration Fundamentals2.jpg",
         "titleZh":  "(MTA)Microsoft Technology Associate：Database Administration Fundamentals2",
         "titleEn":  "Certification: (MTA)Microsoft Technology Associate：Database Administration Fundamentals2",
@@ -1092,9 +1104,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-092",
-        "sort":  92,
-        "image":  "./items/item-092.jpg",
+        "id":  "cert-093",
+        "sort":  93,
+        "image":  "./items/item-093.jpg",
         "originalFile":  "【證照】Foundation Certificate in EPC Architecture Framework.jpg",
         "titleZh":  "Foundation Certificate in EPC Architecture Framework",
         "titleEn":  "Certification: Foundation Certificate in EPC Architecture Framework",
@@ -1104,9 +1116,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-093",
-        "sort":  93,
-        "image":  "./items/item-093.png",
+        "id":  "cert-094",
+        "sort":  94,
+        "image":  "./items/item-094.png",
         "originalFile":  "【證照】Google 認證教育工作者第 1 級.png",
         "titleZh":  "Google 認證教育工作者第 1 級",
         "titleEn":  "Certification: Google 認證教育工作者第 1 級",
@@ -1116,9 +1128,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-094",
-        "sort":  94,
-        "image":  "./items/item-094.png",
+        "id":  "cert-095",
+        "sort":  95,
+        "image":  "./items/item-095.png",
         "originalFile":  "【證照】Google 認證教育工作者第 2 級.png",
         "titleZh":  "Google 認證教育工作者第 2 級",
         "titleEn":  "Certification: Google 認證教育工作者第 2 級",
@@ -1128,9 +1140,9 @@ window.CERTIFICATE_ITEMS = [
         "year":  ""
     },
     {
-        "id":  "cert-095",
-        "sort":  95,
-        "image":  "./items/item-095.jpg",
+        "id":  "cert-096",
+        "sort":  96,
+        "image":  "./items/item-096.jpg",
         "originalFile":  "【證照】Oracle Certified Java Programmer (OCJP).jpg",
         "titleZh":  "Oracle Certified Java Programmer (OCJP)",
         "titleEn":  "Certification: Oracle Certified Java Programmer (OCJP)",

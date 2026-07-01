@@ -29,6 +29,7 @@ $prefixGoogle = "$lb" + "Google" + "$rb"
 $prefixLicense = "$lb" + (U @(0x8B49, 0x7167)) + "$rb"
 $prefixTraining = "$lb" + (U @(0x7814, 0x7FD2, 0x8B49, 0x660E)) + "$rb"
 $prefixPresentation = "$lb" + (U @(0x767C, 0x8868)) + "$rb"
+$prefixLecture = "$lb" + (U @(0x6F14, 0x8B1B)) + "$rb"
 $prefixAppointment = "$lb" + (U @(0x8058, 0x66F8)) + "$rb"
 $prefixAppreciation = "$lb" + (U @(0x611F, 0x8B1D, 0x72C0)) + "$rb"
 $prefixPatent = "$lb" + (U @(0x5C08, 0x5229, 0x8B49, 0x66F8)) + "$rb"
@@ -51,6 +52,7 @@ function Get-CategoryKey([string]$name) {
   if ($name.StartsWith($prefixLicense)) { return "license" }
   if ($name.StartsWith($prefixTraining)) { return "training" }
   if ($name.StartsWith($prefixPresentation)) { return "presentation" }
+  if ($name.StartsWith($prefixLecture)) { return "lecture" }
   if ($name.StartsWith($prefixAppointment)) { return "appointment" }
   if ($name.StartsWith($prefixAppreciation)) { return "appreciation" }
   if ($name.StartsWith($prefixPatent)) { return "patent" }
@@ -60,7 +62,7 @@ function Get-CategoryKey([string]$name) {
 
 function Clean-Title([string]$name) {
   $base = [System.IO.Path]::GetFileNameWithoutExtension($name)
-  foreach ($prefix in @($prefixGoogle, $prefixLicense, $prefixTraining, $prefixPresentation, $prefixAppointment, $prefixAppreciation, $prefixPatent, $prefixStatus)) {
+  foreach ($prefix in @($prefixGoogle, $prefixLicense, $prefixTraining, $prefixPresentation, $prefixLecture, $prefixAppointment, $prefixAppreciation, $prefixPatent, $prefixStatus)) {
     if ($base.StartsWith($prefix)) {
       $base = $base.Substring($prefix.Length)
     }
@@ -86,6 +88,7 @@ function Get-Issuer([string]$name, [string]$categoryKey) {
   if ($name -match [regex]::Escape($csmuZh)) { return @{ zh = $csmuZh; en = "Chung Shan Medical University" } }
   if ($name -match [regex]::Escape($chongLunZh)) { return @{ zh = $chongLunZh; en = "Chong Lun Junior High School" } }
   if ($name -match [regex]::Escape($onlineZh)) { return @{ zh = $onlineZh; en = "Online Sharing" } }
+  if ($name -match [regex]::Escape((U @(0x82D7,0x6817,0x7E23,0x653F,0x5E9C,0x6587,0x5316,0x89C0,0x5149,0x5C40)))) { return @{ zh = U @(0x82D7,0x6817,0x7E23,0x653F,0x5E9C,0x6587,0x5316,0x89C0,0x5149,0x5C40); en = "Miaoli County Government Culture and Tourism Bureau" } }
   if ($name -match 'Oracle') { return @{ zh = "Oracle"; en = "Oracle" } }
   if ($name -match 'Microsoft') { return @{ zh = "Microsoft"; en = "Microsoft" } }
   if ($name -match 'Google') { return @{ zh = "Google"; en = "Google" } }
@@ -143,14 +146,55 @@ function Get-EffectiveCategoryKey([string]$fileName, [string]$titleZh, [string]$
   if ($titleZh -like '2026-05-22*') { return 'lecture' }
   if ($titleZh -like '2026-06-01*') { return 'lecture' }
   if ($titleZh -like '2026-06-02*') { return 'lecture' }
+  if ($titleZh -like '2026-06-30*') { return 'lecture' }
   if ($titleZh -like '2026-07-13*') { return 'lecture' }
   return $categoryKey
 }
 
 function Get-Overrides([string]$fileName) {
+  $lectureMiaoli = [string]::Concat($prefixLecture, (U @(0x65C5,0x5BBF,0x751F,0x6210,0x5F0F,0x0041,0x0049,0x8207,0x9867,0x5BA2,0x670D,0x52D9,0x81EA,0x52D5,0x5316,0x61C9,0x7528)), '.jfif')
   $appreciationDaming = [string]::Concat($prefixAppreciation, (U @(0x904B,0x7528,0x0041,0x0049,0x8F14,0x52A9,0x5B78,0x7FD2,0x8B1B,0x5EA7,0x8B1B,0x5E2B)), '.jpg')
   $appreciationYuda = [string]::Concat($prefixAppreciation, $yudaZh, '.jpg')
   $appreciationCsmu = [string]::Concat($prefixAppreciation, 'AI', (U @(0x5DE5,0x5177,0x61C9,0x7528)), ',', (U @(0x95DC,0x65BC,0x91AB,0x7642,0x8207,0x653E,0x5C04,0x79D1,0x8F14,0x52A9,0x5DE5,0x4F5C)), ',Gemini ', (U @(0x96F2,0x7AEF,0x6574,0x5408,0x8207,0x63D0,0x793A,0x8A5E,0x5DE5,0x7A0B)), ' (1).jpg')
+
+<#
+  if ($fileName -eq $lectureMiaoli) {
+    return @{
+      titleZh = [string]::Concat('2026-06-30 ', (U @(0x65C5,0x5BBF,0x751F,0x6210,0x5F0F,0x0041,0x0049,0x8207,0x9867,0x5BA2,0x670D,0x52D9,0x81EA,0x52D5,0x5316,0x61C9,0x7528)))
+      titleEn = 'Lecture Record: 2026-06-30 Generative AI and Customer Service Automation Applications for Hospitality'
+      issuerZh = [string]::Concat((U @(0x82D7,0x6817,0x7E23,0x653F,0x5E9C,0x6587,0x5316,0x89C0,0x5149,0x5C40)), '／', (U @(0x82D7,0x6817,0x7E23,0x65C5,0x9928,0x5546,0x696D,0x540C,0x696D,0x516C,0x6703)))
+      issuerEn = 'Miaoli County Government Culture and Tourism Bureau / Miaoli County Hotel Association'
+      year = '2026'
+      categoryKey = 'lecture'
+    }
+  }
+
+  #>
+<#
+
+  if ($fileName -eq $lectureMiaoli) {
+    return @{
+      titleZh = [string]::Concat('2026-06-30 ', (U @(0x65C5,0x5BBF,0x751F,0x6210,0x5F0F,0x0041,0x0049,0x8207,0x9867,0x5BA2,0x670D,0x52D9,0x81EA,0x52D5,0x5316,0x61C9,0x7528)))
+      titleEn = 'Lecture Record: 2026-06-30 Generative AI and Customer Service Automation Applications for Hospitality'
+      issuerZh = [string]::Concat((U @(0x82D7,0x6817,0x7E23,0x653F,0x5E9C,0x6587,0x5316,0x89C0,0x5149,0x5C40)), '／', (U @(0x82D7,0x6817,0x7E23,0x65C5,0x9928,0x5546,0x696D,0x540C,0x696D,0x516C,0x6703)))
+      issuerEn = 'Miaoli County Government Culture and Tourism Bureau / Miaoli County Hotel Association'
+      year = '2026'
+      categoryKey = 'lecture'
+    }
+  }
+
+  #>
+
+  if ($fileName -eq $lectureMiaoli) {
+    return @{
+      titleZh = [string]::Concat('2026-06-30 ', (U @(0x65C5,0x5BBF,0x751F,0x6210,0x5F0F,0x0041,0x0049,0x8207,0x9867,0x5BA2,0x670D,0x52D9,0x81EA,0x52D5,0x5316,0x61C9,0x7528)))
+      titleEn = 'Lecture Record: 2026-06-30 Generative AI and Customer Service Automation Applications for Hospitality'
+      issuerZh = [string]::Concat((U @(0x82D7,0x6817,0x7E23,0x653F,0x5E9C,0x6587,0x5316,0x89C0,0x5149,0x5C40)), (U @(0xFF0F)), (U @(0x82D7,0x6817,0x7E23,0x65C5,0x9928,0x5546,0x696D,0x540C,0x696D,0x516C,0x6703)))
+      issuerEn = 'Miaoli County Government Culture and Tourism Bureau / Miaoli County Hotel Association'
+      year = '2026'
+      categoryKey = 'lecture'
+    }
+  }
 
   if ($fileName -eq $appreciationDaming) {
     return @{
