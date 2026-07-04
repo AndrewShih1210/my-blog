@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="從 Google Sheet、Drive、LINE Developers 到 Apps Script 網頁應用程式的完整設定步驟。" />
+  <meta name="author" content="施育廷" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/setup.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/setup.html" />
+  <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/setup_en.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LINE Bot 建置流程：LINE、GAS 與 Google Sheet 設定" />
+  <meta property="og:description" content="從 Google Sheet、Drive、LINE Developers 到 Apps Script 網頁應用程式的完整設定步驟。" />
+  <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/setup.html" />
+  <meta property="og:image" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/assets/figures/line-cloud-manager-map.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>LINE Bot 建置流程：LINE、GAS 與 Google Sheet 設定</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="index.html">LINE Bot x GAS 教學網站</a>
+      <nav class="nav">
+        <a href="index.html">首頁</a>
+<a href="teaching-plan.html">教學地圖</a>
+<a href="setup.html">建置流程</a>
+<a href="apps-script.html">GAS 與 Sheet</a>
+<a href="workflows.html">功能工作流</a>
+<a href="advanced.html">進階延伸</a>
+<a href="resources.html">資源彙整</a>
+<a href="../index.html">學術首頁</a>
+<a href="../sitemap.html">網站導覽</a>
+<a href="index_en.html">EN</a>
+      </nav>
+    </div>
+  </header>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">首頁</a> / 建置流程</p>
+    <p class="eyebrow">Setup</p>
+    <h1>從零開始完成 LINE Bot 建置</h1>
+    <p class="lead">本頁按照教材原始脈絡，整理出一條能實際成功部署的路徑：先準備資料層，再建置程式層，最後完成 LINE Webhook 驗證。</p>
+  </div>
+</section>
+<main class="wrap content-grid">
+  <aside class="sidebar">
+    <h3>步驟導覽</h3>
+    <a href="#prereq">先備條件</a>
+    <a href="#sheet">Google Sheet</a>
+    <a href="#drive">Google Drive</a>
+    <a href="#line">LINE Developers</a>
+    <a href="#deploy">Apps Script 部署</a>
+    <a href="#verify">Webhook 驗證</a>
+  </aside>
+  <article class="article">
+    <section class="panel" id="prereq">
+      <h2>先備條件</h2>
+      <ul class="clean-list">
+        <li>一個可登入 LINE Developers 的 LINE 帳號。</li>
+        <li>一個可使用 Google Sheets、Drive 與 Apps Script 的 Google 帳號。</li>
+        <li>至少一組 Gemini API Key，若需要發佈到 Threads，還需 Threads 與 Cloudinary 金鑰。</li>
+        <li>明確規劃好資料夾與工作表命名，避免後續維護混亂。</li>
+      </ul>
+    </section>
+    <section class="panel figure-card" id="sheet">
+      <h2>步驟 1：建立 Google Sheet 作為記憶庫</h2>
+      <img src="assets/figures/apikey-sheet.png" alt="APIKEY 工作表畫面" />
+      <p>教材將 Google Sheet 視為長期記憶層。至少應建立 <code>APIKEY</code>、日誌、筆記、檔案紀錄與暫存相關分頁。所有金鑰、操作紀錄與部分快取資料都會在這裡管理。</p>
+      <ul class="clean-list">
+        <li>命名試算表，例如「LINE 智慧助理資料庫」。</li>
+        <li>建立 APIKEY 分頁，依既定欄位放入 Gemini、LINE、Threads、Cloudinary 等金鑰。</li>
+        <li>建立操作日誌與檔案日誌工作表，支援追蹤使用歷程。</li>
+      </ul>
+    </section>
+    <section class="panel figure-card" id="drive">
+      <h2>步驟 2：建立 Google Drive 檔案庫</h2>
+      <img src="assets/figures/drive-folder.png" alt="Google Drive 資料夾畫面" />
+      <p>Google Drive 負責保存從 LINE 上傳的圖片、影片、文件，以及 AI 生成的 Google 文件、簡報或網頁報告。請先建立專用資料夾並保留資料夾 ID。</p>
+    </section>
+    <section class="panel" id="line">
+      <h2>步驟 3：建立 LINE Channel</h2>
+      <p>前往 LINE Developers Console 建立 Messaging API Channel，記錄 <code>Channel secret</code> 與 <code>Channel access token</code>。這兩項是系統接收事件與回傳訊息的入口憑證。</p>
+      <ul class="clean-list">
+        <li>建立 Provider 與 Channel。</li>
+        <li>進入 Messaging API 分頁取得 Access Token。</li>
+        <li>確認 Use webhook 後續可以被啟用。</li>
+      </ul>
+    </section>
+    <section class="panel figure-card" id="deploy">
+      <h2>步驟 4：部署 Google Apps Script 網頁應用程式</h2>
+      <img src="assets/figures/webhook-basics.png" alt="Webhook 原理與 Line Bot 建置頁面" />
+      <p>回到試算表後，從「擴充功能 &gt; Apps Script」建立專案，貼入核心程式，填入試算表 ID、資料夾 ID、API Key 讀取位置與模型設定，最後部署為網頁應用程式。</p>
+      <ul class="clean-list">
+        <li>執行身分選擇「我」。</li>
+        <li>存取權限選擇「任何人」。</li>
+        <li>完成授權後複製網頁應用程式網址，這就是 Webhook URL 的基礎。</li>
+      </ul>
+    </section>
+    <section class="panel" id="verify">
+      <h2>步驟 5：設定與驗證 Webhook</h2>
+      <p>把部署得到的網址貼到 LINE Developers 的 Webhook URL 欄位，更新後執行 Verify。若驗證成功，表示 LINE 可以把事件送到你的 Apps Script。接著關閉干擾性的 Auto-reply messages，保留 Bot 主控權。</p>
+      <div class="summary-box">
+        <h3>最小成功指標</h3>
+        <ul class="clean-list">
+          <li>Webhook Verify 成功。</li>
+          <li>從 LINE 傳訊後，Apps Script 有收到事件。</li>
+          <li>試算表中出現至少一筆日誌或測試紀錄。</li>
+        </ul>
+      </div>
+    </section>
+  </article>
+</main>
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <article class="panel">
+        <p class="section-label">Author</p>
+        <h3>施育廷 / Yu-Ting Shih</h3>
+        <p class="muted">本教材由施育廷整理製作，內容整合 LINE Bot、Google Apps Script、Google Sheets 與生成式 AI 教學素材，並以可公開瀏覽的教學網站形式呈現。</p>
+      </article>
+      <article class="panel">
+        <p class="section-label">Links</p>
+        <div class="cta-row">
+          <a class="button primary" href="../index.html">學術首頁</a>
+          <a class="button" href="../certificates-site/index.html">證照與證明</a>
+          <a class="button" href="../sitemap.html">網站導覽</a>
+        </div>
+      </article>
+    </div>
+  </footer>
+</body>
+</html>

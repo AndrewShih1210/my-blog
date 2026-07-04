@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Explains the Apps Script controller layer, worksheet design, prompts, and logging logic behind the LINE Bot." />
+  <meta name="author" content="施育廷" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/apps-script_en.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/apps-script.html" />
+  <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/apps-script_en.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="GAS and Google Sheets: LINE Bot Backend Logic" />
+  <meta property="og:description" content="Explains the Apps Script controller layer, worksheet design, prompts, and logging logic behind the LINE Bot." />
+  <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/apps-script_en.html" />
+  <meta property="og:image" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/assets/figures/line-cloud-manager-map.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>GAS and Google Sheets: LINE Bot Backend Logic</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="index_en.html">LINE Bot x GAS Teaching Site</a>
+      <nav class="nav">
+        <a href="index_en.html">Home</a>
+<a href="teaching-plan_en.html">Course Map</a>
+<a href="setup_en.html">Setup</a>
+<a href="apps-script_en.html">GAS and Sheets</a>
+<a href="workflows_en.html">Workflows</a>
+<a href="advanced_en.html">Advanced</a>
+<a href="resources_en.html">Resources</a>
+<a href="../index_en.html">Academic Home</a>
+<a href="../sitemap_en.html">Sitemap</a>
+<a href="index.html">中文</a>
+      </nav>
+    </div>
+  </header>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index_en.html">Home</a> / GAS and Sheets</p>
+    <p class="eyebrow">Google Apps Script</p>
+    <h1>Understand the controller layer and worksheet structure</h1>
+    <p class="lead">A stable LINE Bot does not come from one powerful API. It comes from Apps Script orchestrating event handling, storage, logging, and AI calls into a maintainable system.</p>
+  </div>
+</section>
+<main class="wrap content-grid">
+  <aside class="sidebar">
+    <h3>On this page</h3>
+    <a href="#roles">System roles</a>
+    <a href="#route">Routing</a>
+    <a href="#sheets">Worksheets</a>
+    <a href="#prompt">Prompts and intent parsing</a>
+    <a href="#logs">Logs and administration</a>
+  </aside>
+  <article class="article">
+    <section class="panel figure-card" id="roles">
+      <h2>Role of Apps Script</h2>
+      <img src="assets/figures/line-cloud-manager-map.png" alt="LINE cloud manager overview" />
+      <p>The materials frame the system as a multi-module assistant: LINE handles message intake and delivery, Gemini handles interpretation and generation, Sheets provides memory, Drive stores files, and Apps Script coordinates everything.</p>
+    </section>
+    <section class="panel" id="route">
+      <h2>How routing works</h2>
+      <p>When LINE sends an event, the backend typically receives the payload, identifies the event type, reads user state, selects the target workflow, invokes the required services, records the result, and then replies or pushes a follow-up message.</p>
+    </section>
+    <section class="panel" id="sheets">
+      <h2>Worksheets are part of the data architecture</h2>
+      <p>Google Sheets is not just an attachment. In this course, it becomes a lightweight data layer: API keys, file logs, notes, state flags, and workflow traces are all structured there.</p>
+    </section>
+    <section class="panel" id="prompt">
+      <h2>Prompts and intent extraction</h2>
+      <p>The course emphasizes role-based prompting rather than generic text generation. A useful backend prompt should define tasks, constraints, required parameters, clarification behavior, and when structured output is required.</p>
+    </section>
+    <section class="panel" id="logs">
+      <h2>Logs, admin menus, and maintenance</h2>
+      <p>The original materials also discuss admin-side menu control inside Google Sheets. That turns the bot into a maintainable service, which is why this site treats engineering maintenance as part of the learning outcome.</p>
+    </section>
+  </article>
+</main>
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <article class="panel">
+        <p class="section-label">Author</p>
+        <h3>施育廷 / Yu-Ting Shih</h3>
+        <p class="muted">This site was curated by Yu-Ting Shih and consolidates teaching materials on LINE Bot, Google Apps Script, Google Sheets, and generative AI into a public-facing instructional website.</p>
+      </article>
+      <article class="panel">
+        <p class="section-label">Links</p>
+        <div class="cta-row">
+          <a class="button primary" href="../index_en.html">Academic Home</a>
+          <a class="button" href="../certificates-site/index_en.html">Credentials</a>
+          <a class="button" href="../sitemap_en.html">Sitemap</a>
+        </div>
+      </article>
+    </div>
+  </footer>
+</body>
+</html>

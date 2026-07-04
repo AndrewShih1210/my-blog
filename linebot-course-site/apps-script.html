@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="說明 LINE Bot 的 Apps Script 協調核心、工作表設計、Prompt 與日誌維運。" />
+  <meta name="author" content="施育廷" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/apps-script.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/apps-script.html" />
+  <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/apps-script_en.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="GAS 與 Google Sheets：LINE Bot 後端控制核心" />
+  <meta property="og:description" content="說明 LINE Bot 的 Apps Script 協調核心、工作表設計、Prompt 與日誌維運。" />
+  <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/apps-script.html" />
+  <meta property="og:image" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/assets/figures/line-cloud-manager-map.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>GAS 與 Google Sheets：LINE Bot 後端控制核心</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="index.html">LINE Bot x GAS 教學網站</a>
+      <nav class="nav">
+        <a href="index.html">首頁</a>
+<a href="teaching-plan.html">教學地圖</a>
+<a href="setup.html">建置流程</a>
+<a href="apps-script.html">GAS 與 Sheet</a>
+<a href="workflows.html">功能工作流</a>
+<a href="advanced.html">進階延伸</a>
+<a href="resources.html">資源彙整</a>
+<a href="../index.html">學術首頁</a>
+<a href="../sitemap.html">網站導覽</a>
+<a href="index_en.html">EN</a>
+      </nav>
+    </div>
+  </header>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">首頁</a> / GAS 與 Sheet</p>
+    <p class="eyebrow">Google Apps Script</p>
+    <h1>看懂後端控制核心與工作表結構</h1>
+    <p class="lead">LINE Bot 能穩定運作，不是因為單一 API 很強，而是因為 Apps Script 把事件處理、資料存取、記錄與 AI 呼叫串成了可維護的流程。</p>
+  </div>
+</section>
+<main class="wrap content-grid">
+  <aside class="sidebar">
+    <h3>本頁導覽</h3>
+    <a href="#roles">角色分工</a>
+    <a href="#route">事件路由</a>
+    <a href="#sheets">工作表結構</a>
+    <a href="#prompt">Prompt 與意圖分析</a>
+    <a href="#logs">日誌與管理</a>
+  </aside>
+  <article class="article">
+    <section class="panel figure-card" id="roles">
+      <h2>Apps Script 的角色分工</h2>
+      <img src="assets/figures/line-cloud-manager-map.png" alt="LINE 雲端助理三段式架構圖" />
+      <p>教材把整個系統視為一個多模組機器人：LINE Messaging API 負責耳朵與嘴巴，Gemini 負責意圖判斷與內容生成，Google Sheets 扮演記憶庫，Drive 是檔案櫃，而 Apps Script 則是中樞神經。</p>
+    </section>
+    <section class="panel" id="route">
+      <h2>事件路由的基本思路</h2>
+      <p>當 LINE 傳來事件時，後端通常會經過以下順序：接收事件、判斷訊息型態、讀取使用者狀態、決定要走哪一條功能路線、呼叫對應服務、回寫日誌，最後再回覆訊息或主動推播結果。</p>
+      <div class="summary-box">
+        <h3>推薦的教學拆解順序</h3>
+        <ul class="clean-list">
+          <li><code>doPost</code>：接收 Webhook。</li>
+          <li>Parser：把文字、圖片、位置等事件整理成可處理資料。</li>
+          <li>Router：根據指令與狀態決定功能模組。</li>
+          <li>Service：執行 Drive、Sheets、Gemini、Threads 等子任務。</li>
+          <li>Logger：把輸入、輸出與例外寫回工作表。</li>
+        </ul>
+      </div>
+    </section>
+    <section class="panel" id="sheets">
+      <h2>工作表不是附件，而是資料層</h2>
+      <p>本教材特別適合把 Google Sheet 當成資料結構教學材料。APIKEY 分頁管理金鑰，檔案日誌分頁保存上傳紀錄，筆記分頁承接短文與備忘，另外還可建立暫存狀態工作表，追蹤使用者目前是否正在進行報告生成、Threads 組圖或其他流程。</p>
+      <ul class="clean-list">
+        <li>工作表能降低非程式背景學員對資料庫的門檻。</li>
+        <li>欄位結構可直接對應系統狀態、權限與操作紀錄。</li>
+        <li>也因此更需要教學者強調命名一致與欄位維護紀律。</li>
+      </ul>
+    </section>
+    <section class="panel" id="prompt">
+      <h2>Prompt 與意圖分析</h2>
+      <p>教材中的一個重點不是「叫 AI 亂生成」，而是讓 AI 扮演具體角色。後端 Prompt 應明確定義：系統是 LINE 助理、有哪些可執行任務、該如何抽取參數、何時要要求補充資訊、何時只能回傳結構化結果而不能自行猜測。</p>
+      <p>這種設計能讓學生理解：真正可維運的 AI 系統，關鍵在於規則與邊界，而不是只靠模型能力本身。</p>
+    </section>
+    <section class="panel" id="logs">
+      <h2>日誌、管理員選單與維運</h2>
+      <p>教學文件提到可透過 Google Sheet 的管理員選單建立圖文選單、解除選單或管理聊天室功能。這表示系統不只是一次性的範例，而是可被持續維運的服務。對課堂來說，這正好能延伸到「如何讓作品可被他人接手」的工程思維。</p>
+    </section>
+  </article>
+</main>
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <article class="panel">
+        <p class="section-label">Author</p>
+        <h3>施育廷 / Yu-Ting Shih</h3>
+        <p class="muted">本教材由施育廷整理製作，內容整合 LINE Bot、Google Apps Script、Google Sheets 與生成式 AI 教學素材，並以可公開瀏覽的教學網站形式呈現。</p>
+      </article>
+      <article class="panel">
+        <p class="section-label">Links</p>
+        <div class="cta-row">
+          <a class="button primary" href="../index.html">學術首頁</a>
+          <a class="button" href="../certificates-site/index.html">證照與證明</a>
+          <a class="button" href="../sitemap.html">網站導覽</a>
+        </div>
+      </article>
+    </div>
+  </footer>
+</body>
+</html>
