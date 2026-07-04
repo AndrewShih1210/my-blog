@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="LINE Bot 教學地圖，整理施育廷的 LINE Bot、Google Apps Script、Google Sheets 與 Gemini 課程流程、授課變形、評量方式與產出要求。" />
+  <meta name="author" content="施育廷" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/teaching-plan.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/teaching-plan.html" />
+  <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/teaching-plan_en.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LINE Bot 教學地圖與授課規劃" />
+  <meta property="og:description" content="掌握 LINE Bot 教學網站的單元順序、授課用途、評量方式與建議產出。" />
+  <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/teaching-plan.html" />
+  <meta property="og:image" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/assets/figures/line-cloud-manager-map.png" />
+  <title>LINE Bot 教學地圖與授課規劃</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="index.html">LINE Bot x GAS 教學網站</a>
+      <nav class="nav" aria-label="LINE Bot 教學導覽">
+        <a href="index.html">首頁</a>
+        <a href="teaching-plan.html">教學地圖</a>
+        <a href="setup.html">初始設定</a>
+        <a href="apps-script.html">GAS 與 Sheets</a>
+        <a href="workflows.html">工作流程</a>
+        <a href="advanced.html">進階應用</a>
+        <a href="resources.html">資源入口</a>
+        <a href="../index.html">學術首頁</a>
+        <a href="../sitemap.html">網站導覽</a>
+        <a href="teaching-plan_en.html">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumb"><a href="index.html">首頁</a> / 教學地圖</p>
+      <p class="eyebrow">Course Map</p>
+      <h1>依教材原始邏輯整理的授課地圖</h1>
+      <p class="lead">這一頁把 LINE Bot 課程拆成可授課、可自學、可評量的地圖。若要進行教學安排，可先用這一頁決定單元順序、時間分配與作業要求。</p>
+    </div>
+  </section>
+
+  <main class="wrap content-grid">
+    <aside class="sidebar">
+      <h3>本頁導覽</h3>
+      <a href="#flow">課程主流程</a>
+      <a href="#variants">授課變形</a>
+      <a href="#assessment">評量方式</a>
+      <a href="#deliverables">學習產出</a>
+    </aside>
+    <article class="article">
+      <section class="panel" id="flow">
+        <h2>課程主流程</h2>
+        <div class="roadmap">
+          <a href="index.html">1. 首頁與總覽：先理解課程目的、公開入口與適用場景。</a>
+          <a href="apps-script.html">2. 系統架構：認識 LINE Messaging API、Webhook、Apps Script、Sheets、Drive 與 Gemini 的分工。</a>
+          <a href="setup.html">3. 初始設定：依序建立資料表、資料夾、LINE Channel 與 Web App。</a>
+          <a href="apps-script.html#logs">4. 管理功能：看懂工作表欄位、紀錄方式與維護節點。</a>
+          <a href="workflows.html">5. 核心工作流程：完成檔案問答、摘要、報告生成與查詢應用。</a>
+          <a href="resources.html">附錄：集中查看原始教材、官方文件、影片與練習題。</a>
+        </div>
+      </section>
+
+      <section class="panel" id="variants">
+        <h2>授課變形建議</h2>
+        <ul class="clean-list">
+          <li>90 分鐘示範型：聚焦系統架構、Webhook 與最小可運作流程。</li>
+          <li>3 小時工作坊：帶學員完成 Google Sheet、Drive、LINE Developers 與 Apps Script 建置。</li>
+          <li>完整學期單元：把設定、資料流、功能設計、維護與專題延伸分成多週實作。</li>
+          <li>教師研習版本：著重教學應用、行政應用與 AI 工具融入工作流程。</li>
+        </ul>
+      </section>
+
+      <section class="panel" id="assessment">
+        <h2>評量方式</h2>
+        <ul class="clean-list">
+          <li>概念理解：能否說明 LINE Bot 的訊息入口、Webhook 與記憶層關係。</li>
+          <li>系統建置：是否完成 Channel、Apps Script、Sheet、Drive 與部署設定。</li>
+          <li>流程設計：是否能描述單一訊息如何流向判斷、回覆與儲存。</li>
+          <li>應用延伸：是否能提出課堂、行政、研究或服務型應用情境。</li>
+        </ul>
+      </section>
+
+      <section class="panel" id="deliverables">
+        <h2>建議學習產出</h2>
+        <ul class="clean-list">
+          <li>一份系統架構圖：至少包含 LINE、Webhook、Apps Script、Sheets 與 Drive。</li>
+          <li>一個可運作的 Webhook 範例：能接收訊息並完成基本回覆。</li>
+          <li>一份工作表設計：說明各個工作表用途與欄位邏輯。</li>
+          <li>一個教學或行政應用提案：說明目標使用者、功能與資料流。</li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <article class="panel">
+        <p class="section-label">Author</p>
+        <h3>施育廷 / Yu-Ting Shih</h3>
+        <p class="muted">本頁為 LINE Bot 教學網站中的授課規劃頁，方便教師、研究者與學習者快速掌握整體教學流程。</p>
+      </article>
+      <article class="panel">
+        <p class="section-label">Next</p>
+        <div class="cta-row">
+          <a class="button primary" href="setup.html">進入初始設定</a>
+          <a class="button" href="apps-script.html">查看系統架構</a>
+          <a class="button" href="../sitemap.html">網站導覽</a>
+        </div>
+      </article>
+    </div>
+  </footer>
+</body>
+</html>

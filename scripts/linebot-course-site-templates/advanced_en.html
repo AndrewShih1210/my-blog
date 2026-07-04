@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Advanced coverage of model boundaries, external documentation, API expansion, and patent-informed architecture." />
+  <meta name="author" content="Yu-Ting Shih" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/advanced_en.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/advanced.html" />
+  <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/advanced_en.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Advanced LINE Bot Topics: Model Limits, Docs, and Architecture" />
+  <meta property="og:description" content="Advanced coverage of model boundaries, external documentation, API expansion, and patent-informed architecture." />
+  <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/advanced_en.html" />
+  <meta property="og:image" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/assets/figures/line-cloud-manager-map.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Advanced LINE Bot Topics: Model Limits, Docs, and Architecture</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="index_en.html">LINE Bot x GAS Teaching Site</a>
+      <nav class="nav">
+        <a href="index_en.html">Home</a>
+<a href="teaching-plan_en.html">Course Map</a>
+<a href="setup_en.html">Setup</a>
+<a href="apps-script_en.html">GAS and Sheets</a>
+<a href="workflows_en.html">Workflows</a>
+<a href="advanced_en.html">Advanced</a>
+<a href="resources_en.html">Resources</a>
+<a href="../index_en.html">Academic Home</a>
+<a href="../sitemap_en.html">Sitemap</a>
+<a href="index.html">中文</a>
+      </nav>
+    </div>
+  </header>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index_en.html">Home</a> / Advanced</p>
+    <p class="eyebrow">Advanced</p>
+    <h1>Model boundaries, external docs, and patent-informed architecture</h1>
+    <p class="lead">Once the project moves beyond a classroom demo, the real focus shifts to context management, external API integration, access control, and architecture abstraction.</p>
+  </div>
+</section>
+<main class="wrap content-grid">
+  <aside class="sidebar">
+    <h3>On this page</h3>
+    <a href="#limits">Model boundaries</a>
+    <a href="#docs">Documentation context</a>
+    <a href="#patent">Patent extension</a>
+    <a href="#governance">Governance</a>
+  </aside>
+  <article class="article">
+    <section class="panel figure-card" id="limits">
+      <h2>What to do when the model lacks the right context</h2>
+      <img src="assets/figures/model-limit-solution.png" alt="How to handle model limits" />
+      <p>The materials make a strong point: when services change, APIs evolve, or the model has not seen the feature before, the answer is not to guess harder. It is to add grounding, URL context, or the official documentation and exact storage locations.</p>
+    </section>
+    <section class="panel" id="docs">
+      <h2>Documentation as a design input</h2>
+      <p>One of the key lessons in this course is that good context matters more than long prompts. When integrating Threads, Cloudinary, or any other external service, the developer should provide the official docs, key storage locations, and expected output shape.</p>
+    </section>
+    <section class="panel figure-card" id="patent">
+      <h2>Using the patent folder as an advanced supplement</h2>
+      <div class="figure-grid">
+        <article class="figure-card panel">
+          <img src="assets/figures/patent-flow-overview.png" alt="Patent workflow overview" />
+          <p>The workflow diagram helps explain validation, routing, and response packaging.</p>
+        </article>
+        <article class="figure-card panel">
+          <img src="assets/figures/patent-cloud-map.png" alt="Patent cloud service map" />
+          <p>The cloud service view helps learners move from tool lists toward system architecture thinking.</p>
+        </article>
+      </div>
+      <p>The patent-oriented figures show a larger design frame: user interaction, LINE platform, backend orchestration, AI and data layers, outputs, and the governance layer required for real operations.</p>
+    </section>
+    <section class="panel" id="governance">
+      <h2>Governance and security reminders</h2>
+      <ul class="clean-list">
+        <li>Never hard-code secrets into public code or screenshots.</li>
+        <li>Separate testing and production storage whenever possible.</li>
+        <li>If the system handles student, administrative, or research data, discuss retention and access policies explicitly.</li>
+        <li>AI-generated outputs still require human review and exception tracking.</li>
+      </ul>
+    </section>
+  </article>
+</main>
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <article class="panel">
+        <p class="section-label">Author</p>
+        <h3>施育廷 / Yu-Ting Shih</h3>
+        <p class="muted">This site was curated by Yu-Ting Shih and consolidates teaching materials on LINE Bot, Google Apps Script, Google Sheets, and generative AI into a public-facing instructional website.</p>
+      </article>
+      <article class="panel">
+        <p class="section-label">Links</p>
+        <div class="cta-row">
+          <a class="button primary" href="../index_en.html">Academic Home</a>
+          <a class="button" href="../certificates-site/index_en.html">Credentials</a>
+          <a class="button" href="../sitemap_en.html">Sitemap</a>
+        </div>
+      </article>
+    </div>
+  </footer>
+</body>
+</html>

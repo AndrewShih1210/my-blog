@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="施育廷製作的 LINE Bot、Google Apps Script、Google Sheets 與 Gemini 工作流程教學網站，整合公開課程入口、系統架構、初始設定、核心功能與延伸應用。" />
+  <meta name="author" content="施育廷" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/index.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/index.html" />
+  <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/index_en.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LINE Bot、Google Apps Script 與 Google Sheets 教學網站" />
+  <meta property="og:description" content="由施育廷整理的雙語教學網站，聚焦 LINE Bot、Google Apps Script、Google Sheets、Webhook 與 Gemini 整合教學。" />
+  <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/index.html" />
+  <meta property="og:image" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/assets/figures/line-cloud-manager-map.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>LINE Bot、Google Apps Script 與 Google Sheets 教學網站</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://andrewshih1210.github.io/my-blog/linebot-course-site/index.html#page",
+        "url": "https://andrewshih1210.github.io/my-blog/linebot-course-site/index.html",
+        "name": "LINE Bot、Google Apps Script 與 Google Sheets 教學網站",
+        "inLanguage": "zh-Hant",
+        "about": {
+          "@type": "Course",
+          "name": "LINE Bot、Google Apps Script 與 Google Sheets 教學",
+          "provider": {
+            "@type": "Person",
+            "name": "施育廷"
+          },
+          "teaches": [
+            "LINE Messaging API",
+            "Webhook 設定",
+            "Google Apps Script",
+            "Google Sheets 記憶層設計",
+            "Gemini 整合工作流程"
+          ]
+        },
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Yu-Ting Shih Academic Site",
+          "url": "https://andrewshih1210.github.io/my-blog/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://andrewshih1210.github.io/my-blog/linebot-course-site/index.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://andrewshih1210.github.io/my-blog/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "LINE Bot 教學網站", "item": "https://andrewshih1210.github.io/my-blog/linebot-course-site/index.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="index.html">LINE Bot x GAS 教學網站</a>
+      <nav class="nav" aria-label="LINE Bot 教學導覽">
+        <a href="index.html">首頁</a>
+        <a href="teaching-plan.html">教學地圖</a>
+        <a href="setup.html">初始設定</a>
+        <a href="apps-script.html">GAS 與 Sheets</a>
+        <a href="workflows.html">工作流程</a>
+        <a href="advanced.html">進階應用</a>
+        <a href="resources.html">資源入口</a>
+        <a href="../index.html">學術首頁</a>
+        <a href="../sitemap.html">網站導覽</a>
+        <a href="index_en.html">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <article class="panel callout">
+        <p class="eyebrow">LINE Bot Course</p>
+        <h1>LINE Bot、Google Apps Script 與 Google Sheets 完整教學網站</h1>
+        <p class="lead">本網站由施育廷製作，將 LINE Bot、Webhook、Google Apps Script、Google Sheets、Google Drive 與 Gemini 工作流程整合為可教、可學、可維護的完整教材。內容不只教操作步驟，也說明資料流、後端邏輯、管理節點與延伸應用，適合大學課程、教師研習與自主學習。</p>
+        <div class="tag-row">
+          <span class="tag">LINE Messaging API</span>
+          <span class="tag">Google Apps Script</span>
+          <span class="tag">Google Sheets</span>
+          <span class="tag">Webhook</span>
+          <span class="tag">Gemini</span>
+        </div>
+        <div class="hero-actions">
+          <a class="button primary" href="teaching-plan.html">先看教學地圖</a>
+          <a class="button" href="setup.html">開始設定</a>
+          <a class="button" href="resources.html">查看資源入口</a>
+        </div>
+      </article>
+      <aside class="panel hero-visual">
+        <img src="assets/figures/line-cloud-manager-map.png" alt="LINE Bot、Google Apps Script 與雲端工作流程示意圖" />
+        <div class="summary-box" style="margin-top:18px;">
+          <h3>公開課程與延伸入口</h3>
+          <div class="cta-row">
+            <a class="button primary" href="https://sites.google.com/view/genai-mcp/index">原始課程網站</a>
+            <a class="button" href="https://www.youtube.com/playlist?list=PL1BHO-AUVmwnWQg8Y55MRjoiQ8wBUBScJ">YouTube 播放清單</a>
+            <a class="button" href="https://moocs.moe.edu.tw/moocs/#/course/detail/10002657">教育部磨課師</a>
+            <a class="button" href="https://www.youtube.com/@ytshihclassworld">施育廷 YouTube 頻道</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <main class="wrap main-stack">
+    <section class="section" id="overview">
+      <div class="section-head">
+        <div>
+          <p class="section-label">Overview</p>
+          <h2>這個教學網站教什麼</h2>
+        </div>
+        <p class="section-text">重點不是零散工具，而是把 LINE Bot、Google Apps Script、Google Sheets 與 AI 整合成一套可重複使用的教學工作流。學習者可以同時理解前台互動、後台程式、資料儲存與 AI 擴充。</p>
+      </div>
+      <div class="path-grid">
+        <article class="path-card"><span>01</span><h3>建立最小可運作系統</h3><p>完成 LINE Channel、Google Sheet、Google Drive 與 Apps Script 的基礎建置。</p></article>
+        <article class="path-card"><span>02</span><h3>讀懂後端與資料流</h3><p>理解 Webhook 事件、路由邏輯、工作表欄位、紀錄方式與權限配置。</p></article>
+        <article class="path-card"><span>03</span><h3>做出可用的教學功能</h3><p>把檔案問答、摘要整理、報告生成、資訊查詢等功能串進教學與行政情境。</p></article>
+        <article class="path-card"><span>04</span><h3>延伸到專題與代理流程</h3><p>從課堂用 Bot 延伸到研究、校務服務、知識管理與 AI Agent 工作流。</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <p class="section-label">Site Map</p>
+          <h2>依教材原始邏輯整理的教學路徑</h2>
+        </div>
+        <p class="section-text">本站的頁面順序對齊原始教材 Part 1 的主要結構，不另外發明新的順序，方便教學現場直接對照使用。</p>
+      </div>
+      <div class="unit-grid">
+        <a class="unit-card" href="teaching-plan.html"><strong>1. 教學地圖</strong><p>先掌握整體單元、適用對象、教學變形與評量方式。</p></a>
+        <a class="unit-card" href="apps-script.html"><strong>2. 系統架構</strong><p>看懂 LINE、Webhook、Apps Script、Sheets、Drive 與 Gemini 的協作關係。</p></a>
+        <a class="unit-card" href="setup.html"><strong>3. 初始設定</strong><p>依序完成 Google Sheet、Google Drive、LINE Developers 與 GAS 佈署。</p></a>
+        <a class="unit-card" href="apps-script.html#logs"><strong>4. 管理功能</strong><p>整理管理員入口、工作表用途、維護方式與紀錄欄位。</p></a>
+        <a class="unit-card" href="workflows.html"><strong>5. 核心工作流程</strong><p>涵蓋檔案問答、摘要、報告生成、搜尋與教學應用案例。</p></a>
+        <a class="unit-card" href="resources.html"><strong>附錄：資源與公開入口</strong><p>集中原始教材、官方文件、公開課程、播放清單與延伸練習。</p></a>
+      </div>
+    </section>
+
+    <section class="section two-col">
+      <article class="panel">
+        <p class="section-label">Visual Assets</p>
+        <h2>保留教材中的圖文與操作畫面</h2>
+        <p class="section-text">本站保留教材中的架構圖、工作表畫面與雲端資料夾示意，讓學習者不是只看文字，而是能把每個步驟對回實際介面。</p>
+        <div class="figure-grid">
+          <article class="figure-card panel">
+            <img src="assets/figures/apikey-sheet.png" alt="APIKEY 工作表與設定欄位畫面" />
+            <p>Google Sheet 在這套教材中不只是表格，而是金鑰管理、記憶層與流程紀錄的核心。</p>
+          </article>
+          <article class="figure-card panel">
+            <img src="assets/figures/drive-folder.png" alt="Google Drive 資料夾與輸出空間畫面" />
+            <p>Google Drive 承接使用者上傳檔案、產生的報告文件與後續教材輸出。</p>
+          </article>
+        </div>
+      </article>
+      <article class="panel">
+        <p class="section-label">Teaching Use Cases</p>
+        <h2>教學、行政與研究都能用</h2>
+        <p class="section-text">這套教材不只適合資訊課。若教學重點是 AI 工具應用、流程理解與跨平台整合，也可延伸到教師研習、研究輔助、行政自動化與數位教材設計。</p>
+        <ul class="clean-list">
+          <li>課堂示範：從訊息進入到工作表記錄，讓學生理解 Bot 的完整生命週期。</li>
+          <li>教師研習：用最少工具建出可運作的 LINE Bot，並延伸到教學資源整理。</li>
+          <li>研究應用：將檔案問答、摘要與報告生成流程整合到知識整理工作中。</li>
+          <li>行政場景：把公告回覆、資料收集與例行查詢做成可維護的互動入口。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <p class="section-label">Next Step</p>
+          <h2>建議閱讀順序</h2>
+        </div>
+        <p class="section-text">如果第一次接觸，先看教學地圖，再進入初始設定；如果已經有 Bot 原型，直接看架構與工作流程會更有效率。</p>
+      </div>
+      <div class="hero-actions">
+        <a class="button primary" href="teaching-plan.html">閱讀教學地圖</a>
+        <a class="button" href="setup.html">進入初始設定</a>
+        <a class="button" href="workflows.html">查看核心流程</a>
+        <a class="button" href="resources.html">查看資源入口</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <article class="panel">
+        <p class="section-label">Author</p>
+        <h3>施育廷 / Yu-Ting Shih</h3>
+        <p class="muted">本教學網站由施育廷整理與製作，將 LINE Bot、Google Apps Script、Google Sheets 與 Gemini 整合教材轉為可公開瀏覽的雙語教學網站。</p>
+      </article>
+      <article class="panel">
+        <p class="section-label">Links</p>
+        <div class="cta-row">
+          <a class="button primary" href="../index.html">學術首頁</a>
+          <a class="button" href="../certificates-site/index.html">證照與證明</a>
+          <a class="button" href="../sitemap.html">網站導覽</a>
+        </div>
+      </article>
+    </div>
+  </footer>
+</body>
+</html>

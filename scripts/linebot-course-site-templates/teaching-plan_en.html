@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Delivery sequence, assignments, and assessment design for the LINE Bot, GAS, and Google Sheets course." />
+  <meta name="author" content="Yu-Ting Shih" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/teaching-plan_en.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/teaching-plan.html" />
+  <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/teaching-plan_en.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LINE Bot Course Map and Assessment Design" />
+  <meta property="og:description" content="Delivery sequence, assignments, and assessment design for the LINE Bot, GAS, and Google Sheets course." />
+  <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/teaching-plan_en.html" />
+  <meta property="og:image" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/assets/figures/line-cloud-manager-map.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>LINE Bot Course Map and Assessment Design</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="index_en.html">LINE Bot x GAS Teaching Site</a>
+      <nav class="nav">
+        <a href="index_en.html">Home</a>
+<a href="teaching-plan_en.html">Course Map</a>
+<a href="setup_en.html">Setup</a>
+<a href="apps-script_en.html">GAS and Sheets</a>
+<a href="workflows_en.html">Workflows</a>
+<a href="advanced_en.html">Advanced</a>
+<a href="resources_en.html">Resources</a>
+<a href="../index_en.html">Academic Home</a>
+<a href="../sitemap_en.html">Sitemap</a>
+<a href="index.html">中文</a>
+      </nav>
+    </div>
+  </header>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index_en.html">Home</a> / Course Map</p>
+    <p class="eyebrow">Course Map</p>
+    <h1>Delivery sequence, tasks, and assessment design</h1>
+    <p class="lead">This page turns the source materials into a teachable sequence suitable for university classes, faculty workshops, and self-paced learning.</p>
+  </div>
+</section>
+<main class="wrap content-grid">
+  <aside class="sidebar">
+    <h3>On this page</h3>
+    <a href="#weeks">Source-aligned flow</a>
+    <a href="#variants">Pacing variants</a>
+    <a href="#assessment">Assessment</a>
+    <a href="#deliverables">Deliverables</a>
+  </aside>
+  <article class="article">
+    <section class="panel" id="weeks">
+      <h2>Main flow aligned to the original teaching document</h2>
+      <div class="roadmap">
+        <a href="teaching-plan_en.html">1. Overview: define the task scope and explain uploads, Q and A, reports, search, and assistant functions.</a>
+        <a href="apps-script_en.html">2. System architecture: map LINE Messaging API, Gemini, Sheets, Drive, external APIs, and Apps Script to system roles.</a>
+        <a href="setup_en.html">3. First-time setup: complete Google Sheet, Drive, Apps Script, API key, Google service, and Webhook configuration in the original sequence.</a>
+        <a href="apps-script_en.html#logs">4. Admin functions: return to the spreadsheet and manage rich menus and operational controls.</a>
+        <a href="workflows_en.html">5. Core functions: file management, Q and A, report generation, Threads posting, search, and utility tools.</a>
+        <a href="resources_en.html">Appendix: primary APIs, official docs, playlists, and MOOC entry points.</a>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>How Parts 2 and 3 continue the course</h2>
+      <p>After Part 1, the original document moves into collaborative development with generative AI and a version-by-version feature evolution log. For a development-oriented course, those sections should follow the five-part usage flow above.</p>
+    </section>
+    <section class="panel" id="variants">
+      <h2>Delivery variants by available time</h2>
+      <div class="unit-grid">
+        <article class="unit-card"><strong>3-hour workshop</strong><p>Focus on account setup, Webhook verification, minimum reply testing, and live demos.</p></article>
+        <article class="unit-card"><strong>6-hour hands-on class</strong><p>Complete Sheets, Drive, GAS, LINE integration, and one AI-enhanced workflow.</p></article>
+        <article class="unit-card"><strong>Semester course</strong><p>Add prompt design, governance, logs, and project-based extension.</p></article>
+        <article class="unit-card"><strong>Faculty development</strong><p>Emphasize teaching transfer, administrative use, and reusable instructional templates.</p></article>
+      </div>
+    </section>
+    <section class="panel rubric" id="assessment">
+      <h2>Assessment dimensions</h2>
+      <table>
+        <thead>
+          <tr><th>Dimension</th><th>Focus</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>System setup</td><td>Can the learner connect LINE, GAS, Sheets, and Drive successfully?</td></tr>
+          <tr><td>Process understanding</td><td>Can the learner explain how events are received, parsed, routed, and logged?</td></tr>
+          <tr><td>Workflow implementation</td><td>Can the learner build at least one reproducible workflow such as summarization or posting?</td></tr>
+          <tr><td>Instructional explanation</td><td>Can the learner explain the design clearly through slides, docs, or a mini-site?</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="panel" id="deliverables">
+      <h2>Suggested deliverables</h2>
+      <ul class="clean-list">
+        <li>A LINE Bot that passes Webhook verification.</li>
+        <li>A Google Sheet with API keys, logs, notes, and workflow-related tabs.</li>
+        <li>At least one complete workflow description such as upload to summary to report.</li>
+        <li>A presentation or site page explaining the system design and use case.</li>
+      </ul>
+    </section>
+  </article>
+</main>
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <article class="panel">
+        <p class="section-label">Author</p>
+        <h3>施育廷 / Yu-Ting Shih</h3>
+        <p class="muted">This site was curated by Yu-Ting Shih and consolidates teaching materials on LINE Bot, Google Apps Script, Google Sheets, and generative AI into a public-facing instructional website.</p>
+      </article>
+      <article class="panel">
+        <p class="section-label">Links</p>
+        <div class="cta-row">
+          <a class="button primary" href="../index_en.html">Academic Home</a>
+          <a class="button" href="../certificates-site/index_en.html">Credentials</a>
+          <a class="button" href="../sitemap_en.html">Sitemap</a>
+        </div>
+      </article>
+    </div>
+  </footer>
+</body>
+</html>

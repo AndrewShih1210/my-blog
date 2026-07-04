@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Step-by-step setup for Google Sheets, Drive, LINE Developers, and Apps Script deployment." />
+  <meta name="author" content="Yu-Ting Shih" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/setup_en.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/setup.html" />
+  <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/setup_en.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LINE Bot Setup: LINE, GAS, and Google Sheets" />
+  <meta property="og:description" content="Step-by-step setup for Google Sheets, Drive, LINE Developers, and Apps Script deployment." />
+  <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/setup_en.html" />
+  <meta property="og:image" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/assets/figures/line-cloud-manager-map.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>LINE Bot Setup: LINE, GAS, and Google Sheets</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="index_en.html">LINE Bot x GAS Teaching Site</a>
+      <nav class="nav">
+        <a href="index_en.html">Home</a>
+<a href="teaching-plan_en.html">Course Map</a>
+<a href="setup_en.html">Setup</a>
+<a href="apps-script_en.html">GAS and Sheets</a>
+<a href="workflows_en.html">Workflows</a>
+<a href="advanced_en.html">Advanced</a>
+<a href="resources_en.html">Resources</a>
+<a href="../index_en.html">Academic Home</a>
+<a href="../sitemap_en.html">Sitemap</a>
+<a href="index.html">中文</a>
+      </nav>
+    </div>
+  </header>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index_en.html">Home</a> / Setup</p>
+    <p class="eyebrow">Setup</p>
+    <h1>Build the LINE Bot from scratch</h1>
+    <p class="lead">This page follows the original teaching logic: prepare the data layer first, then the script layer, and finally complete LINE Webhook verification.</p>
+  </div>
+</section>
+<main class="wrap content-grid">
+  <aside class="sidebar">
+    <h3>Steps</h3>
+    <a href="#prereq">Prerequisites</a>
+    <a href="#sheet">Google Sheet</a>
+    <a href="#drive">Google Drive</a>
+    <a href="#line">LINE Developers</a>
+    <a href="#deploy">Apps Script deployment</a>
+    <a href="#verify">Webhook verification</a>
+  </aside>
+  <article class="article">
+    <section class="panel" id="prereq">
+      <h2>Prerequisites</h2>
+      <ul class="clean-list">
+        <li>A LINE account that can access LINE Developers.</li>
+        <li>A Google account with access to Sheets, Drive, and Apps Script.</li>
+        <li>At least one Gemini API key. Threads and Cloudinary keys are needed if posting workflows are enabled.</li>
+        <li>A clean naming plan for folders and worksheets so maintenance stays manageable.</li>
+      </ul>
+    </section>
+    <section class="panel figure-card" id="sheet">
+      <h2>Step 1: Build Google Sheet as the memory layer</h2>
+      <img src="assets/figures/apikey-sheet.png" alt="API key worksheet" />
+      <p>The teaching materials treat Google Sheet as a durable memory layer. At minimum, prepare tabs for <code>APIKEY</code>, logs, notes, uploaded files, and temporary workflow data.</p>
+    </section>
+    <section class="panel figure-card" id="drive">
+      <h2>Step 2: Create the Google Drive storage folder</h2>
+      <img src="assets/figures/drive-folder.png" alt="Google Drive folder" />
+      <p>Google Drive stores uploaded images, videos, and documents from LINE, as well as generated Docs, Slides, and report files. Keep the folder ID ready for configuration.</p>
+    </section>
+    <section class="panel" id="line">
+      <h2>Step 3: Create the LINE Channel</h2>
+      <p>In LINE Developers Console, create a Messaging API Channel and record the <code>Channel secret</code> and <code>Channel access token</code>. These values enable event intake and message delivery.</p>
+    </section>
+    <section class="panel figure-card" id="deploy">
+      <h2>Step 4: Deploy Apps Script as a web app</h2>
+      <img src="assets/figures/webhook-basics.png" alt="Webhook basics slide" />
+      <p>Open Apps Script from the spreadsheet, paste the core code, bind the spreadsheet ID, folder ID, key locations, and model settings, then deploy the project as a web app.</p>
+    </section>
+    <section class="panel" id="verify">
+      <h2>Step 5: Set and verify the Webhook</h2>
+      <p>Paste the deployed web app URL into the LINE Webhook URL field and run Verify. If verification succeeds, LINE can deliver events to Apps Script. Disable built-in auto replies so your bot keeps control.</p>
+      <div class="summary-box">
+        <h3>Minimum success criteria</h3>
+        <ul class="clean-list">
+          <li>Webhook verification succeeds.</li>
+          <li>An event reaches Apps Script when a message is sent.</li>
+          <li>A log or test record appears in the spreadsheet.</li>
+        </ul>
+      </div>
+    </section>
+  </article>
+</main>
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <article class="panel">
+        <p class="section-label">Author</p>
+        <h3>施育廷 / Yu-Ting Shih</h3>
+        <p class="muted">This site was curated by Yu-Ting Shih and consolidates teaching materials on LINE Bot, Google Apps Script, Google Sheets, and generative AI into a public-facing instructional website.</p>
+      </article>
+      <article class="panel">
+        <p class="section-label">Links</p>
+        <div class="cta-row">
+          <a class="button primary" href="../index_en.html">Academic Home</a>
+          <a class="button" href="../certificates-site/index_en.html">Credentials</a>
+          <a class="button" href="../sitemap_en.html">Sitemap</a>
+        </div>
+      </article>
+    </div>
+  </footer>
+</body>
+</html>

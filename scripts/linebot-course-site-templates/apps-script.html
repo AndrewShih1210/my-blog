@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="解讀 LINE Bot 後端架構：LINE Messaging API、Webhook、Google Apps Script、Google Sheets、Google Drive 與 Gemini 如何協作。" />
+  <meta name="author" content="施育廷" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/apps-script.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/apps-script.html" />
+  <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/apps-script_en.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LINE Bot 系統架構：GAS、Sheets 與 Webhook" />
+  <meta property="og:description" content="從後端架構角度理解 LINE Bot 教學系統，包含路由、工作表、紀錄與管理功能。" />
+  <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/apps-script.html" />
+  <meta property="og:image" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/assets/figures/line-cloud-manager-map.png" />
+  <title>LINE Bot 系統架構：GAS、Sheets 與 Webhook</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="index.html">LINE Bot x GAS 教學網站</a>
+      <nav class="nav" aria-label="LINE Bot 教學導覽">
+        <a href="index.html">首頁</a>
+        <a href="teaching-plan.html">教學地圖</a>
+        <a href="setup.html">初始設定</a>
+        <a href="apps-script.html">GAS 與 Sheets</a>
+        <a href="workflows.html">工作流程</a>
+        <a href="advanced.html">進階應用</a>
+        <a href="resources.html">資源入口</a>
+        <a href="../index.html">學術首頁</a>
+        <a href="../sitemap.html">網站導覽</a>
+        <a href="apps-script_en.html">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumb"><a href="index.html">首頁</a> / GAS 與 Sheets</p>
+      <p class="eyebrow">Architecture</p>
+      <h1>讀懂 LINE Bot 的後端架構</h1>
+      <p class="lead">真正能把 LINE Bot 用於教學與工作現場，關鍵在於看懂後端不是黑盒子。這一頁把事件入口、判斷邏輯、工作表、檔案空間與 AI 擴充放進同一張架構圖裡。</p>
+    </div>
+  </section>
+
+  <main class="wrap content-grid">
+    <aside class="sidebar">
+      <h3>本頁導覽</h3>
+      <a href="#components">核心元件</a>
+      <a href="#flow">資料流</a>
+      <a href="#logs">管理與紀錄</a>
+      <a href="#practice">練習建議</a>
+    </aside>
+    <article class="article">
+      <section class="panel" id="components">
+        <h2>核心元件</h2>
+        <ul class="clean-list">
+          <li>LINE Messaging API：負責接收使用者訊息與回送內容。</li>
+          <li>Webhook：把 LINE 事件送進 Apps Script。</li>
+          <li>Google Apps Script：負責路由、判斷、寫入、呼叫外部模型與整理回覆。</li>
+          <li>Google Sheets：作為記憶層、金鑰管理區與流程紀錄區。</li>
+          <li>Google Drive：存放使用者上傳檔案與系統輸出結果。</li>
+          <li>Gemini：負責摘要、分類、生成與問答等 AI 任務。</li>
+        </ul>
+      </section>
+      <section class="panel" id="flow">
+        <h2>資料流怎麼走</h2>
+        <p>一則 LINE 訊息進來後，會先經過 Webhook 送到 Apps Script。程式根據事件類型、使用者狀態與指令內容進行路由，必要時讀取工作表、呼叫 Gemini、存取 Drive，再回傳結果給 LINE。這代表設計重點不只是回覆語句，而是整個判斷與寫入流程。</p>
+      </section>
+      <section class="panel" id="logs">
+        <h2>管理與紀錄</h2>
+        <p>如果把 Bot 用在教學或行政情境，管理功能比回覆效果更重要。應至少規劃：API 金鑰管理、使用紀錄、錯誤紀錄、上傳檔案對應表，以及必要的人工介入節點。這些都可以透過 Google Sheets 與 Apps Script 維持。</p>
+      </section>
+      <section class="panel" id="practice">
+        <h2>練習建議</h2>
+        <ul class="clean-list">
+          <li>畫出一張自己的資料流圖，標出訊息入口、判斷點與輸出位置。</li>
+          <li>列出至少三張你要建立的工作表，說明每張表的用途。</li>
+          <li>思考哪一些功能一定要寫入紀錄，哪一些可以只即時回覆。</li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <article class="panel">
+        <p class="section-label">Author</p>
+        <h3>施育廷 / Yu-Ting Shih</h3>
+        <p class="muted">本頁聚焦後端架構理解，適合教師研習、資訊課與系統思維導向的 AI 教學使用。</p>
+      </article>
+      <article class="panel">
+        <p class="section-label">Next</p>
+        <div class="cta-row">
+          <a class="button primary" href="workflows.html">查看工作流程</a>
+          <a class="button" href="setup.html">返回設定</a>
+          <a class="button" href="resources.html">查看資源</a>
+        </div>
+      </article>
+    </div>
+  </footer>
+</body>
+</html>
