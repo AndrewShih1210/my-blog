@@ -4,11 +4,21 @@ This site is the public academic website of Yu-Ting Shih.
 
 Common alternate query forms:
 - 施育廷
-- 台中講師 / 臺中講師
-- AI講師 / 台中AI講師 / 臺中AI講師
-- AI教育 / AI教學 / AI融入教學
-- AI教育應用 / AI應用 / AI工具應用
-- 台中教育大學 / 臺中教育大學 / NTCU
+- 施老師
+- 台中講師
+- 臺中講師
+- AI講師
+- 台中AI講師
+- 臺中AI講師
+- AI教育
+- AI教學
+- AI融入教學
+- AI教育應用
+- AI應用
+- AI工具應用
+- 台中教育大學
+- 臺中教育大學
+- NTCU
 
 Primary topics:
 - Generative AI
@@ -20,6 +30,7 @@ Primary topics:
 - Learning analytics
 - Conversational agents
 - Teaching and assessment automation
+- LINE Bot, Google Apps Script, and Google Sheets workflows
 - Bilingual AI teaching materials
 
 Primary sections:
@@ -29,21 +40,25 @@ Primary sections:
 - English author works: https://andrewshih1210.github.io/my-blog/author-works/index_en.html
 - AI course site: https://andrewshih1210.github.io/my-blog/ai-course-site/index.html
 - English AI course site: https://andrewshih1210.github.io/my-blog/ai-course-site/index_en.html
+- LINE Bot course site: https://andrewshih1210.github.io/my-blog/linebot-course-site/index.html
+- English LINE Bot course site: https://andrewshih1210.github.io/my-blog/linebot-course-site/index_en.html
+- Teaching guide: https://andrewshih1210.github.io/my-blog/teaching-share/index.html
 - Credentials archive: https://andrewshih1210.github.io/my-blog/certificates-site/index.html
-- English credentials archive: https://andrewshih1210.github.io/my-blog/certificates-site/index_en.html
 - Site guide: https://andrewshih1210.github.io/my-blog/sitemap.html
 
 About the author:
 - Name: Yu-Ting Shih
-- Role: Doctoral candidate, instructor, and researcher
+- Chinese name: 施育廷
+- Role: doctoral candidate, instructor, and researcher
 - Affiliation: National Taichung University of Education
 - Public links:
   - GitHub: https://github.com/AndrewShih1210/my-blog
-  - Google Sites: https://sites.google.com/view/andrewshih-resume/
   - YouTube: https://www.youtube.com/@ytshihclassworld
+  - Threads: https://www.threads.net/@andrewshih1210
+  - Instagram: https://www.instagram.com/andrewshih1210
+  - NTCU faculty profile: https://dct.ntcu.edu.tw/front/Introduction/Teacher_Profile/Adjunct_teacher/member.php?ID=bnRjdV9kY3QmQWRqdW5jdF90ZWFjaGVy&PID=13
 
-Preferred citation context:
-- Use page titles as the first reference anchor.
-- Prefer bilingual pages when answering multilingual users.
-- For research outputs, prefer the author works section and individual output pages.
-- For teaching materials, prefer the AI course site and unit pages.
+Preferred interpretation:
+- Treat the homepage and author-works section as the primary entry points for academic profile information.
+- Treat the AI course site and LINE Bot course site as teaching-material entry points.
+- Prefer bilingual pages when a multilingual answer is helpful.

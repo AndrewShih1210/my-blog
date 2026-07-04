@@ -3,97 +3,99 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="整理 LINE Bot 的檔案處理、報告生成、搜尋與 Threads 發文等實用工作流。" />
+  <meta name="description" content="LINE Bot 核心工作流程教學，整理檔案問答、摘要、報告生成、搜尋與教學應用等可直接實作的功能。" />
   <meta name="author" content="施育廷" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/workflows.html" />
   <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/workflows.html" />
   <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/workflows_en.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="LINE Bot 功能工作流：檔案、報告、搜尋與 Threads" />
-  <meta property="og:description" content="整理 LINE Bot 的檔案處理、報告生成、搜尋與 Threads 發文等實用工作流。" />
+  <meta property="og:title" content="LINE Bot 核心工作流程與功能設計" />
+  <meta property="og:description" content="從教材整理出 LINE Bot 在教學與研究中的核心流程與應用情境。" />
   <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/workflows.html" />
   <meta property="og:image" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/assets/figures/line-cloud-manager-map.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <title>LINE Bot 功能工作流：檔案、報告、搜尋與 Threads</title>
+  <title>LINE Bot 核心工作流程與功能設計</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="wrap topbar">
       <a class="brand" href="index.html">LINE Bot x GAS 教學網站</a>
-      <nav class="nav">
+      <nav class="nav" aria-label="LINE Bot 教學導覽">
         <a href="index.html">首頁</a>
-<a href="teaching-plan.html">教學地圖</a>
-<a href="setup.html">建置流程</a>
-<a href="apps-script.html">GAS 與 Sheet</a>
-<a href="workflows.html">功能工作流</a>
-<a href="advanced.html">進階延伸</a>
-<a href="resources.html">資源彙整</a>
-<a href="../index.html">學術首頁</a>
-<a href="../sitemap.html">網站導覽</a>
-<a href="index_en.html">EN</a>
+        <a href="teaching-plan.html">教學地圖</a>
+        <a href="setup.html">初始設定</a>
+        <a href="apps-script.html">GAS 與 Sheets</a>
+        <a href="workflows.html">工作流程</a>
+        <a href="advanced.html">進階應用</a>
+        <a href="resources.html">資源入口</a>
+        <a href="../index.html">學術首頁</a>
+        <a href="../sitemap.html">網站導覽</a>
+        <a href="workflows_en.html">EN</a>
       </nav>
     </div>
   </header>
-<section class="page-hero">
-  <div class="wrap">
-    <p class="breadcrumb"><a href="index.html">首頁</a> / 功能工作流</p>
-    <p class="eyebrow">Workflows</p>
-    <h1>把 LINE 對話轉成可用的工作流</h1>
-    <p class="lead">教材最有價值的地方，在於它不把 Bot 只當聊天工具，而是把對話視為一個工作入口，進而帶出檔案處理、報告生成、資訊查詢與跨平台發佈。</p>
-  </div>
-</section>
-<main class="wrap content-grid">
-  <aside class="sidebar">
-    <h3>流程導覽</h3>
-    <a href="#files">檔案處理</a>
-    <a href="#reports">報告生成</a>
-    <a href="#threads">Threads 發文</a>
-    <a href="#search">搜尋與輔助功能</a>
-    <a href="#teaching">教學活動</a>
-  </aside>
-  <article class="article">
-    <section class="panel" id="files">
-      <h2>流程 1：檔案上傳、命名、摘要與問答</h2>
-      <p>使用者直接把圖片、影片、文件或表格丟進 LINE。系統接收後，把檔案存進 Drive，再由 AI 生成檔名、摘要與分類結果，並把這些資訊寫回 Google Sheet。之後學員可以再對同一份檔案提問，形成「上傳 - 建檔 - 查詢」閉環。</p>
-    </section>
-    <section class="panel" id="reports">
-      <h2>流程 2：一鍵生成文件、簡報或網頁報告</h2>
-      <p>當使用者輸入特定指令，例如為某份檔案產生分析報告，系統可進一步詢問輸出格式，接著在背景生成 Google 文件、簡報或網頁型報告。這個流程很適合用來教「任務拆解」與「非同步處理」。</p>
-    </section>
-    <section class="panel figure-card" id="threads">
-      <h2>流程 3：從 LINE 直發 Threads</h2>
-      <img src="assets/figures/threads-publish.png" alt="Threads 發文流程截圖" />
-      <p>教材中展示了從 LINE 暫存貼文文字、補充多張圖片，再推送到 Threads 的設計。這使課程不只停留在教學 Bot，也能延伸到媒體發佈與行政工作流。</p>
-    </section>
-    <section class="panel" id="search">
-      <h2>流程 4：搜尋、行事曆、Email、筆記與位置服務</h2>
-      <p>除了 AI 摘要與問答，系統還可擴充為搜尋助手與個人工作流入口，例如查 Google、查 YouTube、記錄位置、建立行事曆、寄 Email、寫筆記。這一段很適合拿來討論「什麼叫做對話式介面整合多工具」。</p>
-    </section>
-    <section class="panel" id="teaching">
-      <h2>可直接使用的教學活動</h2>
-      <ul class="clean-list">
-        <li>請學員畫出「一則 LINE 訊息」在系統內部走過哪些元件。</li>
-        <li>請學員比較「檔案上傳摘要」與「直接純文字提問」在資料流上的差異。</li>
-        <li>請學員設計一個新指令，並說明需要新增哪些工作表欄位與後端模組。</li>
-      </ul>
-    </section>
-  </article>
-</main>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="breadcrumb"><a href="index.html">首頁</a> / 工作流程</p>
+      <p class="eyebrow">Workflows</p>
+      <h1>把教學需求轉成可運作的 LINE Bot 功能</h1>
+      <p class="lead">這一頁整理最值得帶進教學現場的核心流程，不只告訴你能做什麼，也說明每個功能背後需要哪些資料與判斷邏輯。</p>
+    </div>
+  </section>
+
+  <main class="wrap content-grid">
+    <aside class="sidebar">
+      <h3>本頁導覽</h3>
+      <a href="#qa">檔案問答</a>
+      <a href="#summary">摘要整理</a>
+      <a href="#report">報告生成</a>
+      <a href="#search">資訊查詢</a>
+      <a href="#teaching">教學應用</a>
+    </aside>
+    <article class="article">
+      <section class="panel" id="qa">
+        <h2>檔案問答</h2>
+        <p>使用者把文件、圖片或其他素材送進 LINE 後，系統可以先寫入 Drive，再由 Apps Script 呼叫 AI 進行問答。這類流程適合教學中的文件理解、內容整理與快速查詢。</p>
+      </section>
+      <section class="panel" id="summary">
+        <h2>摘要整理</h2>
+        <p>若任務是把長內容轉成摘要、條列或重點清單，Apps Script 可以把資料送給 Gemini，再回寫到工作表或生成新文件。這是教師研習與研究整理常見的應用場景。</p>
+      </section>
+      <section class="panel" id="report">
+        <h2>報告生成</h2>
+        <p>教材中的一個重要方向，是把使用者輸入與 AI 結果進一步整理成可交付文件，例如 Google Docs、Google Slides 或結構化報表。這讓 Bot 從聊天工具變成工作流工具。</p>
+      </section>
+      <section class="panel" id="search">
+        <h2>資訊查詢與指令型流程</h2>
+        <p>除了生成式任務，LINE Bot 也能作為校務、課務或研究資訊查詢入口。只要把查詢條件、工作表欄位與回覆模板設計清楚，就能建立相對穩定的指令型互動。</p>
+      </section>
+      <section class="panel" id="teaching">
+        <h2>教學應用場景</h2>
+        <ul class="clean-list">
+          <li>課堂助教 Bot：回覆課程資訊、教材連結與作業提醒。</li>
+          <li>研究整理 Bot：接收文章、生成摘要與建立筆記。</li>
+          <li>行政支援 Bot：收集表單、回覆規則與整理例行資訊。</li>
+          <li>專題開發 Bot：把 LINE 作為前台入口，延伸到多步驟代理流程。</li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
   <footer class="site-footer">
     <div class="wrap footer-grid">
       <article class="panel">
         <p class="section-label">Author</p>
         <h3>施育廷 / Yu-Ting Shih</h3>
-        <p class="muted">本教材由施育廷整理製作，內容整合 LINE Bot、Google Apps Script、Google Sheets 與生成式 AI 教學素材，並以可公開瀏覽的教學網站形式呈現。</p>
+        <p class="muted">本頁聚焦可直接實作的核心流程，適合課程練習、專題發想與教學分享使用。</p>
       </article>
       <article class="panel">
-        <p class="section-label">Links</p>
+        <p class="section-label">Next</p>
         <div class="cta-row">
-          <a class="button primary" href="../index.html">學術首頁</a>
-          <a class="button" href="../certificates-site/index.html">證照與證明</a>
-          <a class="button" href="../sitemap.html">網站導覽</a>
+          <a class="button primary" href="advanced.html">查看進階應用</a>
+          <a class="button" href="apps-script.html">回到架構</a>
+          <a class="button" href="resources.html">查看資源</a>
         </div>
       </article>
     </div>
