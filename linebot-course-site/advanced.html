@@ -16,12 +16,14 @@
   <meta property="og:image" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/assets/figures/patent-system-overview.png" />
   <title>LINE Bot 進階應用與專利延伸</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="nav.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <div class="wrap topbar">
       <a class="brand" href="index.html">LINE Bot x GAS 教學網站</a>
-      <nav class="nav" aria-label="LINE Bot 教學導覽">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="course-nav"><span>選單</span><span class="menu-toggle-icon" aria-hidden="true"></span></button>
+      <nav id="course-nav" class="nav" aria-label="LINE Bot 教學導覽">
         <a href="index.html">首頁</a>
         <a href="teaching-plan.html">教學地圖</a>
         <a href="setup.html">初始設定</a>
