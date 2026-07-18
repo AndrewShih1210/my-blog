@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <meta name="robots" content="noindex,nofollow">
+  <script>
+    if (location.hostname.endsWith("github.io")) location.replace("../../index.html");
+  </script>
+  <title>動態圖室｜免費 SVG 動畫製作器</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='5' width='26' height='22' rx='4' fill='%231463df'/%3E%3Cpath d='m12 11 10 5-10 5z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=20260718-3">
+</head>
+<body>
+  <section class="mobile-gate" aria-label="裝置提示">
+    <span class="mobile-logo" aria-hidden="true">
+      <svg viewBox="0 0 32 32"><rect x="3" y="5" width="26" height="22" rx="3"/><path d="M12 11.5 21 16l-9 4.5z"/></svg>
+    </span>
+    <h1>動態圖室</h1>
+    <p>動畫時間軸需要較大的操作空間。請使用平板橫向模式，或在電腦版 Chrome／Edge 開啟。</p>
+    <small>您的專案仍會保存在原本的瀏覽器中。</small>
+  </section>
+  <div class="app" id="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="動態圖室首頁">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><rect x="3" y="5" width="26" height="22" rx="3"/><path d="M12 11.5 21 16l-9 4.5z"/><path d="M7 8h2M12 8h2M18 8h2M23 8h2"/></svg>
+        </span>
+        <span>動態圖室</span>
+      </a>
+
+      <nav class="file-actions" aria-label="專案操作">
+        <button class="button" id="newProjectBtn" type="button">
+          <svg aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>新增專案
+        </button>
+        <label class="button file-button" for="projectFile">
+          <svg aria-hidden="true"><path d="M3.5 7.5h6l2-2h9v13h-17z"/></svg>開啟
+        </label>
+        <input id="projectFile" type="file" accept=".json,application/json" hidden>
+        <button class="button" id="saveProjectBtn" type="button">
+          <svg aria-hidden="true"><path d="M5 4h12l3 3v13H5z"/><path d="M8 4v6h8V4M8 20v-6h9v6"/></svg>儲存
+        </button>
+      </nav>
+
+      <input class="project-title" id="projectTitle" value="水循環教學動畫" aria-label="專案名稱">
+      <span class="save-state" id="saveState" aria-live="polite">已自動儲存</span>
+
+      <div class="topbar-spacer"></div>
+      <button class="icon-button" id="undoBtn" type="button" aria-label="復原" title="復原">
+        <svg aria-hidden="true"><path d="m9 7-4 4 4 4"/><path d="M5 11h8a5 5 0 0 1 5 5"/></svg>
+      </button>
+      <button class="icon-button" id="helpBtn" type="button" aria-label="使用說明" title="使用說明">
+        <svg aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9a2.6 2.6 0 1 1 4.1 2.1c-1 .7-1.7 1.2-1.7 2.4M12 17.5h.01"/></svg>
+      </button>
+      <button class="button primary" id="exportBtn" type="button">
+        <svg aria-hidden="true"><path d="M12 16V4M8 8l4-4 4 4"/><path d="M5 14v6h14v-6"/></svg>輸出影片
+      </button>
+    </header>
+
+    <main class="editor">
+      <aside class="asset-zone" aria-label="素材與範本">
+        <nav class="tool-rail" aria-label="素材類別">
+          <button class="tool active" type="button" data-panel="templates">
+            <svg aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16M9 9v11"/></svg><span>範本</span>
+          </button>
+          <button class="tool" type="button" data-panel="text">
+            <svg aria-hidden="true"><path d="M5 5h14M12 5v14M8 19h8"/></svg><span>文字</span>
+          </button>
+          <button class="tool" type="button" data-panel="svg">
+            <svg aria-hidden="true"><circle cx="9" cy="9" r="4"/><path d="m13 13 4-2 3 7-7 2z"/></svg><span>SVG 圖形</span>
+          </button>
+          <button class="tool" type="button" data-panel="icons">
+            <svg aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span>圖示</span>
+          </button>
+          <button class="tool" type="button" data-panel="background">
+            <svg aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8" cy="9" r="1.5"/><path d="m4 17 5-5 4 4 3-3 4 4"/></svg><span>背景</span>
+          </button>
+          <button class="tool" type="button" data-panel="narration">
+            <svg aria-hidden="true"><rect x="8" y="3" width="8" height="12" rx="4"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8"/></svg><span>AI 旁白</span>
+          </button>
+        </nav>
+
+        <section class="asset-panel">
+          <div class="asset-view active" data-view="templates">
+            <label class="search">
+              <svg aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 4 4"/></svg>
+              <input type="search" id="templateSearch" placeholder="搜尋範本" aria-label="搜尋範本">
+            </label>
+            <h2>動畫範本</h2>
+            <div class="template-list" id="templateList">
+              <button class="template-card selected" type="button" data-template="water">
+                <span class="template-preview water-preview" aria-hidden="true">
+                  <i class="sun-dot"></i><i class="cloud-dot"></i><i class="mountain-dot"></i><i class="water-dot"></i>
+                </span>
+                <strong>水循環教學</strong><small>蒸發、降水、匯集</small>
+              </button>
+              <button class="template-card" type="button" data-template="intro">
+                <span class="template-preview intro-preview" aria-hidden="true"><i></i><b>課程主題</b></span>
+                <strong>課程片頭</strong><small>標題、講者、單元</small>
+              </button>
+              <button class="template-card" type="button" data-template="steps">
+                <span class="template-preview steps-preview" aria-hidden="true"><i>1</i><i>2</i><i>3</i></span>
+                <strong>三步驟解說</strong><small>流程與重點說明</small>
+              </button>
+              <button class="template-card" type="button" data-template="outro">
+                <span class="template-preview outro-preview" aria-hidden="true"><i></i><b>謝謝觀看</b></span>
+                <strong>影片片尾</strong><small>重點回顧與署名</small>
+              </button>
+            </div>
+          </div>
+
+          <div class="asset-view" data-view="text">
+            <h2>新增文字</h2>
+            <p class="panel-hint">加入可編輯、可套用動畫的 SVG 文字圖層。</p>
+            <button class="asset-action" type="button" data-add="heading">大標題</button>
+            <button class="asset-action" type="button" data-add="body">說明文字</button>
+            <button class="asset-action" type="button" data-add="caption">字幕標籤</button>
+          </div>
+
+          <div class="asset-view" data-view="svg">
+            <h2>SVG 圖形</h2>
+            <p class="panel-hint">所有圖形皆為免費、原生 SVG，可自由改色。</p>
+            <div class="shape-grid">
+              <button type="button" data-shape="circle" aria-label="圓形"><span class="shape circle"></span></button>
+              <button type="button" data-shape="square" aria-label="方形"><span class="shape square"></span></button>
+              <button type="button" data-shape="triangle" aria-label="三角形"><span class="shape triangle"></span></button>
+              <button type="button" data-shape="arrow" aria-label="箭頭"><span class="shape arrow"></span></button>
+            </div>
+          </div>
+
+          <div class="asset-view" data-view="icons">
+            <h2>教學圖示</h2>
+            <p class="panel-hint">內建圖示可直接使用；也可搜尋 Iconify 的 Tabler／Material Design 免費 SVG。</p>
+            <div class="icon-grid">
+              <button type="button" data-icon="idea">💡<span>概念</span></button>
+              <button type="button" data-icon="question">？<span>提問</span></button>
+              <button type="button" data-icon="check">✓<span>重點</span></button>
+              <button type="button" data-icon="book">▤<span>閱讀</span></button>
+            </div>
+            <div class="library-divider"><span>免費素材庫</span></div>
+            <form class="library-search" id="iconLibraryForm">
+              <label class="search">
+                <svg aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg>
+                <input id="iconLibraryQuery" type="search" placeholder="搜尋 mountain、water、school" maxlength="60" aria-label="搜尋免費 SVG 圖示">
+              </label>
+              <button class="button primary" type="submit">搜尋</button>
+            </form>
+            <p class="library-status" id="iconLibraryStatus">輸入英文關鍵字，素材加入後會嵌入專案。</p>
+            <div class="library-grid" id="iconLibraryResults" aria-live="polite"></div>
+            <p class="library-license">來源：Iconify 公開 API。限用 Tabler Icons（MIT）與 Material Design Icons（Apache 2.0）。</p>
+          </div>
+
+          <div class="asset-view" data-view="background">
+            <h2>背景色</h2>
+            <p class="panel-hint">選擇適合教學投影與影片的背景。</p>
+            <div class="swatches" id="backgroundSwatches">
+              <button type="button" data-color="#ffffff" style="--swatch:#ffffff" aria-label="白色"></button>
+              <button type="button" data-color="#f3f8ff" style="--swatch:#f3f8ff" aria-label="淡藍"></button>
+              <button type="button" data-color="#effbf7" style="--swatch:#effbf7" aria-label="淡綠"></button>
+              <button type="button" data-color="#fff8ec" style="--swatch:#fff8ec" aria-label="淡黃"></button>
+              <button type="button" data-color="#12213d" style="--swatch:#12213d" aria-label="深藍"></button>
+            </div>
+          </div>
+
+          <div class="asset-view" data-view="narration">
+            <h2>Edge TTS 旁白</h2>
+            <p class="panel-hint">免費產生自然語音。文字只會送至 Microsoft 語音服務，不會儲存在其他雲端專案。</p>
+            <label class="narration-field">
+              <span>旁白文字</span>
+              <textarea id="narrationText" rows="7" maxlength="3000">水循環包含蒸發、降水與匯集。太陽加熱水面形成水蒸氣，水氣凝結成雲，最後以雨水回到地表。</textarea>
+              <small><output id="narrationCount">52</output> / 3000 字</small>
+            </label>
+            <label class="narration-field">
+              <span>語音</span>
+              <select id="narrationVoice">
+                <option value="zh-TW-HsiaoChenNeural">曉臻｜臺灣女聲</option>
+                <option value="zh-TW-YunJheNeural">雲哲｜臺灣男聲</option>
+                <option value="en-US-JennyNeural">Jenny｜英文女聲</option>
+              </select>
+            </label>
+            <label class="narration-field">
+              <span>語速 <output id="narrationRateValue">0%</output></span>
+              <input id="narrationRate" type="range" min="-30" max="30" step="5" value="0">
+            </label>
+            <button class="button primary full-panel" id="generateNarrationBtn" type="button">
+              <svg aria-hidden="true"><path d="M12 3v18M8 7a4 4 0 0 1 8 0v5a4 4 0 0 1-8 0zM5 12a7 7 0 0 0 14 0"/></svg>產生旁白
+            </button>
+            <div class="narration-result" id="narrationResult" hidden>
+              <audio id="narrationAudio" controls preload="metadata"></audio>
+              <div class="narration-meta"><span id="narrationStatus">旁白已就緒</span><span id="narrationDuration">--:--</span></div>
+              <div class="narration-downloads">
+                <button class="button" id="downloadNarrationBtn" type="button">下載 MP3</button>
+                <button class="button" id="downloadSubtitleBtn" type="button">下載 SRT</button>
+              </div>
+            </div>
+            <p class="tts-runtime-status" id="ttsRuntimeStatus">正在檢查 Edge TTS…</p>
+          </div>
+        </section>
+      </aside>
+
+      <section class="stage-zone" aria-label="動畫畫布">
+        <div class="canvas-toolbar">
+          <label class="select-control">
+            <span class="sr-only">畫面比例</span>
+            <select id="aspectRatio">
+              <option value="16:9">16:9</option>
+              <option value="9:16">9:16</option>
+              <option value="1:1">1:1</option>
+              <option value="4:3">4:3</option>
+            </select>
+          </label>
+          <div class="canvas-tools">
+            <button class="icon-button active" type="button" aria-label="選取工具">
+              <svg aria-hidden="true"><path d="m6 4 11 8-5 1.4 3 5-2.5 1.5-3-5-3.5 4z"/></svg>
+            </button>
+            <button class="icon-button" type="button" id="fitBtn" aria-label="符合畫布">
+              <svg aria-hidden="true"><path d="M8 4H4v4M16 4h4v4M8 20H4v-4M16 20h4v-4"/></svg>
+            </button>
+            <div class="zoom-control"><button type="button" id="zoomOut">−</button><span id="zoomLabel">100%</span><button type="button" id="zoomIn">＋</button></div>
+          </div>
+        </div>
+
+        <div class="canvas-viewport" id="canvasViewport">
+          <div class="stage-frame" id="stageFrame">
+            <svg id="stage" viewBox="0 0 1280 720" role="img" aria-label="動畫預覽畫布"></svg>
+          </div>
+        </div>
+
+        <div class="playback-bar">
+          <button class="play-button" id="playBtn" type="button">
+            <svg aria-hidden="true"><path d="m8 5 11 7-11 7z"/></svg><span>播放</span>
+          </button>
+          <button class="play-button" id="pauseBtn" type="button">
+            <svg aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg><span>暫停</span>
+          </button>
+          <button class="play-button" id="replayBtn" type="button">
+            <svg aria-hidden="true"><path d="M5 8V4m0 0h4M5 4a9 9 0 1 1-2 9"/></svg><span>重播</span>
+          </button>
+          <output id="timecode">00:00.00</output><span class="duration-label">/ <span id="durationDisplay">00:12.00</span></span>
+          <div class="playback-spacer"></div>
+          <label class="volume-control" title="預覽音量">
+            <svg aria-hidden="true"><path d="M4 10v4h4l5 4V6l-5 4zM16 9a5 5 0 0 1 0 6"/></svg>
+            <input id="previewVolume" type="range" min="0" max="100" value="70" aria-label="預覽音量">
+          </label>
+          <button class="icon-button" id="fullscreenBtn" type="button" aria-label="全螢幕預覽">
+            <svg aria-hidden="true"><path d="M8 4H4v4M16 4h4v4M8 20H4v-4M16 20h4v-4"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <aside class="inspector" aria-label="物件設定">
+        <div class="tabs" role="tablist">
+          <button type="button" role="tab" data-tab="content">內容</button>
+          <button type="button" role="tab" data-tab="style">樣式</button>
+          <button class="active" type="button" role="tab" data-tab="animation">動畫</button>
+        </div>
+
+        <div class="inspector-body">
+          <section class="tab-panel" data-tab-panel="content">
+            <label class="field">
+              <span>圖層名稱</span>
+              <input id="layerName" type="text">
+            </label>
+            <label class="field">
+              <span>文字內容</span>
+              <textarea id="layerText" rows="4" placeholder="選取文字圖層後可編輯"></textarea>
+            </label>
+            <div class="position-grid">
+              <label class="field"><span>位置 X</span><input id="positionX" type="number"></label>
+              <label class="field"><span>位置 Y</span><input id="positionY" type="number"></label>
+            </div>
+          </section>
+
+          <section class="tab-panel" data-tab-panel="style">
+            <label class="field">
+              <span>主要色彩</span>
+              <span class="color-field"><input id="layerColor" type="color" value="#1463df"><output id="layerColorText">#1463DF</output></span>
+            </label>
+            <label class="field">
+              <span>不透明度 <output id="opacityValue">100%</output></span>
+              <input id="layerOpacity" type="range" min="10" max="100" value="100">
+            </label>
+            <label class="field">
+              <span>縮放 <output id="scaleValue">100%</output></span>
+              <input id="layerScale" type="range" min="30" max="200" value="100">
+            </label>
+          </section>
+
+          <section class="tab-panel active" data-tab-panel="animation">
+            <label class="field">
+              <span>進場效果</span>
+              <select id="animationType">
+                <option value="slide-right">淡入＋向右移動</option>
+                <option value="slide-left">淡入＋向左移動</option>
+                <option value="slide-up">淡入＋向上移動</option>
+                <option value="slide-down">淡入＋向下移動</option>
+                <option value="pop">彈性縮放</option>
+                <option value="zoom-out">縮小進場</option>
+                <option value="rotate-in">旋轉進場</option>
+                <option value="bounce">彈跳進場</option>
+                <option value="swing">擺動進場</option>
+                <option value="float">輕柔漂浮</option>
+                <option value="fade">淡入</option>
+                <option value="none">無動畫</option>
+              </select>
+            </label>
+            <label class="field range-field">
+              <span>持續時間</span>
+              <input id="layerDuration" type="range" min="0.3" max="8" step="0.1" value="2">
+              <output id="layerDurationValue">2.0 秒</output>
+            </label>
+            <label class="field range-field">
+              <span>延遲</span>
+              <input id="layerDelay" type="range" min="0" max="10" step="0.1" value="0.8">
+              <output id="layerDelayValue">0.8 秒</output>
+            </label>
+            <label class="field">
+              <span>速度曲線</span>
+              <select id="easing">
+                <option value="ease-in-out">緩入緩出</option>
+                <option value="ease-out">快速進場</option>
+                <option value="linear">等速</option>
+                <option value="spring">彈性</option>
+              </select>
+            </label>
+            <div class="easing-preview" aria-hidden="true">
+              <svg viewBox="0 0 260 90"><path class="grid" d="M10 20h240M10 45h240M10 70h240"/><path class="curve" d="M10 70c70 0 65-50 135-50s60 0 105 0"/></svg>
+            </div>
+          </section>
+
+          <button class="danger-button" id="deleteLayerBtn" type="button">
+            <svg aria-hidden="true"><path d="M5 7h14M9 7V4h6v3M7 7l1 13h8l1-13M10 11v5M14 11v5"/></svg>刪除圖層
+          </button>
+        </div>
+      </aside>
+
+      <section class="timeline" aria-label="動畫時間軸">
+        <div class="timeline-ruler">
+          <div class="ruler-spacer"></div>
+          <div class="ruler-track" id="rulerTrack"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="layer-list" id="layerList"></div>
+          <div class="track-area" id="trackArea">
+            <div class="playhead" id="playhead"><span></span></div>
+          </div>
+        </div>
+        <div class="timeline-footer">
+          <button class="button" id="addLayerBtn" type="button">
+            <svg aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>新增圖層
+          </button>
+          <button class="button danger-text" id="deleteLayerFooterBtn" type="button">
+            <svg aria-hidden="true"><path d="M5 7h14M9 7V4h6v3M7 7l1 13h8l1-13"/></svg>刪除圖層
+          </button>
+          <div class="timeline-footer-spacer"></div>
+          <label class="duration-control">影片長度 <input id="projectDuration" type="number" min="3" max="60" value="12"> 秒</label>
+          <button class="button" id="fitTimelineBtn" type="button">適合時間軸</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="exportDialog">
+    <form method="dialog" class="dialog-card">
+      <header><div><h2>輸出動畫</h2><p>所有輸出都在您的瀏覽器與電腦上完成。</p></div><button class="icon-button" value="cancel" aria-label="關閉">×</button></header>
+      <div class="export-options">
+        <button class="export-option featured" id="recordMp4Btn" type="button">
+          <span class="option-icon"><svg aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="m10 9 6 3-6 3z"/></svg></span>
+          <span><strong>直接下載 MP4</strong><small>含 Edge TTS 旁白，使用本機 ffmpeg 轉檔</small></span>
+          <span class="format-label">MP4</span>
+        </button>
+        <button class="export-option" id="recordWebmBtn" type="button">
+          <span class="option-icon"><svg aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="m10 9 6 3-6 3z"/></svg></span>
+          <span><strong>下載 WebM 影片</strong><small>瀏覽器直接產生，可包含旁白音軌</small></span>
+          <span class="format-label">WEBM</span>
+        </button>
+        <button class="export-option" id="downloadSvgBtn" type="button">
+          <span class="option-icon"><svg aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m9 10-3 2 3 2M15 10l3 2-3 2M13 8l-2 8"/></svg></span>
+          <span><strong>下載 SVG 畫面</strong><small>保留向量品質，可再編輯</small></span>
+          <span class="format-label">SVG</span>
+        </button>
+        <button class="export-option" id="downloadHtmlBtn" type="button">
+          <span class="option-icon"><svg aria-hidden="true"><path d="M5 3h10l4 4v14H5z"/><path d="M15 3v5h4M9 12l-2 2 2 2M15 12l2 2-2 2M13 10l-2 8"/></svg></span>
+          <span><strong>下載獨立 HTML</strong><small>離線播放，可放入教材或網站</small></span>
+          <span class="format-label">HTML</span>
+        </button>
+      </div>
+      <div class="mp4-note">
+        <strong>完全免費、本機轉檔</strong>
+        <span>MP4 會在您的電腦上透過 ffmpeg 產生，不會上傳影片至第三方服務。</span>
+      </div>
+      <div class="record-progress" id="recordProgress" hidden>
+        <div><span id="recordStatus">準備錄製…</span><output id="recordPercent">0%</output></div>
+        <progress max="100" value="0"></progress>
+        <button class="button danger-text" id="cancelRecordBtn" type="button">取消錄製</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="helpDialog">
+    <form method="dialog" class="dialog-card help-card">
+      <header><div><h2>快速開始</h2><p>四個步驟完成第一支動畫。</p></div><button class="icon-button" value="cancel" aria-label="關閉">×</button></header>
+      <ol>
+        <li><span>1</span><div><strong>挑選範本</strong><p>從水循環、課程片頭、步驟解說或片尾開始。</p></div></li>
+        <li><span>2</span><div><strong>選取並編輯</strong><p>點選畫布或時間軸圖層，調整文字、色彩與位置。</p></div></li>
+        <li><span>3</span><div><strong>設定動畫</strong><p>選擇進場效果、持續時間、延遲與速度曲線。</p></div></li>
+        <li><span>4</span><div><strong>輸出影片</strong><p>錄製 WebM；如需 MP4，再使用隨附轉檔腳本。</p></div></li>
+      </ol>
+      <button class="button primary full" value="cancel">開始製作</button>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <canvas id="recordCanvas" width="1280" height="720" hidden></canvas>
+  <script src="app.js?v=20260718-4"></script>
+</body>
+</html>

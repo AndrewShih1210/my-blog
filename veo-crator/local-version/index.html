@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <meta name="description" content="動態圖室本機完整版安裝說明，包含 Edge TTS、MP3、SRT 與 ffmpeg MP4 輸出。">
+  <title>動態圖室｜本機完整版</title>
+  <style>
+    :root { color-scheme: light; font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif; color: #172033; background: #f4f7fb; }
+    * { box-sizing: border-box; }
+    body { margin: 0; line-height: 1.75; }
+    a { color: #0d4fb8; }
+    .wrap { width: min(960px, calc(100% - 32px)); margin: 0 auto; }
+    header { padding: 22px 0; border-bottom: 1px solid #dfe4ec; background: #fff; }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { font-size: 20px; font-weight: 800; text-decoration: none; color: #172033; }
+    nav { display: flex; flex-wrap: wrap; gap: 10px; }
+    nav a, .button { min-height: 44px; display: inline-flex; align-items: center; padding: 9px 14px; border: 1px solid #c9d1dd; border-radius: 7px; background: #fff; font-weight: 700; text-decoration: none; }
+    .button.primary { color: #fff; border-color: #1463df; background: #1463df; }
+    main { padding: 64px 0; }
+    .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 28px; align-items: center; }
+    h1 { margin: 0 0 14px; font-size: clamp(34px, 6vw, 58px); line-height: 1.12; }
+    h2 { margin-top: 0; }
+    .lead { color: #526076; font-size: 18px; }
+    .preview { width: 100%; border: 1px solid #dfe4ec; border-radius: 10px; box-shadow: 0 16px 46px rgba(28,46,77,.12); }
+    .notice, .card { margin-top: 26px; padding: 22px; border: 1px solid #dfe4ec; border-radius: 9px; background: #fff; }
+    .notice { border-left: 4px solid #0ab9ad; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 22px; }
+    pre { overflow-x: auto; padding: 16px; border-radius: 7px; color: #eaf2ff; background: #172033; }
+    code { font-family: Consolas, monospace; }
+    footer { padding: 30px 0 48px; color: #697386; }
+    @media (max-width: 760px) { header .wrap, .hero { display: block; } nav { margin-top: 14px; } .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="../index.html">動態圖室</a>
+      <nav aria-label="版本導覽">
+        <a href="../index.html">免安裝線上版</a>
+        <a href="https://github.com/AndrewShih1210/my-blog/tree/main/veo-crator/local-version/source">原始碼</a>
+        <a href="../../index.html">學術網站首頁</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <p>LOCAL FULL VERSION</p>
+        <h1>本機完整版</h1>
+        <p class="lead">保留完整 SVG 動畫編輯功能，並加入 Edge TTS 語音、MP3、SRT，以及以 ffmpeg 產生含旁白 MP4。</p>
+        <p><a class="button primary" href="https://github.com/AndrewShih1210/my-blog">前往 GitHub Clone</a> <a class="button" href="https://github.com/AndrewShih1210/my-blog/tree/main/veo-crator/local-version/source">查看原始碼檔案</a></p>
+      </div>
+      <img class="preview" src="../preview.png" alt="動態圖室操作介面預覽">
+    </section>
+
+    <aside class="notice">
+      <strong>版本差異</strong><br>
+      GitHub Pages 線上版不會啟動 Node.js、Edge TTS 或 ffmpeg。本機完整版才支援 Edge TTS、MP3、SRT 與直接 MP4；請 clone 後在自己的電腦啟動。
+    </aside>
+
+    <section class="grid">
+      <article class="card">
+        <h2>1. 安裝相依程式</h2>
+        <p>需要 Node.js 18 以上、Python 3、edge-tts 與 ffmpeg。</p>
+        <pre><code>python -m pip install edge-tts
+ffmpeg -version</code></pre>
+      </article>
+      <article class="card">
+        <h2>2. 啟動工具</h2>
+        <p>clone 儲存庫後，在 PowerShell 切換到完整原始碼目錄。</p>
+        <pre><code>cd .\my-blog\veo-crator\local-version\source
+.\start-server.ps1</code></pre>
+        <p>接著開啟 <code>http://127.0.0.1:8765/</code>。</p>
+      </article>
+    </section>
+  </main>
+  <footer class="wrap">製作與維護：施育廷（Yu-Ting Shih）</footer>
+</body>
+</html>
