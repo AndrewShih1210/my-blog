@@ -144,6 +144,14 @@ svg { display: block; }
 .library-search { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px; }
 .library-search .button { min-height: 36px; padding-inline: 10px; font-size: 10px; }
 .library-status, .library-license { margin: 9px 0; color: var(--muted); font-size: 9px; line-height: 1.55; }
+.license-chip {
+  color: #0d4fb8;
+  font-size: 11px;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.license-chip:hover { text-decoration: underline; }
 .library-status[data-state="error"] { color: var(--danger); }
 .library-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
 .library-item { min-height: 70px; padding: 7px 5px; border: 1px solid var(--border); border-radius: 7px; background: white; display: grid; place-items: center; gap: 4px; }

@@ -1,5 +1,7 @@
 # 動態圖室
 
+> **免費非商業使用：**本機完整版與線上版均採 [PolyForm Noncommercial License 1.0.0](../../LICENSE)。本專案為 source-available 非商業授權，不是 MIT 或 OSI 開放原始碼。商業使用須事先取得施育廷書面許可；中文使用情境請見[授權說明頁](../../license.html)，第三方套件請見[第三方授權說明](../../THIRD_PARTY_NOTICES.md)。
+
 以 HTML、SVG 與 CSS animation 為核心的免費教學動畫製作器。可製作課程解說、概念圖、影片片頭片尾，並輸出 SVG、獨立 HTML、WebM 或 MP4。
 
 這個資料夾是本機完整版原始碼。若只需要免安裝的編輯與 WebM、SVG、HTML 輸出，請使用[線上版](../../index.html)。

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <meta name="description" content="動態圖室使用的 Iconify、Tabler Icons、Material Design Icons、Edge TTS、FFmpeg 與瀏覽器語音第三方授權說明。">
+  <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/veo-crator/third-party.html">
+  <title>動態圖室｜第三方授權說明</title>
+  <style>
+    :root { font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif; color: #172033; background: #f4f7fb; }
+    * { box-sizing: border-box; }
+    body { margin: 0; line-height: 1.75; }
+    a { color: #0d4fb8; }
+    .wrap { width: min(960px, calc(100% - 32px)); margin: 0 auto; }
+    header { position: sticky; top: 0; z-index: 3; padding: 16px 0; border-bottom: 1px solid #dfe4ec; background: rgba(255,255,255,.96); }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { color: #172033; font-size: 19px; font-weight: 800; text-decoration: none; }
+    nav { display: flex; flex-wrap: wrap; gap: 10px; }
+    nav a { min-height: 44px; display: inline-flex; align-items: center; padding: 8px 13px; border: 1px solid #c9d1dd; border-radius: 7px; background: #fff; font-weight: 700; text-decoration: none; }
+    main { padding: 64px 0; }
+    h1 { margin: 0 0 16px; font-size: clamp(34px, 6vw, 52px); line-height: 1.15; }
+    .lead { max-width: 780px; color: #526076; font-size: 18px; }
+    .list { display: grid; gap: 16px; margin-top: 30px; }
+    article { padding: 22px; border: 1px solid #dfe4ec; border-left: 4px solid #1463df; border-radius: 9px; background: #fff; }
+    h2 { margin: 0 0 8px; font-size: 21px; }
+    p { margin: 0; }
+    footer { padding: 28px 0 46px; color: #697386; }
+    @media (max-width: 720px) { header .wrap { display: block; } nav { margin-top: 12px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="./index.html">動態圖室</a>
+      <nav aria-label="第三方授權頁導覽">
+        <a href="./index.html">線上工具</a>
+        <a href="./license.html">非商業授權</a>
+        <a href="../index.html">學術網站首頁</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>第三方授權與服務</h1>
+    <p class="lead">veo-crator 自行開發的程式碼採 PolyForm Noncommercial License 1.0.0。下列第三方專案、服務與素材仍適用各自條款，不因 veo-crator 的授權而改變。</p>
+
+    <section class="list">
+      <article>
+        <h2>Iconify API</h2>
+        <p>線上版透過 <a href="https://iconify.design/docs/api/">Iconify 公開 API</a>搜尋圖示。個別圖示適用來源圖示集的原始授權。</p>
+      </article>
+      <article>
+        <h2>Tabler Icons</h2>
+        <p><a href="https://github.com/tabler/tabler-icons">Tabler Icons</a> 採 MIT License。使用者應保留其上游授權及著作權聲明。</p>
+      </article>
+      <article>
+        <h2>Material Design Icons</h2>
+        <p><a href="https://github.com/Templarian/MaterialDesign">Material Design Icons / Pictogrammers</a> 的圖示主要採 Apache License 2.0，部分素材可能另依原始來源授權；實際條款以上游專案與 Iconify 回傳資訊為準。</p>
+      </article>
+      <article>
+        <h2>瀏覽器 Web Speech API</h2>
+        <p>線上版的「瀏覽器語音」由使用者瀏覽器與作業系統提供。可用語音、語言、資料處理及服務條款依瀏覽器供應商而異。</p>
+      </article>
+      <article>
+        <h2>Edge TTS</h2>
+        <p>本機完整版可由使用者自行安裝 <a href="https://github.com/rany2/edge-tts">edge-tts</a>。上游專案中 `srt_composer.py` 採 MIT，其餘檔案採 LGPLv3；本儲存庫未內嵌該套件。</p>
+      </article>
+      <article>
+        <h2>FFmpeg</h2>
+        <p>本機版腳本可呼叫使用者自行安裝的 <a href="https://ffmpeg.org/legal.html">FFmpeg</a>。FFmpeg 通常採 LGPL 2.1 或後續版本；若建置時啟用 GPL 元件，該執行檔則適用 GPL。本儲存庫未附帶 FFmpeg 執行檔。</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="wrap">第三方名稱與商標均屬其權利人所有；列出名稱不表示第三方為 veo-crator 背書。</footer>
+</body>
+</html>
