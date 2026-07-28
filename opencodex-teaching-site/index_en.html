@@ -1,0 +1,527 @@
+﻿<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='description' content='A bilingual teaching site by Yu-Ting Shih explaining multi-agent AI collaboration across Codex, Antigravity IDE, Gemini CLI, Ollama, skill registries, task routing, logs, and Mermaid diagrams.'>
+    <meta name='author' content='Yu-Ting Shih'>
+    <meta name='robots' content='index,follow,max-image-preview:large'>
+    <link rel='canonical' href='https://andrewshih1210.github.io/my-blog/opencodex-teaching-site/index_en.html'>
+    <link rel='alternate' hreflang='zh-Hant' href='https://andrewshih1210.github.io/my-blog/opencodex-teaching-site/'>
+    <link rel='alternate' hreflang='en' href='https://andrewshih1210.github.io/my-blog/opencodex-teaching-site/index_en.html'>
+    <meta property='og:type' content='website'>
+    <meta property='og:title' content='Multi-Agent AI Collaboration Architecture | Yu-Ting Shih'>
+    <meta property='og:description' content='A structured guide to task routing, skill management, auditable logs, and multi-agent workflows across Codex, Gemini CLI, Ollama, and Antigravity IDE.'>
+    <meta property='og:url' content='https://andrewshih1210.github.io/my-blog/opencodex-teaching-site/index_en.html'>
+    <title>Multi-Agent AI Collaboration Architecture | Yu-Ting Shih</title>
+    <script type='application/ld+json'>
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Multi-Agent AI Collaboration Architecture",
+      "description": "A guide to task routing, skill management, structured logs, and collaboration across Codex, Antigravity IDE, Gemini CLI, and Ollama.",
+      "inLanguage": "en",
+      "dateModified": "2026-07-28",
+      "author": {
+        "@type": "Person",
+        "name": "Yu-Ting Shih",
+        "alternateName": "施育廷",
+        "url": "https://andrewshih1210.github.io/my-blog/"
+      },
+      "mainEntityOfPage": "https://andrewshih1210.github.io/my-blog/opencodex-teaching-site/index_en.html"
+    }
+    </script>
+    <script src='https://cdn.tailwindcss.com'></script>
+    <script src='https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js'></script>
+    <link href='https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap' rel='stylesheet'>
+    <style>
+        :root { --primary:#1e40af; --accent:#f59e0b; --dark:#111827; --light:#f9fafb; }
+        body { font-family:'Noto Sans TC',sans-serif; background:var(--light); }
+        .font-mono { font-family:'JetBrains Mono',monospace; }
+        .gradient-bg { background:linear-gradient(135deg,var(--primary),var(--dark)); }
+        .card { background:white;border-radius:1rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);transition:all .3s; }
+        .card:hover { box-shadow:0 20px 25px -5px rgba(0,0,0,0.1);transform:translateY(-2px); }
+        .nav-link::after { content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--accent);transition:width .3s; }
+        .nav-link:hover::after { width:100%; }
+        main { min-width:0; }
+        .mermaid { max-width:100%;overflow-x:auto;background:white;border-radius:.75rem;padding:1.5rem; }
+        .mermaid svg { max-width:100%!important;height:auto; }
+        .code-block { background:#1e1e1e;color:#d4d4d4;border-radius:.5rem;padding:1rem;overflow-x:auto;font-size:.875rem;line-height:1.6; }
+        .toc-link { transition:all .2s; }
+        .toc-link:hover { color:var(--primary-light);padding-left:.5rem; }
+        .toc-link.active { color:var(--primary);font-weight:600;border-left:3px solid var(--primary);padding-left:.75rem; }
+        .skill-badge { display:inline-block;padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:600; }
+        .badge-core { background:#dbeafe;color:#1e40af; }
+        .badge-agent { background:#d1fae5;color:#065f46; }
+        .badge-skill { background:#fef3c7;color:#92400e; }
+        .step-number { width:2.5rem;height:2.5rem;border-radius:50%;background:linear-gradient(135deg,var(--primary),#3b82f6);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.125rem;flex-shrink:0; }
+        section[id] { scroll-margin-top:6rem; }
+        .mobile-nav-open { display:flex!important;position:absolute;top:4rem;left:1rem;right:1rem;flex-direction:column;align-items:stretch!important;gap:.25rem!important;padding:1rem;background:white;border:1px solid #e5e7eb;border-radius:.75rem;box-shadow:0 18px 45px rgba(15,23,42,.15); }
+        .mobile-nav-open a { padding:.7rem .8rem;border-radius:.5rem; }
+        .mobile-nav-open a:hover { background:#f3f4f6; }
+        @media (max-width:640px) { .mermaid { padding:.75rem; } .code-block { font-size:.75rem; } }
+        @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .card,.nav-link::after { transition:none; } }
+    </style>
+</head>
+<body class='min-h-screen' data-language='en'>
+<nav class='fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200'>
+    <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+        <div class='flex items-center justify-between h-16'>
+            <div class='flex items-center gap-3'>
+                <div class='w-10 h-10 gradient-bg rounded-lg flex items-center justify-center'>
+                    <svg class='w-6 h-6 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4'></path></svg>
+                </div>
+                <span class='font-bold text-sm sm:text-xl text-gray-900'>Codex Teaching Site | Multi-Agent AI Collaboration</span>
+            </div>
+            <button id='menu-button' type='button' class='md:hidden min-h-11 px-4 rounded-lg border border-gray-300 font-semibold text-gray-700' aria-expanded='false' aria-controls='primary-nav'>Menu</button>
+            <div id='primary-nav' class='hidden md:flex items-center gap-5'>
+                <a href='#overview' class='nav-link relative text-sm font-medium text-gray-600 hover:text-gray-900'>Overview</a>
+                <a href='#routing' class='nav-link relative text-sm font-medium text-gray-600 hover:text-gray-900'>Routing</a>
+                <a href='#skills' class='nav-link relative text-sm font-medium text-gray-600 hover:text-gray-900'>Skill Management</a>
+                <a href='#examples' class='nav-link relative text-sm font-medium text-gray-600 hover:text-gray-900'>Examples</a>
+                <a href='#diagrams' class='nav-link relative text-sm font-medium text-gray-600 hover:text-gray-900'>Diagrams</a>
+                <a href='#references' class='nav-link relative text-sm font-medium text-gray-600 hover:text-gray-900'>References</a>
+                <a href='../index.html' class='text-sm font-semibold text-blue-700'>Academic Home</a>
+                <a href='./index.html' class='min-h-11 inline-flex items-center px-4 rounded-lg bg-blue-700 text-white text-sm font-semibold'>中文</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section class='pt-32 pb-20 px-4 gradient-bg'>
+    <div class='max-w-7xl mx-auto text-center'>
+        <h1 class='text-4xl md:text-6xl font-bold text-white mb-6 leading-tight'>
+            Multi-Agent AI Collaboration Architecture
+            <span class='block text-2xl md:text-3xl font-normal text-blue-200 mt-2'>An implementation guide based on external-agent-orchestrator Skill v2</span>
+        </h1>
+        <p class='text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-10 leading-relaxed'>An auditable multi-agent workflow integrating Codex, Antigravity IDE, Gemini CLI, and local Ollama models</p>
+        <div class='flex flex-wrap justify-center gap-4'>
+            <span class='skill-badge badge-core'>Core: Codex</span>
+            <span class='skill-badge badge-agent'>Agent: Antigravity</span>
+            <span class='skill-badge badge-agent'>Agent: Gemini CLI</span>
+            <span class='skill-badge badge-agent'>Agent: Ollama</span>
+            <span class='skill-badge badge-skill'>Skill: external-agent-orchestrator v2</span>
+        </div>
+    </div>
+</section>
+
+<div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
+    <div class='grid lg:grid-cols-[280px_1fr] gap-8'>
+        <aside class='lg:sticky lg:top-24 hidden lg:block'>
+            <nav class='bg-white rounded-xl border border-gray-200 p-4 space-y-2'>
+                <h3 class='font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200'>Table of Contents</h3>
+                <a href='#overview' class='toc-link block text-sm text-gray-600 py-1 px-2 rounded'>1. Architecture Overview</a>
+                <a href='#routing' class='toc-link block text-sm text-gray-600 py-1 px-2 rounded'>2. Tool Detection and Routing</a>
+                <a href='#skills' class='toc-link block text-sm text-gray-600 py-1 px-2 rounded'>3. Skill and Version Management</a>
+                <a href='#examples' class='toc-link block text-sm text-gray-600 py-1 px-2 rounded'>4. Examples and Good Practices</a>
+                <a href='#diagrams' class='toc-link block text-sm text-gray-600 py-1 px-2 rounded'>5. Visual Workflow Diagrams (Mermaid)</a>
+                <a href='#references' class='toc-link block text-sm text-gray-600 py-1 px-2 rounded'>6. Reference Files and Configuration</a>
+            </nav>
+        </aside>
+
+        <main class='space-y-12'>
+            <section id='overview' class='space-y-8'>
+                <header class='border-l-4 border-blue-500 pl-6'><h2 class='text-3xl font-bold text-gray-900'>Multi-Agent Collaboration Overview</h2><p class='text-gray-600 mt-2'>A four-layer division of work with Codex as the core coordinator</p></header>
+                <div class='grid md:grid-cols-2 gap-6'>
+                    <div class='card p-6'><div class='flex items-start gap-4'><div class='step-number'>1</div><div><h3 class='text-xl font-semibold text-gray-900 mb-2'>Codex - Primary Coordinator</h3><p class='text-gray-600'>Decomposes tasks, schedules resources, generates images, edits files, validates outputs, and prepares final delivery while retaining core project decisions.</p></div></div></div>
+                    <div class='card p-6'><div class='flex items-start gap-4'><div class='step-number'>2</div><div><h3 class='text-xl font-semibold text-gray-900 mb-2'>Antigravity IDE - Parallel Coordinator</h3><p class='text-gray-600'>Coordinates long-running work, video or subtitle analysis, parallel subtask decomposition, and visible IDE-based progress.</p></div></div></div>
+                    <div class='card p-6'><div class='flex items-start gap-4'><div class='step-number'>3</div><div><h3 class='text-xl font-semibold text-gray-900 mb-2'>Gemini CLI - Cloud Advisor</h3><p class='text-gray-600'>Provides advanced reasoning, web-search context, cross-tool synthesis, and a fallback when parallel IDE coordination is unavailable.</p></div></div></div>
+                    <div class='card p-6'><div class='flex items-start gap-4'><div class='step-number'>4</div><div><h3 class='text-xl font-semibold text-gray-900 mb-2'>Ollama - Local Draft Executor</h3><p class='text-gray-600'>Runs local GPU or NPU inference for low-risk drafts, summaries, rewrites, translations, and classifications. The example default is gemma3-tw-edu:4b.</p></div></div></div>
+                </div>
+                <div class='card p-6'><h3 class='text-xl font-semibold text-gray-900 mb-4'>Architecture Relationship Map</h3><div class='mermaid'>graph TB
+    subgraph User["User Layer"]
+        U[User Request]
+    end
+    subgraph Core["Codex Core"]
+        C1[Task Decomposition] --> C2[Resource Scheduling]
+        C2 --> C3[Validation and Delivery]
+        C1 -.-> C4[Image Generation]
+        C2 -.-> C5[File Editing]
+    end
+    subgraph Agents["External Agent Layer"]
+        A1[Antigravity IDE<br/>Parallel Coordination]
+        A2[Gemini CLI<br/>Cloud Reasoning]
+        A3[Ollama<br/>Local Drafting]
+    end
+    subgraph Skills["Skill Package Layer"]
+        S1[external-agent-orchestrator]
+        S2[skill-registry.yaml]
+        S3[dispatch-task.ps1]
+        S4[detect-tools.ps1]
+        S5[log-event.ps1]
+    end
+    U --> C1
+    C1 -->|long-running / media / parallel| A1
+    C1 -->|research / planning / review| A2
+    C1 -->|draft / summary / translation| A3
+    C1 --> S1
+    S1 --> S2
+    S1 --> S3
+    S3 --> S4
+    S3 --> S5
+    style Core fill:#dbeafe,stroke:#1e40af
+    style Agents fill:#fef3c7,stroke:#92400e
+    style Skills fill:#d1fae5,stroke:#065f46
+    style User fill:#e9d5ff,stroke:#6b21a8
+                </div></div>
+            </section>
+
+            <section id='routing' class='space-y-8'>
+                <header class='border-l-4 border-green-500 pl-6'><h2 class='text-3xl font-bold text-gray-900'>Tool Detection and Routing</h2><p class='text-gray-600 mt-2'>Automatic detection with detect-tools.ps1 and policy-based dispatch with dispatch-task.ps1</p></header>
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>Tool Detection Flow</h3><div class='mermaid'>flowchart TD
+    A[Start detect-tools.ps1] --> B{Check PATH}
+    B -->|found| C[available=true via=PATH]
+    B -->|not found| D{Check fallback paths}
+    D -->|found| E[available=true via=fallback]
+    D -->|not found| F[available=false]
+    C --> G[Output JSON]
+    E --> G
+    F --> G
+    G --> H[Return to dispatch-task.ps1]
+                </div></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>Automatic Routing Logic</h3><div class='mermaid'>flowchart TD
+    Task[Task Description] --> KW{Keyword Match}
+    KW -->|image / asset| CodexOnly[Codex only]
+    KW -->|video / subtitle| VR{Antigravity available?}
+    VR -->|yes| AG1[Antigravity + Gemini]
+    VR -->|no| GM1[Gemini fallback]
+    KW -->|parallel / long-running| AR{Antigravity available?}
+    AR -->|yes| AG2[Antigravity + Gemini]
+    AR -->|no| GM2[Gemini fallback]
+    KW -->|local / translation| OR{Ollama available?}
+    OR -->|yes| OL[Ollama]
+    OR -->|no| Def{Antigravity available?}
+    Def -->|yes| AG3[Antigravity]
+    Def -->|no| GM3{Gemini available?}
+    GM3 -->|yes| GM4[Gemini]
+    GM3 -->|no| OL2{Ollama available?}
+    OL2 -->|yes| OL3[Ollama]
+    OL2 -->|no| Err[Error: no tool available]
+    style CodexOnly fill:#dbeafe,stroke:#1e40af
+    style VR fill:#fef3c7,stroke:#92400e
+    style AR fill:#fef3c7,stroke:#92400e
+    style OR fill:#d1fae5,stroke:#065f46
+                </div></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>Dispatch Template System</h3><div class='code-block'><pre>@(
+  "research" = @{ targets=@("gemini","ollama","antigravity"); model="gemma4:e4b"
+    gemini="Lead researcher: compare options and recommend"; ollama="Local analyst: draft summaries and lists"; antigravity="Decomposition assistant: parallel subtasks" }
+  "agent-collab" = @{ targets=@("antigravity","gemini","ollama")
+    gemini="Cloud advisor: complex reasoning"; ollama="Local executor: summary and translation"; antigravity="IDE coordinator: long-running work" }
+  "translation" = @{ targets=@("ollama") }
+  "video-analysis" = @{ targets=@("antigravity","gemini") }
+  "subtitle" = @{ targets=@("antigravity","gemini") }
+)</pre></div></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>Fallback Strategy</h3>
+                    <ul class='space-y-2 text-gray-700'>
+                        <li>✓ If Antigravity is unavailable, fall back to Gemini CLI</li>
+                        <li>✓ If both video or subtitle routes are unavailable, <strong>stop rather than routing the task to Ollama</strong></li>
+                        <li>✓ If an explicitly requested tool is unavailable, log the error and stop</li>
+                        <li>✓ If only one tool is available, reserve it for the highest-value stage and let Codex integrate</li>
+                        <li>✓ For current-information or high-risk tasks, log the exception and escalate</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id='skills' class='space-y-8'>
+                <header class='border-l-4 border-purple-500 pl-6'><h2 class='text-3xl font-bold text-gray-900'>Skill Package and Version Management</h2><p class='text-gray-600 mt-2'>Central registration, dependency declarations, and SHA-256 verification through skill-registry.yaml</p></header>
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>Skill Registry Structure</h3><div class='code-block'><pre>schema_version: 1
+audited_at: "2026-07-23"
+policy: "Codex owns implementation and validation; Ollama is a reviewed low-risk draft option."
+skills:
+  - name: external-agent-orchestrator
+    short_description: "Auditable cross-tool coordination"
+    applies_to: "Cross-tool, long-running, or evidence-logged work"
+    excludes: "Ordinary simple questions"
+    dependencies: ollama-simple-answer-review
+    version: "2"
+  - name: crossref-apa-bibliography
+    dependencies: documents, spreadsheets
+    version: "1"
+  - name: journal-manuscript-writer
+    dependencies: crossref-apa-bibliography, documents, pdf
+    version: "1"
+  - name: ena-network-figure
+    dependencies: journal-manuscript-writer
+    version: "1"
+  - name: pd-survey-analysis-report
+    dependencies: spreadsheets, documents, ena-network-figure
+    version: "1"
+</pre></div></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>Dependency Map (arrows point to dependencies)</h3><div class='mermaid'>graph TD
+    subgraph Core[Core Coordination]
+        EAO[external-agent-orchestrator v2]
+        OSAR[ollama-simple-answer-review v2]
+    end
+    subgraph Research[Literature and Research]
+        CAB[crossref-apa-bibliography v1]
+        CIPD[crossref-indigenous-proposal-docx v1]
+    end
+    subgraph Writing[Writing and Publication]
+        JMW[journal-manuscript-writer v1]
+        ENA[ena-network-figure v1]
+    end
+    subgraph Analysis[Analysis and Reports]
+        PDS[pd-survey-analysis-report v1]
+    end
+    subgraph Media[Media Processing]
+        CHAV[create-html-animation-video v1]
+        EYVS[edit-youtube-vertical-shorts v1]
+        VAP[video-automation-pipeline v1]
+    end
+    subgraph Teaching[Teaching Materials]
+        TPTS[textbook-photo-to-teaching-slides v1]
+        PFTS[photo-folder-to-slides v1]
+    end
+    EAO --> OSAR
+    OSAR --> EAO
+    CIPD --> CAB
+    JMW --> CAB
+    ENA --> JMW
+    PDS --> ENA
+    CHAV --> VAP
+    EYVS --> CHAV
+    EYVS --> VAP
+    VAP --> CHAV
+    VAP --> EYVS
+    style EAO fill:#dbeafe,stroke:#1e40af
+    style JMW fill:#fef3c7,stroke:#92400e
+    style PDS fill:#d1fae5,stroke:#065f46
+    style VAP fill:#e9d5ff,stroke:#6b21a8
+                </div></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>Version Control and Validation</h3>
+                    <div class='grid md:grid-cols-3 gap-4'>
+                        <div class='bg-gray-50 rounded-lg p-4'><h4 class='font-semibold text-gray-900 mb-2'>Git Version Control</h4><ul class='text-sm text-gray-600 space-y-1'><li>• Use a dedicated Git repository or monorepo</li><li>• Apply semantic versioning</li><li>• Record breaking changes in CHANGELOG.md</li></ul></div>
+                        <div class='bg-gray-50 rounded-lg p-4'><h4 class='font-semibold text-gray-900 mb-2'>SHA-256 Verification</h4><ul class='text-sm text-gray-600 space-y-1'><li>• Calculate hashes with quick_validate.py</li><li>• Compare with the registry value</li><li>• Block damaged or mismatched packages</li></ul></div>
+                        <div class='bg-gray-50 rounded-lg p-4'><h4 class='font-semibold text-gray-900 mb-2'>Dependency Resolution</h4><ul class='text-sm text-gray-600 space-y-1'><li>1. Topologically sort the dependency graph</li><li>2. Load dependency-free foundational skills first</li><li>3. Report circular dependencies</li></ul></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id='examples' class='space-y-8'>
+                <header class='border-l-4 border-amber-500 pl-6'><h2 class='text-3xl font-bold text-gray-900'>Implementation Examples and Good Practices</h2><p class='text-gray-600 mt-2'>Practical dispatch, structured logging, and bilingual report production with dispatch-task.ps1</p></header>
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>Example 1: Research Dispatch</h3><div class='code-block'><pre>powershell -ExecutionPolicy Bypass -File ".\scripts\dispatch-task.ps1" 
+  -Task "Compare three RAG architectures and recommend an option" 
+  -Template research -Target auto 
+  -ContextFiles @("docs/rag-options.md") 
+  -OutputRoot "C:\Projects\outputs\rag-research"</pre></div>
+                    <p class='text-gray-600 mt-3'>Output: <code>.external-agent-orchestrator/logs/runs/20260728-XXXXX/</code> contains request.txt, gemini.md, ollama.md, antigravity-launch.md, and manifest.json</p></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>Example 2: Multi-Agent Collaboration</h3><div class='code-block'><pre>powershell -ExecutionPolicy Bypass -File ".\scripts\dispatch-task.ps1" 
+  -Task "Design an architecture document for a teaching website" 
+  -Template agent-collab -Target all 
+  -ContextFiles @(
+    "skills/external-agent-orchestrator/SKILL.md",
+    "skills/external-agent-orchestrator/scripts/dispatch-task.ps1",
+    "skills/skill-registry.yaml"
+  ) 
+  -OutputRoot "C:\Projects\opencodex\teaching-site"</pre></div></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>Log Format (JSONL)</h3><div class='code-block'><pre>{
+  "timestamp": "2026-07-28T07:05:38.329+08:00",
+  "actor": "ollama",
+  "event": "run-complete",
+  "status": "ok",
+  "summary": "Ollama dispatch completed with model gemma3-tw-edu:4b.",
+  "task": "Teaching website architecture design",
+  "outputs": ["<project-root>\outputs\<run-id>\ollama.md"],
+  "cwd": "<project-root>"
+}</pre></div></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>Good-Practice Checklist</h3>
+                    <div class='grid md:grid-cols-2 gap-4'>
+                        <div class='space-y-2'><h4 class='font-semibold text-gray-900'>Before Dispatch</h4>
+                            <ul class='text-sm text-gray-600 space-y-1'>
+                                <li>☐ Run detect-tools.ps1 to confirm tool availability</li>
+                                <li>☐ Select a template based on task type</li>
+                                <li>☐ Prepare ContextFiles using explicit paths</li>
+                                <li>☐ Set OutputRoot to a project-specific directory</li>
+                            </ul></div>
+                        <div class='space-y-2'><h4 class='font-semibold text-gray-900'>During and After Execution</h4>
+                            <ul class='text-sm text-gray-600 space-y-1'>
+                                <li>☐ Call log-event.ps1 at each critical step</li>
+                                <li>☐ Retain manifest.json for audit tracing</li>
+                                <li>☐ Produce bilingual HTML or DOCX process reports</li>
+                                <li>☐ Visually inspect diagrams before delivery</li>
+                            </ul></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id='diagrams' class='space-y-8'>
+                <header class='border-l-4 border-red-500 pl-6'><h2 class='text-3xl font-bold text-gray-900'>Visual Workflow Diagrams (Mermaid)</h2><p class='text-gray-600 mt-2'>The complete dispatch lifecycle, tool-selection decision tree, and skill dependency topology</p></header>
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>Dispatch Lifecycle</h3><div class='mermaid'>sequenceDiagram
+    participant U as User
+    participant C as Codex
+    participant D as detect-tools
+    participant P as dispatch-task
+    participant L as log-event
+    participant T as Target Tool
+    participant M as manifest
+    U->>C: Submit task
+    C->>D: Detect tools
+    D-->>C: JSON tool map
+    C->>P: Invoke dispatch
+    P->>L: tool-selection
+    P->>P: Resolve template
+    P->>P: Create run directory
+    P->>P: Write request.txt
+    loop Each target
+        P->>L: run-start
+        P->>T: Run tool
+        T-->>P: Result
+        P->>L: run-complete/failure
+        P->>P: Store output
+    end
+    P->>M: Generate manifest
+    P->>L: artifact-created
+    M-->>C: Run manifest
+    C->>U: Deliver artifacts
+                </div></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>Tool-Selection Decision Tree</h3><div class='mermaid'>flowchart TD
+    S([Start]) --> TM{Template selected?}
+    TM -->|yes| UT[Use template targets]
+    TM -->|no| AT[Analyze keywords]
+    AT --> IK{Image keywords?}
+    IK -->|yes| CO[Codex only]
+    IK -->|no| VK{Video keywords?}
+    VK -->|yes| CA1{Antigravity?}
+    CA1 -->|yes| TA1[Antigravity + Gemini]
+    CA1 -->|no| CG1[Gemini]
+    VK -->|no| PK{Parallel keywords?}
+    PK -->|yes| CA2{Antigravity?}
+    CA2 -->|yes| TA2[Antigravity + Gemini]
+    CA2 -->|no| CG2[Gemini]
+    CG2 -->|no| CO1{Ollama?}
+    CO1 -->|yes| TO1[Ollama]
+    CO1 -->|no| ER2[Error]
+    PK -->|no| LK{Local keywords?}
+    LK -->|yes| CO2{Ollama?}
+    CO2 -->|yes| TO2[Ollama]
+    CO2 -->|no| CA3{Antigravity?}
+    CA3 -->|yes| TA3[Antigravity]
+    CA3 -->|no| CG3{Gemini?}
+    CG3 -->|yes| TG3[Gemini]
+    CG3 -->|no| ER3[Error]
+    LK -->|no| DR{Default route}
+    DR --> CA4{Antigravity?}
+    CA4 -->|yes| TA4[Antigravity]
+    CA4 -->|no| CG4{Gemini?}
+    CG4 -->|yes| TG4[Gemini]
+    CG4 -->|no| CO3{Ollama?}
+    CO3 -->|yes| TO3[Ollama]
+    CO3 -->|no| ER4[Error]
+    style CO fill:#dbeafe,stroke:#1e40af
+    style TA1 fill:#fef3c7,stroke:#92400e
+    style TA2 fill:#fef3c7,stroke:#92400e
+    style TO1 fill:#d1fae5,stroke:#065f46
+    style TO2 fill:#d1fae5,stroke:#065f46
+    style ER2 fill:#fee2e2,stroke:#dc2626
+    style ER3 fill:#fee2e2,stroke:#dc2626
+    style ER4 fill:#fee2e2,stroke:#dc2626
+                </div></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>Skill Dependency Topology</h3><div class='mermaid'>graph LR
+    subgraph L0[Layer 0: Core and foundational skills]
+        EAO[EAO]
+        OSAR[OSAR]
+        BKN[BKN]
+        HZT[HZT]
+        ERG[ERG]
+        HP[HP]
+    end
+    subgraph L1[Layer 1: Applied skills]
+        CAB[CAB]
+        CHAV[CHAV]
+        EYVS[EYVS]
+        TPTS[TPTS]
+        PFTS[PFTS]
+        PDS[PDS]
+        VAP[VAP]
+    end
+    subgraph L2[Layer 2: Research and writing]
+        CIPD[CIPD]
+        JMW[JMW]
+    end
+    subgraph L3[Layer 3: Analytical extensions]
+        ENA[ENA]
+    end
+    EAO --> OSAR
+    OSAR --> EAO
+    CIPD --> CAB
+    JMW --> CAB
+    ENA --> JMW
+    PDS --> ENA
+    CHAV --> VAP
+    EYVS --> CHAV
+    EYVS --> VAP
+    VAP --> CHAV
+    VAP --> EYVS
+    classDef l0 fill:#dbeafe,stroke:#1e40af
+    classDef l1 fill:#fef3c7,stroke:#92400e
+    classDef l2 fill:#e9d5ff,stroke:#6b21a8
+    classDef l3 fill:#d1fae5,stroke:#065f46
+    class EAO,OSAR,BKN,HZT,ERG,HP l0
+    class CAB,CHAV,EYVS,TPTS,PFTS,PDS,VAP l1
+    class CIPD,JMW l2
+    class ENA l3
+                </div></div>
+                <div class='card p-6 border-l-4 border-amber-500'><h3 class='text-lg font-semibold text-gray-900 mb-2'>Reading note: resolve cycles before loading</h3><p class='text-gray-600'>The current registry declares bidirectional dependencies between external-agent-orchestrator and ollama-simple-answer-review, as well as among several media skills. The diagrams retain these links as audit signals. If the loader requires a strict directed acyclic graph, revise the registry before topological sorting.</p></div>
+            </section>
+
+            <section id='references' class='space-y-8'>
+                <header class='border-l-4 border-gray-500 pl-6'><h2 class='text-3xl font-bold text-gray-900'>Reference Files and Configuration</h2><p class='text-gray-600 mt-2'>A practical reference for project files and key configuration fields</p></header>
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>Core File List</h3>
+                    <div class='overflow-x-auto'><table class='w-full text-sm'><thead><tr class='bg-gray-50 border-b'><th class='px-4 py-3 text-left font-semibold'>File Path</th><th class='px-4 py-3 text-left font-semibold'>Purpose</th><th class='px-4 py-3 text-left font-semibold'>Key Content</th></tr></thead><tbody class='divide-y'>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>skills/external-agent-orchestrator/SKILL.md</td><td class='px-4 py-3'>Primary skill file</td><td class='px-4 py-3'>Routing policy, logging rules, report production, and dispatch templates</td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>skills/external-agent-orchestrator/scripts/detect-tools.ps1</td><td class='px-4 py-3'>Tool detection</td><td class='px-4 py-3'>PATH and fallback resolution with JSON output</td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>skills/external-agent-orchestrator/scripts/dispatch-task.ps1</td><td class='px-4 py-3'>Task dispatch</td><td class='px-4 py-3'>Templates, automatic routing, manifest generation, and dry runs</td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>skills/external-agent-orchestrator/scripts/log-event.ps1</td><td class='px-4 py-3'>Structured logging</td><td class='px-4 py-3'>JSONL records, retry-safe writes, and actor/event/status fields</td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>skills/external-agent-orchestrator/scripts/read-log.ps1</td><td class='px-4 py-3'>Log reader</td><td class='px-4 py-3'>Tail, JSON, table output, and filters</td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>skills/skill-registry.yaml</td><td class='px-4 py-3'>Skill registry</td><td class='px-4 py-3'>Version, dependencies, inclusion and exclusion scope, and policy</td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>.external-agent-orchestrator/logs/agent-events.jsonl</td><td class='px-4 py-3'>Event log</td><td class='px-4 py-3'>Append-only records of dispatch events</td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>.external-agent-orchestrator/logs/runs/</td><td class='px-4 py-3'>Run artifacts</td><td class='px-4 py-3'>A separate directory and manifest.json for each dispatch</td></tr>
+                    </tbody></table></div>
+                </div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>Environment Path Configuration</h3><div class='code-block'><pre>SKILL_ROOT = "&lt;user-home&gt;\.codex\skills\external-agent-orchestrator"
+PROJECT_STATE = "&lt;project-root&gt;\.external-agent-orchestrator"
+EVENT_LOG = "&lt;project-root&gt;\.external-agent-orchestrator\logs\agent-events.jsonl"
+RUNS_ROOT = "&lt;project-root&gt;\.external-agent-orchestrator\logs\runs"
+
+gemini: &lt;user-profile&gt;\AppData\Roaming\npm\gemini.ps1
+ollama: &lt;user-profile&gt;\AppData\Local\Programs\Ollama\ollama.exe
+antigravity: &lt;install-root&gt;\Antigravity IDE\bin\antigravity-ide.cmd</pre></div></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>Ollama Model List</h3>
+                    <div class='overflow-x-auto'><table class='w-full text-sm'><thead><tr class='bg-gray-50 border-b'><th class='px-4 py-3 text-left font-semibold'>Model</th><th class='px-4 py-3 text-left font-semibold'>Size</th><th class='px-4 py-3 text-left font-semibold'>Purpose</th><th class='px-4 py-3 text-left font-semibold'>Notes</th></tr></thead><tbody class='divide-y'>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>gemma3-tw-edu:4b</td><td class='px-4 py-3'>3.3 GB</td><td class='px-4 py-3'>Teaching and Traditional Chinese</td><td class='px-4 py-3 text-green-600 font-medium'>Example default ✓</td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>gemma4:e4b</td><td class='px-4 py-3'>9.6 GB</td><td class='px-4 py-3'>High-quality general use</td><td class='px-4 py-3 text-yellow-600'>dispatch-task fallback</td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>gemma3n:e4b</td><td class='px-4 py-3'>7.5 GB</td><td class='px-4 py-3'>Architecture experiments</td><td class='px-4 py-3'></td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>qwen3:4b</td><td class='px-4 py-3'>2.5 GB</td><td class='px-4 py-3'>Chinese and multilingual</td><td class='px-4 py-3'>Lightweight alternative</td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>minicpm-v:latest</td><td class='px-4 py-3'>5.5 GB</td><td class='px-4 py-3'>Vision model</td><td class='px-4 py-3'>Multimodal tasks</td></tr>
+                    </tbody></table></div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+
+<footer class='bg-gray-900 text-gray-300 py-12 px-4 mt-16'>
+    <div class='max-w-7xl mx-auto grid md:grid-cols-3 gap-8'>
+        <div><h4 class='text-white font-semibold mb-4'>Codex Teaching Site | Multi-Agent AI Collaboration</h4><p class='text-sm leading-relaxed'>Created by Yu-Ting Shih. This teaching resource explains an auditable multi-agent workflow built around external-agent-orchestrator Skill, Codex, Antigravity IDE, Gemini CLI, and Ollama.</p></div>
+        <div><h4 class='text-white font-semibold mb-4'>Quick Links</h4><ul class='space-y-2 text-sm'><li><a href='#overview' class='hover:text-yellow-400'>Overview</a></li><li><a href='#routing' class='hover:text-yellow-400'>Routing</a></li><li><a href='#skills' class='hover:text-yellow-400'>Skill Management</a></li><li><a href='#examples' class='hover:text-yellow-400'>Examples</a></li><li><a href='#diagrams' class='hover:text-yellow-400'>Diagrams</a></li><li><a href='#references' class='hover:text-yellow-400'>Reference Files</a></li></ul></div>
+        <div><h4 class='text-white font-semibold mb-4'>Core Technologies</h4><div class='flex flex-wrap gap-2'><span class='px-3 py-1 bg-gray-800 rounded-full text-xs'>PowerShell</span><span class='px-3 py-1 bg-gray-800 rounded-full text-xs'>Mermaid</span><span class='px-3 py-1 bg-gray-800 rounded-full text-xs'>JSONL</span><span class='px-3 py-1 bg-gray-800 rounded-full text-xs'>SHA-256</span><span class='px-3 py-1 bg-gray-800 rounded-full text-xs'>Git</span><span class='px-3 py-1 bg-gray-800 rounded-full text-xs'>Ollama</span><span class='px-3 py-1 bg-gray-800 rounded-full text-xs'>Gemini CLI</span><span class='px-3 py-1 bg-gray-800 rounded-full text-xs'>Antigravity IDE</span></div></div>
+    </div>
+    <div class='border-t border-gray-800 mt-8 pt-8 text-center text-sm'><p>Created by Yu-Ting Shih | external-agent-orchestrator v2 | 2026-07-28</p><p class='mt-2'><a class='hover:text-yellow-400' href='../copyright.html'>Website content: all rights reserved</a></p></div>
+</footer>
+
+<script src='./app.js'></script>
+</body>
+</html>
+

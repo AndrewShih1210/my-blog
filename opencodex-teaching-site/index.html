@@ -1,0 +1,526 @@
+﻿<!DOCTYPE html>
+<html lang='zh-Hant-TW'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='description' content='施育廷製作的多代理人 AI 協作架構教學網站，說明 Codex、Antigravity IDE、Gemini CLI、Ollama、技能註冊、任務路由、日誌與 Mermaid 流程圖。'>
+    <meta name='author' content='施育廷（Yu-Ting Shih）'>
+    <meta name='robots' content='index,follow,max-image-preview:large'>
+    <link rel='canonical' href='https://andrewshih1210.github.io/my-blog/opencodex-teaching-site/'>
+    <link rel='alternate' hreflang='zh-Hant' href='https://andrewshih1210.github.io/my-blog/opencodex-teaching-site/'>
+    <link rel='alternate' hreflang='en' href='https://andrewshih1210.github.io/my-blog/opencodex-teaching-site/index_en.html'>
+    <meta property='og:type' content='website'>
+    <meta property='og:title' content='多代理人 AI 協作架構教學｜施育廷'>
+    <meta property='og:description' content='從任務路由、技能管理、結構化日誌到多代理人流程圖，系統整理 Codex、Gemini CLI、Ollama 與 Antigravity IDE 的協作方式。'>
+    <meta property='og:url' content='https://andrewshih1210.github.io/my-blog/opencodex-teaching-site/'>
+    <title>多代理人 AI 協作架構教學｜施育廷</title>
+    <script type='application/ld+json'>
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "多代理人 AI 協作架構教學",
+      "description": "說明 Codex、Antigravity IDE、Gemini CLI 與 Ollama 的任務路由、技能管理、結構化日誌與協作流程。",
+      "inLanguage": "zh-Hant",
+      "dateModified": "2026-07-28",
+      "author": {
+        "@type": "Person",
+        "name": "施育廷",
+        "alternateName": "Yu-Ting Shih",
+        "url": "https://andrewshih1210.github.io/my-blog/"
+      },
+      "mainEntityOfPage": "https://andrewshih1210.github.io/my-blog/opencodex-teaching-site/"
+    }
+    </script>
+    <script src='https://cdn.tailwindcss.com'></script>
+    <script src='https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js'></script>
+    <link href='https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap' rel='stylesheet'>
+    <style>
+        :root { --primary:#1e40af; --accent:#f59e0b; --dark:#111827; --light:#f9fafb; }
+        body { font-family:'Noto Sans TC',sans-serif; background:var(--light); }
+        .font-mono { font-family:'JetBrains Mono',monospace; }
+        .gradient-bg { background:linear-gradient(135deg,var(--primary),var(--dark)); }
+        .card { background:white;border-radius:1rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);transition:all .3s; }
+        .card:hover { box-shadow:0 20px 25px -5px rgba(0,0,0,0.1);transform:translateY(-2px); }
+        .nav-link::after { content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--accent);transition:width .3s; }
+        .nav-link:hover::after { width:100%; }
+        main { min-width:0; }
+        .mermaid { max-width:100%;overflow-x:auto;background:white;border-radius:.75rem;padding:1.5rem; }
+        .mermaid svg { max-width:100%!important;height:auto; }
+        .code-block { background:#1e1e1e;color:#d4d4d4;border-radius:.5rem;padding:1rem;overflow-x:auto;font-size:.875rem;line-height:1.6; }
+        .toc-link { transition:all .2s; }
+        .toc-link:hover { color:var(--primary-light);padding-left:.5rem; }
+        .toc-link.active { color:var(--primary);font-weight:600;border-left:3px solid var(--primary);padding-left:.75rem; }
+        .skill-badge { display:inline-block;padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:600; }
+        .badge-core { background:#dbeafe;color:#1e40af; }
+        .badge-agent { background:#d1fae5;color:#065f46; }
+        .badge-skill { background:#fef3c7;color:#92400e; }
+        .step-number { width:2.5rem;height:2.5rem;border-radius:50%;background:linear-gradient(135deg,var(--primary),#3b82f6);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.125rem;flex-shrink:0; }
+        section[id] { scroll-margin-top:6rem; }
+        .mobile-nav-open { display:flex!important;position:absolute;top:4rem;left:1rem;right:1rem;flex-direction:column;align-items:stretch!important;gap:.25rem!important;padding:1rem;background:white;border:1px solid #e5e7eb;border-radius:.75rem;box-shadow:0 18px 45px rgba(15,23,42,.15); }
+        .mobile-nav-open a { padding:.7rem .8rem;border-radius:.5rem; }
+        .mobile-nav-open a:hover { background:#f3f4f6; }
+        @media (max-width:640px) { .mermaid { padding:.75rem; } .code-block { font-size:.75rem; } }
+        @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .card,.nav-link::after { transition:none; } }
+    </style>
+</head>
+<body class='min-h-screen' data-language='zh-Hant'>
+<nav class='fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200'>
+    <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+        <div class='flex items-center justify-between h-16'>
+            <div class='flex items-center gap-3'>
+                <div class='w-10 h-10 gradient-bg rounded-lg flex items-center justify-center'>
+                    <svg class='w-6 h-6 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4'></path></svg>
+                </div>
+                <span class='font-bold text-sm sm:text-xl text-gray-900'>Codex 教學網站｜多代理人 AI 協作架構</span>
+            </div>
+            <button id='menu-button' type='button' class='md:hidden min-h-11 px-4 rounded-lg border border-gray-300 font-semibold text-gray-700' aria-expanded='false' aria-controls='primary-nav'>選單</button>
+            <div id='primary-nav' class='hidden md:flex items-center gap-5'>
+                <a href='#overview' class='nav-link relative text-sm font-medium text-gray-600 hover:text-gray-900'>架構概覽</a>
+                <a href='#routing' class='nav-link relative text-sm font-medium text-gray-600 hover:text-gray-900'>路由策略</a>
+                <a href='#skills' class='nav-link relative text-sm font-medium text-gray-600 hover:text-gray-900'>技能包管理</a>
+                <a href='#examples' class='nav-link relative text-sm font-medium text-gray-600 hover:text-gray-900'>實作範例</a>
+                <a href='#diagrams' class='nav-link relative text-sm font-medium text-gray-600 hover:text-gray-900'>流程圖</a>
+                <a href='#references' class='nav-link relative text-sm font-medium text-gray-600 hover:text-gray-900'>參考資料</a>
+                <a href='../index.html' class='text-sm font-semibold text-blue-700'>學術首頁</a>
+                <a href='./index_en.html' class='min-h-11 inline-flex items-center px-4 rounded-lg bg-blue-700 text-white text-sm font-semibold'>English</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section class='pt-32 pb-20 px-4 gradient-bg'>
+    <div class='max-w-7xl mx-auto text-center'>
+        <h1 class='text-4xl md:text-6xl font-bold text-white mb-6 leading-tight'>
+            多代理人 AI 協作架構教學
+            <span class='block text-2xl md:text-3xl font-normal text-blue-200 mt-2'>基於 external-agent-orchestrator Skill v2 實作</span>
+        </h1>
+        <p class='text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-10 leading-relaxed'>整合 Codex、Antigravity IDE、Gemini CLI 與 Ollama 本地模型的可稽核多代理人協作框架</p>
+        <div class='flex flex-wrap justify-center gap-4'>
+            <span class='skill-badge badge-core'>Core: Codex</span>
+            <span class='skill-badge badge-agent'>Agent: Antigravity</span>
+            <span class='skill-badge badge-agent'>Agent: Gemini CLI</span>
+            <span class='skill-badge badge-agent'>Agent: Ollama</span>
+            <span class='skill-badge badge-skill'>Skill: external-agent-orchestrator v2</span>
+        </div>
+    </div>
+</section>
+
+<div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
+    <div class='grid lg:grid-cols-[280px_1fr] gap-8'>
+        <aside class='lg:sticky lg:top-24 hidden lg:block'>
+            <nav class='bg-white rounded-xl border border-gray-200 p-4 space-y-2'>
+                <h3 class='font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200'>目錄導覽</h3>
+                <a href='#overview' class='toc-link block text-sm text-gray-600 py-1 px-2 rounded'>1. 多代理人協作架構概覽</a>
+                <a href='#routing' class='toc-link block text-sm text-gray-600 py-1 px-2 rounded'>2. 工具偵測與路由策略</a>
+                <a href='#skills' class='toc-link block text-sm text-gray-600 py-1 px-2 rounded'>3. 技能包管理與版本控管</a>
+                <a href='#examples' class='toc-link block text-sm text-gray-600 py-1 px-2 rounded'>4. 實作範例與最佳實踐</a>
+                <a href='#diagrams' class='toc-link block text-sm text-gray-600 py-1 px-2 rounded'>5. 視覺化流程圖 (Mermaid)</a>
+                <a href='#references' class='toc-link block text-sm text-gray-600 py-1 px-2 rounded'>6. 參考檔案與配置說明</a>
+            </nav>
+        </aside>
+
+        <main class='space-y-12'>
+            <section id='overview' class='space-y-8'>
+                <header class='border-l-4 border-blue-500 pl-6'><h2 class='text-3xl font-bold text-gray-900'>多代理人協作架構概覽</h2><p class='text-gray-600 mt-2'>四層級代理人分工，Codex 為核心協調者</p></header>
+                <div class='grid md:grid-cols-2 gap-6'>
+                    <div class='card p-6'><div class='flex items-start gap-4'><div class='step-number'>1</div><div><h3 class='text-xl font-semibold text-gray-900 mb-2'>Codex - 主協調者</h3><p class='text-gray-600'>負責任務拆解、資源排程、影像生成、檔案編輯、驗收與最終交付。保留核心決策權與專案所有權。</p></div></div></div>
+                    <div class='card p-6'><div class='flex items-start gap-4'><div class='step-number'>2</div><div><h3 class='text-xl font-semibold text-gray-900 mb-2'>Antigravity IDE - 並行協調者</h3><p class='text-gray-600'>處理長時間運行、影片/字幕分析、多代理人並行分解、IDE 可視化進度。GUI 介面支援即時協作。</p></div></div></div>
+                    <div class='card p-6'><div class='flex items-start gap-4'><div class='step-number'>3</div><div><h3 class='text-xl font-semibold text-gray-900 mb-2'>Gemini CLI - 雲端顧問</h3><p class='text-gray-600'>提供進階推理、網路檢索脈絡、跨工具綜合分析、Antigravity 後備方案。適合研究、規劃、程式碼審查。</p></div></div></div>
+                    <div class='card p-6'><div class='flex items-start gap-4'><div class='step-number'>4</div><div><h3 class='text-xl font-semibold text-gray-900 mb-2'>Ollama - 本地草稿執行者</h3><p class='text-gray-600'>GPU/NPU 加速本地推論，生成初步草稿、摘要、重寫、翻譯、分類等低風險文字工作。預設模型 gemma3-tw-edu:4b。</p></div></div></div>
+                </div>
+                <div class='card p-6'><h3 class='text-xl font-semibold text-gray-900 mb-4'>架構關係圖</h3><div class='mermaid'>graph TB
+    subgraph User["使用者層"]
+        U[使用者需求]
+    end
+    subgraph Core["Codex 核心層"]
+        C1[任務拆解] --> C2[資源排程]
+        C2 --> C3[驗收交付]
+        C1 -.-> C4[影像生成]
+        C2 -.-> C5[檔案編輯]
+    end
+    subgraph Agents["外部代理人層"]
+        A1[Antigravity IDE<br/>並行協調]
+        A2[Gemini CLI<br/>雲端推理]
+        A3[Ollama<br/>本地草稿]
+    end
+    subgraph Skills["技能包層"]
+        S1[external-agent-orchestrator]
+        S2[skill-registry.yaml]
+        S3[dispatch-task.ps1]
+        S4[detect-tools.ps1]
+        S5[log-event.ps1]
+    end
+    U --> C1
+    C1 -->|長期/媒體/並行| A1
+    C1 -->|研究/規劃/審查| A2
+    C1 -->|草稿/摘要/翻譯| A3
+    C1 --> S1
+    S1 --> S2
+    S1 --> S3
+    S3 --> S4
+    S3 --> S5
+    style Core fill:#dbeafe,stroke:#1e40af
+    style Agents fill:#fef3c7,stroke:#92400e
+    style Skills fill:#d1fae5,stroke:#065f46
+    style User fill:#e9d5ff,stroke:#6b21a8
+                </div></div>
+            </section>
+
+            <section id='routing' class='space-y-8'>
+                <header class='border-l-4 border-green-500 pl-6'><h2 class='text-3xl font-bold text-gray-900'>工具偵測與路由策略</h2><p class='text-gray-600 mt-2'>detect-tools.ps1 自動探測 + dispatch-task.ps1 智能分派</p></header>
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>工具偵測流程</h3><div class='mermaid'>flowchart TD
+    A[啟動 detect-tools.ps1] --> B{檢查 PATH}
+    B -->|找到| C[available=true via=PATH]
+    B -->|未找到| D{檢查預設路徑}
+    D -->|找到| E[available=true via=fallback]
+    D -->|未找到| F[available=false]
+    C --> G[輸出 JSON]
+    E --> G
+    F --> G
+    G --> H[回傳 dispatch-task.ps1]
+                </div></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>自動路由決策邏輯</h3><div class='mermaid'>flowchart TD
+    Task[任務描述] --> KW{關鍵字匹配}
+    KW -->|圖片/資源| CodexOnly[Codex 獨佔]
+    KW -->|影片/字幕| VR{Antigravity 可用?}
+    VR -->|是| AG1[Antigravity + Gemini]
+    VR -->|否| GM1[Gemini 後備]
+    KW -->|平行/長時間| AR{Antigravity 可用?}
+    AR -->|是| AG2[Antigravity + Gemini]
+    AR -->|否| GM2[Gemini 後備]
+    KW -->|本地/翻譯| OR{Ollama 可用?}
+    OR -->|是| OL[Ollama]
+    OR -->|否| Def{Antigravity 可用?}
+    Def -->|是| AG3[Antigravity]
+    Def -->|否| GM3{Gemini 可用?}
+    GM3 -->|是| GM4[Gemini]
+    GM3 -->|否| OL2{Ollama 可用?}
+    OL2 -->|是| OL3[Ollama]
+    OL2 -->|否| Err[錯誤: 無可用工具]
+    style CodexOnly fill:#dbeafe,stroke:#1e40af
+    style VR fill:#fef3c7,stroke:#92400e
+    style AR fill:#fef3c7,stroke:#92400e
+    style OR fill:#d1fae5,stroke:#065f46
+                </div></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>派發模板系統</h3><div class='code-block'><pre>@(
+  "research" = @{ targets=@("gemini","ollama","antigravity"); model="gemma4:e4b"
+    gemini="首席研究員：比較方案、建議"; ollama="本地分析師：摘要、清單"; antigravity="分解助手：平行子任務" }
+  "agent-collab" = @{ targets=@("antigravity","gemini","ollama")
+    gemini="雲端顧問：複雜推理"; ollama="本地執行者：摘要/翻譯"; antigravity="IDE協調者：長期工作" }
+  "translation" = @{ targets=@("ollama") }
+  "video-analysis" = @{ targets=@("antigravity","gemini") }
+  "subtitle" = @{ targets=@("antigravity","gemini") }
+)</pre></div></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>後備策略</h3>
+                    <ul class='space-y-2 text-gray-700'>
+                        <li>✓ Antigravity 不可用 → 回退 Gemini CLI</li>
+                        <li>✓ 影片/字幕雙方不可用 → <strong>停止，不路由給 Ollama</strong></li>
+                        <li>✓ 明確指定工具不可用 → 記錄錯誤並中止</li>
+                        <li>✓ 僅一工具可用 → 最高價值階段使用，整合留給 Codex</li>
+                        <li>✓ 需即時資訊/高風險 → 記錄例外並升級</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id='skills' class='space-y-8'>
+                <header class='border-l-4 border-purple-500 pl-6'><h2 class='text-3xl font-bold text-gray-900'>技能包管理與版本控管</h2><p class='text-gray-600 mt-2'>skill-registry.yaml 統一註冊、依賴關係宣告、SHA-256 驗證</p></header>
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>技能註冊結構</h3><div class='code-block'><pre>schema_version: 1
+audited_at: "2026-07-23"
+policy: "Codex owns implementation and validation; Ollama is a reviewed low-risk draft option."
+skills:
+  - name: external-agent-orchestrator
+    short_description: "Auditable cross-tool coordination"
+    applies_to: "Cross-tool, long-running, or evidence-logged work"
+    excludes: "Ordinary simple questions"
+    dependencies: ollama-simple-answer-review
+    version: "2"
+  - name: crossref-apa-bibliography
+    dependencies: documents, spreadsheets
+    version: "1"
+  - name: journal-manuscript-writer
+    dependencies: crossref-apa-bibliography, documents, pdf
+    version: "1"
+  - name: ena-network-figure
+    dependencies: journal-manuscript-writer
+    version: "1"
+  - name: pd-survey-analysis-report
+    dependencies: spreadsheets, documents, ena-network-figure
+    version: "1"
+</pre></div></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>依賴關係圖（箭頭指向依賴項）</h3><div class='mermaid'>graph TD
+    subgraph Core[核心協調]
+        EAO[external-agent-orchestrator v2]
+        OSAR[ollama-simple-answer-review v2]
+    end
+    subgraph Research[研究文獻]
+        CAB[crossref-apa-bibliography v1]
+        CIPD[crossref-indigenous-proposal-docx v1]
+    end
+    subgraph Writing[寫作出版]
+        JMW[journal-manuscript-writer v1]
+        ENA[ena-network-figure v1]
+    end
+    subgraph Analysis[分析報告]
+        PDS[pd-survey-analysis-report v1]
+    end
+    subgraph Media[媒體處理]
+        CHAV[create-html-animation-video v1]
+        EYVS[edit-youtube-vertical-shorts v1]
+        VAP[video-automation-pipeline v1]
+    end
+    subgraph Teaching[教學教材]
+        TPTS[textbook-photo-to-teaching-slides v1]
+        PFTS[photo-folder-to-slides v1]
+    end
+    EAO --> OSAR
+    OSAR --> EAO
+    CIPD --> CAB
+    JMW --> CAB
+    ENA --> JMW
+    PDS --> ENA
+    CHAV --> VAP
+    EYVS --> CHAV
+    EYVS --> VAP
+    VAP --> CHAV
+    VAP --> EYVS
+    style EAO fill:#dbeafe,stroke:#1e40af
+    style JMW fill:#fef3c7,stroke:#92400e
+    style PDS fill:#d1fae5,stroke:#065f46
+    style VAP fill:#e9d5ff,stroke:#6b21a8
+                </div></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>版本控管與驗證</h3>
+                    <div class='grid md:grid-cols-3 gap-4'>
+                        <div class='bg-gray-50 rounded-lg p-4'><h4 class='font-semibold text-gray-900 mb-2'>Git 版本控管</h4><ul class='text-sm text-gray-600 space-y-1'><li>• 獨立 Git repo 或 monorepo</li><li>• Semantic versioning</li><li>• CHANGELOG.md 記錄破壞性變更</li></ul></div>
+                        <div class='bg-gray-50 rounded-lg p-4'><h4 class='font-semibold text-gray-900 mb-2'>SHA-256 驗證</h4><ul class='text-sm text-gray-600 space-y-1'><li>• quick_validate.py 計算雜湊</li><li>• 對照 registry 記錄值</li><li>• 損壞時自動封鎖</li></ul></div>
+                        <div class='bg-gray-50 rounded-lg p-4'><h4 class='font-semibold text-gray-900 mb-2'>依賴解析</h4><ul class='text-sm text-gray-600 space-y-1'><li>1. 拓樸排序依賴圖</li><li>2. 先載入無依賴基礎技能</li><li>3. 循環依賴檢測報錯</li></ul></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id='examples' class='space-y-8'>
+                <header class='border-l-4 border-amber-500 pl-6'><h2 class='text-3xl font-bold text-gray-900'>實作範例與最佳實踐</h2><p class='text-gray-600 mt-2'>dispatch-task.ps1 實戰派發、日誌記錄、雙語報告產出</p></header>
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>範例 1：研究型派發</h3><div class='code-block'><pre>powershell -ExecutionPolicy Bypass -File ".\scripts\dispatch-task.ps1" 
+  -Task "比較三種 RAG 架構優劣並推薦" 
+  -Template research -Target auto 
+  -ContextFiles @("docs/rag-options.md") 
+  -OutputRoot "C:\Projects\outputs\rag-research"</pre></div>
+                    <p class='text-gray-600 mt-3'>輸出：<code>.external-agent-orchestrator/logs/runs/20260728-XXXXX/</code> 含 request.txt、gemini.md、ollama.md、antigravity-launch.md、manifest.json</p></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>範例 2：多代理人協作</h3><div class='code-block'><pre>powershell -ExecutionPolicy Bypass -File ".\scripts\dispatch-task.ps1" 
+  -Task "設計教學網站架構文件" 
+  -Template agent-collab -Target all 
+  -ContextFiles @(
+    "skills/external-agent-orchestrator/SKILL.md",
+    "skills/external-agent-orchestrator/scripts/dispatch-task.ps1",
+    "skills/skill-registry.yaml"
+  ) 
+  -OutputRoot "C:\Projects\opencodex\teaching-site"</pre></div></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>日誌格式 (JSONL)</h3><div class='code-block'><pre>{
+  "timestamp": "2026-07-28T07:05:38.329+08:00",
+  "actor": "ollama",
+  "event": "run-complete",
+  "status": "ok",
+  "summary": "Ollama dispatch completed with model gemma3-tw-edu:4b.",
+  "task": "教學網站架構文件設計",
+  "outputs": ["&lt;project-root&gt;\outputs\&lt;run-id&gt;\ollama.md"],
+  "cwd": "&lt;project-root&gt;"
+}</pre></div></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>最佳實踐檢查清單</h3>
+                    <div class='grid md:grid-cols-2 gap-4'>
+                        <div class='space-y-2'><h4 class='font-semibold text-gray-900'>任務分派前</h4>
+                            <ul class='text-sm text-gray-600 space-y-1'>
+                                <li>☐ 執行 detect-tools.ps1 確認工具可用性</li>
+                                <li>☐ 根據任務類型選擇適當模板</li>
+                                <li>☐ 準備 ContextFiles（絕對路徑）</li>
+                                <li>☐ 設定 OutputRoot 至專案專屬目錄</li>
+                            </ul></div>
+                        <div class='space-y-2'><h4 class='font-semibold text-gray-900'>執行中與事後</h4>
+                            <ul class='text-sm text-gray-600 space-y-1'>
+                                <li>☐ 每關鍵步驟呼叫 log-event.ps1</li>
+                                <li>☐ 保留 manifest.json 供審計追蹤</li>
+                                <li>☐ 產出雙語 HTML/DOCX 過程報告</li>
+                                <li>☐ 視覺化圖表經人工目視 QA 後交付</li>
+                            </ul></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id='diagrams' class='space-y-8'>
+                <header class='border-l-4 border-red-500 pl-6'><h2 class='text-3xl font-bold text-gray-900'>視覺化流程圖 (Mermaid)</h2><p class='text-gray-600 mt-2'>完整派發生命週期、工具選擇決策樹、技能依賴拓撲</p></header>
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>派發生命週期</h3><div class='mermaid'>sequenceDiagram
+    participant U as 使用者
+    participant C as Codex
+    participant D as detect-tools
+    participant P as dispatch-task
+    participant L as log-event
+    participant T as 目標工具
+    participant M as manifest
+    U->>C: 提交任務
+    C->>D: 偵測工具
+    D-->>C: JSON 對應表
+    C->>P: 呼叫派發
+    P->>L: tool-selection
+    P->>P: 解析模板
+    P->>P: 建立 run 目錄
+    P->>P: 寫入 request.txt
+    loop 每個目標
+        P->>L: run-start
+        P->>T: 執行工具
+        T-->>P: 結果
+        P->>L: run-complete/failure
+        P->>P: 儲存輸出
+    end
+    P->>M: 產生 manifest
+    P->>L: artifact-created
+    M-->>C: 執行清單
+    C->>U: 交付成果
+                </div></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>工具選擇決策樹</h3><div class='mermaid'>flowchart TD
+    S([開始]) --> TM{有模板?}
+    TM -->|是| UT[使用模板目標]
+    TM -->|否| AT[分析關鍵字]
+    AT --> IK{圖片關鍵字?}
+    IK -->|是| CO[Codex 獨佔]
+    IK -->|否| VK{影片關鍵字?}
+    VK -->|是| CA1{Antigravity?}
+    CA1 -->|是| TA1[Antigravity + Gemini]
+    CA1 -->|否| CG1[Gemini]
+    VK -->|否| PK{平行關鍵字?}
+    PK -->|是| CA2{Antigravity?}
+    CA2 -->|是| TA2[Antigravity + Gemini]
+    CA2 -->|否| CG2[Gemini]
+    CG2 -->|否| CO1{Ollama?}
+    CO1 -->|是| TO1[Ollama]
+    CO1 -->|否| ER2[錯誤]
+    PK -->|否| LK{本地關鍵字?}
+    LK -->|是| CO2{Ollama?}
+    CO2 -->|是| TO2[Ollama]
+    CO2 -->|否| CA3{Antigravity?}
+    CA3 -->|是| TA3[Antigravity]
+    CA3 -->|否| CG3{Gemini?}
+    CG3 -->|是| TG3[Gemini]
+    CG3 -->|否| ER3[錯誤]
+    LK -->|否| DR{預設路由}
+    DR --> CA4{Antigravity?}
+    CA4 -->|是| TA4[Antigravity]
+    CA4 -->|否| CG4{Gemini?}
+    CG4 -->|是| TG4[Gemini]
+    CG4 -->|否| CO3{Ollama?}
+    CO3 -->|是| TO3[Ollama]
+    CO3 -->|否| ER4[錯誤]
+    style CO fill:#dbeafe,stroke:#1e40af
+    style TA1 fill:#fef3c7,stroke:#92400e
+    style TA2 fill:#fef3c7,stroke:#92400e
+    style TO1 fill:#d1fae5,stroke:#065f46
+    style TO2 fill:#d1fae5,stroke:#065f46
+    style ER2 fill:#fee2e2,stroke:#dc2626
+    style ER3 fill:#fee2e2,stroke:#dc2626
+    style ER4 fill:#fee2e2,stroke:#dc2626
+                </div></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>技能依賴拓撲</h3><div class='mermaid'>graph LR
+    subgraph L0[Layer 0: 核心與基礎技能]
+        EAO[EAO]
+        OSAR[OSAR]
+        BKN[BKN]
+        HZT[HZT]
+        ERG[ERG]
+        HP[HP]
+    end
+    subgraph L1[Layer 1: 應用技能]
+        CAB[CAB]
+        CHAV[CHAV]
+        EYVS[EYVS]
+        TPTS[TPTS]
+        PFTS[PFTS]
+        PDS[PDS]
+        VAP[VAP]
+    end
+    subgraph L2[Layer 2: 研究與寫作]
+        CIPD[CIPD]
+        JMW[JMW]
+    end
+    subgraph L3[Layer 3: 分析延伸]
+        ENA[ENA]
+    end
+    EAO --> OSAR
+    OSAR --> EAO
+    CIPD --> CAB
+    JMW --> CAB
+    ENA --> JMW
+    PDS --> ENA
+    CHAV --> VAP
+    EYVS --> CHAV
+    EYVS --> VAP
+    VAP --> CHAV
+    VAP --> EYVS
+    classDef l0 fill:#dbeafe,stroke:#1e40af
+    classDef l1 fill:#fef3c7,stroke:#92400e
+    classDef l2 fill:#e9d5ff,stroke:#6b21a8
+    classDef l3 fill:#d1fae5,stroke:#065f46
+    class EAO,OSAR,BKN,HZT,ERG,HP l0
+    class CAB,CHAV,EYVS,TPTS,PFTS,PDS,VAP l1
+    class CIPD,JMW l2
+    class ENA l3
+                </div></div>
+                <div class='card p-6 border-l-4 border-amber-500'><h3 class='text-lg font-semibold text-gray-900 mb-2'>讀圖提醒：先處理循環依賴</h3><p class='text-gray-600'>目前註冊表中的 external-agent-orchestrator 與 ollama-simple-answer-review，以及部分媒體技能，存在雙向依賴。圖中保留這些關係作為稽核訊號；若載入器要求嚴格的有向無環圖，應先調整註冊表，再執行拓樸排序。</p></div>
+            </section>
+
+            <section id='references' class='space-y-8'>
+                <header class='border-l-4 border-gray-500 pl-6'><h2 class='text-3xl font-bold text-gray-900'>參考檔案與配置說明</h2><p class='text-gray-600 mt-2'>專案實際檔案路徑與關鍵配置摘要</p></header>
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>核心檔案清單</h3>
+                    <div class='overflow-x-auto'><table class='w-full text-sm'><thead><tr class='bg-gray-50 border-b'><th class='px-4 py-3 text-left font-semibold'>檔案路徑</th><th class='px-4 py-3 text-left font-semibold'>用途</th><th class='px-4 py-3 text-left font-semibold'>關鍵內容</th></tr></thead><tbody class='divide-y'>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>skills/external-agent-orchestrator/SKILL.md</td><td class='px-4 py-3'>技能主文件</td><td class='px-4 py-3'>路由政策、日誌規範、報告生產、派發模板</td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>skills/external-agent-orchestrator/scripts/detect-tools.ps1</td><td class='px-4 py-3'>工具偵測</td><td class='px-4 py-3'>PATH + fallback 路徑解析，輸出 JSON</td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>skills/external-agent-orchestrator/scripts/dispatch-task.ps1</td><td class='px-4 py-3'>任務派發</td><td class='px-4 py-3'>模板系統、自動路由、Manifest 產生、DryRun</td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>skills/external-agent-orchestrator/scripts/log-event.ps1</td><td class='px-4 py-3'>結構化日誌</td><td class='px-4 py-3'>JSONL 格式、重試寫入、actor/event/status</td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>skills/external-agent-orchestrator/scripts/read-log.ps1</td><td class='px-4 py-3'>日誌查閱</td><td class='px-4 py-3'>Tail/JSON/表格輸出、過濾器</td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>skills/skill-registry.yaml</td><td class='px-4 py-3'>技能註冊表</td><td class='px-4 py-3'>版本、依賴、適用/排除範圍、政策聲明</td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>.external-agent-orchestrator/logs/agent-events.jsonl</td><td class='px-4 py-3'>執行日誌</td><td class='px-4 py-3'>所有派發事件的不可變記錄</td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>.external-agent-orchestrator/logs/runs/</td><td class='px-4 py-3'>執行成果</td><td class='px-4 py-3'>每次派發的獨立目錄含 manifest.json</td></tr>
+                    </tbody></table></div>
+                </div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>環境路徑配置</h3><div class='code-block'><pre>SKILL_ROOT = "&lt;user-home&gt;\.codex\skills\external-agent-orchestrator"
+PROJECT_STATE = "&lt;project-root&gt;\.external-agent-orchestrator"
+EVENT_LOG = "&lt;project-root&gt;\.external-agent-orchestrator\logs\agent-events.jsonl"
+RUNS_ROOT = "&lt;project-root&gt;\.external-agent-orchestrator\logs\runs"
+
+gemini: &lt;user-profile&gt;\AppData\Roaming\npm\gemini.ps1
+ollama: &lt;user-profile&gt;\AppData\Local\Programs\Ollama\ollama.exe
+antigravity: &lt;install-root&gt;\Antigravity IDE\bin\antigravity-ide.cmd</pre></div></div>
+
+                <div class='card p-6'><h3 class='text-lg font-semibold text-gray-900 mb-4'>Ollama 模型清單</h3>
+                    <div class='overflow-x-auto'><table class='w-full text-sm'><thead><tr class='bg-gray-50 border-b'><th class='px-4 py-3 text-left font-semibold'>模型</th><th class='px-4 py-3 text-left font-semibold'>大小</th><th class='px-4 py-3 text-left font-semibold'>用途</th><th class='px-4 py-3 text-left font-semibold'>備註</th></tr></thead><tbody class='divide-y'>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>gemma3-tw-edu:4b</td><td class='px-4 py-3'>3.3 GB</td><td class='px-4 py-3'>教學/繁中優化</td><td class='px-4 py-3 text-green-600 font-medium'>預設首選 ✓</td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>gemma4:e4b</td><td class='px-4 py-3'>9.6 GB</td><td class='px-4 py-3'>高品質通用</td><td class='px-4 py-3 text-yellow-600'>dispatch-task fallback</td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>gemma3n:e4b</td><td class='px-4 py-3'>7.5 GB</td><td class='px-4 py-3'>新架構實驗</td><td class='px-4 py-3'></td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>qwen3:4b</td><td class='px-4 py-3'>2.5 GB</td><td class='px-4 py-3'>中文/多語言</td><td class='px-4 py-3'>輕量備選</td></tr>
+                        <tr class='hover:bg-gray-50'><td class='px-4 py-3 font-mono'>minicpm-v:latest</td><td class='px-4 py-3'>5.5 GB</td><td class='px-4 py-3'>視覺模型</td><td class='px-4 py-3'>圖文混合任務</td></tr>
+                    </tbody></table></div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+
+<footer class='bg-gray-900 text-gray-300 py-12 px-4 mt-16'>
+    <div class='max-w-7xl mx-auto grid md:grid-cols-3 gap-8'>
+        <div><h4 class='text-white font-semibold mb-4'>Codex 教學網站｜多代理人 AI 協作架構</h4><p class='text-sm leading-relaxed'>由施育廷製作，基於 external-agent-orchestrator Skill 整理多代理人 AI 協作流程，涵蓋 Codex、Antigravity IDE、Gemini CLI 與 Ollama。</p></div>
+        <div><h4 class='text-white font-semibold mb-4'>快速連結</h4><ul class='space-y-2 text-sm'><li><a href='#overview' class='hover:text-yellow-400'>架構概覽</a></li><li><a href='#routing' class='hover:text-yellow-400'>路由策略</a></li><li><a href='#skills' class='hover:text-yellow-400'>技能包管理</a></li><li><a href='#examples' class='hover:text-yellow-400'>實作範例</a></li><li><a href='#diagrams' class='hover:text-yellow-400'>流程圖</a></li><li><a href='#references' class='hover:text-yellow-400'>參考檔案</a></li></ul></div>
+        <div><h4 class='text-white font-semibold mb-4'>關鍵技術</h4><div class='flex flex-wrap gap-2'><span class='px-3 py-1 bg-gray-800 rounded-full text-xs'>PowerShell</span><span class='px-3 py-1 bg-gray-800 rounded-full text-xs'>Mermaid</span><span class='px-3 py-1 bg-gray-800 rounded-full text-xs'>JSONL</span><span class='px-3 py-1 bg-gray-800 rounded-full text-xs'>SHA-256</span><span class='px-3 py-1 bg-gray-800 rounded-full text-xs'>Git</span><span class='px-3 py-1 bg-gray-800 rounded-full text-xs'>Ollama</span><span class='px-3 py-1 bg-gray-800 rounded-full text-xs'>Gemini CLI</span><span class='px-3 py-1 bg-gray-800 rounded-full text-xs'>Antigravity IDE</span></div></div>
+    </div>
+    <div class='border-t border-gray-800 mt-8 pt-8 text-center text-sm'><p>製作：施育廷（Yu-Ting Shih）｜external-agent-orchestrator v2｜2026-07-28</p><p class='mt-2'><a class='hover:text-yellow-400' href='../copyright.html'>網站內容保留所有權利</a></p></div>
+</footer>
+
+<script src='./app.js'></script>
+</body>
+</html>
