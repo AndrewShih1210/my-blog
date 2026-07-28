@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenCodex 完整教學｜模型路由、Provider 與 Web Dashboard</title>
+  <meta name="description" content="施育廷整理的 OpenCodex 繁體中文教學，依官方文件、GitHub 與本機實際截圖說明 Windows 安裝、Provider、模型路由、Codex 帳號池、日誌與安全驗收。">
+  <meta name="author" content="施育廷">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/opencodex/index.html">
+  <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/opencodex/index.html">
+  <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/opencodex/index_en.html">
+  <link rel="alternate" hreflang="x-default" href="https://andrewshih1210.github.io/my-blog/opencodex/index.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:site_name" content="Yu-Ting Shih Academic Site">
+  <meta property="og:title" content="OpenCodex 完整教學">
+  <meta property="og:description" content="從安裝、Provider、模型路由到日誌驗收，以實際 Web Dashboard 截圖學習 OpenCodex。">
+  <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/opencodex/index.html">
+  <meta property="og:image" content="https://andrewshih1210.github.io/my-blog/opencodex/assets/screenshots/dashboard.png">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://andrewshih1210.github.io/my-blog/opencodex/index.html#article",
+        "headline": "OpenCodex 完整教學：模型路由、Provider 與 Web Dashboard",
+        "description": "以官方文件、GitHub 與本機實際截圖說明 OpenCodex 的 Windows 安裝、Provider、模型路由、帳號池與驗收流程。",
+        "inLanguage": "zh-Hant",
+        "dateModified": "2026-07-28",
+        "author": {"@type": "Person", "name": "施育廷", "alternateName": "Yu-Ting Shih"},
+        "publisher": {"@type": "Person", "name": "施育廷"},
+        "mainEntityOfPage": "https://andrewshih1210.github.io/my-blog/opencodex/index.html",
+        "image": "https://andrewshih1210.github.io/my-blog/opencodex/assets/screenshots/dashboard.png"
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://andrewshih1210.github.io/my-blog/opencodex/index.html#setup-howto",
+        "name": "如何在 Windows 安裝並驗證 OpenCodex",
+        "inLanguage": "zh-Hant",
+        "step": [
+          {"@type": "HowToStep", "name": "安裝", "text": "使用 npm 全域安裝 @bitkyc08/opencodex。"},
+          {"@type": "HowToStep", "name": "初始化", "text": "執行 ocx init，將 OpenCodex Provider 寫入 Codex 設定。"},
+          {"@type": "HowToStep", "name": "啟動", "text": "執行 ocx start 啟動代理，再以 ocx gui 開啟 Dashboard。"},
+          {"@type": "HowToStep", "name": "驗證", "text": "查詢 localhost:10100/v1/models，送出小型任務並在 Logs 核對實際 Provider、模型與狀態碼。"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://andrewshih1210.github.io/my-blog/opencodex/index.html#faq-schema",
+        "mainEntity": [
+          {"@type": "Question", "name": "OpenCodex 是 OpenAI 官方工具嗎？", "acceptedAnswer": {"@type": "Answer", "text": "不是。OpenCodex 是獨立社群專案，並未獲 OpenAI、Anthropic 或其他模型供應商背書。"}},
+          {"@type": "Question", "name": "OpenCodex 的預設連接埠是多少？", "acceptedAnswer": {"@type": "Answer", "text": "目前官方文件與 GitHub README 使用 localhost:10100。版本可能變動，安裝前仍應查閱上游文件。"}},
+          {"@type": "Question", "name": "Dashboard 顯示 Online 就代表任務成功嗎？", "acceptedAnswer": {"@type": "Answer", "text": "不代表。Online 只顯示代理可連線，仍應檢查 Logs、輸出檔案與人工驗收結果。"}}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="#top"><span class="brand-mark">OCX</span><span>OpenCodex 教學</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">選單</button>
+      <nav class="nav" id="site-nav" aria-label="頁面導覽">
+        <a href="#concept">定位</a>
+        <a href="#setup">安裝</a>
+        <a href="#dashboard">介面</a>
+        <a href="#routing">路由</a>
+        <a href="#practice">教學流程</a>
+        <a href="#sources">來源</a>
+        <a href="../sitemap.html">網站導覽</a>
+        <a href="./index_en.html" lang="en">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Verified Bilingual Learning Guide</p>
+          <h1>一套介面，切換不同 AI 模型。</h1>
+          <p class="lead">OpenCodex 是在本機執行的模型代理層，可讓 Codex、Claude Code 等前端透過同一個連接埠使用不同 Provider。本教材以官方規格為主、實際 Dashboard 截圖為證，從安裝開始建立可查核、可回復的操作流程。</p>
+          <div class="button-row">
+            <a class="button primary" href="#setup">開始安裝</a>
+            <a class="button" href="#dashboard">查看實際介面</a>
+            <a class="button" href="https://opencodex.me/" rel="noopener">官方文件</a>
+          </div>
+        </div>
+        <div class="terminal" aria-label="OpenCodex 安裝指令示意">
+          <div class="terminal-bar">PowerShell · Windows 11</div>
+          <pre><code><span class="ok">PS&gt;</span> npm install -g @bitkyc08/opencodex
+<span class="ok">PS&gt;</span> ocx init
+<span class="ok">PS&gt;</span> ocx start
+<span class="ok">PS&gt;</span> ocx gui
+
+proxy     <span class="ok">online</span>
+endpoint  http://localhost:10100
+workflow  inspect → route → verify</code></pre>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat"><strong>40+</strong><span>內建 Provider</span></div>
+        <div class="stat"><strong>10100</strong><span>目前預設連接埠</span></div>
+        <div class="stat"><strong>Node 18+</strong><span>Windows 安裝需求</span></div>
+        <div class="stat"><strong>0</strong><span>不需修改前端程式</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="concept">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">01 · Concept</p><h2>OpenCodex 解決什麼問題？</h2></div>
+          <p class="intro">AI 開發工具常同時受到模型與 API 格式限制。OpenCodex 接收 Codex Responses API 或 Claude Messages API，將串流、工具調用、推理標記與影像轉換成目標 Provider 可接受的協定。它處理的是「請求送去哪裡」，不是替代人的任務設計與成果驗收。</p>
+        </div>
+        <div class="architecture" aria-label="OpenCodex 三層架構">
+          <article class="node">
+            <span class="tag">CLIENT</span>
+            <h3>使用者介面</h3>
+            <p class="muted">Codex CLI、Codex App、SDK、Claude Code 等既有工作介面。</p>
+          </article>
+          <div class="arrow" aria-hidden="true">→</div>
+          <article class="node core">
+            <span class="tag">LOCAL PROXY</span>
+            <h3>OpenCodex</h3>
+            <p class="muted">協定翻譯、模型目錄、Provider 路由、帳號池、日誌與用量統計。</p>
+          </article>
+          <div class="arrow" aria-hidden="true">→</div>
+          <article class="node">
+            <span class="tag">PROVIDERS</span>
+            <h3>模型供應層</h3>
+            <p class="muted">Anthropic、Google、xAI、Kimi、Ollama、OpenRouter、Azure 與自訂相容端點。</p>
+          </article>
+        </div>
+        <div class="grid-3" style="margin-top:18px">
+          <article class="card"><h3>模型路由</h3><p class="muted">使用 <code>provider/model</code> 明確指定來源；省略 Provider 時，依預設值或模型名稱規則匹配。</p></article>
+          <article class="card"><h3>帳號親和性</h3><p class="muted">既有工作階段維持原帳號；新工作可依健康狀態與配額選擇合格帳號。</p></article>
+          <article class="card"><h3>可觀測性</h3><p class="muted">以 Logs、Usage 與輸出檔案確認實際執行狀態，不把「Online」誤認為任務完成。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="setup">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">02 · Quickstart</p><h2>如何在 Windows 完成首次啟動？</h2></div>
+          <p class="intro">目前上游版本採 npm 安裝，Windows x64 需要 Node.js 18 以上。Bun runtime 由套件帶入；若 npm 阻擋安裝腳本，應依官方 README 使用允許 Bun 腳本的安裝方式，而不是沿用舊版的 Go、Docker 或 8080 教學。</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <h3>安裝套件</h3>
+            <p class="muted">以使用者可寫入的 Node/npm 環境進行全域安裝。</p>
+            <pre class="code"><code>npm install -g @bitkyc08/opencodex</code></pre>
+          </article>
+          <article class="step">
+            <h3>初始化與啟動</h3>
+            <p class="muted"><code>ocx init</code> 會寫入 Codex Provider 並提供自動啟動選項；<code>ocx stop</code> 可恢復原生 Codex 設定。</p>
+            <pre class="code"><code>ocx init
+ocx start
+ocx gui</code></pre>
+          </article>
+          <article class="step">
+            <h3>驗證模型目錄</h3>
+            <p class="muted">取得模型目錄只能證明代理已回應，仍需送出一個小型任務並檢查 Logs。</p>
+            <pre class="code"><code>Invoke-RestMethod http://localhost:10100/v1/models</code></pre>
+          </article>
+          <article class="step">
+            <h3>加入第一個 Provider</h3>
+            <p class="muted">在 Dashboard 選擇內建 Provider，或建立自訂 OpenAI 相容端點。只有連接本機或區域網路服務時，才允許 private network。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="dashboard">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">03 · Interface Evidence</p><h2>Web Dashboard 應該看哪些資訊？</h2></div>
+          <p class="intro">以下圖片均為 2026 年 7 月 28 日的本機實際操作截圖，已確認未顯示 API Key、Token 或 Cookie。畫面可能隨上游版本更新，操作時應以官方文件和目前介面為準。點選圖片可放大。</p>
+        </div>
+        <div class="gallery">
+          <figure class="shot"><img src="./assets/screenshots/dashboard.png" alt="OpenCodex Dashboard，顯示代理狀態與摘要資訊" loading="lazy"><figcaption><strong>Dashboard</strong><p>先確認 Proxy、版本、Provider 與模型同步狀態，再開始測試。</p></figcaption></figure>
+          <figure class="shot"><img src="./assets/screenshots/providers.png" alt="OpenCodex Providers 管理頁面" loading="lazy"><figcaption><strong>Providers</strong><p>管理 Adapter、Base URL、認證方式、可用模型與啟用狀態。</p></figcaption></figure>
+          <figure class="shot"><img src="./assets/screenshots/provider-library.jpg" alt="OpenCodex 新增 Provider 清單" loading="lazy"><figcaption><strong>Provider 清單</strong><p>可從 Accounts、Free、Paid 分類選擇，或進入自訂端點。</p></figcaption></figure>
+          <figure class="shot"><img src="./assets/screenshots/custom-provider.jpg" alt="OpenCodex 自訂 Provider 表單" loading="lazy"><figcaption><strong>自訂 Provider</strong><p>填寫名稱、Adapter、Base URL 與安全保存的認證資訊。</p></figcaption></figure>
+          <figure class="shot"><img src="./assets/screenshots/codex-auth.png" alt="OpenCodex Codex Auth 帳號池頁面，信箱已遮罩" loading="lazy"><figcaption><strong>Codex Auth</strong><p>觀察帳號健康狀態、工作階段親和性與配額視窗；截圖中的信箱已遮罩。</p></figcaption></figure>
+          <figure class="shot"><img src="./assets/screenshots/models.png" alt="OpenCodex Models 模型目錄頁面" loading="lazy"><figcaption><strong>Models</strong><p>核對公開名稱、推理強度、context window、工具與視覺能力。</p></figcaption></figure>
+          <figure class="shot"><img src="./assets/screenshots/logs.png" alt="OpenCodex Logs and Debug 請求紀錄頁面" loading="lazy"><figcaption><strong>Logs &amp; Debug</strong><p>以 Request ID、實際模型、狀態碼、Token 與延遲驗證路由。</p></figcaption></figure>
+          <figure class="shot"><img src="./assets/screenshots/usage.png" alt="OpenCodex Usage 用量分析頁面" loading="lazy"><figcaption><strong>Usage</strong><p>追蹤成功率、延遲與異常流量，找出迴圈請求或提示詞過長問題。</p></figcaption></figure>
+          <figure class="shot wide"><img src="./assets/screenshots/storage.png" alt="OpenCodex Storage 儲存治理頁面" loading="lazy"><figcaption><strong>Storage</strong><p>教學與行政使用都應設定日誌保留、備份、遮罩、下載與刪除流程。</p></figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="routing">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">04 · Routing</p><h2>如何選擇 Provider 與模型？</h2></div>
+          <p class="intro">路由的重點不是一次加入最多模型，而是讓任務、資料風險、模型能力與驗收成本相符。對重要工作使用明確的 <code>provider/model</code>，並在日誌確認實際路由。</p>
+        </div>
+        <pre class="code"><code>codex -m "anthropic/claude-opus-5" "解釋這段錯誤紀錄"
+codex -m "google/gemini-3-pro" "為 auth.ts 撰寫單元測試"
+codex -m "ollama/llama3" "重構這個函式"</code></pre>
+        <div class="grid-3" style="margin-top:18px">
+          <article class="card"><span class="tag">CLOUD</span><h3>雲端 Provider</h3><p class="muted">適合需要較強模型能力的任務，但須確認費用、資料政策、可用地區與服務條款。</p></article>
+          <article class="card"><span class="tag">LOCAL</span><h3>Ollama / LM Studio</h3><p class="muted">可讓模型推論留在本機，但工具調用、context 與品質仍需逐項驗證。</p></article>
+          <article class="card"><span class="tag">CUSTOM</span><h3>自訂相容端點</h3><p class="muted">適合自建服務或組織內部端點；不得在教材或程式庫中寫死金鑰。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="practice">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">05 · Learning Workflow</p><h2>怎麼把操作變成可學習的流程？</h2></div>
+          <p class="intro">教材不以完成安裝為終點，而是要求學習者經歷觀察、假設、路由、執行、查核與反思。這能避免只記住按鈕位置，也能在版本更新後保留問題解決能力。</p>
+        </div>
+        <div class="grid-2">
+          <article class="card">
+            <span class="tag">PRACTICE A</span>
+            <h3>同任務、不同模型</h3>
+            <p class="muted">選一個低風險程式重構任務，先寫出驗收標準，再分別使用雲端與本機模型。比較正確性、工具調用、延遲與 Token，而非只比較文字風格。</p>
+          </article>
+          <article class="card">
+            <span class="tag">PRACTICE B</span>
+            <h3>故意製造可診斷錯誤</h3>
+            <p class="muted">使用不存在的模型名稱或停用 Provider，觀察 `/v1/models`、Logs 與錯誤碼。把故障定位步驟寫成可重複的檢查表。</p>
+          </article>
+        </div>
+        <div class="card" style="margin-top:18px">
+          <h3>最小驗收清單</h3>
+          <ul class="checklist">
+            <li>官方文件與目前版本相符</li>
+            <li>Logs 顯示預期 Provider 與模型</li>
+            <li>沒有在畫面或輸出洩露認證資訊</li>
+            <li>任務輸出通過原先定義的測試</li>
+            <li>使用成本、延遲與失敗原因有紀錄</li>
+            <li>需要時可用 <code>ocx stop</code> 回復原生設定</li>
+          </ul>
+        </div>
+        <div class="notice" style="margin-top:18px"><strong>資料安全：</strong>OpenCodex 是代理層，不會自動使第三方 Provider 變成私密環境。包含個資、機密文件或未公開研究資料時，仍須依資料治理要求選擇本機處理、遮罩或停止上傳。</div>
+      </div>
+    </section>
+
+    <section class="section alt" id="sources">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">06 · Sources</p><h2>這份教材採用哪些資料？</h2></div>
+          <p class="intro">NotebookLM 彙整了 6 個指定來源。本頁再以 2026 年 7 月 28 日的本機操作截圖補充介面證據。技術規格優先依官網與 GitHub；媒體、X 與影片僅補充介紹與學習方式。</p>
+        </div>
+        <div class="card">
+          <ol class="source-list">
+            <li><strong>OpenCodex 官方文件</strong><br><a href="https://opencodex.me/" rel="noopener">https://opencodex.me/</a></li>
+            <li><strong>上游 GitHub 儲存庫</strong><br><a href="https://github.com/lidge-jun/opencodex" rel="noopener">lidge-jun/opencodex</a></li>
+            <li><strong>NotebookLM：OpenCodex: Universal Proxy for AI Coding Tools</strong><br><a href="https://notebooklm.google.com/notebook/15b1fda6-cc4a-4281-9c0d-bdf38c061b4b?pli=1" rel="noopener">指定 NotebookLM 筆記本</a></li>
+            <li><strong>53AI：Codex 終於能自由切模型了</strong><br><a href="https://www.53ai.com/news/OpenSourceLLM/2026072502397.html" rel="noopener">原始文章</a></li>
+            <li><strong>X：OpenCodex 社群介紹貼文</strong><br><a href="https://x.com/evanlong_me/status/2079810559822979346" rel="noopener">原始貼文</a></li>
+            <li><strong>YouTube 中文教學</strong><br><a href="https://www.youtube.com/watch?v=EotGQavVxxA" rel="noopener">Codex 解鎖無限 Token！Codex 接入任意 AI API 和本地模型｜OpenCodex 保姆級教程</a></li>
+            <li><strong>YouTube 日文教學</strong><br><a href="https://www.youtube.com/watch?v=8xK4LWJoHLc" rel="noopener">Codex CLI/Claude Codeユーザー向け｜opencodexでClaudeもGeminiもOllamaも動かす万能LLMプロキシ</a></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">07 · FAQ</p><h2>常見問題</h2></div>
+          <p class="intro">遇到設定差異時，先確認上游版本，再比對 Dashboard、模型目錄與請求日誌。</p>
+        </div>
+        <div class="faq">
+          <details><summary>OpenCodex 是 OpenAI 官方工具嗎？</summary><p>不是。OpenCodex 是獨立社群專案，並未獲 OpenAI、Anthropic 或其他模型供應商背書。連接第三方服務前應查閱各 Provider 的服務條款。</p></details>
+          <details><summary>為什麼網路舊文章寫 8080，但本教材使用 10100？</summary><p>本教材依目前官網與 GitHub README，使用 <code>localhost:10100</code>。OpenCodex 更新速度快，安裝前應重新查閱上游文件，不應直接套用舊教學。</p></details>
+          <details><summary>Dashboard 顯示 Online 就代表任務成功嗎？</summary><p>不代表。Online 只表示代理可連線。完整驗收還要確認實際 Provider、模型、HTTP 狀態碼、輸出檔案及任務測試。</p></details>
+          <details><summary>使用本機模型就一定不會外傳資料嗎？</summary><p>不一定。必須確認實際路由指向本機服務，且工作流程沒有同時呼叫雲端搜尋、sidecar 或其他外部工具。應以 Logs 與網路設定查核。</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <p><strong>教材整理與教學設計：施育廷（Yu-Ting Shih）</strong><br>更新日期：2026-07-28</p>
+      <p>OpenCodex 為獨立社群專案；原始碼、商標與授權以<br><a href="https://github.com/lidge-jun/opencodex">上游 GitHub 儲存庫</a>為準。</p>
+    </div>
+  </footer>
+
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="圖片放大檢視">
+    <button type="button">關閉</button>
+    <img src="" alt="">
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>

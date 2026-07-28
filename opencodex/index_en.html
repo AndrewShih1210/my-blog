@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenCodex Guide | Providers, Model Routing, and Web Dashboard</title>
+  <meta name="description" content="Yu-Ting Shih's verified OpenCodex guide covers Windows installation, providers, model routing, the Codex account pool, logs, governance, and learning activities with local interface screenshots.">
+  <meta name="author" content="Yu-Ting Shih">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/opencodex/index_en.html">
+  <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/opencodex/index_en.html">
+  <link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/opencodex/index.html">
+  <link rel="alternate" hreflang="x-default" href="https://andrewshih1210.github.io/my-blog/opencodex/index.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Yu-Ting Shih Academic Site">
+  <meta property="og:title" content="OpenCodex: A Verified Learning Guide">
+  <meta property="og:description" content="Learn OpenCodex from installation and provider setup to model routing, logs, and evidence-based verification.">
+  <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/opencodex/index_en.html">
+  <meta property="og:image" content="https://andrewshih1210.github.io/my-blog/opencodex/assets/screenshots/dashboard.png">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://andrewshih1210.github.io/my-blog/opencodex/index_en.html#article",
+        "headline": "OpenCodex Guide: Providers, Model Routing, and Web Dashboard",
+        "description": "A verified guide to OpenCodex installation, providers, model routing, account pools, logs, and evidence-based validation.",
+        "inLanguage": "en",
+        "dateModified": "2026-07-28",
+        "author": {"@type": "Person", "name": "Yu-Ting Shih", "alternateName": "施育廷"},
+        "publisher": {"@type": "Person", "name": "Yu-Ting Shih"},
+        "mainEntityOfPage": "https://andrewshih1210.github.io/my-blog/opencodex/index_en.html",
+        "image": "https://andrewshih1210.github.io/my-blog/opencodex/assets/screenshots/dashboard.png"
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://andrewshih1210.github.io/my-blog/opencodex/index_en.html#setup-howto",
+        "name": "How to install and verify OpenCodex on Windows",
+        "inLanguage": "en",
+        "step": [
+          {"@type": "HowToStep", "name": "Install", "text": "Install @bitkyc08/opencodex globally with npm."},
+          {"@type": "HowToStep", "name": "Initialize", "text": "Run ocx init to add the OpenCodex provider to Codex configuration."},
+          {"@type": "HowToStep", "name": "Start", "text": "Run ocx start, then open the dashboard with ocx gui."},
+          {"@type": "HowToStep", "name": "Verify", "text": "Query localhost:10100/v1/models, run a small task, and verify the provider, model, and status code in Logs."}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="#top"><span class="brand-mark">OCX</span><span>OpenCodex Guide</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Page navigation">
+        <a href="#concept">Concept</a>
+        <a href="#setup">Setup</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#routing">Routing</a>
+        <a href="#practice">Learning</a>
+        <a href="#sources">Sources</a>
+        <a href="../sitemap_en.html">Sitemap</a>
+        <a href="./index.html" lang="zh-Hant">中文</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Verified Bilingual Learning Guide</p>
+          <h1>One interface. Different AI models.</h1>
+          <p class="lead">OpenCodex is a local proxy layer that lets Codex, Claude Code, and related clients reach multiple providers through one port. This guide uses upstream documentation for specifications and real dashboard screenshots for interface evidence, moving from setup to auditable verification.</p>
+          <div class="button-row">
+            <a class="button primary" href="#setup">Start setup</a>
+            <a class="button" href="#dashboard">View the interface</a>
+            <a class="button" href="https://opencodex.me/" rel="noopener">Official docs</a>
+          </div>
+        </div>
+        <div class="terminal" aria-label="OpenCodex installation commands">
+          <div class="terminal-bar">PowerShell · Windows 11</div>
+          <pre><code><span class="ok">PS&gt;</span> npm install -g @bitkyc08/opencodex
+<span class="ok">PS&gt;</span> ocx init
+<span class="ok">PS&gt;</span> ocx start
+<span class="ok">PS&gt;</span> ocx gui
+
+proxy     <span class="ok">online</span>
+endpoint  http://localhost:10100
+workflow  inspect → route → verify</code></pre>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat"><strong>40+</strong><span>built-in providers</span></div>
+        <div class="stat"><strong>10100</strong><span>current default port</span></div>
+        <div class="stat"><strong>Node 18+</strong><span>Windows requirement</span></div>
+        <div class="stat"><strong>0</strong><span>client patches required</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="concept">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">01 · Concept</p><h2>What problem does OpenCodex solve?</h2></div>
+          <p class="intro">AI development clients are often tied to one model family or API format. OpenCodex accepts Codex Responses API or Claude Messages API traffic and translates streaming, tool calls, reasoning markers, and images for the selected provider. It controls where a request goes; it does not replace task design or human validation.</p>
+        </div>
+        <div class="architecture" aria-label="Three-layer OpenCodex architecture">
+          <article class="node"><span class="tag">CLIENT</span><h3>User interface</h3><p class="muted">Codex CLI, Codex App, SDK, Claude Code, and other existing work surfaces.</p></article>
+          <div class="arrow" aria-hidden="true">→</div>
+          <article class="node core"><span class="tag">LOCAL PROXY</span><h3>OpenCodex</h3><p class="muted">Protocol translation, model catalog, provider routing, account pool, logs, and usage.</p></article>
+          <div class="arrow" aria-hidden="true">→</div>
+          <article class="node"><span class="tag">PROVIDERS</span><h3>Model layer</h3><p class="muted">Anthropic, Google, xAI, Kimi, Ollama, OpenRouter, Azure, and compatible custom endpoints.</p></article>
+        </div>
+        <div class="grid-3" style="margin-top:18px">
+          <article class="card"><h3>Model routing</h3><p class="muted">Use <code>provider/model</code> for explicit routing. A bare model name uses the default provider or name-based matching.</p></article>
+          <article class="card"><h3>Session affinity</h3><p class="muted">Existing sessions remain on their account; new sessions can select an eligible healthy account based on quota state.</p></article>
+          <article class="card"><h3>Observability</h3><p class="muted">Use Logs, Usage, and actual output tests. An “Online” badge alone is not evidence of task completion.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="setup">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">02 · Quickstart</p><h2>How do you complete the first Windows setup?</h2></div>
+          <p class="intro">The current upstream version is installed from npm and requires Node.js 18 or later on Windows x64. The package bundles the Bun runtime. If npm blocks lifecycle scripts, follow the current README instead of reusing legacy Go, Docker, or port 8080 instructions.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><h3>Install the package</h3><p class="muted">Use a user-owned Node/npm environment with a writable global prefix.</p><pre class="code"><code>npm install -g @bitkyc08/opencodex</code></pre></article>
+          <article class="step"><h3>Initialize and start</h3><p class="muted"><code>ocx init</code> injects the Codex provider and offers autostart options. <code>ocx stop</code> restores native Codex configuration.</p><pre class="code"><code>ocx init
+ocx start
+ocx gui</code></pre></article>
+          <article class="step"><h3>Inspect the model catalog</h3><p class="muted">A catalog response only proves that the proxy answered. Run one small task and verify Logs as well.</p><pre class="code"><code>Invoke-RestMethod http://localhost:10100/v1/models</code></pre></article>
+          <article class="step"><h3>Add the first provider</h3><p class="muted">Choose a built-in provider or a custom OpenAI-compatible endpoint. Enable private-network access only for a known local or LAN service.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="dashboard">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">03 · Interface Evidence</p><h2>What should you inspect in the Web Dashboard?</h2></div>
+          <p class="intro">These local screenshots were captured on July 28, 2026 and checked for exposed API keys, tokens, or cookies. The interface may change with upstream releases. Click an image to enlarge it.</p>
+        </div>
+        <div class="gallery">
+          <figure class="shot"><img src="./assets/screenshots/dashboard.png" alt="OpenCodex Dashboard with proxy status and summary information" loading="lazy"><figcaption><strong>Dashboard</strong><p>Confirm proxy status, version, provider count, and model synchronization.</p></figcaption></figure>
+          <figure class="shot"><img src="./assets/screenshots/providers.png" alt="OpenCodex Providers management page" loading="lazy"><figcaption><strong>Providers</strong><p>Manage adapters, base URLs, authentication, discovered models, and enablement.</p></figcaption></figure>
+          <figure class="shot"><img src="./assets/screenshots/provider-library.jpg" alt="OpenCodex built-in provider library" loading="lazy"><figcaption><strong>Provider library</strong><p>Choose from Accounts, Free, and Paid categories, or create a custom endpoint.</p></figcaption></figure>
+          <figure class="shot"><img src="./assets/screenshots/custom-provider.jpg" alt="OpenCodex custom provider form" loading="lazy"><figcaption><strong>Custom provider</strong><p>Enter a name, adapter, base URL, and securely stored credential.</p></figcaption></figure>
+          <figure class="shot"><img src="./assets/screenshots/codex-auth.png" alt="OpenCodex Codex Auth account pool with masked email" loading="lazy"><figcaption><strong>Codex Auth</strong><p>Review account health, session affinity, and quota windows. The email is masked.</p></figcaption></figure>
+          <figure class="shot"><img src="./assets/screenshots/models.png" alt="OpenCodex Models catalog" loading="lazy"><figcaption><strong>Models</strong><p>Check public IDs, reasoning levels, context windows, tool support, and vision support.</p></figcaption></figure>
+          <figure class="shot"><img src="./assets/screenshots/logs.png" alt="OpenCodex Logs and Debug request records" loading="lazy"><figcaption><strong>Logs &amp; Debug</strong><p>Verify request ID, actual model, HTTP status, token counts, and latency.</p></figcaption></figure>
+          <figure class="shot"><img src="./assets/screenshots/usage.png" alt="OpenCodex Usage analytics" loading="lazy"><figcaption><strong>Usage</strong><p>Monitor success rates, latency, runaway loops, and excessive prompt size.</p></figcaption></figure>
+          <figure class="shot wide"><img src="./assets/screenshots/storage.png" alt="OpenCodex Storage governance page" loading="lazy"><figcaption><strong>Storage</strong><p>Define retention, backup, redaction, download, and deletion procedures.</p></figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="routing">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">04 · Routing</p><h2>How should you select a provider and model?</h2></div>
+          <p class="intro">The goal is not to connect the largest possible catalog. Match task requirements, data risk, model capability, and validation cost. Use explicit <code>provider/model</code> selectors for important work, then confirm the route in Logs.</p>
+        </div>
+        <pre class="code"><code>codex -m "anthropic/claude-opus-5" "Explain this stack trace"
+codex -m "google/gemini-3-pro" "Write unit tests for auth.ts"
+codex -m "ollama/llama3" "Refactor this function"</code></pre>
+        <div class="grid-3" style="margin-top:18px">
+          <article class="card"><span class="tag">CLOUD</span><h3>Cloud providers</h3><p class="muted">Useful for demanding tasks, but review cost, data policies, region availability, and terms of service.</p></article>
+          <article class="card"><span class="tag">LOCAL</span><h3>Ollama / LM Studio</h3><p class="muted">Inference can stay local, but tool support, context length, hardware use, and output quality still require testing.</p></article>
+          <article class="card"><span class="tag">CUSTOM</span><h3>Compatible endpoints</h3><p class="muted">Appropriate for self-hosted or organizational services. Never hard-code credentials in course materials or repositories.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="practice">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">05 · Learning Workflow</p><h2>How does setup become a learning process?</h2></div>
+          <p class="intro">The course does not end when the proxy starts. Learners observe, form a routing hypothesis, execute, inspect evidence, and reflect. This builds transferable troubleshooting skills when the interface or upstream version changes.</p>
+        </div>
+        <div class="grid-2">
+          <article class="card"><span class="tag">PRACTICE A</span><h3>Same task, different models</h3><p class="muted">Define acceptance criteria for a low-risk refactoring task. Compare a cloud model and a local model on correctness, tool calls, latency, and token use rather than writing style alone.</p></article>
+          <article class="card"><span class="tag">PRACTICE B</span><h3>Create a diagnosable failure</h3><p class="muted">Use a nonexistent model name or disable a provider. Observe <code>/v1/models</code>, Logs, and the error code, then turn the diagnosis into a reusable checklist.</p></article>
+        </div>
+        <div class="card" style="margin-top:18px">
+          <h3>Minimum acceptance checklist</h3>
+          <ul class="checklist">
+            <li>Instructions match current upstream docs</li>
+            <li>Logs show the expected provider and model</li>
+            <li>No credentials are exposed in the UI or output</li>
+            <li>Output passes the test defined before execution</li>
+            <li>Cost, latency, and failures are recorded</li>
+            <li>Native settings can be restored with <code>ocx stop</code></li>
+          </ul>
+        </div>
+        <div class="notice" style="margin-top:18px"><strong>Data safety:</strong> A proxy does not automatically make a third-party provider private. For personal data, confidential records, or unpublished research, select local processing, redact data, or stop transmission according to governance requirements.</div>
+      </div>
+    </section>
+
+    <section class="section alt" id="sources">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">06 · Sources</p><h2>What evidence supports this guide?</h2></div>
+          <p class="intro">The supplied NotebookLM notebook combines six sources. This site adds local interface screenshots captured on July 28, 2026. Technical specifications come primarily from the official documentation and GitHub repository; media and videos provide supplementary learning context.</p>
+        </div>
+        <div class="card">
+          <ol class="source-list">
+            <li><strong>Official OpenCodex documentation</strong><br><a href="https://opencodex.me/" rel="noopener">https://opencodex.me/</a></li>
+            <li><strong>Upstream GitHub repository</strong><br><a href="https://github.com/lidge-jun/opencodex" rel="noopener">lidge-jun/opencodex</a></li>
+            <li><strong>NotebookLM: OpenCodex: Universal Proxy for AI Coding Tools</strong><br><a href="https://notebooklm.google.com/notebook/15b1fda6-cc4a-4281-9c0d-bdf38c061b4b?pli=1" rel="noopener">Supplied NotebookLM notebook</a></li>
+            <li><strong>53AI feature article</strong><br><a href="https://www.53ai.com/news/OpenSourceLLM/2026072502397.html" rel="noopener">Codex can finally switch models freely</a></li>
+            <li><strong>X community introduction</strong><br><a href="https://x.com/evanlong_me/status/2079810559822979346" rel="noopener">Original post</a></li>
+            <li><strong>Chinese YouTube tutorial</strong><br><a href="https://www.youtube.com/watch?v=EotGQavVxxA" rel="noopener">OpenCodex step-by-step tutorial for arbitrary APIs and local models</a></li>
+            <li><strong>Japanese YouTube tutorial</strong><br><a href="https://www.youtube.com/watch?v=8xK4LWJoHLc" rel="noopener">Universal LLM proxy guide for Codex CLI and Claude Code users</a></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">07 · FAQ</p><h2>Common questions</h2></div>
+          <p class="intro">When instructions disagree, verify the upstream version first, then compare the dashboard, model catalog, and request logs.</p>
+        </div>
+        <div class="faq">
+          <details><summary>Is OpenCodex an official OpenAI product?</summary><p>No. It is an independent community project and is not endorsed by OpenAI, Anthropic, or other providers. Review each provider's terms before connecting an account.</p></details>
+          <details><summary>Why does this guide use port 10100 instead of 8080?</summary><p>The current official site and GitHub README use <code>localhost:10100</code>. OpenCodex changes quickly, so confirm current upstream documentation instead of copying older tutorials.</p></details>
+          <details><summary>Does “Online” mean that a task succeeded?</summary><p>No. It only shows that the proxy is reachable. Verify the actual provider, model, status code, output artifacts, and task-specific tests.</p></details>
+          <details><summary>Does a local model guarantee that no data leaves the computer?</summary><p>No. Confirm that the actual route is local and that the workflow does not call cloud search, a sidecar, or another external tool. Use Logs and network configuration as evidence.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <p><strong>Course curation and instructional design: Yu-Ting Shih (施育廷)</strong><br>Updated: July 28, 2026</p>
+      <p>OpenCodex is an independent community project. Source code, marks, and licensing remain governed by the<br><a href="https://github.com/lidge-jun/opencodex">upstream GitHub repository</a>.</p>
+    </div>
+  </footer>
+
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged screenshot">
+    <button type="button">Close</button>
+    <img src="" alt="">
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>
