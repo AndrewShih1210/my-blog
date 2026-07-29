@@ -235,7 +235,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "AI Azure 研習課程",
         "titleEn":  "Training Certificate: AI Azure 研習課程",
         "categoryKey":  "training",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  ""
     },
@@ -247,7 +247,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "AI Azure 研習課程時數",
         "titleEn":  "Training Certificate: AI Azure 研習課程時數",
         "categoryKey":  "training",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  ""
     },
@@ -259,7 +259,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "AI4Good施育廷",
         "titleEn":  "Training Certificate: AI4Good施育廷",
         "categoryKey":  "training",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  ""
     },
@@ -271,7 +271,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "CAIIAS 2025 國際學術研討會：AI發展、教育創新與文化永續",
         "titleEn":  "Training Certificate: CAIIAS 2025 國際學術研討會：AI發展、教育創新與文化永續",
         "categoryKey":  "training",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "2025"
     },
@@ -283,7 +283,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "Copilot X Design Thinking_結訓證書_(iABC-DnE)_20240828-29 施育廷",
         "titleEn":  "Training Certificate: Copilot X Design Thinking_結訓證書_(iABC-DnE)_20240828-29 施育廷",
         "categoryKey":  "training",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "2024"
     },
@@ -295,7 +295,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "人工智慧浪潮下之資訊科學與數位學習之變革與挑戰論壇",
         "titleEn":  "Training Certificate: 人工智慧浪潮下之資訊科學與數位學習之變革與挑戰論壇",
         "categoryKey":  "training",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  ""
     },
@@ -307,7 +307,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "生成式AI融入教學",
         "titleEn":  "Training Certificate: 生成式AI融入教學",
         "categoryKey":  "training",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  ""
     },
@@ -319,7 +319,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "生成式AI融入教學「想像__AI協作的教學_以「科技與社會」課程為例」共",
         "titleEn":  "Training Certificate: 生成式AI融入教學「想像__AI協作的教學_以「科技與社會」課程為例」共",
         "categoryKey":  "training",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  ""
     },
@@ -331,7 +331,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "如何正確使用AI工具學習英語",
         "titleEn":  "Training Certificate: 如何正確使用AI工具學習英語",
         "categoryKey":  "training",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  ""
     },
@@ -343,7 +343,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "經濟部產業人才培訓",
         "titleEn":  "Training Certificate: 經濟部產業人才培訓",
         "categoryKey":  "training",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  ""
     },
@@ -355,7 +355,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "資料科學深度學習",
         "titleEn":  "Training Certificate: 資料科學深度學習",
         "categoryKey":  "training",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  ""
     },
@@ -367,7 +367,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "跨文化智慧 × 創新互動EMI 教學發展社群-視覺敘事的 GAI 創意加速器：中階手機行銷專案 講座",
         "titleEn":  "Training Certificate: 跨文化智慧 × 創新互動EMI 教學發展社群-視覺敘事的 GAI 創意加速器：中階手機行銷專案 講座",
         "categoryKey":  "training",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  ""
     },
@@ -379,7 +379,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "應教學門研習證書1100611",
         "titleEn":  "Training Certificate: 應教學門研習證書1100611",
         "categoryKey":  "training",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  ""
     },
@@ -391,7 +391,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "應教學門研習證書1100702",
         "titleEn":  "Training Certificate: 應教學門研習證書1100702",
         "categoryKey":  "training",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  ""
     },
@@ -403,7 +403,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "應教學門研習證書1100716",
         "titleEn":  "Training Certificate: 應教學門研習證書1100716",
         "categoryKey":  "training",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  ""
     },
@@ -415,7 +415,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "I918530",
         "titleEn":  "Patent Record: I918530",
         "categoryKey":  "patent",
-        "issuerZh":  "?箸鞎∠撅",
+        "issuerZh":  "中華民國經濟部智慧財產局",
         "issuerEn":  "Intellectual Property Authority",
         "year":  ""
     },
@@ -439,7 +439,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "2019_ICEA",
         "titleEn":  "Presentation Record: 2019_ICEA",
         "categoryKey":  "presentation",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "2019"
     },
@@ -451,7 +451,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "2022_ETS",
         "titleEn":  "Presentation Record: 2022_ETS",
         "categoryKey":  "presentation",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "2022"
     },
@@ -463,7 +463,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "2022_ICITL",
         "titleEn":  "Presentation Record: 2022_ICITL",
         "categoryKey":  "presentation",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "2022"
     },
@@ -475,7 +475,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "2022_TAECT-1",
         "titleEn":  "Presentation Record: 2022_TAECT-1",
         "categoryKey":  "presentation",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "2022"
     },
@@ -487,7 +487,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "2022_TAECT-2",
         "titleEn":  "Presentation Record: 2022_TAECT-2",
         "categoryKey":  "presentation",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "2022"
     },
@@ -499,7 +499,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "2023 CRDTE_",
         "titleEn":  "Presentation Record: 2023 CRDTE_",
         "categoryKey":  "presentation",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "2023"
     },
@@ -511,7 +511,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "2023_BEMST",
         "titleEn":  "Presentation Record: 2023_BEMST",
         "categoryKey":  "presentation",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "2023"
     },
@@ -523,7 +523,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "2024_BEMST",
         "titleEn":  "Presentation Record: 2024_BEMST",
         "categoryKey":  "presentation",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "2024"
     },
@@ -535,7 +535,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "2025 APERA-TERA",
         "titleEn":  "Presentation Record: 2025 APERA-TERA",
         "categoryKey":  "presentation",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "2025"
     },
@@ -547,7 +547,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "2025 BEMST",
         "titleEn":  "Presentation Record: 2025 BEMST",
         "categoryKey":  "presentation",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "2025"
     },
@@ -571,7 +571,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "2025自主學習節_2",
         "titleEn":  "Presentation Record: 2025自主學習節_2",
         "categoryKey":  "presentation",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "2025"
     },
@@ -583,7 +583,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "2025自主學習節_參加證明",
         "titleEn":  "Presentation Record: 2025自主學習節_參加證明",
         "categoryKey":  "presentation",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "2025"
     },
@@ -595,7 +595,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "2025自主學習節1",
         "titleEn":  "Presentation Record: 2025自主學習節1",
         "categoryKey":  "presentation",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "2025"
     },
@@ -607,7 +607,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "2025自主學習節優秀論文獎",
         "titleEn":  "Presentation Record: 2025自主學習節優秀論文獎",
         "categoryKey":  "presentation",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "2025"
     },
@@ -619,7 +619,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "2026_BEMST",
         "titleEn":  "Presentation Record: 2026_BEMST",
         "categoryKey":  "presentation",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "2026"
     },
@@ -631,7 +631,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "2026_BEMST_2",
         "titleEn":  "Presentation Record: 2026_BEMST_2",
         "categoryKey":  "presentation",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "2026"
     },
@@ -643,7 +643,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "2026_ETS",
         "titleEn":  "Presentation Record: 2026_ETS",
         "categoryKey":  "presentation",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "2026"
     },
@@ -655,7 +655,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "2026_ETS佳作論文獎",
         "titleEn":  "Presentation Record: 2026_ETS佳作論文獎",
         "categoryKey":  "presentation",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "2026"
     },
@@ -679,7 +679,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "AEIT_2025",
         "titleEn":  "Presentation Record: AEIT_2025",
         "categoryKey":  "presentation",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "2025"
     },
@@ -787,7 +787,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "測驗學會",
         "titleEn":  "Presentation Record: 測驗學會",
         "categoryKey":  "presentation",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  ""
     },
@@ -799,7 +799,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "111高教深耕感謝狀",
         "titleEn":  "Letter of Appreciation: 111高教深耕感謝狀",
         "categoryKey":  "appreciation",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  "111"
     },
@@ -916,24 +916,24 @@ window.CERTIFICATE_ITEMS = [
         "sort":  77,
         "image":  "./items/item-077.jpg",
         "originalFile":  "【演講、感謝狀】AI工具應用,關於醫療與放射科輔助工作,Gemini 雲端整合與提示詞工程 (1).jpg",
-        "titleZh":  "【演講、感謝狀】AI工具應用,關於醫療與放射科輔助工作,Gemini 雲端整合與提示詞工程 (1)",
-        "titleEn":  "Academic Proof: 【演講、感謝狀】AI工具應用,關於醫療與放射科輔助工作,Gemini 雲端整合與提示詞工程 (1)",
-        "categoryKey":  "status",
-        "issuerZh":  "摮貉?頨怠??辣",
-        "issuerEn":  "Academic Documentation",
-        "year":  ""
+        "titleZh":  "2026-02-11 AI工具應用：醫療與放射科輔助工作、Gemini 雲端整合與提示詞工程",
+        "titleEn":  "2026-02-11 AI Tools for Medical and Radiological Support Work: Gemini Cloud Integration and Prompt Engineering",
+        "categoryKey":  "lecture",
+        "issuerZh":  "中山醫學大學",
+        "issuerEn":  "Chung Shan Medical University",
+        "year":  "2026"
     },
     {
         "id":  "cert-078",
         "sort":  78,
         "image":  "./items/item-078.jpg",
         "originalFile":  "【演講、感謝狀】育達科技大學.jpg",
-        "titleZh":  "【演講、感謝狀】育達科技大學",
-        "titleEn":  "Academic Proof: 【演講、感謝狀】育達科技大學",
-        "categoryKey":  "status",
-        "issuerZh":  "摮貉?頨怠??辣",
-        "issuerEn":  "Academic Documentation",
-        "year":  ""
+        "titleZh":  "2026-04-16 讓 AI 成為神隊友：教學現場的應用與創新實錄",
+        "titleEn":  "2026-04-16 Making AI a Teaching Teammate: Classroom Applications and Innovation",
+        "categoryKey":  "lecture",
+        "issuerZh":  "育達科技大學",
+        "issuerEn":  "Yu Da University of Science and Technology",
+        "year":  "2026"
     },
     {
         "id":  "cert-079",
@@ -1073,10 +1073,10 @@ window.CERTIFICATE_ITEMS = [
         "image":  "./items/item-090.jpg",
         "originalFile":  "【證明】博士候選人證明書.jpg",
         "titleZh":  "博士候選人證明書",
-        "titleEn":  "Academic Proof: 博士候選人證明書",
+        "titleEn":  "Doctoral Candidate Status Certificate",
         "categoryKey":  "status",
-        "issuerZh":  "摮貉?頨怠??辣",
-        "issuerEn":  "Academic Documentation",
+        "issuerZh":  "國立臺中教育大學教育資訊與測驗統計研究所",
+        "issuerEn":  "Graduate Institute of Educational Information and Measurement, National Taichung University of Education",
         "year":  ""
     },
     {
@@ -1111,7 +1111,7 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "Foundation Certificate in EPC Architecture Framework",
         "titleEn":  "Certification: Foundation Certificate in EPC Architecture Framework",
         "categoryKey":  "license",
-        "issuerZh":  "?賊??桐?",
+        "issuerZh":  "相關頒發或主辦單位",
         "issuerEn":  "Relevant issuing or hosting body",
         "year":  ""
     },

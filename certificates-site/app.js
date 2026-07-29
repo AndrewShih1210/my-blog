@@ -110,7 +110,6 @@
     if (typeof value !== "string") return "";
     return value
       .replace(/[\uE000-\uF8FF]/g, "")
-      .replace(/\?/g, "")
       .replace(/\s+/g, " ")
       .trim();
   }
