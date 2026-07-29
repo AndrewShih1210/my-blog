@@ -311,10 +311,107 @@ section[id] { scroll-margin-top: 108px; }
   padding: 28px 0 48px;
   color: var(--muted);
 }
+
+.list-toolbar {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.list-search {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-button);
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+.credential-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+}
+.credential-table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+}
+.credential-table th,
+.credential-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+.credential-table th {
+  position: sticky;
+  top: 88px;
+  z-index: 2;
+  background: #eef4fb;
+  color: var(--accent-strong);
+  font-size: 14px;
+}
+.credential-table tr:last-child td { border-bottom: 0; }
+.credential-table .date-cell {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.credential-thumb {
+  width: 112px;
+  height: 78px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f8fafc;
+}
+.credential-name {
+  min-width: 250px;
+  font-weight: 750;
+  line-height: 1.5;
+}
+.credential-note {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.list-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 22px 0;
+}
+.summary-card {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255,255,255,.82);
+}
+.summary-card strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--accent-strong);
+  font-size: 28px;
+  line-height: 1.1;
+}
+.method-note {
+  margin-top: 20px;
+  padding: 18px 20px;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  color: var(--muted);
+}
 @media (max-width: 960px) {
   body { padding-top: 108px; }
   .hero-grid, .stats { grid-template-columns: 1fr; }
   .topbar, .section-head, .modal-top { display: block; }
   .topnav { margin-top: 12px; }
   .modal-close { margin-top: 10px; }
+  .list-toolbar { grid-template-columns: 1fr; }
+  .list-summary { grid-template-columns: 1fr; }
+  .credential-table th { top: 108px; }
 }

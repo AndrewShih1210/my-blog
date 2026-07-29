@@ -7,9 +7,10 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "Google Gemini Certified Educator (YU-TING SHIH)",
         "titleEn":  "Google Gemini Certified Educator (YU-TING SHIH)",
         "categoryKey":  "google",
-        "issuerZh":  "Google / Google Cloud",
-        "issuerEn":  "Google / Google Cloud",
-        "year":  ""
+        "issuerZh":  "Google for Education",
+        "issuerEn":  "Google for Education",
+        "issuedDate":  "2025-09-13",
+        "year":  "2025"
     },
     {
         "id":  "cert-002",
@@ -17,11 +18,12 @@ window.CERTIFICATE_ITEMS = [
         "image":  "./items/item-002.png",
         "originalFile":  "【Google】【證照】Google 認證 GFE Trainer Skills Assessment - Traditional Chinese_1.png",
         "titleZh":  "Google 認證 GFE Trainer Skills Assessment - Traditional Chinese",
-        "titleEn":  "Google 認證 GFE Trainer Skills Assessment - Traditional Chinese",
+        "titleEn":  "Google for Education Trainer Skills Assessment - Traditional Chinese",
         "categoryKey":  "google",
-        "issuerZh":  "Google / Google Cloud",
-        "issuerEn":  "Google / Google Cloud",
-        "year":  ""
+        "issuerZh":  "Google for Education",
+        "issuerEn":  "Google for Education",
+        "issuedDate":  "2025-09-16",
+        "year":  "2025"
     },
     {
         "id":  "cert-003",
@@ -31,9 +33,10 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "Accelerate Your Job Search with AI",
         "titleEn":  "Accelerate Your Job Search with AI",
         "categoryKey":  "google",
-        "issuerZh":  "Google / Google Cloud",
-        "issuerEn":  "Google / Google Cloud",
-        "year":  ""
+        "issuerZh":  "Google／Coursera",
+        "issuerEn":  "Google / Coursera",
+        "issuedDate":  "2026-04-03",
+        "year":  "2026"
     },
     {
         "id":  "cert-004",
@@ -43,9 +46,10 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "Assets, Threats, and Vulnerabilities",
         "titleEn":  "Assets, Threats, and Vulnerabilities",
         "categoryKey":  "google",
-        "issuerZh":  "Google / Google Cloud",
-        "issuerEn":  "Google / Google Cloud",
-        "year":  ""
+        "issuerZh":  "Google／Coursera",
+        "issuerEn":  "Google / Coursera",
+        "issuedDate":  "2026-04-03",
+        "year":  "2026"
     },
     {
         "id":  "cert-005",
@@ -55,9 +59,10 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "Automate Cybersecurity Tasks with Python",
         "titleEn":  "Automate Cybersecurity Tasks with Python",
         "categoryKey":  "google",
-        "issuerZh":  "Google / Google Cloud",
-        "issuerEn":  "Google / Google Cloud",
-        "year":  ""
+        "issuerZh":  "Google／Coursera",
+        "issuerEn":  "Google / Coursera",
+        "issuedDate":  "2026-04-03",
+        "year":  "2026"
     },
     {
         "id":  "cert-006",
@@ -67,9 +72,10 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "Cloud Technical Series AI in Action",
         "titleEn":  "Cloud Technical Series AI in Action",
         "categoryKey":  "google",
-        "issuerZh":  "Google / Google Cloud",
-        "issuerEn":  "Google / Google Cloud",
-        "year":  ""
+        "issuerZh":  "Google Cloud",
+        "issuerEn":  "Google Cloud",
+        "issuedDate":  "2026-03-17–2026-03-18",
+        "year":  "2026"
     },
     {
         "id":  "cert-007",
@@ -79,9 +85,10 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "Connect and Protect Networks and Network Security",
         "titleEn":  "Connect and Protect Networks and Network Security",
         "categoryKey":  "google",
-        "issuerZh":  "Google / Google Cloud",
-        "issuerEn":  "Google / Google Cloud",
-        "year":  ""
+        "issuerZh":  "Google／Coursera",
+        "issuerEn":  "Google / Coursera",
+        "issuedDate":  "2026-04-02",
+        "year":  "2026"
     },
     {
         "id":  "cert-008",
@@ -91,20 +98,24 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "Foundations of Cybersecurity",
         "titleEn":  "Foundations of Cybersecurity",
         "categoryKey":  "google",
-        "issuerZh":  "Google / Google Cloud",
-        "issuerEn":  "Google / Google Cloud",
-        "year":  ""
+        "issuerZh":  "Google／Coursera",
+        "issuerEn":  "Google / Coursera",
+        "issuedDate":  "2026-04-02",
+        "year":  "2026"
     },
     {
         "id":  "cert-009",
         "sort":  9,
         "image":  "./items/item-009.png",
         "originalFile":  "【Google】Generative AI Leader _ Google Cloud Skills Boost_1.png",
-        "titleZh":  "Generative AI Leader _ Google Cloud Skills Boost",
-        "titleEn":  "Generative AI Leader _ Google Cloud Skills Boost",
+        "titleZh":  "Generative AI Leader 學習路徑完成紀錄",
+        "titleEn":  "Generative AI Leader Learning Path Completion Record",
         "categoryKey":  "google",
-        "issuerZh":  "Google / Google Cloud",
-        "issuerEn":  "Google / Google Cloud",
+        "issuerZh":  "Google Cloud Skills Boost",
+        "issuerEn":  "Google Cloud Skills Boost",
+        "issuedDate":  "",
+        "issuedDateNoteZh":  "畫面未載明單一完成日期",
+        "issuedDateNoteEn":  "No single completion date shown",
         "year":  ""
     },
     {
@@ -115,21 +126,23 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "Google Cybersecurity",
         "titleEn":  "Google Cybersecurity",
         "categoryKey":  "google",
-        "issuerZh":  "Google / Google Cloud",
-        "issuerEn":  "Google / Google Cloud",
-        "year":  ""
+        "issuerZh":  "Google／Coursera",
+        "issuerEn":  "Google / Coursera",
+        "issuedDate":  "2026-04-03",
+        "year":  "2026"
     },
     {
         "id":  "cert-011",
         "sort":  11,
         "image":  "./items/item-011.png",
         "originalFile":  "【Google】Google 認證.png",
-        "titleZh":  "Google 認證",
-        "titleEn":  "Google 認證",
+        "titleZh":  "Google for Education 認證紀錄（Level 1、Level 2、Trainer Skills Assessment）",
+        "titleEn":  "Google for Education Credential Record (Level 1, Level 2, and Trainer Skills Assessment)",
         "categoryKey":  "google",
-        "issuerZh":  "Google / Google Cloud",
-        "issuerEn":  "Google / Google Cloud",
-        "year":  ""
+        "issuerZh":  "Google for Education／Kryterion",
+        "issuerEn":  "Google for Education / Kryterion",
+        "issuedDate":  "2024-10-16；2024-12-11；2025-09-16",
+        "year":  "2024–2025"
     },
     {
         "id":  "cert-012",
@@ -139,9 +152,10 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "Play It Safe- Manage Security Risks",
         "titleEn":  "Play It Safe- Manage Security Risks",
         "categoryKey":  "google",
-        "issuerZh":  "Google / Google Cloud",
-        "issuerEn":  "Google / Google Cloud",
-        "year":  ""
+        "issuerZh":  "Google／Coursera",
+        "issuerEn":  "Google / Coursera",
+        "issuedDate":  "2026-04-02",
+        "year":  "2026"
     },
     {
         "id":  "cert-013",
@@ -151,9 +165,10 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "Sound the Alarm Detection and Response",
         "titleEn":  "Sound the Alarm Detection and Response",
         "categoryKey":  "google",
-        "issuerZh":  "Google / Google Cloud",
-        "issuerEn":  "Google / Google Cloud",
-        "year":  ""
+        "issuerZh":  "Google／Coursera",
+        "issuerEn":  "Google / Coursera",
+        "issuedDate":  "2026-04-03",
+        "year":  "2026"
     },
     {
         "id":  "cert-014",
@@ -163,21 +178,25 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "Tools of the Trade Linux and SQL",
         "titleEn":  "Tools of the Trade Linux and SQL",
         "categoryKey":  "google",
-        "issuerZh":  "Google / Google Cloud",
-        "issuerEn":  "Google / Google Cloud",
-        "year":  ""
+        "issuerZh":  "Google／Coursera",
+        "issuerEn":  "Google / Coursera",
+        "issuedDate":  "2026-04-02",
+        "year":  "2026"
     },
     {
         "id":  "cert-015",
         "sort":  15,
         "image":  "./items/item-015.png",
         "originalFile":  "【Google】育廷 施 _ Google Cloud Skills Boost_1.png",
-        "titleZh":  "育廷 施 _ Google Cloud Skills Boost",
-        "titleEn":  "育廷 施 _ Google Cloud Skills Boost",
+        "titleZh":  "Google Cloud Skills Boost 個人技能徽章紀錄",
+        "titleEn":  "Google Cloud Skills Boost Individual Skill Badge Record",
         "categoryKey":  "google",
-        "issuerZh":  "Google / Google Cloud",
-        "issuerEn":  "Google / Google Cloud",
-        "year":  ""
+        "issuerZh":  "Google Cloud Skills Boost",
+        "issuerEn":  "Google Cloud Skills Boost",
+        "issuedDate":  "2024-07-17–2025-10-07",
+        "issuedDateNoteZh":  "畫面包含多枚徽章，日期為所示取得日期範圍",
+        "issuedDateNoteEn":  "The image contains multiple badges; dates indicate the displayed earning range",
+        "year":  "2024–2025"
     },
     {
         "id":  "cert-016",
@@ -1084,24 +1103,30 @@ window.CERTIFICATE_ITEMS = [
         "sort":  91,
         "image":  "./items/item-091.jpg",
         "originalFile":  "【證照】(MTA)Microsoft Technology Associate：Database Administration Fundamentals1.jpg",
-        "titleZh":  "(MTA)Microsoft Technology Associate：Database Administration Fundamentals1",
-        "titleEn":  "Certification: (MTA)Microsoft Technology Associate：Database Administration Fundamentals1",
+        "titleZh":  "Microsoft Certified Professional（MCP）",
+        "titleEn":  "Microsoft Certified Professional (MCP)",
         "categoryKey":  "license",
         "issuerZh":  "Microsoft",
         "issuerEn":  "Microsoft",
-        "year":  ""
+        "issuedDate":  "06/04/2014",
+        "issuedDateNoteZh":  "依證書原文日期格式",
+        "issuedDateNoteEn":  "Date shown in the certificate's original format",
+        "year":  "2014"
     },
     {
         "id":  "cert-092",
         "sort":  92,
         "image":  "./items/item-092.jpg",
         "originalFile":  "【證照】(MTA)Microsoft Technology Associate：Database Administration Fundamentals2.jpg",
-        "titleZh":  "(MTA)Microsoft Technology Associate：Database Administration Fundamentals2",
-        "titleEn":  "Certification: (MTA)Microsoft Technology Associate：Database Administration Fundamentals2",
+        "titleZh":  "Microsoft Technology Associate：Database Administration Fundamentals",
+        "titleEn":  "Microsoft Technology Associate: Database Administration Fundamentals",
         "categoryKey":  "license",
         "issuerZh":  "Microsoft",
         "issuerEn":  "Microsoft",
-        "year":  ""
+        "issuedDate":  "06/04/2014",
+        "issuedDateNoteZh":  "依證書原文日期格式",
+        "issuedDateNoteEn":  "Date shown in the certificate's original format",
+        "year":  "2014"
     },
     {
         "id":  "cert-093",
@@ -1111,9 +1136,10 @@ window.CERTIFICATE_ITEMS = [
         "titleZh":  "Foundation Certificate in EPC Architecture Framework",
         "titleEn":  "Certification: Foundation Certificate in EPC Architecture Framework",
         "categoryKey":  "license",
-        "issuerZh":  "相關頒發或主辦單位",
-        "issuerEn":  "Relevant issuing or hosting body",
-        "year":  ""
+        "issuerZh":  "GS1 Taiwan／EPCglobal",
+        "issuerEn":  "GS1 Taiwan / EPCglobal",
+        "issuedDate":  "2014-11-19",
+        "year":  "2014"
     },
     {
         "id":  "cert-094",
@@ -1121,11 +1147,12 @@ window.CERTIFICATE_ITEMS = [
         "image":  "./items/item-094.png",
         "originalFile":  "【證照】Google 認證教育工作者第 1 級.png",
         "titleZh":  "Google 認證教育工作者第 1 級",
-        "titleEn":  "Certification: Google 認證教育工作者第 1 級",
+        "titleEn":  "Google Certified Educator Level 1",
         "categoryKey":  "license",
-        "issuerZh":  "Google",
-        "issuerEn":  "Google",
-        "year":  ""
+        "issuerZh":  "Google for Education",
+        "issuerEn":  "Google for Education",
+        "issuedDate":  "2024-10-16",
+        "year":  "2024"
     },
     {
         "id":  "cert-095",
@@ -1133,11 +1160,12 @@ window.CERTIFICATE_ITEMS = [
         "image":  "./items/item-095.png",
         "originalFile":  "【證照】Google 認證教育工作者第 2 級.png",
         "titleZh":  "Google 認證教育工作者第 2 級",
-        "titleEn":  "Certification: Google 認證教育工作者第 2 級",
+        "titleEn":  "Google Certified Educator Level 2",
         "categoryKey":  "license",
-        "issuerZh":  "Google",
-        "issuerEn":  "Google",
-        "year":  ""
+        "issuerZh":  "Google for Education",
+        "issuerEn":  "Google for Education",
+        "issuedDate":  "2024-12-11",
+        "year":  "2024"
     },
     {
         "id":  "cert-096",
@@ -1145,10 +1173,11 @@ window.CERTIFICATE_ITEMS = [
         "image":  "./items/item-096.jpg",
         "originalFile":  "【證照】Oracle Certified Java Programmer (OCJP).jpg",
         "titleZh":  "Oracle Certified Java Programmer (OCJP)",
-        "titleEn":  "Certification: Oracle Certified Java Programmer (OCJP)",
+        "titleEn":  "Oracle Certified Java Programmer (OCJP)",
         "categoryKey":  "license",
         "issuerZh":  "Oracle",
         "issuerEn":  "Oracle",
-        "year":  ""
+        "issuedDate":  "2013-06-05",
+        "year":  "2013"
     }
 ];
