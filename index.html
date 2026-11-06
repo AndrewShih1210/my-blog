@@ -415,10 +415,10 @@
         "@type": "Person",
         "@id": "https://andrewshih1210.github.io/my-blog/#person",
         "name": "施育廷",
-        "alternateName": ["Yu-Ting Shih", "Shih, Yu-Ting", "施老師"],
+        "alternateName": ["Yu-Ting Shih", "Andrew Shih", "施育廷", "Shih, Yu-Ting"],
         "url": "https://andrewshih1210.github.io/my-blog/index.html",
         "image": "https://andrewshih1210.github.io/my-blog/assets/profile-portrait.jpg",
-        "description": "施育廷現為國立臺中教育大學（NTCU，常見寫法為台中教育大學）兼任講師與教育資訊及測驗統計研究所博士候選人，研究聚焦於生成式 AI、AI 教育、AI 教學、AI 融入教學、AI 工具應用、AI 教育應用、AI 應用、教育科技、學習分析、對話式代理人及教學評量自動化。",
+        "description": "國立臺中教育大學（NTCU）兼任講師、教育資訊與測驗統計研究所博士候選人。研究與實作聚焦於生成式AI、教育科技、學習分析、對話式代理人，以及教學與評量自動化。",
         "jobTitle": ["兼任講師", "博士候選人"],
         "hasOccupation": [
           {
@@ -440,17 +440,15 @@
           "alternateName": ["台中教育大學", "National Taichung University of Education", "NTCU"]
         },
         "sameAs": [
-          "https://github.com/AndrewShih1210/my-blog",
+          "https://github.com/AndrewShih1210",
           "https://sites.google.com/view/andrewshih-resume/",
           "https://sites.google.com/view/bc-andrewshih",
           "https://sites.google.com/view/aboutandrewshih",
           "https://ytshihclassworld.pse.is/6q7rwx",
           "https://www.instagram.com/andrewshih1210",
           "https://www.threads.net/@andrewshih1210",
-          "https://andrewshih1210.github.io/my-blog/certificates-site/index.html",
           "https://www.cake.me/ytshih0121?locale=zh-TW",
-          "https://dct.ntcu.edu.tw/front/Introduction/Teacher_Profile/Adjunct_teacher/member.php?ID=bnRjdV9kY3QmQWRqdW5jdF90ZWFjaGVy&PID=13",
-          "https://line.me/ti/g2/Ie7yjfCz1zNlt9-JAk_kmtA2KZjNz_mRF6d-_g?utm_source=invitation&utm_medium=link_copy&utm_campaign=default",
+          "https://dct.ntcu.edu.tw/teacher/13",
           "https://www.digiknow.com.tw/channel/f965b5adb3c44",
           "https://www.youtube.com/@ytshihclassworld"
         ],
@@ -495,6 +493,7 @@
     <div class="wrap topbar">
       <a class="brand" href="./index.html">Yu-Ting Shih Academic Site</a>
       <nav class="topnav" aria-label="主要導覽">
+        <a href="./talks/index.html">演講邀約</a>
         <a href="#overview">總覽</a>
         <a href="./author-works/index.html">研究成果</a>
         <a href="./ai-course-site/index.html">AI 教材</a>
@@ -507,12 +506,12 @@
     </div>
   </header>
 
-  <section class="hero" id="overview">
+  <section class="hero" id="overview" data-static-content>
     <div class="wrap hero-grid">
       <article class="card hero-main">
         <p class="eyebrow">AI Education / Research</p>
-        <h1>施育廷</h1>
-        <p class="lead">施育廷現為國立臺中教育大學（NTCU，常見寫法：台中教育大學）兼任講師與教育資訊與測驗統計研究所博士候選人，研究與實作聚焦於生成式 AI、AI 教育、AI 教學、AI 融入教學、AI 工具應用、AI 教育應用、AI 應用、教育科技、學習分析、對話式代理人，以及教學與評量自動化應用。</p>
+        <h1>施育廷 Yu-Ting Shih（Andrew Shih）</h1>
+        <p class="lead">國立臺中教育大學（NTCU）兼任講師、教育資訊與測驗統計研究所博士候選人。研究與實作聚焦於生成式AI、教育科技、學習分析、對話式代理人，以及教學與評量自動化。</p>
         <div class="pill-row">
           <span class="pill">Generative AI</span>
           <span class="pill">AI Education</span>
@@ -528,7 +527,7 @@
           <a class="button" href="./certificates-site/index.html">查看證照與證明</a>
           <a class="button" href="https://moocs.moe.edu.tw/moocs/#/course/detail/10002657">edu 磨課師+</a>
         </div>
-        <div class="surface-note">首頁導覽列固定在畫面頂端，優先縮短研究成果、教材與證照頁的切換路徑。</div>
+        <div class="surface-note"><a class="button primary" href="./talks/index.html">邀請演講或工作坊</a></div>
       </article>
 
       <aside class="card hero-side">
@@ -565,9 +564,15 @@
           <p class="eyebrow">Routes</p>
           <h2>主要內容入口</h2>
         </div>
-        <p>把根首頁設計成品牌首頁後，最重要的是讓不同目的的訪客在三步內進到正確內容，而不是先閱讀整站說明。</p>
+        <p>依需求選擇研究成果、課程教材或演講邀約，也可瀏覽教學分享與專業證明。</p>
       </div>
       <div class="route-grid">
+        <article class="route-card" data-static-content>
+          <span class="route-step">演講與工作坊</span>
+          <h3>演講邀約與工作坊</h3>
+          <p class="muted">查看演講主題與公開教學資源，依參與對象、學習目標及活動形式洽談邀約。</p>
+          <a class="button primary" href="./talks/index.html">查看演講邀約</a>
+        </article>
         <article class="route-card">
           <span class="route-step">Route 01</span>
           <h3>研究成果與著作</h3>
@@ -779,7 +784,7 @@
           <p class="eyebrow">Milestones</p>
           <h2>代表成果脈絡</h2>
         </div>
-        <p>這裡不是完整履歷，而是首頁層級的摘要敘事，幫助讀者與 AI 系統快速理解代表成果、公開課程與研究方向。</p>
+        <p>從代表成果與公開課程，了解教學實作與研究方向。</p>
       </div>
       <div class="timeline">
         <article class="timeline-item">
@@ -845,7 +850,7 @@
         <article class="feature">
           <h3>學術與專業節點</h3>
           <div class="cta-row">
-            <a class="button primary" href="https://dct.ntcu.edu.tw/front/Introduction/Teacher_Profile/Adjunct_teacher/member.php?ID=bnRjdV9kY3QmQWRqdW5jdF90ZWFjaGVy&PID=13">NTCU 師資頁</a>
+            <a class="button primary" href="https://dct.ntcu.edu.tw/teacher/13">NTCU 師資頁</a>
             <a class="button" href="https://www.cake.me/ytshih0121?locale=zh-TW">Cake 履歷</a>
             <a class="button" href="https://github.com/AndrewShih1210/my-blog">GitHub Repo</a>
           </div>
@@ -870,15 +875,15 @@
           <p class="eyebrow">Author</p>
           <h2>作者署名</h2>
         </div>
-        <p>這個 GitHub Pages 學術首頁與公開版雙語 AI 教材，皆由施育廷規劃、整編與製作，用於學術品牌、教學展示與研究對外溝通。</p>
+        <p>本站與雙語AI教材由施育廷規劃、整編與製作，供教學參考與學術交流。</p>
       </div>
-      <article class="card author-signature">
+      <article class="card author-signature" data-static-content>
         <div class="author-photo-frame">
           <img src="./assets/profile-portrait.jpg" alt="施育廷大頭照" />
         </div>
         <div>
-          <h3>施育廷</h3>
-          <p class="muted">國立臺中教育大學（NTCU／台中教育大學）兼任講師、博士候選人與 AI 支援教學研究實作者，長期關注生成式 AI、AI 教育、AI 教學、AI 融入教學、AI 教育應用、AI 應用、AI 工具應用、教育科技、學習分析、對話式代理人與教學評量自動化。</p>
+          <h3>施育廷 Yu-Ting Shih（Andrew Shih）</h3>
+          <p class="muted">國立臺中教育大學（NTCU）兼任講師、教育資訊與測驗統計研究所博士候選人。研究與實作聚焦於生成式AI、教育科技、學習分析、對話式代理人，以及教學與評量自動化。</p>
           <div class="cta-row">
             <a class="button primary" href="./ai-course-site/index.html">查看 AI 教材</a>
             <a class="button" href="./linebot-course-site/index.html">LINE Bot 教材網站</a>
@@ -892,7 +897,7 @@
   </section>
 
   <footer class="wrap footer">
-    <p>這個中文學術首頁將研究成果可見度、雙語 AI 教材、公開課程、證照與對外學術入口整合在同一個可檢索、可分享、可被 AI 理解的公開網站中。</p>
+    <p>本站整理研究成果、雙語AI教材、公開課程、證照與演講邀約資訊。</p>
     <p>Copyright © 2026 施育廷（Yu-Ting Shih）。<a href="./copyright.html">網站內容保留所有權利</a>；<a href="./veo-crator/license.html">動態圖室採非商業授權</a>。</p>
   </footer>
 </body>

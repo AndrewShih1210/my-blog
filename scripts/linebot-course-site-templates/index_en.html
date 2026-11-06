@@ -32,7 +32,9 @@
           "name": "LINE Bot, Google Apps Script, and Google Sheets Teaching",
           "provider": {
             "@type": "Person",
-            "name": "Yu-Ting Shih"
+            "@id": "https://andrewshih1210.github.io/my-blog/#person",
+            "name": "施育廷",
+            "alternateName": ["Yu-Ting Shih", "Andrew Shih"]
           },
           "teaches": [
             "LINE Messaging API",
@@ -62,6 +64,7 @@
       <a class="brand" href="index_en.html">LINE Bot x GAS Teaching Site</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="course-nav"><span>Menu</span><span class="menu-toggle-icon" aria-hidden="true"></span></button>
       <nav id="course-nav" class="nav">
+        <a href="../talks/index_en.html">Talks</a>
         <a href="index_en.html">Home</a>
 <a href="teaching-plan_en.html">Course Map</a>
 <a href="setup_en.html">Setup</a>
@@ -75,7 +78,7 @@
       </nav>
     </div>
   </header>
-<section class="hero">
+<section class="hero" data-static-content>
   <div class="wrap hero-grid">
     <article class="panel callout">
       <p class="eyebrow">Bilingual Course Site</p>
@@ -101,7 +104,7 @@
         <div class="cta-row">
           <a class="button primary" href="https://sites.google.com/view/genai-mcp/index">Source course site</a>
           <a class="button" href="https://www.youtube.com/playlist?list=PL1BHO-AUVmwnWQg8Y55MRjoiQ8wBUBScJ">YouTube playlist</a>
-          <a class="button" href="https://moocs.moe.edu.tw/moocs/#/course/detail/10002657">MOE MOOC</a>
+          <a class="button" href="https://moocs.moe.edu.tw/moocs/#/course/detail/10002657">Yu-Ting Shih | Python Applications Course (MOE MOOC)</a>
           <a class="button" href="https://www.youtube.com/@ytshihclassworld">YouTube channel</a>
         </div>
       </div>
@@ -109,6 +112,18 @@
   </div>
 </section>
 <main class="wrap main-stack">
+    <section class="section" id="start-here" data-static-content aria-labelledby="start-here-title">
+      <div class="section-head"><div><p class="section-label">Start Here</p><h2 id="start-here-title">Prepare, practice, and check</h2></div></div>
+      <div class="two-col">
+        <article class="panel"><h3>Prerequisites and learning steps</h3><p>Prepare LINE and Google accounts, access to LINE Developers, and permission to create Sheets, Drive folders, and Apps Script projects. Basic JavaScript reading helps; Gemini exercises require an API key.</p>
+          <ol><li>Follow <a href="setup_en.html">Setup</a> to prepare Sheets, Drive, the LINE channel, and the Apps Script deployment.</li><li>Trace a test message through the webhook and inspect <a href="apps-script_en.html#logs">logs and permissions</a>.</li><li>Only after the basic path works, try a <a href="workflows_en.html">summary workflow</a> with Gemini.</li></ol>
+        </article>
+        <article class="panel"><h3>Try one exercise</h3><p>Use a short public course announcement to test a summary workflow. Compare the reply with the source and check the workflow log. Then test empty input and record the expected error or manual fallback.</p>
+          <h3>Limits and safe use</h3><p>This is a learning guide, not a hosted bot or production-ready service. You must configure and test your own deployment. Keep tokens and keys private, restrict Sheet access, and check service quotas and costs before use. Verify AI summaries manually.</p>
+          <a class="button primary" href="../talks/index_en.html">Invite a Talk or Workshop</a>
+        </article>
+      </div>
+    </section>
   <section class="section">
     <div class="section-head">
       <div>
@@ -169,9 +184,10 @@
 </main>
   <footer class="site-footer">
     <div class="wrap footer-grid">
-      <article class="panel">
+      <article class="panel" data-static-content>
         <p class="section-label">Author</p>
-        <h3>施育廷 / Yu-Ting Shih</h3>
+        <h3>施育廷 Yu-Ting Shih（Andrew Shih）</h3>
+        <p class="muted">NTCU Adjunct Lecturer; doctoral candidate, Graduate Institute of Educational Information and Measurement (教育資訊與測驗統計研究所).</p>
         <p class="muted">This site was curated by Yu-Ting Shih and consolidates teaching materials on LINE Bot, Google Apps Script, Google Sheets, and generative AI into a public-facing instructional website.</p>
       </article>
       <article class="panel">

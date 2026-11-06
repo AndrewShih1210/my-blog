@@ -32,7 +32,9 @@
           "name": "LINE Bot、Google Apps Script 與 Google Sheets 教學",
           "provider": {
             "@type": "Person",
-            "name": "施育廷"
+            "@id": "https://andrewshih1210.github.io/my-blog/#person",
+            "name": "施育廷",
+            "alternateName": ["Yu-Ting Shih", "Andrew Shih"]
           },
           "teaches": [
             "LINE Messaging API",
@@ -67,6 +69,7 @@
       <a class="brand" href="index.html">LINE Bot x GAS 教學網站</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="course-nav"><span>選單</span><span class="menu-toggle-icon" aria-hidden="true"></span></button>
       <nav id="course-nav" class="nav" aria-label="LINE Bot 教學導覽">
+        <a href="../talks/index.html">演講邀約</a>
         <a href="index.html">首頁</a>
         <a href="teaching-plan.html">教學地圖</a>
         <a href="setup.html">初始設定</a>
@@ -81,7 +84,7 @@
     </div>
   </header>
 
-  <section class="hero">
+  <section class="hero" data-static-content>
     <div class="wrap hero-grid">
       <article class="panel callout">
         <p class="eyebrow">LINE Bot Course</p>
@@ -107,7 +110,7 @@
           <div class="cta-row">
             <a class="button primary" href="https://sites.google.com/view/genai-mcp/index">原始課程網站</a>
             <a class="button" href="https://www.youtube.com/playlist?list=PL1BHO-AUVmwnWQg8Y55MRjoiQ8wBUBScJ">YouTube 播放清單</a>
-            <a class="button" href="https://moocs.moe.edu.tw/moocs/#/course/detail/10002657">教育部磨課師</a>
+            <a class="button" href="https://moocs.moe.edu.tw/moocs/#/course/detail/10002657">施育廷｜Python 應用課程（教育部磨課師）</a>
             <a class="button" href="https://www.youtube.com/@ytshihclassworld">施育廷 YouTube 頻道</a>
           </div>
         </div>
@@ -116,6 +119,18 @@
   </section>
 
   <main class="wrap main-stack">
+    <section class="section" id="start-here" data-static-content aria-labelledby="start-here-title">
+      <div class="section-head"><div><p class="section-label">開始實作</p><h2 id="start-here-title">準備、練習與檢查</h2></div></div>
+      <div class="two-col">
+        <article class="panel"><h3>先備條件與學習步驟</h3><p>準備LINE與Google帳號、LINE Developers存取權，以及建立Sheets、Drive資料夾與Apps Script專案的權限。建議能閱讀基礎JavaScript；Gemini練習需另備API金鑰。</p>
+          <ol><li>依<a href="setup.html">初始設定</a>準備Sheets、Drive、LINE Channel與Apps Script部署。</li><li>送出測試訊息，追蹤Webhook資料流，檢查<a href="apps-script.html#logs">紀錄與權限</a>。</li><li>確認基本流程可運作後，再嘗試Gemini的<a href="workflows.html">摘要工作流程</a>。</li></ol>
+        </article>
+        <article class="panel"><h3>先完成一個練習</h3><p>用一段公開課程公告測試摘要流程，對照原文檢查回覆與流程紀錄；再測試空白輸入，記錄預期錯誤提示或人工處理方式。</p>
+          <h3>使用限制與安全</h3><p>本站是學習指引，不提供代管Bot，也不保證可直接作為正式服務。需自行設定與測試部署；勿公開token或API金鑰，應限制試算表權限，使用前確認服務配額與費用，並人工查核AI摘要。</p>
+          <a class="button primary" href="../talks/index.html">邀請演講或工作坊</a>
+        </article>
+      </div>
+    </section>
     <section class="section" id="overview">
       <div class="section-head">
         <div>
@@ -198,9 +213,10 @@
 
   <footer class="site-footer">
     <div class="wrap footer-grid">
-      <article class="panel">
+      <article class="panel" data-static-content>
         <p class="section-label">Author</p>
-        <h3>施育廷 / Yu-Ting Shih</h3>
+        <h3>施育廷 Yu-Ting Shih（Andrew Shih）</h3>
+        <p class="muted">國立臺中教育大學兼任講師、教育資訊與測驗統計研究所博士候選人。</p>
         <p class="muted">本教學網站由施育廷整理與製作，將 LINE Bot、Google Apps Script、Google Sheets 與 Gemini 整合教材轉為可公開瀏覽的雙語教學網站。</p>
       </article>
       <article class="panel">

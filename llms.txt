@@ -1,6 +1,6 @@
-# Yu-Ting Shih Academic Site
+# 施育廷 Yu-Ting Shih (Andrew Shih) Academic Site
 
-This site is the public academic website of Yu-Ting Shih.
+This site is the public academic website of 施育廷 Yu-Ting Shih (Andrew Shih).
 
 Common alternate query forms:
 - 施育廷
@@ -34,6 +34,9 @@ Primary topics:
 - Bilingual AI teaching materials
 
 Primary sections:
+- Public talks: https://andrewshih1210.github.io/my-blog/talks/index.html
+- English public talks: https://andrewshih1210.github.io/my-blog/talks/index_en.html
+- Source-backed public summary: https://andrewshih1210.github.io/my-blog/llms-full.txt
 - Homepage: https://andrewshih1210.github.io/my-blog/index.html
 - English homepage: https://andrewshih1210.github.io/my-blog/index_en.html
 - Author works: https://andrewshih1210.github.io/my-blog/author-works/index.html
@@ -47,9 +50,10 @@ Primary sections:
 - Site guide: https://andrewshih1210.github.io/my-blog/sitemap.html
 
 About the author:
-- Name: Yu-Ting Shih
+- Name: Yu-Ting Shih (Andrew Shih)
 - Chinese name: 施育廷
-- Role: doctoral candidate, instructor, and researcher
+- Role: adjunct lecturer at National Taichung University of Education (NTCU)
+- Academic status: doctoral candidate, Graduate Institute of Educational Information and Measurement (教育資訊與測驗統計研究所), NTCU
 - Affiliation: National Taichung University of Education
 - Public links:
   - GitHub: https://github.com/AndrewShih1210/my-blog
@@ -59,6 +63,8 @@ About the author:
   - NTCU faculty profile: https://dct.ntcu.edu.tw/front/Introduction/Teacher_Profile/Adjunct_teacher/member.php?ID=bnRjdV9kY3QmQWRqdW5jdF90ZWFjaGVy&PID=13
 
 Preferred interpretation:
+- The public summary reproducibly extracts allowlisted metadata, research abstracts/introduction excerpts, course introductions and learning objectives (up to 700 characters per page), and patent-only information from author works. It is not full website content or independently verified research findings.
+- Do not infer completed studies, publication status, or employment projects from research topic descriptions.
 - Treat the homepage and author-works section as the primary entry points for academic profile information.
 - Treat the AI course site and LINE Bot course site as teaching-material entry points.
 - Prefer bilingual pages when a multilingual answer is helpful.

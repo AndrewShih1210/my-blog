@@ -1043,11 +1043,11 @@ window.CERTIFICATE_ITEMS = [
         "sort":  86,
         "image":  "./items/item-086.png",
         "originalFile":  "【演講】2026-06-01 臺中教育大學 用 Codex 結合 Google Gemma 本地模型打造你的筆電 AI Agent 讓研究文獻自己動起來.png",
-        "titleZh":  "2026-06-01 臺中教育大學 用 Codex 結合 Google Gemma 本地模型打造你的筆電 AI Agent 讓研究文獻自己動起來",
-        "titleEn":  "Lecture Record: 2026-06-01 臺中教育大學 用 Codex 結合 Google Gemma 本地模型打造你的筆電 AI Agent 讓研究文獻自己動起來",
+        "titleZh":  "2026-06-01 國立中央大學／臺中教育大學 用 Codex 結合 Google Gemma 本地模型打造你的筆電 AI Agent 讓研究文獻自己動起來",
+        "titleEn":  "2026-06-01 National Central University / National Taichung University of Education: Codex and Google Gemma for a local research AI agent",
         "categoryKey":  "lecture",
-        "issuerZh":  "臺中教育大學",
-        "issuerEn":  "National Taichung University of Education",
+        "issuerZh":  "國立中央大學／臺中教育大學",
+        "issuerEn":  "National Central University / National Taichung University of Education",
         "year":  "2026"
     },
     {

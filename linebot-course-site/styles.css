@@ -251,6 +251,9 @@ h3 {
   margin-top: 24px;
 }
 
+img { max-width: 100%; height: auto; }
+.panel, .figure-grid, .figure-card { min-width: 0; }
+
 .button {
   min-height: 46px;
   display: inline-flex;
