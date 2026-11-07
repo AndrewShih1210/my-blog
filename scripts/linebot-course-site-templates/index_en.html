@@ -104,7 +104,7 @@
         <div class="cta-row">
           <a class="button primary" href="https://sites.google.com/view/genai-mcp/index">Source course site</a>
           <a class="button" href="https://www.youtube.com/playlist?list=PL1BHO-AUVmwnWQg8Y55MRjoiQ8wBUBScJ">YouTube playlist</a>
-          <a class="button" href="https://moocs.moe.edu.tw/moocs/#/course/detail/10002657">Yu-Ting Shih | Python Applications Course (MOE MOOC)</a>
+          <a class="button" href="https://moocs.moe.edu.tw/moocs/#/course/detail/10002657">Yu-Ting Shih | Python Applications MOOC (optional extension, not a prerequisite or substitute)</a>
           <a class="button" href="https://www.youtube.com/@ytshihclassworld">YouTube channel</a>
         </div>
       </div>
@@ -112,6 +112,7 @@
   </div>
 </section>
 <main class="wrap main-stack">
+<section class="panel" id="safe-quickstart"><h2>Build a replying bot with Sheets logging</h2><p><a class="button primary" href="quickstart_en.html">Open the complete quickstart</a></p><p>Follow the Node / Cloud Run signature-verifying entry point, GAS signed-record endpoint, and Sheets workflow. The Python MOOC is optional extension material, not a prerequisite or replacement for this hands-on path.</p><p>Security: the <code>APIKEY</code> worksheet is a historical example only. Never store secrets in Sheets. Store tokens, Channel Secret, and other API keys in server environment variables or a secret manager. GAS Script Properties holds relay shared-secret and <code>SHEET_ID</code> configuration; it is not a vault. Project editors can retrieve these values, so do not broadly grant editor access.</p><p>The documented event fields of public GAS <code>doPost(e)</code> do not expose <code>x-line-signature</code>; pure GAS is not a reliable direct LINE signature-verification entry point. Use Node / Cloud Run to verify the original request body before replying and sending signed records. GAS verifies the relay signature before writing to Sheets; relay verification is not LINE signature verification.</p><p><a href="apps-script_en.html#security-quotas">Security, quotas, and official sources</a></p></section>
     <section class="section" id="start-here" data-static-content aria-labelledby="start-here-title">
       <div class="section-head"><div><p class="section-label">Start Here</p><h2 id="start-here-title">Prepare, practice, and check</h2></div></div>
       <div class="two-col">
@@ -165,8 +166,9 @@
       <p class="section-text">This site preserves diagrams and screenshots from the original materials so learners can connect setup steps with actual interfaces and data structures.</p>
       <div class="figure-grid">
         <article class="figure-card panel">
-          <img src="assets/figures/apikey-sheet.png" alt="API key worksheet" />
-          <p>A worksheet can function as a memory layer, key registry, and workflow tracker.</p>
+          <img src="assets/figures/apikey-sheet.png" alt="Historical APIKEY worksheet; never store secrets here" />
+<p class="summary-box">Historical example only: the APIKEY worksheet shown above is not recommended for storing keys. Never store secrets in Sheets; use server environment variables or a secret manager.</p>
+          <p>A worksheet can function as a memory layer and workflow tracker, never a secret store.</p>
         </article>
         <article class="figure-card panel">
           <img src="assets/figures/drive-folder.png" alt="Google Drive folder" />

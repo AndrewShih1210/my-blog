@@ -5,7 +5,7 @@ from pathlib import Path
 import shutil
 
 
-REPO_ROOT = Path(r"C:\Users\sweet\OneDrive\Desktop\pd\REFERENCES_GITHUB")
+REPO_ROOT = Path(__file__).resolve().parents[1]
 SITE_ROOT = REPO_ROOT / "linebot-course-site"
 TEMPLATE_ROOT = REPO_ROOT / "scripts" / "linebot-course-site-templates"
 
@@ -32,6 +32,11 @@ def build_site() -> None:
         content = template.read_text(encoding="utf-8")
         target.write_text(content, encoding="utf-8", newline="\n")
         print(f"Wrote {target}")
+
+    # The hands-on pages embed the current example source, not stale snapshots.
+    from build_linebot_quickstart import build
+    build(False)
+    build(True)
 
 
 def snapshot_current_site() -> None:

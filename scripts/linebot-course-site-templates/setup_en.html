@@ -57,19 +57,21 @@
     <a href="#verify">Webhook verification</a>
   </aside>
   <article class="article">
+<section class="panel" id="safe-quickstart"><h2>Build a replying bot with Sheets logging</h2><p><a class="button primary" href="quickstart_en.html">Open the complete quickstart</a></p><p>Follow the Node / Cloud Run signature-verifying entry point, GAS signed-record endpoint, and Sheets workflow. The Python MOOC is optional extension material, not a prerequisite or replacement for this hands-on path.</p><p>Security: the <code>APIKEY</code> worksheet is a historical example only. Never store secrets in Sheets. Store tokens, Channel Secret, and other API keys in server environment variables or a secret manager. GAS Script Properties holds relay shared-secret and <code>SHEET_ID</code> configuration; it is not a vault. Project editors can retrieve these values, so do not broadly grant editor access.</p><p>The documented event fields of public GAS <code>doPost(e)</code> do not expose <code>x-line-signature</code>; pure GAS is not a reliable direct LINE signature-verification entry point. Use Node / Cloud Run to verify the original request body before replying and sending signed records. GAS verifies the relay signature before writing to Sheets; relay verification is not LINE signature verification.</p><p><a href="apps-script_en.html#security-quotas">Security, quotas, and official sources</a></p></section>
     <section class="panel" id="prereq">
       <h2>Prerequisites</h2>
       <ul class="clean-list">
         <li>A LINE account that can access LINE Developers.</li>
         <li>A Google account with access to Sheets, Drive, and Apps Script.</li>
-        <li>At least one Gemini API key. Threads and Cloudinary keys are needed if posting workflows are enabled.</li>
+        <li>No Gemini API key is required for basic replies and Sheets logging. Optional AI or posting workflows need their own keys, stored in server environment variables or a secret manager.</li>
         <li>A clean naming plan for folders and worksheets so maintenance stays manageable.</li>
       </ul>
     </section>
     <section class="panel figure-card" id="sheet">
       <h2>Step 1: Build Google Sheet as the memory layer</h2>
-      <img src="assets/figures/apikey-sheet.png" alt="API key worksheet" />
-      <p>The teaching materials treat Google Sheet as a durable memory layer. At minimum, prepare tabs for <code>APIKEY</code>, logs, notes, uploaded files, and temporary workflow data.</p>
+      <img src="assets/figures/apikey-sheet.png" alt="Historical APIKEY worksheet; never store secrets here" />
+<p class="summary-box">Historical example only: the APIKEY worksheet shown above is not recommended for storing keys. Never store secrets in Sheets; use server environment variables or a secret manager.</p>
+      <p>The teaching materials treat Google Sheet as a durable memory layer. Prepare tabs for logs, notes, uploaded files, and temporary workflow data as needed. The <code>APIKEY</code> tab is a historical example only, not a secret store.</p>
     </section>
     <section class="panel figure-card" id="drive">
       <h2>Step 2: Create the Google Drive storage folder</h2>
@@ -78,16 +80,16 @@
     </section>
     <section class="panel" id="line">
       <h2>Step 3: Create the LINE Channel</h2>
-      <p>In LINE Developers Console, create a Messaging API Channel and record the <code>Channel secret</code> and <code>Channel access token</code>. These values enable event intake and message delivery.</p>
+      <p>Create a LINE Official Account and enable Messaging API in LINE Official Account Manager, then open the corresponding channel in LINE Developers Console. Store the <code>Channel secret</code> and <code>Channel access token</code> in server environment variables or a secret manager, never in Sheets. Follow the complete quickstart for configuration and verification.</p>
     </section>
     <section class="panel figure-card" id="deploy">
       <h2>Step 4: Deploy Apps Script as a web app</h2>
       <img src="assets/figures/webhook-basics.png" alt="Webhook basics slide" />
-      <p>Open Apps Script from the spreadsheet, paste the core code, bind the spreadsheet ID, folder ID, key locations, and model settings, then deploy the project as a web app.</p>
+      <p>Deploy Apps Script as the signed-record endpoint, configuring the relay shared secret and SHEET_ID in Script Properties. Node / Cloud Run handles LINE signature verification and replies. Script Properties is not a vault: project editors can retrieve its values, so restrict editor access.</p>
     </section>
     <section class="panel" id="verify">
       <h2>Step 5: Set and verify the Webhook</h2>
-      <p>Paste the deployed web app URL into the LINE Webhook URL field and run Verify. If verification succeeds, LINE can deliver events to Apps Script. Disable built-in auto replies so your bot keeps control.</p>
+      <p>Set the Node / Cloud Run signature-verifying endpoint as the LINE Webhook URL, not the GAS URL. Test valid signatures, rejection of invalid signatures, bot replies, and Sheets records; Console Verify alone does not prove signature validation. Disable built-in auto replies so your bot keeps control.</p>
       <div class="summary-box">
         <h3>Minimum success criteria</h3>
         <ul class="clean-list">

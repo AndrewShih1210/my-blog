@@ -45,6 +45,9 @@ Primary sections:
 - English AI course site: https://andrewshih1210.github.io/my-blog/ai-course-site/index_en.html
 - LINE Bot course site: https://andrewshih1210.github.io/my-blog/linebot-course-site/index.html
 - English LINE Bot course site: https://andrewshih1210.github.io/my-blog/linebot-course-site/index_en.html
+- Runnable classroom Bot tutorial: https://andrewshih1210.github.io/my-blog/linebot-course-site/quickstart.html
+- English classroom Bot tutorial: https://andrewshih1210.github.io/my-blog/linebot-course-site/quickstart_en.html
+- The Bot example verifies LINE signatures in Node before replying and optionally signs minimal metadata for GAS/Sheets. It is classroom code, not a production deployment guarantee; local mocked tests do not verify an actual LINE or GAS account.
 - Teaching guide: https://andrewshih1210.github.io/my-blog/teaching-share/index.html
 - Credentials archive: https://andrewshih1210.github.io/my-blog/certificates-site/index.html
 - Site guide: https://andrewshih1210.github.io/my-blog/sitemap.html

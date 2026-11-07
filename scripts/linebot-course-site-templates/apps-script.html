@@ -56,24 +56,26 @@
       <a href="#practice">練習建議</a>
     </aside>
     <article class="article">
+<section class="panel" id="safe-quickstart"><h2>實作回覆Bot與Sheets紀錄</h2><p><a class="button primary" href="quickstart.html">開啟完整快速實作</a></p><p>依序完成Node／Cloud Run驗簽入口、GAS簽名紀錄端與Sheets流程。Python磨課師僅為延伸學習，非必修，也不能替代此實作。</p><p><a href="apps-script.html#security-quotas">安全、配額與官方來源</a></p></section>
+<section class="panel" id="security-quotas"><h2>安全與配額</h2><p>官方資料查核日期：2026-11-07。配額可能變更，部署前請再確認。</p><p>安全原則：<code>APIKEY</code>工作表僅為歷史示例，勿儲存秘密。Token、Channel Secret及其他API金鑰應放在伺服器環境變數或秘密管理器。GAS的Script Properties僅用於relay共享secret與<code>SHEET_ID</code>等設定，不是vault；專案編輯者可取得內容，不可廣發編輯權限。</p><p>GAS公開<code>doPost(e)</code>的事件欄位不含<code>x-line-signature</code>，不能作為可靠驗證LINE簽章的直接入口。正式入口須由Node／Cloud Run以原始請求本文驗簽，再回覆Bot並送出簽名紀錄；GAS驗證relay簽名後才寫入Sheets，兩種簽章不可混為一談。</p><ul class="clean-list"><li>Apps Script每次執行最長6分鐘；每位使用者同時執行30個，每個指令碼同時執行1,000個。這些是執行限制，不是安全使用人數或吞吐量保證。</li><li>UrlFetch每日呼叫：個人帳戶20,000次、Google Workspace帳戶100,000次，依使用者計算；配額於首次要求後24小時重設。</li><li>時間觸發器等觸發條件的每日總執行時間：個人90分鐘、Workspace 6小時。這是trigger用量，不是所有Web App請求共用的每日總執行時間。</li><li>Google Sheets目前檔案上限為2,000萬儲存格（20 million cells）或100MB，不是1,000萬儲存格。這是檔案上限，不能推算可用吞吐量或安全人數上限。</li></ul><p>實務設計：批次讀寫，使用鎖保護共享寫入，處理重送與重複紀錄；設定紀錄保留期限、最小化個資並限制存取。以實測延遲、失敗率與配額使用量評估負載；高併發、交易或細緻權限需求應轉用資料庫。</p><p>官方來源 / Official sources (2026-11-07): <a href="https://developers.google.com/apps-script/guides/services/quotas?hl=zh-tw">Apps Script quotas</a> · <a href="https://developers.google.com/apps-script/guides/properties">Properties Service</a> · <a href="https://developers.google.com/apps-script/guides/web">Web Apps event fields</a> · <a href="https://developers.line.biz/en/docs/messaging-api/verify-webhook-signature/">LINE signature verification</a> · <a href="https://support.google.com/drive/answer/37603">Google Sheets file limits</a>.</p></section>
       <section class="panel" id="components">
         <h2>核心元件</h2>
         <ul class="clean-list">
           <li>LINE Messaging API：負責接收使用者訊息與回送內容。</li>
-          <li>Webhook：把 LINE 事件送進 Apps Script。</li>
-          <li>Google Apps Script：負責路由、判斷、寫入、呼叫外部模型與整理回覆。</li>
-          <li>Google Sheets：作為記憶層、金鑰管理區與流程紀錄區。</li>
+          <li>Webhook：先由Node／Cloud Run入口驗證LINE簽章，再將簽名紀錄送至Apps Script。</li>
+          <li>Google Apps Script：在本入門架構中驗證relay簽名並寫入Sheets；其他路由、模型呼叫與整理功能屬延伸應用。</li>
+          <li>Google Sheets：作為非機密資料的記憶層與流程紀錄區，不儲存金鑰。</li>
           <li>Google Drive：存放使用者上傳檔案與系統輸出結果。</li>
           <li>Gemini：負責摘要、分類、生成與問答等 AI 任務。</li>
         </ul>
       </section>
       <section class="panel" id="flow">
         <h2>資料流怎麼走</h2>
-        <p>一則 LINE 訊息進來後，會先經過 Webhook 送到 Apps Script。程式根據事件類型、使用者狀態與指令內容進行路由，必要時讀取工作表、呼叫 Gemini、存取 Drive，再回傳結果給 LINE。這代表設計重點不只是回覆語句，而是整個判斷與寫入流程。</p>
+        <p>一則LINE訊息進來後，先由Node／Cloud Run入口以原始請求本文驗證LINE簽章，再處理事件及回覆；入口另將簽名紀錄交給GAS驗證後寫入Sheets。延伸流程可依事件、使用者狀態與指令讀取工作表、呼叫Gemini或存取Drive。這代表設計重點不只是回覆語句，而是整個判斷與寫入流程。</p>
       </section>
       <section class="panel" id="logs">
         <h2>管理與紀錄</h2>
-        <p>如果把 Bot 用在教學或行政情境，管理功能比回覆效果更重要。應至少規劃：API 金鑰管理、使用紀錄、錯誤紀錄、上傳檔案對應表，以及必要的人工介入節點。這些都可以透過 Google Sheets 與 Apps Script 維持。</p>
+        <p>如果把 Bot 用在教學或行政情境，管理功能比回覆效果更重要。應至少規劃使用紀錄、錯誤紀錄、上傳檔案對應表與人工介入節點，由Google Sheets與Apps Script維持非機密資料；API金鑰則另由伺服器環境變數或秘密管理器管理。</p>
       </section>
       <section class="panel" id="practice">
         <h2>練習建議</h2>

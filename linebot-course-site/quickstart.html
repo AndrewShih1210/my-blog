@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>做出會回覆的LINE Bot，再加入Sheets紀錄 | LINE Bot Lab</title><meta name="description" content="從固定文字回覆開始，成功後才加入GAS簽名紀錄。這一頁提供完整原始碼、部署步驟與檢查點，不需要先上磨課師，也不需要Gemini金鑰。">
+<link rel="canonical" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/quickstart.html"><link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/quickstart.html"><link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/quickstart_en.html">
+<link rel="stylesheet" href="quickstart.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "做出會回覆的LINE Bot，再加入Sheets紀錄", "inLanguage": "zh-Hant", "dateModified": "2026-11-07", "author": {"@type": "Person", "@id": "https://andrewshih1210.github.io/my-blog/#person", "name": "施育廷", "alternateName": ["Yu-Ting Shih", "Andrew Shih"]}, "url": "https://andrewshih1210.github.io/my-blog/linebot-course-site/quickstart.html"}</script><link rel="stylesheet" href="../assets/site-shell.css">
+<script defer src="../assets/site-shell.js"></script>
+</head>
+<body class="site-unified"><header class="unified-header"><div class="unified-inner">
+<a class="unified-brand" href="../index.html">施育廷<span>Andrew Shih</span></a>
+<nav class="unified-desktop" aria-label="全站導覽"><a class="unified-link" href="../index.html">首頁</a><a class="unified-link" href="../talks/index.html">演講邀約</a><a class="unified-link" href="../author-works/index.html">研究成果</a><a class="unified-link" href="../ai-course-site/index.html">AI教材</a><a class="unified-link" href="index.html">LINE Bot</a><a class="unified-link" href="../certificates-site/index.html">證照紀錄</a><a class="unified-link" href="../sitemap.html">網站導覽</a><a class="unified-link" href="quickstart_en.html">English</a><details class="unified-local"><summary>本頁／教材導覽</summary><nav class="unified-local-panel" aria-label="本頁／教材導覽"><a class="unified-link" href="#prepare">開始實作</a><a class="unified-link" href="#source">程式碼</a></nav></details></nav>
+<details class="unified-mobile"><summary>選單／語言</summary><nav class="unified-mobile-panel" aria-label="全站導覽"><a class="unified-link" href="../index.html">首頁</a><a class="unified-link" href="../talks/index.html">演講邀約</a><a class="unified-link" href="../author-works/index.html">研究成果</a><a class="unified-link" href="../ai-course-site/index.html">AI教材</a><a class="unified-link" href="index.html">LINE Bot</a><a class="unified-link" href="../certificates-site/index.html">證照紀錄</a><a class="unified-link" href="../sitemap.html">網站導覽</a><a class="unified-link" href="quickstart_en.html">English</a><strong class="unified-mobile-label">本頁／教材導覽</strong><a class="unified-link" href="#prepare">開始實作</a><a class="unified-link" href="#source">程式碼</a></nav></details>
+</div></header><main class="lab"><p class="eyebrow">HANDS-ON LAB · 2026-11-07</p><h1>做出會回覆的LINE Bot，再加入Sheets紀錄</h1><p class="lead">從固定文字回覆開始，成功後才加入GAS簽名紀錄。這一頁提供完整原始碼、部署步驟與檢查點，不需要先上磨課師，也不需要Gemini金鑰。</p><p><a class="button" href="examples/reply-bot.zip">下載完整範例ZIP</a> <a href="#source">直接閱讀完整程式碼</a></p><aside class="notice">驗證狀態：12項本機自動測試通過，LINE與GAS外部服務採模擬。尚未使用真實帳戶驗證Cloud Run、LINE回覆及Sheets寫入。下方為官方參考截圖，不是本次帳戶部署成果；此範例也不是可直接上線的正式服務。</aside><nav class="steps" aria-label="實作步驟"><a href="#prepare">01 · 準備檔案與帳號</a><a href="#line">02 · LINE</a><a href="#cloud">03 · Cloud Run</a><a href="#webhook">04 · Webhook</a><a href="#gas">05 · GAS / Sheets</a><a href="#relay">06 · 串接與檢查</a><a href="#limits">07 · 限制與除錯</a><a href="#source">08 · 完整程式碼</a></nav><div class="flow" aria-label="Architecture">LINE → Node / Cloud Run <strong>原始本文驗簽＋回覆</strong> → 簽名最少紀錄 → GAS → Sheets</div><section id="prepare"><h2>01 · 準備檔案與帳號</h2><ol><li>安裝Node.js 22以上與Google Cloud CLI。解壓縮ZIP到自己的本機資料夾，在<code>reply-bot</code>資料夾開啟PowerShell。</li><li>準備LINE官方帳號、Google帳號，以及已啟用帳務的Google Cloud專案。Cloud Run、建置、儲存及秘密管理可能收費，不保證免費。請設定預算通知，但通知不是費用硬上限。</li><li>先執行測試，不需真實金鑰。複製環境變數範本，完成步驟2後再填入兩個LINE設定；GAS設定先保持註解。</li></ol><pre tabindex="0"><code>node --version
+npm test
+Copy-Item .env.example .env
+# Edit .env locally; never commit it.
+node --env-file=.env server.mjs
+# In another terminal:
+curl.exe http://localhost:8080/healthz</code></pre><p>預期：12項通過、沒有失敗或TODO；<code>/healthz</code>回傳<code>ok</code>。本機健康檢查不代表已連接LINE。GitHub Pages只能展示教材，不能執行這個Node伺服器。</p></section><section id="line"><h2>02 · LINE</h2><ol><li>建立LINE官方帳號，在LINE Official Account Manager啟用Messaging API並選擇正確Provider。</li><li>在LINE Developers Console開啟產生的Channel。Basic settings取得Channel secret；Messaging API頁籤申請Channel access token。可行時使用較短效期，練習結束後撤銷不再使用的Token。</li><li>本機測試時填入自己的<code>.env</code>；雲端部署則放入Secret Manager。不要貼到Sheets、公開截圖、GitHub或瀏覽器JavaScript。</li></ol><figure><img loading="lazy" src="https://developers.line.biz/media/messaging-api/verify-webhook-signature/channel-secret-en.png" alt="LINE Developers Basic settings Channel secret reference"><figcaption>LINE官方參考截圖：Basic settings／Channel secret。介面可能隨版本調整。 <a href="https://developers.line.biz/en/docs/messaging-api/verify-webhook-signature/">圖片來源</a></figcaption></figure></section><section id="cloud"><h2>03 · Cloud Run</h2><p>到Google Cloud Console→Secret Manager建立<code>line-channel-secret</code>及<code>line-channel-access-token</code>，各將值貼入第1版，不含引號或換行。不要將秘密直接寫進命令列參數。下列指令假設你有啟用API、建立服務帳戶、授予秘密讀取及部署公開服務的權限。</p><p>原始碼部署需要部署者具備Cloud Run Source Developer、Service Usage Consumer及執行身分的Service Account User權限，建置服務帳戶需要Cloud Run Builder。組織政策可能要求管理員處理；不要為排除錯誤就授予Owner。請核對下方官方部署先備條件。</p><pre tabindex="0"><code># PowerShell: replace YOUR_PROJECT_ID. Billing must be enabled.
+$PROJECT = &quot;YOUR_PROJECT_ID&quot;
+$REGION = &quot;asia-east1&quot;
+$SA = &quot;line-bot-runtime@$PROJECT.iam.gserviceaccount.com&quot;
+gcloud auth login
+gcloud config set project $PROJECT
+gcloud services enable run.googleapis.com cloudbuild.googleapis.com artifactregistry.googleapis.com secretmanager.googleapis.com
+gcloud iam service-accounts create line-bot-runtime --display-name=&quot;LINE classroom bot runtime&quot;
+# First create line-channel-secret and line-channel-access-token in Secret Manager.
+# Give each a version 1 containing the real value, without quotes or newlines.
+gcloud secrets add-iam-policy-binding line-channel-secret --member=&quot;serviceAccount:$SA&quot; --role=&quot;roles/secretmanager.secretAccessor&quot;
+gcloud secrets add-iam-policy-binding line-channel-access-token --member=&quot;serviceAccount:$SA&quot; --role=&quot;roles/secretmanager.secretAccessor&quot;
+# Run inside the extracted reply-bot directory, not the website repository root.
+gcloud run deploy line-classroom-bot --source . --region $REGION --service-account $SA --allow-unauthenticated --max-instances 1 --set-secrets=&quot;LINE_CHANNEL_SECRET=line-channel-secret:1,LINE_CHANNEL_ACCESS_TOKEN=line-channel-access-token:1&quot;
+gcloud run services describe line-classroom-bot --region $REGION --format=&quot;value(status.url)&quot;</code></pre><p>以輸出的HTTPS服務網址加上<code>/healthz</code>檢查，應看到<code>ok</code>。只對執行身分授予指定秘密讀取權限。最大實例設為1是課堂設定，不是費用硬上限或不重複執行保證。</p></section><section id="webhook"><h2>04 · Webhook</h2><ol><li>開啟Messaging API→Webhook settings→Edit。填入Cloud Run網址加<code>/webhook</code>，不要填GAS網址。</li><li>按Verify：空事件測試需通過驗簽並回傳HTTP 200，再啟用Use webhook。</li><li>將官方帳號加入好友並傳送文字，預期收到<code>收到訊息了！Your bot is connected.</code>。如出現雙重回覆，檢查Official Account Manager自動回覆設定。</li></ol><p>固定回覆成功後才繼續Sheets。未簽名的POST應被拒絕為401，不可為了讓測試過關而移除驗簽。</p><figure><img loading="lazy" src="https://developers.line.biz/media/messaging-api/build-bot/webhook-url-example-com.png" alt="LINE Messaging API Webhook URL Edit Verify reference"><figcaption>LINE官方參考截圖：請填自己的HTTPS／webhook網址，不是圖中的example.com。 <a href="https://developers.line.biz/en/docs/messaging-api/building-bot/">圖片來源</a></figcaption></figure></section><section id="gas"><h2>05 · GAS / Sheets</h2><ol><li>建立不公開的Google試算表，複製網址<code>/d/</code>與<code>/edit</code>之間的ID。開啟擴充功能→Apps Script，以本頁完整<code>Code.gs</code>取代預設程式。</li><li>專案設定→指令碼屬性新增<code>SHEET_ID</code>及<code>RELAY_SECRET</code>。使用下方指令產生獨立隨機密鑰，不要重用LINE的Channel secret。專案編輯者可以讀取屬性，請限制編輯權限。</li><li>儲存後選取<code>setupLogSheet</code>執行，確認帳號及授權範圍符合預期。試算表應出現Events分頁及四個表頭：receivedAt、eventId、type、status。</li><li>部署→新增部署作業→網頁應用程式→以自己身分執行→誰可以存取：所有人。複製<code>/exec</code>網址。如果組織政策不允許，請停止並改用核准的後端，不可繞過政策。</li><li>修改程式後需至部署→管理部署→編輯→新增版本。只按儲存不會更新已部署版本。</li></ol><pre tabindex="0"><code>node -e &quot;console.log(require(&#x27;node:crypto&#x27;).randomBytes(32).toString(&#x27;hex&#x27;))&quot;</code></pre><p>Script Properties不是獨立保管庫。公開GAS端點驗證的是簽名本文，不是LINE標頭；公開呼叫仍可能消耗執行配額。試算表本身應保持不公開。</p></section><section id="relay"><h2>06 · 串接與檢查</h2><p>在Secret Manager建立<code>relay-secret</code>第1版，使用與GAS完全相同的值。保留原有LINE秘密綁定，以下以update方式新增：</p><pre tabindex="0"><code># Create relay-secret version 1 in Secret Manager with the SAME random value
+# as GAS Script Properties RELAY_SECRET. Do not use the LINE channel secret.
+gcloud secrets add-iam-policy-binding relay-secret --member=&quot;serviceAccount:$SA&quot; --role=&quot;roles/secretmanager.secretAccessor&quot;
+$GAS = &quot;https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec&quot;
+gcloud run services update line-classroom-bot --region $REGION --update-env-vars=&quot;GAS_LOG_URL=$GAS&quot; --update-secrets=&quot;RELAY_SECRET=relay-secret:1&quot;</code></pre><ol><li>再次傳送LINE文字，應收到固定回覆，Events新增一筆四欄紀錄。</li><li>確認沒有保存訊息本文、LINE使用者ID或Token。事件ID也應限制存取並設定保留期限。</li><li>若有回覆但無紀錄，檢查<code>GAS_LOG_FAILED</code>、/exec網址、部署版本、兩端relay密鑰、Events表頭與執行權限。不能只看HTTP 200，GAS回傳JSON的<code>ok</code>必須是true。</li></ol></section><section id="limits"><h2>07 · 限制與除錯</h2><ul><li>Node只做單一程序的記憶體去重；重啟或多實例需要持久化冪等設計。此範例沒有持久化佇列，也不保證exactly-once。</li><li>回覆成功後，紀錄失敗只會警告，可能漏記；不會為補紀錄而重送回覆。</li><li>GAS限制新增紀錄最多5,000筆，不含表頭。這是範例保護值，不是Google上限，不應直接移除後宣稱可當大型資料庫。</li><li>交易、高併發或細緻權限需求應改用資料庫與佇列。以延遲、失敗率及配額實測評估，不用儲存格上限推估使用人數。</li><li>固定回覆應快速完成。GAS單次6分鐘上限不是LINE可接受的回應目標；大型檔案、模型呼叫與耗時任務需另設計非同步處理。</li><li>練習結束：停用Webhook、刪除不需要的Cloud Run服務與建置產物、撤銷Token及未使用的秘密版本，按保留政策封存或刪除紀錄。</li></ul><p><a href="apps-script.html#security-quotas">閱讀目前GAS配額、Sheets限制與官方來源</a></p></section><section id="source"><h2>08 · 完整程式碼</h2><p>以下直接由可下載的原始碼檔產生，修改範例後重新建置即可同步，避免網頁與下載版內容不同。</p><details><summary>server.mjs</summary><pre tabindex="0"><code>// Learning example: verified LINE ingress, fixed reply, optional signed GAS log.
+import http from &#x27;node:http&#x27;;
+import { createHmac, timingSafeEqual } from &#x27;node:crypto&#x27;;
+import { pathToFileURL } from &#x27;node:url&#x27;;
+
+export function validSignature(raw, signature, secret) {
+  if (typeof signature !== &#x27;string&#x27; || !secret) return false;
+  const expected = createHmac(&#x27;sha256&#x27;, secret).update(raw).digest(&#x27;base64&#x27;);
+  const a = Buffer.from(signature); const b = Buffer.from(expected);
+  return a.length === b.length &amp;&amp; timingSafeEqual(a, b);
+}
+
+export function createBot(env, fetcher = fetch, log = console) {
+  if (!env.LINE_CHANNEL_SECRET || !env.LINE_CHANNEL_ACCESS_TOKEN) {
+    throw new Error(&#x27;Set LINE_CHANNEL_SECRET and LINE_CHANNEL_ACCESS_TOKEN&#x27;);
+  }
+  if (env.GAS_LOG_URL &amp;&amp; (!env.RELAY_SECRET || !/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec$/.test(env.GAS_LOG_URL))) {
+    throw new Error(&#x27;GAS logging needs a valid /exec URL and RELAY_SECRET&#x27;);
+  }
+  // This bounded in-memory cache is NOT durable deduplication across instances.
+  const recent = new Map();
+  const pending = new Map();
+  async function processEvent(event) {
+    if (event.type !== &#x27;message&#x27; || event.message?.type !== &#x27;text&#x27;) return;
+    if (!event.replyToken || typeof event.webhookEventId !== &#x27;string&#x27;) return;
+    const id = event.webhookEventId;
+    const now = Date.now();
+    for (const [key, expiry] of recent) if (expiry &lt; now) recent.delete(key);
+    if (recent.has(id)) return;
+    if (pending.has(id)) return pending.get(id);
+    const task = (async () =&gt; {
+      const response = await fetcher(&#x27;https://api.line.me/v2/bot/message/reply&#x27;, {
+        method: &#x27;POST&#x27;, headers: { &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
+          Authorization: `Bearer ${env.LINE_CHANNEL_ACCESS_TOKEN}` },
+        body: JSON.stringify({ replyToken: event.replyToken,
+          messages: [{ type: &#x27;text&#x27;, text: &#x27;收到訊息了！Your bot is connected.&#x27; }] }),
+        signal: AbortSignal.timeout(8000)
+      });
+      if (!response.ok) throw new Error(`LINE_REPLY_HTTP_${response.status}`);
+      recent.set(id, now + 10 * 60 * 1000);
+      if (recent.size &gt; 2000) recent.delete(recent.keys().next().value);
+      if (env.GAS_LOG_URL) {
+        // Do not send user ID, message text, reply token or access token to Sheets.
+        const payload = JSON.stringify({ eventId: id, type: &#x27;text&#x27;, status: &#x27;replied&#x27; });
+        const timestamp = Date.now();
+        const signature = createHmac(&#x27;sha256&#x27;, env.RELAY_SECRET)
+          .update(`${timestamp}.${payload}`).digest(&#x27;base64&#x27;);
+        try {
+          const result = await fetcher(env.GAS_LOG_URL, {
+            method: &#x27;POST&#x27;, headers: { &#x27;Content-Type&#x27;: &#x27;application/json&#x27; },
+            body: JSON.stringify({ timestamp, payload, signature }),
+            redirect: &#x27;follow&#x27;, signal: AbortSignal.timeout(8000)
+          });
+          if (!result.ok || !(await result.json()).ok) throw new Error(&#x27;GAS rejected log&#x27;);
+        } catch {
+          // Reply has already succeeded: do not retry the reply just for logging.
+          log.warn(&#x27;GAS_LOG_FAILED: reply sent; record may be missing&#x27;);
+        }
+      }
+    })();
+    pending.set(id, task);
+    try { await task; } finally { pending.delete(id); }
+  }
+  return http.createServer(async (req, res) =&gt; {
+    const answer = (status, message) =&gt; {
+      res.writeHead(status, { &#x27;Content-Type&#x27;: &#x27;text/plain; charset=utf-8&#x27; }); res.end(message);
+    };
+    if (req.method === &#x27;GET&#x27; &amp;&amp; req.url === &#x27;/healthz&#x27;) return answer(200, &#x27;ok&#x27;);
+    if (req.method !== &#x27;POST&#x27; || req.url !== &#x27;/webhook&#x27;) return answer(404, &#x27;not found&#x27;);
+    let raw;
+    try {
+      const chunks = []; let size = 0;
+      for await (const chunk of req) {
+        size += chunk.length;
+        if (size &gt; 1024 * 1024) return answer(413, &#x27;payload too large&#x27;);
+        chunks.push(chunk);
+      }
+      raw = Buffer.concat(chunks);
+    } catch { return answer(400, &#x27;invalid body&#x27;); }
+    if (!validSignature(raw, req.headers[&#x27;x-line-signature&#x27;], env.LINE_CHANNEL_SECRET)) {
+      return answer(401, &#x27;invalid signature&#x27;);
+    }
+    let body;
+    try { body = JSON.parse(raw.toString(&#x27;utf8&#x27;)); } catch { return answer(400, &#x27;invalid JSON&#x27;); }
+    if (!body || !Array.isArray(body.events) || body.events.length &gt; 100 ||
+        body.events.some(event =&gt; !event || typeof event !== &#x27;object&#x27;)) {
+      return answer(400, &#x27;invalid events&#x27;);
+    }
+    try {
+      // Empty events is LINE&#x27;s verification request; no reply call is needed.
+      await Promise.all(body.events.map(processEvent));
+      answer(200, &#x27;ok&#x27;);
+    } catch {
+      log.error(&#x27;LINE_REPLY_FAILED: inspect configuration, quota and network&#x27;);
+      answer(502, &#x27;reply failed&#x27;);
+    }
+  });
+}
+
+if (process.argv[1] &amp;&amp; import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const server = createBot(process.env);
+  server.requestTimeout = 20000;
+  server.listen(Number(process.env.PORT || 8080), &#x27;0.0.0.0&#x27;, () =&gt; console.log(&#x27;Bot server ready&#x27;));
+}
+</code></pre></details><details><summary>Code.gs</summary><pre tabindex="0"><code>// GAS is a signed log sink, NOT the public LINE webhook signature verifier.
+function jsonOutput_(value) {
+  return ContentService.createTextOutput(JSON.stringify(value))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+function setupLogSheet() {
+  var props = PropertiesService.getScriptProperties();
+  var book = SpreadsheetApp.openById(props.getProperty(&#x27;SHEET_ID&#x27;));
+  var sheet = book.getSheetByName(&#x27;Events&#x27;) || book.insertSheet(&#x27;Events&#x27;);
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow([&#x27;receivedAt&#x27;, &#x27;eventId&#x27;, &#x27;type&#x27;, &#x27;status&#x27;]);
+  }
+}
+
+function doPost(e) {
+  var lock;
+  try {
+    var props = PropertiesService.getScriptProperties();
+    var secret = props.getProperty(&#x27;RELAY_SECRET&#x27;);
+    if (!secret || !props.getProperty(&#x27;SHEET_ID&#x27;)) throw new Error(&#x27;configuration&#x27;);
+    var raw = e &amp;&amp; e.postData &amp;&amp; e.postData.contents;
+    if (!raw || raw.length &gt; 4096) throw new Error(&#x27;body&#x27;);
+    var envelope = JSON.parse(raw);
+    if (!Number.isSafeInteger(envelope.timestamp) ||
+        Math.abs(Date.now() - envelope.timestamp) &gt; 300000 ||
+        typeof envelope.payload !== &#x27;string&#x27; ||
+        typeof envelope.signature !== &#x27;string&#x27;) throw new Error(&#x27;envelope&#x27;);
+    var expected = Utilities.base64Encode(Utilities.computeHmacSha256Signature(
+      String(envelope.timestamp) + &#x27;.&#x27; + envelope.payload, secret, Utilities.Charset.UTF_8));
+    if (expected.length !== envelope.signature.length) throw new Error(&#x27;signature&#x27;);
+    var mismatch = 0;
+    for (var i = 0; i &lt; expected.length; i++) {
+      mismatch |= expected.charCodeAt(i) ^ envelope.signature.charCodeAt(i);
+    }
+    if (mismatch !== 0) throw new Error(&#x27;signature&#x27;);
+    var row = JSON.parse(envelope.payload);
+    // Restrict stored strings; never write untrusted formulas or message text.
+    if (typeof row.eventId !== &#x27;string&#x27; || !/^[A-Za-z0-9_-]{1,128}$/.test(row.eventId) ||
+        row.type !== &#x27;text&#x27; || row.status !== &#x27;replied&#x27;) throw new Error(&#x27;schema&#x27;);
+    lock = LockService.getScriptLock();
+    lock.waitLock(5000);
+    var sheet = SpreadsheetApp.openById(props.getProperty(&#x27;SHEET_ID&#x27;)).getSheetByName(&#x27;Events&#x27;);
+    if (!sheet || sheet.getRange(1, 1, 1, 4).getValues()[0].join(&#x27;|&#x27;) !==
+        &#x27;receivedAt|eventId|type|status&#x27;) throw new Error(&#x27;sheet setup&#x27;);
+    var last = sheet.getLastRow();
+    // Full-column lookup is acceptable only for this capped classroom log.
+    if (last &gt; 1 &amp;&amp; sheet.getRange(2, 2, last - 1, 1).createTextFinder(row.eventId)
+        .matchEntireCell(true).findNext()) return jsonOutput_({ ok: true, duplicate: true });
+    if (last &gt;= 5001) return jsonOutput_({ ok: false, error: &#x27;CLASSROOM_LOG_CAP&#x27; });
+    sheet.getRange(last + 1, 1, 1, 4).setValues([
+      [new Date().toISOString(), row.eventId, row.type, row.status]
+    ]);
+    SpreadsheetApp.flush();
+    return jsonOutput_({ ok: true });
+  } catch (error) {
+    // TextOutput cannot set a custom HTTP status. The caller MUST read ok.
+    return jsonOutput_({ ok: false, error: &#x27;REJECTED_OR_UNAVAILABLE&#x27; });
+  } finally {
+    if (lock &amp;&amp; lock.hasLock()) lock.releaseLock();
+  }
+}
+</code></pre></details><details><summary>package.json</summary><pre tabindex="0"><code>{
+  &quot;name&quot;: &quot;line-gas-classroom-bot&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;private&quot;: true,
+  &quot;type&quot;: &quot;module&quot;,
+  &quot;engines&quot;: { &quot;node&quot;: &quot;&gt;=22&quot; },
+  &quot;scripts&quot;: { &quot;start&quot;: &quot;node server.mjs&quot;, &quot;test&quot;: &quot;node --test test.mjs test-gas.mjs&quot; }
+}
+</code></pre></details><details><summary>Dockerfile</summary><pre tabindex="0"><code>FROM node:22-bookworm-slim
+WORKDIR /app
+COPY package.json server.mjs ./
+USER node
+CMD [&quot;node&quot;, &quot;server.mjs&quot;]
+</code></pre></details><details><summary>.env.example</summary><pre tabindex="0"><code>LINE_CHANNEL_SECRET=replace_with_your_channel_secret
+LINE_CHANNEL_ACCESS_TOKEN=replace_with_your_channel_access_token
+# Optional until the echo bot works. Never use a Sheet to store these secrets.
+# GAS_LOG_URL=https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec
+# RELAY_SECRET=replace_with_a_random_32_byte_secret
+PORT=8080
+</code></pre></details><details><summary>.gitignore</summary><pre tabindex="0"><code>.env
+.env.*
+!.env.example
+node_modules/
+clean/
+*.log
+</code></pre></details><details><summary>.gcloudignore</summary><pre tabindex="0"><code>.git
+.env
+.env.*
+*.log
+node_modules/
+clean/
+test*.mjs
+</code></pre></details><details><summary>test.mjs</summary><pre tabindex="0"><code>import test from &#x27;node:test&#x27;;
+import assert from &#x27;node:assert/strict&#x27;;
+import { createHmac } from &#x27;node:crypto&#x27;;
+import { createBot, validSignature } from &#x27;./server.mjs&#x27;;
+const env = { LINE_CHANNEL_SECRET: &#x27;test-secret-not-real&#x27;, LINE_CHANNEL_ACCESS_TOKEN: &#x27;test-token-not-real&#x27; };
+const sign = raw =&gt; createHmac(&#x27;sha256&#x27;, env.LINE_CHANNEL_SECRET).update(raw).digest(&#x27;base64&#x27;);
+const event = id =&gt; ({ type: &#x27;message&#x27;, webhookEventId: id, replyToken: &#x27;test-reply&#x27;,
+  source: { userId: &#x27;MUST_NOT_BE_LOGGED&#x27; }, message: { type: &#x27;text&#x27;, text: &#x27;PRIVATE_TEXT&#x27; } });
+test(&#x27;signature binds exact raw bytes&#x27;, () =&gt; {
+  assert(validSignature(Buffer.from(&#x27;{}&#x27;), sign(&#x27;{}&#x27;), env.LINE_CHANNEL_SECRET));
+  assert(!validSignature(Buffer.from(&#x27;{ }&#x27;), sign(&#x27;{}&#x27;), env.LINE_CHANNEL_SECRET));
+  assert(!validSignature(Buffer.from(&#x27;{}&#x27;), &#x27;&#x27;, env.LINE_CHANNEL_SECRET));
+});
+test(&#x27;webhook, duplicate, non-text, log privacy and failures&#x27;, async t =&gt; {
+  let calls = []; let failReply = false; let failLog = false; let warnings = 0;
+  const fetcher = async (url, options) =&gt; {
+    calls.push({ url, options });
+    if (url.includes(&#x27;api.line.me&#x27;)) return { ok: !failReply, status: failReply ? 401 : 200 };
+    return { ok: true, json: async () =&gt; ({ ok: !failLog }) };
+  };
+  const logEnv = { ...env, GAS_LOG_URL: &#x27;https://script.google.com/macros/s/TEST/exec&#x27;, RELAY_SECRET: &#x27;test-relay&#x27; };
+  const server = createBot(logEnv, fetcher, { warn: () =&gt; warnings++, error() {} });
+  await new Promise(resolve =&gt; server.listen(0, &#x27;127.0.0.1&#x27;, resolve));
+  t.after(() =&gt; new Promise(resolve =&gt; server.close(resolve)));
+  const base = `http://127.0.0.1:${server.address().port}`;
+  async function send(body, signature = sign(body)) {
+    return fetch(base + &#x27;/webhook&#x27;, { method: &#x27;POST&#x27;, headers: { &#x27;x-line-signature&#x27;: signature }, body });
+  }
+  assert.equal((await fetch(base + &#x27;/healthz&#x27;)).status, 200);
+  assert.equal((await send(&#x27;{}&#x27;, &#x27;wrong&#x27;)).status, 401);
+  assert.equal((await send(&#x27;{&#x27;)).status, 400);
+  assert.equal((await send(&#x27;{}&#x27;)).status, 400);
+  assert.equal((await send(&#x27;null&#x27;)).status, 400);
+  assert.equal((await send(&#x27;{&quot;events&quot;:[null]}&#x27;)).status, 400);
+  assert.equal((await send(&#x27;{&quot;events&quot;:[]}&#x27;)).status, 200);
+  assert.equal(calls.length, 0);
+  const body = JSON.stringify({ events: [event(&#x27;event-1&#x27;)] });
+  assert.equal((await send(body)).status, 200);
+  assert.equal(calls.length, 2);
+  const envelope = JSON.parse(calls[1].options.body);
+  assert(!envelope.payload.includes(&#x27;PRIVATE_TEXT&#x27;));
+  assert(!envelope.payload.includes(&#x27;MUST_NOT_BE_LOGGED&#x27;));
+  assert(validSignature(Buffer.from(`${envelope.timestamp}.${envelope.payload}`), envelope.signature, &#x27;test-relay&#x27;));
+  await send(body); assert.equal(calls.length, 2);
+  await send(JSON.stringify({ events: [{ type: &#x27;follow&#x27; }] })); assert.equal(calls.length, 2);
+  failLog = true;
+  assert.equal((await send(JSON.stringify({ events: [event(&#x27;event-2&#x27;)] }))).status, 200);
+  assert.equal(warnings, 1);
+  failReply = true;
+  assert.equal((await send(JSON.stringify({ events: [event(&#x27;event-3&#x27;)] }))).status, 502);
+});
+</code></pre></details><details><summary>test-gas.mjs</summary><pre tabindex="0"><code>import test from &#x27;node:test&#x27;;
+import assert from &#x27;node:assert/strict&#x27;;
+import { createHmac } from &#x27;node:crypto&#x27;;
+import { readFileSync } from &#x27;node:fs&#x27;;
+import vm from &#x27;node:vm&#x27;;
+
+const source = readFileSync(new URL(&#x27;./Code.gs&#x27;, import.meta.url), &#x27;utf8&#x27;);
+const NOW = Date.parse(&#x27;2026-11-07T00:00:00.000Z&#x27;);
+const SECRET = &#x27;local-test-relay-secret-not-a-real-credential&#x27;;
+const HEADER = [&#x27;receivedAt&#x27;, &#x27;eventId&#x27;, &#x27;type&#x27;, &#x27;status&#x27;];
+const REJECTED = { ok: false, error: &#x27;REJECTED_OR_UNAVAILABLE&#x27; };
+const row = (eventId = &#x27;event-1&#x27;) =&gt; ({ eventId, type: &#x27;text&#x27;, status: &#x27;replied&#x27; });
+
+function signed(data = row(), timestamp = NOW, secret = SECRET) {
+  const payload = JSON.stringify(data);
+  const signature = createHmac(&#x27;sha256&#x27;, secret)
+    .update(`${timestamp}.${payload}`, &#x27;utf8&#x27;).digest(&#x27;base64&#x27;);
+  return { timestamp, payload, signature };
+}
+
+function harness({ rows = [HEADER], missingSheet = false, lockFails = false } = {}) {
+  const stored = rows.map(values =&gt; [...values]);
+  const state = { writes: 0, flushes: 0, opens: 0, waits: [], releases: 0, held: false };
+  const sheet = {
+    getLastRow: () =&gt; stored.length,
+    appendRow(values) { stored.push(Array.from(values)); state.writes++; },
+    getRange(start, column, height, width) {
+      assert(start &gt;= 1 &amp;&amp; column &gt;= 1 &amp;&amp; height &gt;= 1 &amp;&amp; width &gt;= 1);
+      return {
+        getValues: () =&gt; stored.slice(start - 1, start - 1 + height)
+          .map(values =&gt; values.slice(column - 1, column - 1 + width)),
+        setValues(values) {
+          assert.equal(state.held, true, &#x27;writes must hold the script lock&#x27;);
+          assert.equal(values.length, height);
+          values.forEach((cells, offset) =&gt; {
+            assert.equal(cells.length, width);
+            const target = stored[start - 1 + offset] ??= [];
+            cells.forEach((value, index) =&gt; { target[column - 1 + index] = value; });
+          });
+          state.writes++;
+        },
+        createTextFinder(needle) {
+          let exact = false;
+          return {
+            matchEntireCell(value) { exact = value; return this; },
+            findNext() {
+              assert.equal(exact, true, &#x27;deduplication must match the entire cell&#x27;);
+              return stored.slice(start - 1, start - 1 + height)
+                .some(values =&gt; String(values[column - 1]) === String(needle)) ? {} : null;
+            }
+          };
+        }
+      };
+    }
+  };
+  const props = { SHEET_ID: &#x27;local-sheet-id&#x27;, RELAY_SECRET: SECRET };
+  const context = vm.createContext({
+    Date: class extends Date {
+      constructor(...args) { super(...(args.length ? args : [NOW])); }
+      static now() { return NOW; }
+    },
+    PropertiesService: { getScriptProperties: () =&gt; ({ getProperty: key =&gt; props[key] }) },
+    Utilities: {
+      Charset: { UTF_8: &#x27;UTF-8&#x27; },
+      computeHmacSha256Signature(message, secret, charset) {
+        assert.equal(charset, &#x27;UTF-8&#x27;);
+        // GAS returns signed bytes; Buffer.from restores their unsigned representation.
+        return Array.from(createHmac(&#x27;sha256&#x27;, secret).update(message, &#x27;utf8&#x27;).digest(),
+          value =&gt; value &gt; 127 ? value - 256 : value);
+      },
+      base64Encode: bytes =&gt; Buffer.from(bytes).toString(&#x27;base64&#x27;)
+    },
+    LockService: { getScriptLock: () =&gt; ({
+      waitLock(ms) {
+        state.waits.push(ms);
+        if (lockFails) throw new Error(&#x27;mock lock timeout&#x27;);
+        state.held = true;
+      },
+      hasLock: () =&gt; state.held,
+      releaseLock() { assert(state.held); state.held = false; state.releases++; }
+    }) },
+    SpreadsheetApp: {
+      openById(id) {
+        assert.equal(id, props.SHEET_ID); state.opens++;
+        return {
+          getSheetByName(name) { assert.equal(name, &#x27;Events&#x27;); return missingSheet ? null : sheet; },
+          insertSheet(name) { assert.equal(name, &#x27;Events&#x27;); missingSheet = false; return sheet; }
+        };
+      },
+      flush() { state.flushes++; }
+    },
+    ContentService: {
+      MimeType: { JSON: &#x27;application/json&#x27; },
+      createTextOutput(text) {
+        return { text, setMimeType(mime) { this.mime = mime; return this; } };
+      }
+    }
+  });
+  vm.runInContext(source, context, { timeout: 1000, filename: &#x27;Code.gs&#x27; });
+  function invoke(envelope) {
+    context.request = { postData: { contents: JSON.stringify(envelope) } };
+    const output = vm.runInContext(&#x27;doPost(request)&#x27;, context, { timeout: 1000 });
+    assert.equal(output.mime, &#x27;application/json&#x27;);
+    return JSON.parse(output.text);
+  }
+  return { invoke, stored, state, context };
+}
+
+test(&#x27;valid relay HMAC writes only the four approved columns and releases the lock&#x27;, () =&gt; {
+  const h = harness();
+  assert.deepEqual(h.invoke(signed()), { ok: true });
+  assert.deepEqual(h.stored, [HEADER, [new Date(NOW).toISOString(), &#x27;event-1&#x27;, &#x27;text&#x27;, &#x27;replied&#x27;]]);
+  assert.equal(h.state.flushes, 1);
+  assert.deepEqual(h.state.waits, [5000]);
+  assert.equal(h.state.releases, 1);
+  assert.equal(h.state.held, false);
+});
+
+test(&#x27;payload, timestamp, signature tampering and wrong shared secret are rejected before Sheets access&#x27;, () =&gt; {
+  const original = signed();
+  for (const envelope of [
+    { ...original, payload: JSON.stringify(row(&#x27;tampered&#x27;)) },
+    { ...original, timestamp: NOW - 1 },
+    { ...original, signature: (original.signature[0] === &#x27;A&#x27; ? &#x27;B&#x27; : &#x27;A&#x27;) + original.signature.slice(1) },
+    { ...original, signature: &#x27;short&#x27; },
+    signed(row(), NOW, &#x27;wrong-secret&#x27;)
+  ]) {
+    const h = harness();
+    assert.deepEqual(h.invoke(envelope), REJECTED);
+    assert.equal(h.state.opens, 0);
+    assert.equal(h.state.writes, 0);
+  }
+});
+
+test(&#x27;timestamp window accepts exactly five minutes and rejects older or future envelopes beyond it&#x27;, () =&gt; {
+  for (const offset of [-300000, 300000]) {
+    assert.deepEqual(harness().invoke(signed(row(), NOW + offset)), { ok: true });
+  }
+  for (const offset of [-300001, 300001]) {
+    const h = harness();
+    assert.deepEqual(h.invoke(signed(row(), NOW + offset)), REJECTED);
+    assert.equal(h.state.opens, 0);
+  }
+});
+
+test(&#x27;replaying an event does not write twice; substring IDs remain distinct&#x27;, () =&gt; {
+  const h = harness();
+  assert.deepEqual(h.invoke(signed()), { ok: true });
+  assert.deepEqual(h.invoke(signed()), { ok: true, duplicate: true });
+  assert.deepEqual(h.invoke(signed(row(&#x27;event-10&#x27;))), { ok: true });
+  assert.equal(h.state.writes, 2);
+  assert.equal(h.state.flushes, 2);
+  assert.equal(h.state.releases, 3);
+});
+
+test(&#x27;incorrect worksheet header or missing Events sheet rejects writes and releases the lock&#x27;, () =&gt; {
+  for (const options of [{ rows: [[&#x27;eventId&#x27;, &#x27;receivedAt&#x27;, &#x27;type&#x27;, &#x27;status&#x27;]] }, { missingSheet: true }]) {
+    const h = harness(options);
+    assert.deepEqual(h.invoke(signed()), REJECTED);
+    assert.equal(h.state.writes, 0);
+    assert.equal(h.state.releases, 1);
+    assert.equal(h.state.held, false);
+  }
+});
+
+test(&#x27;5000-record guard excludes the header, permits record 5000, and still recognizes duplicates at capacity&#x27;, () =&gt; {
+  const rows = [HEADER, ...Array.from({ length: 4999 }, (_, i) =&gt; [&#x27;time&#x27;, `seed-${i}`, &#x27;text&#x27;, &#x27;replied&#x27;])];
+  const h = harness({ rows });
+  assert.deepEqual(h.invoke(signed(row(&#x27;record-5000&#x27;))), { ok: true });
+  assert.equal(h.stored.length, 5001);
+  assert.deepEqual(h.invoke(signed(row(&#x27;record-5001&#x27;))), { ok: false, error: &#x27;CLASSROOM_LOG_CAP&#x27; });
+  assert.deepEqual(h.invoke(signed(row(&#x27;record-5000&#x27;))), { ok: true, duplicate: true });
+  assert.equal(h.state.writes, 1);
+  assert.equal(h.state.flushes, 1);
+  assert.equal(h.state.releases, 3);
+});
+
+test(&#x27;lock timeout refuses writes without releasing an unowned lock&#x27;, () =&gt; {
+  const h = harness({ lockFails: true });
+  assert.deepEqual(h.invoke(signed()), REJECTED);
+  assert.equal(h.state.writes, 0);
+  assert.equal(h.state.releases, 0);
+});
+
+test(&#x27;formula-like event ID is rejected even with a valid HMAC&#x27;, () =&gt; {
+  const h = harness();
+  assert.deepEqual(h.invoke(signed(row(&#x27;=IMPORTXML()&#x27;))), REJECTED);
+  assert.equal(h.state.opens, 0);
+});
+
+test(&#x27;setup creates the header once&#x27;, () =&gt; {
+  const h = harness({ rows: [], missingSheet: true });
+  vm.runInContext(&#x27;setupLogSheet(); setupLogSheet();&#x27;, h.context, { timeout: 1000 });
+  assert.deepEqual(h.stored, [HEADER]);
+  assert.equal(h.state.writes, 1);
+});
+
+test(&#x27;eventId must be a string, not a coerced number&#x27;, () =&gt; {
+  const h = harness();
+  assert.deepEqual(h.invoke(signed(row(123))), REJECTED);
+  assert.equal(h.state.writes, 0);
+});
+</code></pre></details></section><section id="references"><h2>References / 來源與作者</h2><ul><li><a href="https://developers.line.biz/en/docs/messaging-api/building-bot/">LINE: building a bot</a></li><li><a href="https://developers.line.biz/en/docs/messaging-api/verify-webhook-signature/">LINE: signature verification</a></li><li><a href="https://cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-nodejs-service">Cloud Run: Node.js source deployment and IAM</a></li><li><a href="https://cloud.google.com/run/docs/configuring/services/secrets">Cloud Run: Secret Manager</a></li><li><a href="https://developers.google.com/apps-script/guides/web">Apps Script: web app event fields</a></li><li><a href="https://developers.google.com/apps-script/guides/services/quotas?hl=zh-tw">Apps Script: quotas</a></li></ul><p>施育廷 Yu-Ting Shih（Andrew Shih） · 國立臺中教育大學兼任講師、教育資訊與測驗統計研究所博士候選人。</p></section></main></body></html>
