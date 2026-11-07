@@ -2,6 +2,7 @@
 from pathlib import Path
 from html import escape
 import json
+from talks_learning_paths import section as learning_paths
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'talks'
@@ -79,5 +80,11 @@ if __name__ == '__main__':
     OUT.mkdir(exist_ok=True)
     for english in (False, True):
         target = OUT / ('index_en.html' if english else 'index.html')
-        target.write_text(build(english), encoding='utf-8')
+        html = build(english)
+        start = html.index('<section aria-labelledby="topics">')
+        end = html.index('<section aria-labelledby="cases">', start)
+        html = html[:start] + learning_paths(english) + '\n' + html[end:]
+        target.write_text(html, encoding='utf-8')
+        from unify_site_shell import apply
+        apply(target)
         print(target)
