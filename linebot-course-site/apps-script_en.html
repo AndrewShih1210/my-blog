@@ -68,8 +68,8 @@
       <h2>Logs, admin menus, and maintenance</h2>
       <p>The original materials also discuss admin-side menu control inside Google Sheets. That turns the bot into a maintainable service, which is why this site treats engineering maintenance as part of the learning outcome.</p>
     </section>
-  </article>
 <section class="panel" id="quota-planning"><h2>Plan usage before extending features</h2><p>Checked 2026-11-07. Daily quotas are per user and reset 24 hours after the first request, not necessarily at midnight. Exceeding a limit raises an exception and stops execution. Product-specific LINE and Gemini limits also apply independently.</p><ul><li>One message can cause several URL Fetch calls: profile lookup, loading animation, Gemini and reply. Count each executed branch rather than equating one message with one call.</li><li>Use: daily messages × measured calls per message, plus retries and scheduled jobs. This is an estimate, not a supported-user guarantee.</li><li>A 6-minute execution limit does not mean users should wait six minutes. Trigger runtime (90 minutes/day for consumer accounts, 6 hours/day for Workspace) is not the daily runtime allowance for every web request.</li><li>Use batched Sheet reads/writes, record failure categories without secrets, and stop/retry appropriately. Do not rotate accounts or keys to evade quotas.</li></ul><p><a href="https://developers.google.com/apps-script/guides/services/quotas?hl=zh-tw">Google Apps Script官方配額與限制</a></p></section>
+  </article>
 </main>
   <footer class="site-footer">
     <div class="wrap footer-grid">

@@ -74,8 +74,8 @@
           <li>思考哪一些功能一定要寫入紀錄，哪一些可以只即時回覆。</li>
         </ul>
       </section>
-    </article>
   <section class="panel" id="quota-planning"><h2>先估算呼叫，再擴充功能</h2><p>查核日期：2026-11-07。每日配額依使用者計算，首次要求後24小時重設，不一定在午夜重設。超過限制會產生例外並停止執行；LINE與Gemini另外各有產品限制。</p><ul><li>一則訊息可能包含查詢使用者、讀取動畫、Gemini與回覆等多次UrlFetch；請逐一計算實際分支，不能假設一則訊息只呼叫一次。</li><li>估算方式：每日訊息數×實測每則呼叫數，再加重試及排程作業。這是用量估算，不是可支援人數保證。</li><li>單次6分鐘上限不表示可以讓使用者等6分鐘。觸發器每日總時間（個人90分鐘、Workspace 6小時）也不是所有網頁請求的每日總執行額度。</li><li>使用Sheets批次讀寫、記錄不含秘密的錯誤類別，設計停止與重試條件；不要以輪替帳號或金鑰規避配額。</li></ul><p><a href="https://developers.google.com/apps-script/guides/services/quotas?hl=zh-tw">Google Apps Script官方配額與限制</a></p></section>
+    </article>
 </main>
 
   <footer class="site-footer">
