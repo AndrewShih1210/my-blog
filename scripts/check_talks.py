@@ -10,7 +10,7 @@ with sync_playwright() as p:
     browser = p.chromium.launch(channel='msedge', headless=True)
     page = browser.new_page()
     page.route('https://**/*', lambda route: route.abort())
-    for file in (ROOT / 'talks').glob('index*.html'):
+    for file in [*(ROOT / 'talks').glob('index*.html'), ROOT / 'index.html', ROOT / 'index_en.html']:
         text = file.read_text(encoding='utf-8')
         assert '\ufffd' not in text and '????' not in text
         soup = BeautifulSoup(text, 'html.parser')
@@ -35,7 +35,8 @@ with sync_playwright() as p:
                 page.locator('.unified-mobile > summary').click()
                 page.keyboard.press('Escape')
                 assert page.locator('.unified-mobile').get_attribute('open') is None
-            page.locator('#learning-paths').scroll_into_view_if_needed()
-            page.screenshot(path=str(ROOT.parent / f'talks-{file.stem}-{width}.png'))
+            page.add_style_tag(content='html {scroll-behavior:auto !important}')
+            page.locator('#learning-paths' if file.parent.name == 'talks' else '#featured').scroll_into_view_if_needed()
+            page.screenshot(path=str(ROOT.parent / f'{file.parent.name}-{file.stem}-{width}.png'))
             print('PASS', file.name, width)
     browser.close()
