@@ -1,0 +1,262 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="原投影片、程式與操作對照"><title>原投影片、程式與操作對照</title><link rel="canonical" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/quickstart.html"><link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/quickstart_en.html"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="../assets/site-shell.css"><script defer src="../assets/site-shell.js"></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "原投影片、程式與操作對照", "url": "https://andrewshih1210.github.io/my-blog/linebot-course-site/quickstart.html", "inLanguage": "zh-Hant", "dateModified": "2026-11-07", "author": {"@type": "Person", "@id": "https://andrewshih1210.github.io/my-blog/#person", "name": "施育廷"}}</script></head><body class="site-unified"><header class="unified-header"><div class="unified-inner">
+<a class="unified-brand" href="../index.html">施育廷<span>Andrew Shih</span></a>
+<nav class="unified-desktop" aria-label="全站導覽"><a class="unified-link" href="../index.html">首頁</a><a class="unified-link" href="../talks/index.html">演講邀約</a><a class="unified-link" href="../author-works/index.html">研究成果</a><a class="unified-link" href="../ai-course-site/index.html">AI教材</a><a class="unified-link" href="index.html">LINE Bot</a><a class="unified-link" href="../certificates-site/index.html">證照紀錄</a><a class="unified-link" href="../sitemap.html">網站導覽</a><a class="unified-link" href="quickstart_en.html">English</a><details class="unified-local"><summary>本頁／教材導覽</summary><nav class="unified-local-panel" aria-label="本頁／教材導覽"><a class="unified-link" href="teaching-plan.html">教學地圖</a><a class="unified-link" href="setup.html">初始設定</a><a class="unified-link" href="apps-script.html">GAS 與 Sheets</a><a class="unified-link" href="workflows.html">工作流程</a><a class="unified-link" href="advanced.html">進階應用</a><a class="unified-link" href="resources.html">資源入口</a><a class="unified-link" href="quickstart.html">投影片實作</a><a class="unified-link" href="process.html">AI協作流程</a></nav></details></nav>
+<details class="unified-mobile"><summary>選單／語言</summary><nav class="unified-mobile-panel" aria-label="全站導覽"><a class="unified-link" href="../index.html">首頁</a><a class="unified-link" href="../talks/index.html">演講邀約</a><a class="unified-link" href="../author-works/index.html">研究成果</a><a class="unified-link" href="../ai-course-site/index.html">AI教材</a><a class="unified-link" href="index.html">LINE Bot</a><a class="unified-link" href="../certificates-site/index.html">證照紀錄</a><a class="unified-link" href="../sitemap.html">網站導覽</a><a class="unified-link" href="quickstart_en.html">English</a><strong class="unified-mobile-label">本頁／教材導覽</strong><a class="unified-link" href="teaching-plan.html">教學地圖</a><a class="unified-link" href="setup.html">初始設定</a><a class="unified-link" href="apps-script.html">GAS 與 Sheets</a><a class="unified-link" href="workflows.html">工作流程</a><a class="unified-link" href="advanced.html">進階應用</a><a class="unified-link" href="resources.html">資源入口</a><a class="unified-link" href="quickstart.html">投影片實作</a><a class="unified-link" href="process.html">AI協作流程</a></nav></details>
+</div></header><section class="hero"><div class="wrap"><article class="panel callout"><p class="eyebrow">LINE Bot Course</p><h1>原投影片、程式與操作對照</h1><p>施育廷 Yu-Ting Shih（Andrew Shih）｜依原始教材整理</p><div class="hero-actions"><a class="button" href="index.html">教材首頁</a><a class="button" href="process.html">AI協作開發流程</a><a class="button" href="apps-script.html#security-quotas">配額與限制</a></div></article></div></section><main class="wrap main-stack source-course"><article class="panel"><p>依原教材完成GAS、LINE回覆、Sheets紀錄、Gemini與系統指令練習。圖片及程式摘錄均標註PDF頁碼；摘錄不是已測試的完整應用程式，修正事項另列，不更換教學架構。</p></article><h2>四份原始來源</h2><ul><li><a href="https://drive.google.com/file/d/1DIzv747VgWdW9felUHhSSYnDu2MEEyTY/view">LINEBOT_磨課師.pdf · 38 pages</a></li><li><a href="https://drive.google.com/file/d/1YZLbnrxacPenjfO6aVzvV9GOXiTBjP6N/view">互動機器人專題應用.pdf · 112 pages</a></li><li><a href="https://sites.google.com/view/genai-mcp/architecture">Architecture</a></li><li><a href="https://sites.google.com/view/genai-mcp/process">Process</a></li></ul><p>下列頁碼均為PDF頁碼，不是投影片編號。38頁版每頁含兩張投影片，不能直接用相同頁碼與112頁版對照。</p><nav class="map"><a href="#unit1">1. Webhook與GAS基礎</a><a href="#unit2">2. 先練習Gemini與Google文件工具</a><a href="#unit3">3. 建立LINE官方帳號與Messaging API</a><a href="#unit4">4. GAS接收事件與回覆測試</a><a href="#unit5">5. 把聊天紀錄寫入Sheets</a><a href="#unit6">6. 把原樣回覆改成Gemini回覆</a><a href="#unit7">7. 系統指令與主題應用</a></nav><section class="panel" id="unit1"><h2>1. Webhook與GAS基礎</h2><p>38-page PDF: 2–3 · 112-page PDF: 3–5, 35–36</p><p>先分清楚LINE傳入事件、GAS處理請求、呼叫API與回覆訊息四件事。對照原架構圖，以自己的話說明訊息在哪裡接收、處理及保存。</p><p><strong>檢查點：能說明Webhook URL的用途，以及doPost(e)與reply_message()各自負責的工作。</strong></p><div class="two-col"><figure class="figure-card"><a href="assets/source-slides/p004.png"><img alt="Original course slide, PDF page 4" loading="lazy" src="assets/source-slides/p004.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 4 · 點圖放大原投影片</figcaption></figure><figure class="figure-card"><a href="assets/source-slides/p005.png"><img alt="Original course slide, PDF page 5" loading="lazy" src="assets/source-slides/p005.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 5 · 點圖放大原投影片</figcaption></figure><figure class="figure-card"><a href="assets/source-slides/p035.png"><img alt="Original course slide, PDF page 35" loading="lazy" src="assets/source-slides/p035.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 35 · 點圖放大原投影片</figcaption></figure></div></section><section class="panel" id="unit2"><h2>2. 先練習Gemini與Google文件工具</h2><p>38-page PDF: 26–30（相關內容） · 112-page PDF: 6–33</p><p>112頁版先介紹Gemini與AI Studio，再透過試算表的geminiAsk1(question)呼叫gemini_api()；另以Google文件選單練習submitData()。這段是長版教材新增的前導練習，不應誤排為兩份教材完全相同的順序。</p><p><strong>檢查點：區分試算表自訂函式、文件選單與LINE Webhook的三種觸發方式。</strong></p><div class="two-col"></div><details><summary>原投影片程式與說明摘錄 · PDF 21</summary><pre>初始程式撰寫
+var Gemini_ACCESS_TOKEN ='' //Gemini API Key
+function geminiAsk1(question){
+var response = gemini_api(question);
+var send_msg = response;
+return _parse_response(send_msg);
+}</pre></details><details><summary>原投影片程式與說明摘錄 · PDF 24</summary><pre>內部程式
+// 設定生成配置的參數，包括溫度（temperature）
+//top_p、top_k
+//最大輸出字數（max_output_tokens）
+//回應的MIME 類型（response_mime_type）
+const generation_config = {
+"temperature": 1, // 溫度值決定回應的隨機性，值越高，回應越多樣化
+"top_p": 0.95, // 使用top-p 取樣來決定回應的多樣性
+"top_k": 64, // 使用top-k 取樣來限制可能的回應選項數量
+"max_output_tokens": 350, // 設定回應的最大token數
+"response_mime_type": "text/plain", // 回應的MIME 類型
+};</pre></details><details><summary>原投影片程式與說明摘錄 · PDF 25</summary><pre>內部程式
+var apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${Gemini_ACCESS_TOKEN}`
+// 建立請求的主體內容，將使用者輸入的訊息（send_msg）包裝成JSON 格式
+var requestBody = JSON.stringify({
+"contents": [
+{
+"parts": [
+{
+"text": `
+`
+},
+{
+"text": message // 使用者輸入的訊息
+}
+]
+}
+],
+"generationConfig": generation_config // 設定生成配置
+});</pre></details><details><summary>原投影片程式與說明摘錄 · PDF 26</summary><pre>內部程式
+// 設定API 呼叫的選項，包括HTTP 方法（POST）、內容類型（application/json）、以及請求的主體內容
+var options = {
+"method": "post", // 使用POST 方法
+"contentType": "application/json", // 設定內容類型為JSON
+"payload": requestBody // 請求的主體內容
+};
+try {
+// 使用UrlFetchApp 來呼叫API，並取得回應
+var response = UrlFetchApp.fetch(apiUrl, options);
+// 解析回應的JSON 內容
+var data = JSON.parse(response.getContentText());
+// 輸出並返回回應的文本內容
+console.log(data.candidates[0].content.parts[0].text)
+return data.candidates[0].content.parts[0].text;
+} catch (error) {
+// 處理API 呼叫時的錯誤，並回傳錯誤訊息
+console.error('Error calling Gemini API:', error.toString());
+return "抱歉，我無法處理您的請求。"; // 回應錯誤訊息
+}</pre></details></section><section class="panel" id="unit3"><h2>3. 建立LINE官方帳號與Messaging API</h2><p>38-page PDF: 4–15 · 112-page PDF: 34, 37–58</p><p>依投影片順序完成官方帳號建立、帳號資訊、回應設定、Messaging API啟用與開發者主控台辨識。頭貼設計是介面練習，不是Bot能否回覆的必要條件。</p><p><strong>檢查點：知道Webhook開關與自動回覆的差別；確認使用的是同一個官方帳號對應的Channel。</strong></p><div class="two-col"><figure class="figure-card"><a href="assets/source-slides/p048.png"><img alt="Original course slide, PDF page 48" loading="lazy" src="assets/source-slides/p048.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 48 · 點圖放大原投影片</figcaption></figure><figure class="figure-card"><a href="assets/source-slides/p049.png"><img alt="Original course slide, PDF page 49" loading="lazy" src="assets/source-slides/p049.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 49 · 點圖放大原投影片</figcaption></figure></div></section><section class="panel" id="unit4"><h2>4. GAS接收事件與回覆測試</h2><p>38-page PDF: 15–23 · 112-page PDF: 59–75</p><p>依教材建立Apps Script專案，閱讀doPost(e)、get_user_info()、sendLoading()與reply_message()。先辨識文字訊息與群組訊息，再對照部署、授權、Webhook設定與回覆測試。此處忠實呈現原教材的GAS教學路徑，不加入Node或Cloud Run作為先修。</p><p><strong>檢查點：能追蹤event.message.text→回覆內容→reply_message()；原始範例不是正式服務的安全驗證保證。</strong></p><div class="two-col"><figure class="figure-card"><a href="assets/source-slides/p061.png"><img alt="Original course slide, PDF page 61" loading="lazy" src="assets/source-slides/p061.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 61 · 點圖放大原投影片</figcaption></figure><figure class="figure-card"><a href="assets/source-slides/p064.png"><img alt="Original course slide, PDF page 64" loading="lazy" src="assets/source-slides/p064.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 64 · 點圖放大原投影片</figcaption></figure><figure class="figure-card"><a href="assets/source-slides/p069.png"><img alt="Original course slide, PDF page 69" loading="lazy" src="assets/source-slides/p069.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 69 · 點圖放大原投影片</figcaption></figure></div><details><summary>原投影片程式與說明摘錄 · PDF 63</summary><pre>撰寫GAS
+// 定義LINE的CHANNEL_ACCESS_TOKEN，用來驗證機器人
+var CHANNEL_ACCESS_TOKEN = “填入自己LINE的CHANNEL_ACCESS_TOKEN";
+CHANNEL_ACCESS_TOKEN：用於驗證與LINE API 的通訊，定義機器人身份。
+需要向LINE Developer 申請取得，作為認證用。</pre></details><details><summary>原投影片程式與說明摘錄 · PDF 64</summary><pre>撰寫GAS
+// 當POST請求進來時，處理傳入的訊息
+function doPost(e) {
+var msg = JSON.parse(e.postData.contents); // 解析收到的資料，將POST 請求中的資料解析為JSON 格式。
+var events = msg.events; // 取得事件資料
+內容接下頁
+// 返回處理結果
+return ContentService.createTextOutput(JSON.stringify({ "result": "success" }));
+}
+doPost(e)：主要的POST 請求處理函數，處理來自LINE 的事件。</pre></details><details><summary>原投影片程式與說明摘錄 · PDF 66</summary><pre>撰寫GAS
+// 如果有事件發生
+if (events.length &gt; 0) {
+var event = events[0]; // 只處理第一個事件
+var replyToken = msg.events[0].replyToken; // 取得回覆的token每次用戶訊息事件都會附帶一個回覆用的token，僅能使用一次。
+var userId = event.source.userId; // 取得用戶ID
+var groupId = event.source.groupId || ""; // 取得群組ID（如果有）
+var user_info = get_user_info(userId, groupId); // 取得用戶資訊
+var displayName = user_info.displayName; // 取得用戶顯示名稱
+var language = user_info.language; // 取得用戶語言
+// 開始顯示讀取動畫，持續5秒
+sendLoading(userId, 5);
+// 檢查事件類型是否為訊息
+if (event.type === 'message')
+{
+var messageType = event.message.type; // 取得訊息類型
+if (messageType === 'text') //檢查訊息類型是否為文字。
+{ // 如果訊息是文字
+var userMessage = "你說了：" + event.message.text; //組合回覆訊息的內容
+if( groupId != "") // 如果訊息來自群組
+{
+if(userMessage.startsWith("!")) // 如果訊息以"!"開頭
+{
+reply_message(replyToken, [{ 'type': 'text', 'text': userMessage }]) // 回覆訊息
+}
+else // 可以在這裡處理其他群組訊息的邏輯
+{
+}
+}
+else // 如果訊息不是來自群組，直接回覆訊息
+{
+reply_message(replyToken, [{ 'type': 'text', 'text': userMessage }])
+}
+}
+}
+}</pre></details><details><summary>原投影片程式與說明摘錄 · PDF 67</summary><pre>撰寫GAS
+// 取得用戶資訊
+function get_user_info(userId, groupId) // 決定是查詢群組成員還是單一用戶的API
+{
+var url = groupId ? 'https://api.line.me/v2/bot/group/' + groupId + '/member/' + userId : 'https://api.line.me/v2/bot/profile/' + userId;
+var headers = {
+"Authorization": "Bearer " + CHANNEL_ACCESS_TOKEN // 設定認證標頭
+};
+var options = {
+"method": "get", // 使用GET方法
+"headers": headers,
+"muteHttpExceptions": true // 靜音HTTP例外狀況（忽略錯誤）
+};
+var response = UrlFetchApp.fetch(url, options); //用來發送HTTP 請求並取得回應
+if (response.getResponseCode() == 200) // 如果請求成功
+{
+var user_info = JSON.parse(response.getContentText()); // 解析用戶資訊
+return user_info; // 返回用戶資訊
+}
+else
+{
+return { "displayName": "Unknown", "language": "Unknown" }; // 如果失敗，返回預設值
+}
+}
+get_user_info(userId, groupId)：用於取得用戶或群組成員的基本資訊。</pre></details><details><summary>原投影片程式與說明摘錄 · PDF 68</summary><pre>撰寫GAS
+// 發送讀取動畫
+function sendLoading(userId, seconds)
+{
+var url = 'https://api.line.me/v2/bot/chat/loading/start'; // 發送讀取動畫的API
+var payload = {
+"chatId": userId, // 設定聊天對象ID
+"loadingSeconds": seconds // 設定讀取動畫的持續時間
+};
+var options = {
+'method': 'post', // 使用POST方法
+'contentType': 'application/json', // 設定內容類型為JSON
+'headers': {
+'Authorization': 'Bearer ' + CHANNEL_ACCESS_TOKEN, // 設定認證標頭
+},
+'payload': JSON.stringify(payload) // 將資料轉換為JSON格式
+};
+UrlFetchApp.fetch(url, options); // 發送請求
+}
+在回應訊息前，顯示讀取動畫。</pre></details><details><summary>原投影片程式與說明摘錄 · PDF 69</summary><pre>撰寫GAS
+// 發送訊息回覆
+function reply_message(replyToken, reply, url = 'https://api.line.me/v2/bot/message/reply')
+{
+UrlFetchApp.fetch(url, {
+'headers': {
+'Content-Type': 'application/json; charset=UTF-8', // 設定內容類型為JSON
+'Authorization': 'Bearer ' + CHANNEL_ACCESS_TOKEN, // 設定認證標頭
+},
+'method': 'post', // 使用POST方法
+'payload': JSON.stringify({
+'replyToken': replyToken, // 傳送回覆的token
+'messages': reply // 設定回覆的訊息內容
+}),
+});
+}
+回應用戶訊息的主要函數。</pre></details></section><section class="panel" id="unit5"><h2>5. 把聊天紀錄寫入Sheets</h2><p>38-page PDF: 23–25 · 112-page PDF: 76–80</p><p>依教材取得時間、開啟試算表、選取工作表，再在回覆後appendRow。先使用虛構測試訊息，確認欄位順序與工作表名稱一致；不要直接收集真實學習者對話作為練習資料。</p><p><strong>檢查點：原教材欄位為時間、使用者ID、群組ID、暱稱、訊息、語言；加入AI後另有回覆欄。正式使用須重新評估必要欄位、告知與保留期限。</strong></p><div class="two-col"><figure class="figure-card"><a href="assets/source-slides/p078.png"><img alt="Original course slide, PDF page 78" loading="lazy" src="assets/source-slides/p078.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 78 · 點圖放大原投影片</figcaption></figure></div><details><summary>原投影片程式與說明摘錄 · PDF 78</summary><pre>新增時間與試算表設定
+//設定現在時間
+var timestamp = Utilities.formatDate(new Date(), "GMT+8", "yyyy-MM-dd HH:mm:ss");
+//指定試算表
+var ss = SpreadsheetApp.openByUrl(“試算表網址");</pre></details><details><summary>原投影片程式與說明摘錄 · PDF 79</summary><pre>在reply_message後新增紀錄訊息
+reply_message(replyToken, [{ 'type': 'text', 'text': userMessage }]) // 回覆訊息
+sheet = ss.getSheetByName(“工作表1”); //指定工作表
+//在工作表新增最後一筆資料，時間、使用者ID、群組ID、使用者暱稱、使用者訊息、使用者語言
+sheet.appendRow([timestamp, userId, groupId, displayName, userMessage, language]);</pre></details></section><section class="panel" id="unit6"><h2>6. 把原樣回覆改成Gemini回覆</h2><p>38-page PDF: 26–34 · 112-page PDF: 81–98</p><p>先讀取API輸入、generationConfig、requestBody與回應解析，再將userMessage交給gemini_api(send_msg)，把回傳文字交給reply_message()。第97頁的前後兩段else是修改前後對照，不是要同時貼進同一個條件式。</p><p><strong>檢查點：能指出修改前後資料流的差異；投影片中的gemini-1.5-flash-latest屬舊教材名稱，不能當成目前可用型號保證。</strong></p><div class="two-col"><figure class="figure-card"><a href="assets/source-slides/p093.png"><img alt="Original course slide, PDF page 93" loading="lazy" src="assets/source-slides/p093.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 93 · 點圖放大原投影片</figcaption></figure></div><details><summary>原投影片程式與說明摘錄 · PDF 92</summary><pre>在主程式(程式碼.gs)新增API Key
+以及新增指令碼gemini_api .gs
+// 定義LINE的CHANNEL_ACCESS_TOKEN，用來驗證機器人
+var CHANNEL_ACCESS_TOKEN = “填入自己LINE的CHANNEL_ACCESS_TOKEN";
+var Gemini_ACCESS_TOKEN =‘填入自己gemini API Key’;
+後續API設定</pre></details><details><summary>原投影片程式與說明摘錄 · PDF 94</summary><pre>gemini_api()函式內容1
+// 設定生成配置的參數，包括溫度（temperature）、top_p、top_k
+//最大輸出字數（max_output_tokens）、回應的MIME 類型（response_mime_type）
+const generation_config = {
+"temperature": 1, // 溫度值決定回應的隨機性，值越高，回應越多樣化
+"top_p": 0.95, // 使用top-p 取樣來決定回應的多樣性
+"top_k": 64, // 使用top-k 取樣來限制可能的回應選項數量
+"max_output_tokens": 300, // 設定回應的最大token數
+"response_mime_type": "text/plain", // 回應的MIME 類型
+};
+// 定義API URL，其中包含API 金鑰（Gemini_ACCESS_TOKEN）
+var apiUrl =`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${Gemini_ACCESS_TOKEN}`</pre></details><details><summary>原投影片程式與說明摘錄 · PDF 95</summary><pre>gemini_api()函式內容2
+// 建立請求的主體內容，將使用者輸入的訊息（send_msg）包裝成JSON 格式
+var requestBody = JSON.stringify({
+"contents": [
+{
+"parts": [
+{
+"text": `
+`
+},
+{
+"text": send_msg // 使用者輸入的訊息
+}
+]
+}
+],
+"generationConfig": generation_config // 設定生成配置
+});
+// 設定API 呼叫的選項，包括HTTP 方法（POST）、內容類型（application/json）、以及請求的主體內容
+var options = {
+"method": "post", // 使用POST 方法
+"contentType": "application/json", // 設定內容類型為JSON
+"payload": requestBody // 請求的主體內容
+};</pre></details><details><summary>原投影片程式與說明摘錄 · PDF 96</summary><pre>gemini_api()函式內容3
+try
+{
+// 使用UrlFetchApp 來呼叫API，並取得回應
+var response = UrlFetchApp.fetch(apiUrl, options);
+// 解析回應的JSON 內容
+var data = JSON.parse(response.getContentText());
+// 輸出並返回回應的文本內容
+console.log(data.candidates[0].content.parts[0].text)
+return data.candidates[0].content.parts[0].text;
+}
+catch (error)
+{
+// 處理API 呼叫時的錯誤，並回傳錯誤訊息
+console.error('Error calling Gemini API:', error.toString());
+return "抱歉，我無法處理您的請求。"; // 回應錯誤訊息
+}</pre></details><details><summary>原投影片程式與說明摘錄 · PDF 97</summary><pre>修改程式碼.gs，將使用者訊息傳入gemini_api()
+else // 如果訊息不是來自群組，直接回覆訊息
+{
+reply_message(replyToken, [{ 'type': 'text', 'text': userMessage }])
+sheet = ss.getSheetByName("工作表1");
+sheet.appendRow([timestamp, userId, groupId, displayName, userMessage, language]);
+}
+else // 如果訊息不是來自群組，直接回覆訊息
+{
+send_msg = userMessage + "###";
+content = gemini_api(send_msg); // 等待API 回應
+// 直接組合訊息並過濾不需要的字元
+reply = content.replace("###", "");
+reply_message(replyToken, [{ 'type': 'text', 'text': reply }])
+sheet = ss.getSheetByName("工作表1");
+sheet.appendRow([timestamp, userId, groupId, displayName, userMessage, language,reply]);
+}</pre></details></section><section class="panel" id="unit7"><h2>7. 系統指令與主題應用</h2><p>38-page PDF: 35–38 · 112-page PDF: 99–112</p><p>依原教材設定角色、語氣、任務範圍與行為限制。以同一組問題比較調整前後回答，再選擇教學、客服或知識問答主題，不以「看起來能回答」當作測試完成。</p><p><strong>檢查點：保存測試問題、預期表現、實際回答與需要修正之處，區分功能正常與內容正確。</strong></p><div class="two-col"><figure class="figure-card"><a href="assets/source-slides/p100.png"><img alt="Original course slide, PDF page 100" loading="lazy" src="assets/source-slides/p100.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 100 · 點圖放大原投影片</figcaption></figure></div></section><section class="panel" id="architecture"><h2>架構頁：從回覆Bot延伸到雲端助理</h2><p>架構頁的首次設定順序為Sheets→Drive→Apps Script→API設定→Drive API→Web App部署→LINE Webhook，接著是管理員選單、檔案問答、報告生成、Threads、搜尋、行事曆、郵件與筆記。這些是基礎投影片後的延伸功能，不另換成雲端伺服器課程。</p></section><section class="panel" id="process"><h2>流程頁：與AI協作開發的學習過程</h2><ol><li>需求釐清：分開列出檔案處理與文字指令兩個功能模組。</li><li>提供上下文：交代GAS、Sheets分頁、Drive資料夾與目前程式；一律使用占位符，不提供真實金鑰。</li><li>先請AI畫架構，再逐一實作getLogData、UrlFetchApp呼叫與意圖辨識。</li><li>回報完整但已去識別的程式、錯誤訊息與截圖，再測試、修正、重構。</li><li>開新對話時交接可運作版本與待辦；原文10萬Token門檻是歷史經驗，不是所有模型的固定上限。</li><li>依版本演進追加Flex Message、檔案說明、HTML報告、試算表問答與Threads，而非一次要求所有功能。</li></ol></section><section class="panel" id="corrections"><h2>與原教材分開的修正註記</h2><ul><li>第63、78、79、92頁含排版用彎引號，直接貼入程式可能語法錯誤，需改成半形直引號。</li><li>第66頁先把訊息加上「你說了：」，再檢查startsWith("!")，會讓群組指令判斷失效；應先檢查原始event.message.text，再組合回覆文字。</li><li>第64頁的「內容接下頁」是投影片占位說明；第97頁兩段else是修改前後對照。這些不能當完整程式原封不動貼上。</li><li>原教材中的模型名稱、免費額度與介面是當時版本，不應視為目前可用保證；尤其第85頁的舊額度不作為本次更新的數值依據。</li><li>APIKEY工作表與直接寫入原始碼為原教材做法；公開版應將金鑰管理另外修正。Script Properties可分離設定，但編輯者仍可讀取，並非保管庫。</li><li>GAS直連Webhook是原教材學習架構，不表示已具備LINE簽章驗證。正式服務仍須補驗證機制；此限制列為安全附錄，不改寫教學主線。</li><li>避免把含Token、個人資料或實際聊天紀錄的投影片截圖重新公開。本預覽只選取11張不以憑證／身分／聊天紀錄為內容的頁面。</li></ul></section></main><footer class="site-footer">
+<div class="wrap footer-grid">
+<article class="panel" data-static-content="">
+<p class="section-label">Author</p>
+<h3>施育廷 Yu-Ting Shih（Andrew Shih）</h3>
+<p class="muted">國立臺中教育大學兼任講師、教育資訊與測驗統計研究所博士候選人。</p>
+<p class="muted">本教學網站由施育廷整理與製作，將 LINE Bot、Google Apps Script、Google Sheets 與 Gemini 整合教材轉為可公開瀏覽的雙語教學網站。</p>
+</article>
+<article class="panel">
+<p class="section-label">Links</p>
+<div class="cta-row">
+<a class="button primary" href="../index.html">學術首頁</a>
+<a class="button" href="../certificates-site/index.html">證照與證明</a>
+<a class="button" href="../sitemap.html">網站導覽</a>
+</div>
+</article>
+</div>
+</footer></body></html>

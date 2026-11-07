@@ -33,7 +33,7 @@ def build_site() -> None:
         target.write_text(content, encoding="utf-8", newline="\n")
         print(f"Wrote {target}")
 
-    # The hands-on pages embed the current example source, not stale snapshots.
+    # Keep the source-aligned reading pages in the same template workflow.
     from build_linebot_quickstart import build
     build(False)
     build(True)

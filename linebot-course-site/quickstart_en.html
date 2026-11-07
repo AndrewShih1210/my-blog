@@ -1,487 +1,262 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Build a replying LINE Bot, then add Sheets logging | LINE Bot Lab</title><meta name="description" content="A runnable classroom example with complete source, deployment steps and checks. First send a fixed reply; add signed GAS logging only after that works. No Gemini key is needed.">
-<link rel="canonical" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/quickstart_en.html"><link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/quickstart.html"><link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/quickstart_en.html">
-<link rel="stylesheet" href="quickstart.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Build a replying LINE Bot, then add Sheets logging", "inLanguage": "en", "dateModified": "2026-11-07", "author": {"@type": "Person", "@id": "https://andrewshih1210.github.io/my-blog/#person", "name": "施育廷", "alternateName": ["Yu-Ting Shih", "Andrew Shih"]}, "url": "https://andrewshih1210.github.io/my-blog/linebot-course-site/quickstart_en.html"}</script><link rel="stylesheet" href="../assets/site-shell.css">
-<script defer src="../assets/site-shell.js"></script>
-</head>
-<body class="site-unified"><header class="unified-header"><div class="unified-inner">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Original slides and hands-on reading"><title>Original slides and hands-on reading</title><link rel="canonical" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/quickstart_en.html"><link rel="alternate" hreflang="zh-Hant" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/quickstart.html"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="../assets/site-shell.css"><script defer src="../assets/site-shell.js"></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Original slides and hands-on reading", "url": "https://andrewshih1210.github.io/my-blog/linebot-course-site/quickstart_en.html", "inLanguage": "en", "dateModified": "2026-11-07", "author": {"@type": "Person", "@id": "https://andrewshih1210.github.io/my-blog/#person", "name": "施育廷"}}</script></head><body class="site-unified"><header class="unified-header"><div class="unified-inner">
 <a class="unified-brand" href="../index_en.html">Yu-Ting Shih<span>Andrew Shih</span></a>
-<nav class="unified-desktop" aria-label="Site navigation"><a class="unified-link" href="../index_en.html">Home</a><a class="unified-link" href="../talks/index_en.html">Talks</a><a class="unified-link" href="../author-works/index_en.html">Research</a><a class="unified-link" href="../ai-course-site/index_en.html">AI Courses</a><a class="unified-link" href="index_en.html">LINE Bot</a><a class="unified-link" href="../certificates-site/index_en.html">Credentials</a><a class="unified-link" href="../sitemap_en.html">Sitemap</a><a class="unified-link" href="quickstart.html">繁體中文</a><details class="unified-local"><summary>Page / course links</summary><nav class="unified-local-panel" aria-label="Page / course links"><a class="unified-link" href="#prepare">Start</a><a class="unified-link" href="#source">Source</a></nav></details></nav>
-<details class="unified-mobile"><summary>Menu / Language</summary><nav class="unified-mobile-panel" aria-label="Site navigation"><a class="unified-link" href="../index_en.html">Home</a><a class="unified-link" href="../talks/index_en.html">Talks</a><a class="unified-link" href="../author-works/index_en.html">Research</a><a class="unified-link" href="../ai-course-site/index_en.html">AI Courses</a><a class="unified-link" href="index_en.html">LINE Bot</a><a class="unified-link" href="../certificates-site/index_en.html">Credentials</a><a class="unified-link" href="../sitemap_en.html">Sitemap</a><a class="unified-link" href="quickstart.html">繁體中文</a><strong class="unified-mobile-label">Page / course links</strong><a class="unified-link" href="#prepare">Start</a><a class="unified-link" href="#source">Source</a></nav></details>
-</div></header><main class="lab"><p class="eyebrow">HANDS-ON LAB · 2026-11-07</p><h1>Build a replying LINE Bot, then add Sheets logging</h1><p class="lead">A runnable classroom example with complete source, deployment steps and checks. First send a fixed reply; add signed GAS logging only after that works. No Gemini key is needed.</p><p><a class="button" href="examples/reply-bot.zip">Download complete example ZIP</a> <a href="#source">Read all source on this page</a></p><aside class="notice">Validation: 12 local automated tests pass using mocked LINE/GAS services. No live LINE account, Cloud Run deployment or real Sheet was tested. The screenshots below are official references, not evidence of our deployment. This is not a production-ready service.</aside><nav class="steps" aria-label="Lesson steps"><a href="#prepare">01 · Prepare</a><a href="#line">02 · LINE</a><a href="#cloud">03 · Cloud Run</a><a href="#webhook">04 · Webhook</a><a href="#gas">05 · GAS / Sheets</a><a href="#relay">06 · Connect and check</a><a href="#limits">07 · Limits</a><a href="#source">08 · Source code</a></nav><div class="flow" aria-label="Architecture">LINE → Node / Cloud Run <strong>verify raw-body signature + reply</strong> → signed minimal record → GAS → Sheets</div><section id="prepare"><h2>01 · Prepare</h2><ol><li>Install Node.js 22 or later and Google Cloud CLI. Extract the ZIP into a private local folder and open PowerShell in <code>reply-bot</code>.</li><li>Prepare a LINE Official Account, Google account and Google Cloud project with billing. Cloud Run, builds, storage and secrets may incur charges; this is not guaranteed free. Set budget alerts, which are not spending caps.</li><li>Run the tests before adding real secrets. Copy the environment template and edit the two LINE values after step 2. Keep the optional GAS settings commented out for now.</li></ol><pre tabindex="0"><code>node --version
-npm test
-Copy-Item .env.example .env
-# Edit .env locally; never commit it.
-node --env-file=.env server.mjs
-# In another terminal:
-curl.exe http://localhost:8080/healthz</code></pre><p>Expected: 12 passed, no failures or TODOs; <code>/healthz</code> returns <code>ok</code>. A local health check does not connect LINE. GitHub Pages cannot run this Node server.</p></section><section id="line"><h2>02 · LINE</h2><ol><li>Create a LINE Official Account. In LINE Official Account Manager, enable Messaging API and choose the correct provider.</li><li>Open the resulting channel in LINE Developers Console. Under Basic settings, retrieve Channel secret; under Messaging API, issue an access token. Limit token lifetime where supported and revoke it after the exercise.</li><li>Put both values in the local <code>.env</code> only for local testing, and in Secret Manager for the cloud deployment. Never paste them into Sheets, screenshots, a public repository or browser JavaScript.</li></ol><figure><img loading="lazy" src="https://developers.line.biz/media/messaging-api/verify-webhook-signature/channel-secret-en.png" alt="LINE Developers Basic settings Channel secret reference"><figcaption>Official LINE reference: Basic settings / Channel secret. Interface may change. <a href="https://developers.line.biz/en/docs/messaging-api/verify-webhook-signature/">Source</a></figcaption></figure></section><section id="cloud"><h2>03 · Cloud Run</h2><p>In Google Cloud Console → Secret Manager, create <code>line-channel-secret</code> and <code>line-channel-access-token</code>. Paste each value into version 1 without quotes/newlines. Do not pass secrets as plain command-line arguments. The following commands assume you may enable APIs, create service accounts, grant secret access and deploy a public service.</p><p>Source deployment needs Cloud Run Source Developer and Service Usage Consumer permissions for the deployer, Service Account User on the runtime identity, and Cloud Run Builder for the build service account. Organization policies can require an administrator. Do not grant Owner merely to bypass a permission error; consult the linked deployment prerequisites.</p><pre tabindex="0"><code># PowerShell: replace YOUR_PROJECT_ID. Billing must be enabled.
-$PROJECT = &quot;YOUR_PROJECT_ID&quot;
-$REGION = &quot;asia-east1&quot;
-$SA = &quot;line-bot-runtime@$PROJECT.iam.gserviceaccount.com&quot;
-gcloud auth login
-gcloud config set project $PROJECT
-gcloud services enable run.googleapis.com cloudbuild.googleapis.com artifactregistry.googleapis.com secretmanager.googleapis.com
-gcloud iam service-accounts create line-bot-runtime --display-name=&quot;LINE classroom bot runtime&quot;
-# First create line-channel-secret and line-channel-access-token in Secret Manager.
-# Give each a version 1 containing the real value, without quotes or newlines.
-gcloud secrets add-iam-policy-binding line-channel-secret --member=&quot;serviceAccount:$SA&quot; --role=&quot;roles/secretmanager.secretAccessor&quot;
-gcloud secrets add-iam-policy-binding line-channel-access-token --member=&quot;serviceAccount:$SA&quot; --role=&quot;roles/secretmanager.secretAccessor&quot;
-# Run inside the extracted reply-bot directory, not the website repository root.
-gcloud run deploy line-classroom-bot --source . --region $REGION --service-account $SA --allow-unauthenticated --max-instances 1 --set-secrets=&quot;LINE_CHANNEL_SECRET=line-channel-secret:1,LINE_CHANNEL_ACCESS_TOKEN=line-channel-access-token:1&quot;
-gcloud run services describe line-classroom-bot --region $REGION --format=&quot;value(status.url)&quot;</code></pre><p>Use the printed HTTPS service URL plus <code>/healthz</code> to check availability. Only the runtime service account receives access to these specific secrets. Maximum instances of 1 is a classroom setting, not a hard budget or exactly-once guarantee.</p></section><section id="webhook"><h2>04 · Webhook</h2><ol><li>Open Messaging API → Webhook settings → Edit. Enter the Cloud Run URL followed by <code>/webhook</code>. Do not enter the GAS URL.</li><li>Select Verify. The empty event request must pass signature verification and return HTTP 200. Enable Use webhook.</li><li>Add the official account as a friend and send text. Expect <code>收到訊息了！Your bot is connected.</code> Disable conflicting automatic replies in Official Account Manager.</li></ol><p>Do not proceed to Sheets until this fixed reply works. An unsigned browser POST should be rejected with 401; do not remove signature verification to make it pass.</p><figure><img loading="lazy" src="https://developers.line.biz/media/messaging-api/build-bot/webhook-url-example-com.png" alt="LINE Messaging API Webhook URL Edit Verify reference"><figcaption>Official LINE reference: enter your own HTTPS /webhook URL, not example.com. <a href="https://developers.line.biz/en/docs/messaging-api/building-bot/">Source</a></figcaption></figure></section><section id="gas"><h2>05 · GAS / Sheets</h2><ol><li>Create a private Google Sheet. Copy its ID between <code>/d/</code> and <code>/edit</code>. Open Extensions → Apps Script and replace the starter code with the complete <code>Code.gs</code> below.</li><li>Project Settings → Script Properties: add <code>SHEET_ID</code> and <code>RELAY_SECRET</code>. Generate a separate random secret with the command below; do not reuse the LINE channel secret. Project editors can read properties, so restrict editing.</li><li>Save, select <code>setupLogSheet</code>, Run, and authorize only the expected account and scopes. Confirm an Events tab with exactly four headers: receivedAt, eventId, type, status.</li><li>Deploy → New deployment → Web app → Execute as yourself → Who has access: Anyone. Copy the <code>/exec</code> URL. If organizational policy forbids this, stop and use an approved backend instead; do not bypass policy.</li><li>After code changes, Deploy → Manage deployments → Edit → New version. Saving code alone does not update the deployed version.</li></ol><pre tabindex="0"><code>node -e &quot;console.log(require(&#x27;node:crypto&#x27;).randomBytes(32).toString(&#x27;hex&#x27;))&quot;</code></pre><p>Script Properties is not an isolated vault. The public GAS endpoint authenticates the signed body, not the LINE header. Public invocations can still consume execution quota. Keep the Sheet private.</p></section><section id="relay"><h2>06 · Connect and check</h2><p>Create <code>relay-secret</code> version 1 in Secret Manager using the same value as GAS. Keep the existing LINE secret bindings; update rather than replace them:</p><pre tabindex="0"><code># Create relay-secret version 1 in Secret Manager with the SAME random value
-# as GAS Script Properties RELAY_SECRET. Do not use the LINE channel secret.
-gcloud secrets add-iam-policy-binding relay-secret --member=&quot;serviceAccount:$SA&quot; --role=&quot;roles/secretmanager.secretAccessor&quot;
-$GAS = &quot;https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec&quot;
-gcloud run services update line-classroom-bot --region $REGION --update-env-vars=&quot;GAS_LOG_URL=$GAS&quot; --update-secrets=&quot;RELAY_SECRET=relay-secret:1&quot;</code></pre><ol><li>Send another LINE text. Expect the fixed reply and exactly one Events row with four columns.</li><li>Confirm no message body, LINE user ID or token is stored. Protect event IDs too and define retention.</li><li>If the reply works but the row is absent, inspect <code>GAS_LOG_FAILED</code>, the /exec URL, deployed version, matching relay secrets, Events headers and execution permissions. An HTTP 200 alone is insufficient: GAS JSON must contain <code>ok: true</code>.</li></ol></section><section id="limits"><h2>07 · Limits</h2><ul><li>Node deduplication is in-memory and process-local. Restarts and multiple instances require a durable idempotency design. The sample has no durable queue or exactly-once guarantee.</li><li>After a successful reply, logging failures only emit a warning. A log may be lost; the reply is not repeated to recover logging.</li><li>GAS stops new records at 5,000 rows excluding headers. This is an example guard, not a Google limit. Never just remove it to claim database scalability.</li><li>Move to a database/queue for transactional, high-concurrency or detailed access-control workloads. Measure latency, errors and quota use rather than guessing user counts.</li><li>Keep fixed replies fast. GAS’s 6-minute execution cap is not an acceptable LINE response target. Large files, model calls and long jobs need separate asynchronous design.</li><li>Cleanup: disable the webhook, delete the Cloud Run service and unneeded build artifacts, revoke tokens and unused secret versions, and archive/delete logs according to retention policy.</li></ul><p><a href="apps-script_en.html#security-quotas">Read current quotas, Sheets limits and official sources</a></p></section><section id="source"><h2>08 · Source code</h2><p>Generated directly from the downloadable source files; edit the sources and rebuild to keep them synchronized.</p><details><summary>server.mjs</summary><pre tabindex="0"><code>// Learning example: verified LINE ingress, fixed reply, optional signed GAS log.
-import http from &#x27;node:http&#x27;;
-import { createHmac, timingSafeEqual } from &#x27;node:crypto&#x27;;
-import { pathToFileURL } from &#x27;node:url&#x27;;
-
-export function validSignature(raw, signature, secret) {
-  if (typeof signature !== &#x27;string&#x27; || !secret) return false;
-  const expected = createHmac(&#x27;sha256&#x27;, secret).update(raw).digest(&#x27;base64&#x27;);
-  const a = Buffer.from(signature); const b = Buffer.from(expected);
-  return a.length === b.length &amp;&amp; timingSafeEqual(a, b);
+<nav class="unified-desktop" aria-label="Site navigation"><a class="unified-link" href="../index_en.html">Home</a><a class="unified-link" href="../talks/index_en.html">Talks</a><a class="unified-link" href="../author-works/index_en.html">Research</a><a class="unified-link" href="../ai-course-site/index_en.html">AI Courses</a><a class="unified-link" href="index_en.html">LINE Bot</a><a class="unified-link" href="../certificates-site/index_en.html">Credentials</a><a class="unified-link" href="../sitemap_en.html">Sitemap</a><a class="unified-link" href="quickstart.html">繁體中文</a><details class="unified-local"><summary>Page / course links</summary><nav class="unified-local-panel" aria-label="Page / course links"><a class="unified-link" href="teaching-plan_en.html">Course Map</a><a class="unified-link" href="setup_en.html">Setup</a><a class="unified-link" href="apps-script_en.html">GAS and Sheets</a><a class="unified-link" href="workflows_en.html">Workflows</a><a class="unified-link" href="advanced_en.html">Advanced</a><a class="unified-link" href="resources_en.html">Resources</a><a class="unified-link" href="quickstart_en.html">Slide exercises</a><a class="unified-link" href="process_en.html">AI collaboration</a></nav></details></nav>
+<details class="unified-mobile"><summary>Menu / Language</summary><nav class="unified-mobile-panel" aria-label="Site navigation"><a class="unified-link" href="../index_en.html">Home</a><a class="unified-link" href="../talks/index_en.html">Talks</a><a class="unified-link" href="../author-works/index_en.html">Research</a><a class="unified-link" href="../ai-course-site/index_en.html">AI Courses</a><a class="unified-link" href="index_en.html">LINE Bot</a><a class="unified-link" href="../certificates-site/index_en.html">Credentials</a><a class="unified-link" href="../sitemap_en.html">Sitemap</a><a class="unified-link" href="quickstart.html">繁體中文</a><strong class="unified-mobile-label">Page / course links</strong><a class="unified-link" href="teaching-plan_en.html">Course Map</a><a class="unified-link" href="setup_en.html">Setup</a><a class="unified-link" href="apps-script_en.html">GAS and Sheets</a><a class="unified-link" href="workflows_en.html">Workflows</a><a class="unified-link" href="advanced_en.html">Advanced</a><a class="unified-link" href="resources_en.html">Resources</a><a class="unified-link" href="quickstart_en.html">Slide exercises</a><a class="unified-link" href="process_en.html">AI collaboration</a></nav></details>
+</div></header><section class="hero"><div class="wrap"><article class="panel callout"><p class="eyebrow">LINE Bot Course</p><h1>Original slides and hands-on reading</h1><p>Yu-Ting Shih (Andrew Shih) · Source-aligned course notes</p><div class="hero-actions"><a class="button" href="index_en.html">Course home</a><a class="button" href="process_en.html">AI collaboration process</a><a class="button" href="apps-script_en.html#security-quotas">Quotas and limits</a></div></article></div></section><main class="wrap main-stack source-course"><article class="panel"><p>Follow the original GAS → LINE reply → Sheets logging → Gemini → system instruction exercises. Slide images and code excerpts remain linked to their PDF page numbers. Extracts are learning material, not a complete tested application; corrections are listed separately.</p></article><h2>Original sources</h2><ul><li><a href="https://drive.google.com/file/d/1DIzv747VgWdW9felUHhSSYnDu2MEEyTY/view">LINEBOT_磨課師.pdf · 38 pages</a></li><li><a href="https://drive.google.com/file/d/1YZLbnrxacPenjfO6aVzvV9GOXiTBjP6N/view">互動機器人專題應用.pdf · 112 pages</a></li><li><a href="https://sites.google.com/view/genai-mcp/architecture">Architecture</a></li><li><a href="https://sites.google.com/view/genai-mcp/process">Process</a></li></ul><p>Page numbers below are PDF page numbers, not slide numbers. The 38-page file contains two slides per page.</p><nav class="map"><a href="#unit1">1. Webhook and GAS foundations</a><a href="#unit2">2. Practice Gemini with Google tools first</a><a href="#unit3">3. Set up the LINE account and Messaging API</a><a href="#unit4">4. Receive events and test replies in GAS</a><a href="#unit5">5. Write conversation records to Sheets</a><a href="#unit6">6. Replace echo replies with Gemini responses</a><a href="#unit7">7. System instructions and application topics</a></nav><section class="panel" id="unit1"><h2>1. Webhook and GAS foundations</h2><p>38-page PDF: 2–3 · 112-page PDF: 3–5, 35–36</p><p>Separate the incoming LINE event, GAS request handling, API call and reply. Use the original architecture to explain where information is received, processed and stored.</p><p><strong>Check: explain the webhook URL and the different responsibilities of doPost(e) and reply_message().</strong></p><div class="two-col"><figure class="figure-card"><a href="assets/source-slides/p004.png"><img alt="Original course slide, PDF page 4" loading="lazy" src="assets/source-slides/p004.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 4 · Click to enlarge the original slide</figcaption></figure><figure class="figure-card"><a href="assets/source-slides/p005.png"><img alt="Original course slide, PDF page 5" loading="lazy" src="assets/source-slides/p005.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 5 · Click to enlarge the original slide</figcaption></figure><figure class="figure-card"><a href="assets/source-slides/p035.png"><img alt="Original course slide, PDF page 35" loading="lazy" src="assets/source-slides/p035.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 35 · Click to enlarge the original slide</figcaption></figure></div></section><section class="panel" id="unit2"><h2>2. Practice Gemini with Google tools first</h2><p>38-page PDF: 26–30（相關內容） · 112-page PDF: 6–33</p><p>The 112-page deck introduces Gemini and AI Studio before Sheets functions geminiAsk1(question) and gemini_api(), followed by a Docs menu and submitData(). This is an additional prerequisite exercise in the longer deck; the two decks do not have identical sequences.</p><p><strong>Check: distinguish a Sheets custom function, a Docs menu action and a LINE webhook.</strong></p><div class="two-col"></div><details><summary>Original slide text · PDF 21</summary><pre>初始程式撰寫
+var Gemini_ACCESS_TOKEN ='' //Gemini API Key
+function geminiAsk1(question){
+var response = gemini_api(question);
+var send_msg = response;
+return _parse_response(send_msg);
+}</pre></details><details><summary>Original slide text · PDF 24</summary><pre>內部程式
+// 設定生成配置的參數，包括溫度（temperature）
+//top_p、top_k
+//最大輸出字數（max_output_tokens）
+//回應的MIME 類型（response_mime_type）
+const generation_config = {
+"temperature": 1, // 溫度值決定回應的隨機性，值越高，回應越多樣化
+"top_p": 0.95, // 使用top-p 取樣來決定回應的多樣性
+"top_k": 64, // 使用top-k 取樣來限制可能的回應選項數量
+"max_output_tokens": 350, // 設定回應的最大token數
+"response_mime_type": "text/plain", // 回應的MIME 類型
+};</pre></details><details><summary>Original slide text · PDF 25</summary><pre>內部程式
+var apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${Gemini_ACCESS_TOKEN}`
+// 建立請求的主體內容，將使用者輸入的訊息（send_msg）包裝成JSON 格式
+var requestBody = JSON.stringify({
+"contents": [
+{
+"parts": [
+{
+"text": `
+`
+},
+{
+"text": message // 使用者輸入的訊息
 }
-
-export function createBot(env, fetcher = fetch, log = console) {
-  if (!env.LINE_CHANNEL_SECRET || !env.LINE_CHANNEL_ACCESS_TOKEN) {
-    throw new Error(&#x27;Set LINE_CHANNEL_SECRET and LINE_CHANNEL_ACCESS_TOKEN&#x27;);
-  }
-  if (env.GAS_LOG_URL &amp;&amp; (!env.RELAY_SECRET || !/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec$/.test(env.GAS_LOG_URL))) {
-    throw new Error(&#x27;GAS logging needs a valid /exec URL and RELAY_SECRET&#x27;);
-  }
-  // This bounded in-memory cache is NOT durable deduplication across instances.
-  const recent = new Map();
-  const pending = new Map();
-  async function processEvent(event) {
-    if (event.type !== &#x27;message&#x27; || event.message?.type !== &#x27;text&#x27;) return;
-    if (!event.replyToken || typeof event.webhookEventId !== &#x27;string&#x27;) return;
-    const id = event.webhookEventId;
-    const now = Date.now();
-    for (const [key, expiry] of recent) if (expiry &lt; now) recent.delete(key);
-    if (recent.has(id)) return;
-    if (pending.has(id)) return pending.get(id);
-    const task = (async () =&gt; {
-      const response = await fetcher(&#x27;https://api.line.me/v2/bot/message/reply&#x27;, {
-        method: &#x27;POST&#x27;, headers: { &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
-          Authorization: `Bearer ${env.LINE_CHANNEL_ACCESS_TOKEN}` },
-        body: JSON.stringify({ replyToken: event.replyToken,
-          messages: [{ type: &#x27;text&#x27;, text: &#x27;收到訊息了！Your bot is connected.&#x27; }] }),
-        signal: AbortSignal.timeout(8000)
-      });
-      if (!response.ok) throw new Error(`LINE_REPLY_HTTP_${response.status}`);
-      recent.set(id, now + 10 * 60 * 1000);
-      if (recent.size &gt; 2000) recent.delete(recent.keys().next().value);
-      if (env.GAS_LOG_URL) {
-        // Do not send user ID, message text, reply token or access token to Sheets.
-        const payload = JSON.stringify({ eventId: id, type: &#x27;text&#x27;, status: &#x27;replied&#x27; });
-        const timestamp = Date.now();
-        const signature = createHmac(&#x27;sha256&#x27;, env.RELAY_SECRET)
-          .update(`${timestamp}.${payload}`).digest(&#x27;base64&#x27;);
-        try {
-          const result = await fetcher(env.GAS_LOG_URL, {
-            method: &#x27;POST&#x27;, headers: { &#x27;Content-Type&#x27;: &#x27;application/json&#x27; },
-            body: JSON.stringify({ timestamp, payload, signature }),
-            redirect: &#x27;follow&#x27;, signal: AbortSignal.timeout(8000)
-          });
-          if (!result.ok || !(await result.json()).ok) throw new Error(&#x27;GAS rejected log&#x27;);
-        } catch {
-          // Reply has already succeeded: do not retry the reply just for logging.
-          log.warn(&#x27;GAS_LOG_FAILED: reply sent; record may be missing&#x27;);
-        }
-      }
-    })();
-    pending.set(id, task);
-    try { await task; } finally { pending.delete(id); }
-  }
-  return http.createServer(async (req, res) =&gt; {
-    const answer = (status, message) =&gt; {
-      res.writeHead(status, { &#x27;Content-Type&#x27;: &#x27;text/plain; charset=utf-8&#x27; }); res.end(message);
-    };
-    if (req.method === &#x27;GET&#x27; &amp;&amp; req.url === &#x27;/healthz&#x27;) return answer(200, &#x27;ok&#x27;);
-    if (req.method !== &#x27;POST&#x27; || req.url !== &#x27;/webhook&#x27;) return answer(404, &#x27;not found&#x27;);
-    let raw;
-    try {
-      const chunks = []; let size = 0;
-      for await (const chunk of req) {
-        size += chunk.length;
-        if (size &gt; 1024 * 1024) return answer(413, &#x27;payload too large&#x27;);
-        chunks.push(chunk);
-      }
-      raw = Buffer.concat(chunks);
-    } catch { return answer(400, &#x27;invalid body&#x27;); }
-    if (!validSignature(raw, req.headers[&#x27;x-line-signature&#x27;], env.LINE_CHANNEL_SECRET)) {
-      return answer(401, &#x27;invalid signature&#x27;);
-    }
-    let body;
-    try { body = JSON.parse(raw.toString(&#x27;utf8&#x27;)); } catch { return answer(400, &#x27;invalid JSON&#x27;); }
-    if (!body || !Array.isArray(body.events) || body.events.length &gt; 100 ||
-        body.events.some(event =&gt; !event || typeof event !== &#x27;object&#x27;)) {
-      return answer(400, &#x27;invalid events&#x27;);
-    }
-    try {
-      // Empty events is LINE&#x27;s verification request; no reply call is needed.
-      await Promise.all(body.events.map(processEvent));
-      answer(200, &#x27;ok&#x27;);
-    } catch {
-      log.error(&#x27;LINE_REPLY_FAILED: inspect configuration, quota and network&#x27;);
-      answer(502, &#x27;reply failed&#x27;);
-    }
-  });
+]
 }
-
-if (process.argv[1] &amp;&amp; import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const server = createBot(process.env);
-  server.requestTimeout = 20000;
-  server.listen(Number(process.env.PORT || 8080), &#x27;0.0.0.0&#x27;, () =&gt; console.log(&#x27;Bot server ready&#x27;));
-}
-</code></pre></details><details><summary>Code.gs</summary><pre tabindex="0"><code>// GAS is a signed log sink, NOT the public LINE webhook signature verifier.
-function jsonOutput_(value) {
-  return ContentService.createTextOutput(JSON.stringify(value))
-    .setMimeType(ContentService.MimeType.JSON);
-}
-
-function setupLogSheet() {
-  var props = PropertiesService.getScriptProperties();
-  var book = SpreadsheetApp.openById(props.getProperty(&#x27;SHEET_ID&#x27;));
-  var sheet = book.getSheetByName(&#x27;Events&#x27;) || book.insertSheet(&#x27;Events&#x27;);
-  if (sheet.getLastRow() === 0) {
-    sheet.appendRow([&#x27;receivedAt&#x27;, &#x27;eventId&#x27;, &#x27;type&#x27;, &#x27;status&#x27;]);
-  }
-}
-
+],
+"generationConfig": generation_config // 設定生成配置
+});</pre></details><details><summary>Original slide text · PDF 26</summary><pre>內部程式
+// 設定API 呼叫的選項，包括HTTP 方法（POST）、內容類型（application/json）、以及請求的主體內容
+var options = {
+"method": "post", // 使用POST 方法
+"contentType": "application/json", // 設定內容類型為JSON
+"payload": requestBody // 請求的主體內容
+};
+try {
+// 使用UrlFetchApp 來呼叫API，並取得回應
+var response = UrlFetchApp.fetch(apiUrl, options);
+// 解析回應的JSON 內容
+var data = JSON.parse(response.getContentText());
+// 輸出並返回回應的文本內容
+console.log(data.candidates[0].content.parts[0].text)
+return data.candidates[0].content.parts[0].text;
+} catch (error) {
+// 處理API 呼叫時的錯誤，並回傳錯誤訊息
+console.error('Error calling Gemini API:', error.toString());
+return "抱歉，我無法處理您的請求。"; // 回應錯誤訊息
+}</pre></details></section><section class="panel" id="unit3"><h2>3. Set up the LINE account and Messaging API</h2><p>38-page PDF: 4–15 · 112-page PDF: 34, 37–58</p><p>Follow account creation, account details, response settings, enabling Messaging API and locating the channel in the developer console. Avatar design is an interface exercise, not a prerequisite for replies.</p><p><strong>Check: distinguish the webhook switch from automatic replies and confirm the channel belongs to the intended account.</strong></p><div class="two-col"><figure class="figure-card"><a href="assets/source-slides/p048.png"><img alt="Original course slide, PDF page 48" loading="lazy" src="assets/source-slides/p048.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 48 · Click to enlarge the original slide</figcaption></figure><figure class="figure-card"><a href="assets/source-slides/p049.png"><img alt="Original course slide, PDF page 49" loading="lazy" src="assets/source-slides/p049.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 49 · Click to enlarge the original slide</figcaption></figure></div></section><section class="panel" id="unit4"><h2>4. Receive events and test replies in GAS</h2><p>38-page PDF: 15–23 · 112-page PDF: 59–75</p><p>Create the Apps Script project and study doPost(e), get_user_info(), sendLoading() and reply_message(). Identify text and group events, then follow deployment, authorization, webhook configuration and reply checks. This preserves the GAS learning path without introducing Node or Cloud Run prerequisites.</p><p><strong>Check: trace event.message.text to reply content and reply_message(). The historical example is not evidence of production security.</strong></p><div class="two-col"><figure class="figure-card"><a href="assets/source-slides/p061.png"><img alt="Original course slide, PDF page 61" loading="lazy" src="assets/source-slides/p061.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 61 · Click to enlarge the original slide</figcaption></figure><figure class="figure-card"><a href="assets/source-slides/p064.png"><img alt="Original course slide, PDF page 64" loading="lazy" src="assets/source-slides/p064.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 64 · Click to enlarge the original slide</figcaption></figure><figure class="figure-card"><a href="assets/source-slides/p069.png"><img alt="Original course slide, PDF page 69" loading="lazy" src="assets/source-slides/p069.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 69 · Click to enlarge the original slide</figcaption></figure></div><details><summary>Original slide text · PDF 63</summary><pre>撰寫GAS
+// 定義LINE的CHANNEL_ACCESS_TOKEN，用來驗證機器人
+var CHANNEL_ACCESS_TOKEN = “填入自己LINE的CHANNEL_ACCESS_TOKEN";
+CHANNEL_ACCESS_TOKEN：用於驗證與LINE API 的通訊，定義機器人身份。
+需要向LINE Developer 申請取得，作為認證用。</pre></details><details><summary>Original slide text · PDF 64</summary><pre>撰寫GAS
+// 當POST請求進來時，處理傳入的訊息
 function doPost(e) {
-  var lock;
-  try {
-    var props = PropertiesService.getScriptProperties();
-    var secret = props.getProperty(&#x27;RELAY_SECRET&#x27;);
-    if (!secret || !props.getProperty(&#x27;SHEET_ID&#x27;)) throw new Error(&#x27;configuration&#x27;);
-    var raw = e &amp;&amp; e.postData &amp;&amp; e.postData.contents;
-    if (!raw || raw.length &gt; 4096) throw new Error(&#x27;body&#x27;);
-    var envelope = JSON.parse(raw);
-    if (!Number.isSafeInteger(envelope.timestamp) ||
-        Math.abs(Date.now() - envelope.timestamp) &gt; 300000 ||
-        typeof envelope.payload !== &#x27;string&#x27; ||
-        typeof envelope.signature !== &#x27;string&#x27;) throw new Error(&#x27;envelope&#x27;);
-    var expected = Utilities.base64Encode(Utilities.computeHmacSha256Signature(
-      String(envelope.timestamp) + &#x27;.&#x27; + envelope.payload, secret, Utilities.Charset.UTF_8));
-    if (expected.length !== envelope.signature.length) throw new Error(&#x27;signature&#x27;);
-    var mismatch = 0;
-    for (var i = 0; i &lt; expected.length; i++) {
-      mismatch |= expected.charCodeAt(i) ^ envelope.signature.charCodeAt(i);
-    }
-    if (mismatch !== 0) throw new Error(&#x27;signature&#x27;);
-    var row = JSON.parse(envelope.payload);
-    // Restrict stored strings; never write untrusted formulas or message text.
-    if (typeof row.eventId !== &#x27;string&#x27; || !/^[A-Za-z0-9_-]{1,128}$/.test(row.eventId) ||
-        row.type !== &#x27;text&#x27; || row.status !== &#x27;replied&#x27;) throw new Error(&#x27;schema&#x27;);
-    lock = LockService.getScriptLock();
-    lock.waitLock(5000);
-    var sheet = SpreadsheetApp.openById(props.getProperty(&#x27;SHEET_ID&#x27;)).getSheetByName(&#x27;Events&#x27;);
-    if (!sheet || sheet.getRange(1, 1, 1, 4).getValues()[0].join(&#x27;|&#x27;) !==
-        &#x27;receivedAt|eventId|type|status&#x27;) throw new Error(&#x27;sheet setup&#x27;);
-    var last = sheet.getLastRow();
-    // Full-column lookup is acceptable only for this capped classroom log.
-    if (last &gt; 1 &amp;&amp; sheet.getRange(2, 2, last - 1, 1).createTextFinder(row.eventId)
-        .matchEntireCell(true).findNext()) return jsonOutput_({ ok: true, duplicate: true });
-    if (last &gt;= 5001) return jsonOutput_({ ok: false, error: &#x27;CLASSROOM_LOG_CAP&#x27; });
-    sheet.getRange(last + 1, 1, 1, 4).setValues([
-      [new Date().toISOString(), row.eventId, row.type, row.status]
-    ]);
-    SpreadsheetApp.flush();
-    return jsonOutput_({ ok: true });
-  } catch (error) {
-    // TextOutput cannot set a custom HTTP status. The caller MUST read ok.
-    return jsonOutput_({ ok: false, error: &#x27;REJECTED_OR_UNAVAILABLE&#x27; });
-  } finally {
-    if (lock &amp;&amp; lock.hasLock()) lock.releaseLock();
-  }
+var msg = JSON.parse(e.postData.contents); // 解析收到的資料，將POST 請求中的資料解析為JSON 格式。
+var events = msg.events; // 取得事件資料
+內容接下頁
+// 返回處理結果
+return ContentService.createTextOutput(JSON.stringify({ "result": "success" }));
 }
-</code></pre></details><details><summary>package.json</summary><pre tabindex="0"><code>{
-  &quot;name&quot;: &quot;line-gas-classroom-bot&quot;,
-  &quot;version&quot;: &quot;1.0.0&quot;,
-  &quot;private&quot;: true,
-  &quot;type&quot;: &quot;module&quot;,
-  &quot;engines&quot;: { &quot;node&quot;: &quot;&gt;=22&quot; },
-  &quot;scripts&quot;: { &quot;start&quot;: &quot;node server.mjs&quot;, &quot;test&quot;: &quot;node --test test.mjs test-gas.mjs&quot; }
+doPost(e)：主要的POST 請求處理函數，處理來自LINE 的事件。</pre></details><details><summary>Original slide text · PDF 66</summary><pre>撰寫GAS
+// 如果有事件發生
+if (events.length &gt; 0) {
+var event = events[0]; // 只處理第一個事件
+var replyToken = msg.events[0].replyToken; // 取得回覆的token每次用戶訊息事件都會附帶一個回覆用的token，僅能使用一次。
+var userId = event.source.userId; // 取得用戶ID
+var groupId = event.source.groupId || ""; // 取得群組ID（如果有）
+var user_info = get_user_info(userId, groupId); // 取得用戶資訊
+var displayName = user_info.displayName; // 取得用戶顯示名稱
+var language = user_info.language; // 取得用戶語言
+// 開始顯示讀取動畫，持續5秒
+sendLoading(userId, 5);
+// 檢查事件類型是否為訊息
+if (event.type === 'message')
+{
+var messageType = event.message.type; // 取得訊息類型
+if (messageType === 'text') //檢查訊息類型是否為文字。
+{ // 如果訊息是文字
+var userMessage = "你說了：" + event.message.text; //組合回覆訊息的內容
+if( groupId != "") // 如果訊息來自群組
+{
+if(userMessage.startsWith("!")) // 如果訊息以"!"開頭
+{
+reply_message(replyToken, [{ 'type': 'text', 'text': userMessage }]) // 回覆訊息
 }
-</code></pre></details><details><summary>Dockerfile</summary><pre tabindex="0"><code>FROM node:22-bookworm-slim
-WORKDIR /app
-COPY package.json server.mjs ./
-USER node
-CMD [&quot;node&quot;, &quot;server.mjs&quot;]
-</code></pre></details><details><summary>.env.example</summary><pre tabindex="0"><code>LINE_CHANNEL_SECRET=replace_with_your_channel_secret
-LINE_CHANNEL_ACCESS_TOKEN=replace_with_your_channel_access_token
-# Optional until the echo bot works. Never use a Sheet to store these secrets.
-# GAS_LOG_URL=https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec
-# RELAY_SECRET=replace_with_a_random_32_byte_secret
-PORT=8080
-</code></pre></details><details><summary>.gitignore</summary><pre tabindex="0"><code>.env
-.env.*
-!.env.example
-node_modules/
-clean/
-*.log
-</code></pre></details><details><summary>.gcloudignore</summary><pre tabindex="0"><code>.git
-.env
-.env.*
-*.log
-node_modules/
-clean/
-test*.mjs
-</code></pre></details><details><summary>test.mjs</summary><pre tabindex="0"><code>import test from &#x27;node:test&#x27;;
-import assert from &#x27;node:assert/strict&#x27;;
-import { createHmac } from &#x27;node:crypto&#x27;;
-import { createBot, validSignature } from &#x27;./server.mjs&#x27;;
-const env = { LINE_CHANNEL_SECRET: &#x27;test-secret-not-real&#x27;, LINE_CHANNEL_ACCESS_TOKEN: &#x27;test-token-not-real&#x27; };
-const sign = raw =&gt; createHmac(&#x27;sha256&#x27;, env.LINE_CHANNEL_SECRET).update(raw).digest(&#x27;base64&#x27;);
-const event = id =&gt; ({ type: &#x27;message&#x27;, webhookEventId: id, replyToken: &#x27;test-reply&#x27;,
-  source: { userId: &#x27;MUST_NOT_BE_LOGGED&#x27; }, message: { type: &#x27;text&#x27;, text: &#x27;PRIVATE_TEXT&#x27; } });
-test(&#x27;signature binds exact raw bytes&#x27;, () =&gt; {
-  assert(validSignature(Buffer.from(&#x27;{}&#x27;), sign(&#x27;{}&#x27;), env.LINE_CHANNEL_SECRET));
-  assert(!validSignature(Buffer.from(&#x27;{ }&#x27;), sign(&#x27;{}&#x27;), env.LINE_CHANNEL_SECRET));
-  assert(!validSignature(Buffer.from(&#x27;{}&#x27;), &#x27;&#x27;, env.LINE_CHANNEL_SECRET));
-});
-test(&#x27;webhook, duplicate, non-text, log privacy and failures&#x27;, async t =&gt; {
-  let calls = []; let failReply = false; let failLog = false; let warnings = 0;
-  const fetcher = async (url, options) =&gt; {
-    calls.push({ url, options });
-    if (url.includes(&#x27;api.line.me&#x27;)) return { ok: !failReply, status: failReply ? 401 : 200 };
-    return { ok: true, json: async () =&gt; ({ ok: !failLog }) };
-  };
-  const logEnv = { ...env, GAS_LOG_URL: &#x27;https://script.google.com/macros/s/TEST/exec&#x27;, RELAY_SECRET: &#x27;test-relay&#x27; };
-  const server = createBot(logEnv, fetcher, { warn: () =&gt; warnings++, error() {} });
-  await new Promise(resolve =&gt; server.listen(0, &#x27;127.0.0.1&#x27;, resolve));
-  t.after(() =&gt; new Promise(resolve =&gt; server.close(resolve)));
-  const base = `http://127.0.0.1:${server.address().port}`;
-  async function send(body, signature = sign(body)) {
-    return fetch(base + &#x27;/webhook&#x27;, { method: &#x27;POST&#x27;, headers: { &#x27;x-line-signature&#x27;: signature }, body });
-  }
-  assert.equal((await fetch(base + &#x27;/healthz&#x27;)).status, 200);
-  assert.equal((await send(&#x27;{}&#x27;, &#x27;wrong&#x27;)).status, 401);
-  assert.equal((await send(&#x27;{&#x27;)).status, 400);
-  assert.equal((await send(&#x27;{}&#x27;)).status, 400);
-  assert.equal((await send(&#x27;null&#x27;)).status, 400);
-  assert.equal((await send(&#x27;{&quot;events&quot;:[null]}&#x27;)).status, 400);
-  assert.equal((await send(&#x27;{&quot;events&quot;:[]}&#x27;)).status, 200);
-  assert.equal(calls.length, 0);
-  const body = JSON.stringify({ events: [event(&#x27;event-1&#x27;)] });
-  assert.equal((await send(body)).status, 200);
-  assert.equal(calls.length, 2);
-  const envelope = JSON.parse(calls[1].options.body);
-  assert(!envelope.payload.includes(&#x27;PRIVATE_TEXT&#x27;));
-  assert(!envelope.payload.includes(&#x27;MUST_NOT_BE_LOGGED&#x27;));
-  assert(validSignature(Buffer.from(`${envelope.timestamp}.${envelope.payload}`), envelope.signature, &#x27;test-relay&#x27;));
-  await send(body); assert.equal(calls.length, 2);
-  await send(JSON.stringify({ events: [{ type: &#x27;follow&#x27; }] })); assert.equal(calls.length, 2);
-  failLog = true;
-  assert.equal((await send(JSON.stringify({ events: [event(&#x27;event-2&#x27;)] }))).status, 200);
-  assert.equal(warnings, 1);
-  failReply = true;
-  assert.equal((await send(JSON.stringify({ events: [event(&#x27;event-3&#x27;)] }))).status, 502);
-});
-</code></pre></details><details><summary>test-gas.mjs</summary><pre tabindex="0"><code>import test from &#x27;node:test&#x27;;
-import assert from &#x27;node:assert/strict&#x27;;
-import { createHmac } from &#x27;node:crypto&#x27;;
-import { readFileSync } from &#x27;node:fs&#x27;;
-import vm from &#x27;node:vm&#x27;;
-
-const source = readFileSync(new URL(&#x27;./Code.gs&#x27;, import.meta.url), &#x27;utf8&#x27;);
-const NOW = Date.parse(&#x27;2026-11-07T00:00:00.000Z&#x27;);
-const SECRET = &#x27;local-test-relay-secret-not-a-real-credential&#x27;;
-const HEADER = [&#x27;receivedAt&#x27;, &#x27;eventId&#x27;, &#x27;type&#x27;, &#x27;status&#x27;];
-const REJECTED = { ok: false, error: &#x27;REJECTED_OR_UNAVAILABLE&#x27; };
-const row = (eventId = &#x27;event-1&#x27;) =&gt; ({ eventId, type: &#x27;text&#x27;, status: &#x27;replied&#x27; });
-
-function signed(data = row(), timestamp = NOW, secret = SECRET) {
-  const payload = JSON.stringify(data);
-  const signature = createHmac(&#x27;sha256&#x27;, secret)
-    .update(`${timestamp}.${payload}`, &#x27;utf8&#x27;).digest(&#x27;base64&#x27;);
-  return { timestamp, payload, signature };
+else // 可以在這裡處理其他群組訊息的邏輯
+{
 }
-
-function harness({ rows = [HEADER], missingSheet = false, lockFails = false } = {}) {
-  const stored = rows.map(values =&gt; [...values]);
-  const state = { writes: 0, flushes: 0, opens: 0, waits: [], releases: 0, held: false };
-  const sheet = {
-    getLastRow: () =&gt; stored.length,
-    appendRow(values) { stored.push(Array.from(values)); state.writes++; },
-    getRange(start, column, height, width) {
-      assert(start &gt;= 1 &amp;&amp; column &gt;= 1 &amp;&amp; height &gt;= 1 &amp;&amp; width &gt;= 1);
-      return {
-        getValues: () =&gt; stored.slice(start - 1, start - 1 + height)
-          .map(values =&gt; values.slice(column - 1, column - 1 + width)),
-        setValues(values) {
-          assert.equal(state.held, true, &#x27;writes must hold the script lock&#x27;);
-          assert.equal(values.length, height);
-          values.forEach((cells, offset) =&gt; {
-            assert.equal(cells.length, width);
-            const target = stored[start - 1 + offset] ??= [];
-            cells.forEach((value, index) =&gt; { target[column - 1 + index] = value; });
-          });
-          state.writes++;
-        },
-        createTextFinder(needle) {
-          let exact = false;
-          return {
-            matchEntireCell(value) { exact = value; return this; },
-            findNext() {
-              assert.equal(exact, true, &#x27;deduplication must match the entire cell&#x27;);
-              return stored.slice(start - 1, start - 1 + height)
-                .some(values =&gt; String(values[column - 1]) === String(needle)) ? {} : null;
-            }
-          };
-        }
-      };
-    }
-  };
-  const props = { SHEET_ID: &#x27;local-sheet-id&#x27;, RELAY_SECRET: SECRET };
-  const context = vm.createContext({
-    Date: class extends Date {
-      constructor(...args) { super(...(args.length ? args : [NOW])); }
-      static now() { return NOW; }
-    },
-    PropertiesService: { getScriptProperties: () =&gt; ({ getProperty: key =&gt; props[key] }) },
-    Utilities: {
-      Charset: { UTF_8: &#x27;UTF-8&#x27; },
-      computeHmacSha256Signature(message, secret, charset) {
-        assert.equal(charset, &#x27;UTF-8&#x27;);
-        // GAS returns signed bytes; Buffer.from restores their unsigned representation.
-        return Array.from(createHmac(&#x27;sha256&#x27;, secret).update(message, &#x27;utf8&#x27;).digest(),
-          value =&gt; value &gt; 127 ? value - 256 : value);
-      },
-      base64Encode: bytes =&gt; Buffer.from(bytes).toString(&#x27;base64&#x27;)
-    },
-    LockService: { getScriptLock: () =&gt; ({
-      waitLock(ms) {
-        state.waits.push(ms);
-        if (lockFails) throw new Error(&#x27;mock lock timeout&#x27;);
-        state.held = true;
-      },
-      hasLock: () =&gt; state.held,
-      releaseLock() { assert(state.held); state.held = false; state.releases++; }
-    }) },
-    SpreadsheetApp: {
-      openById(id) {
-        assert.equal(id, props.SHEET_ID); state.opens++;
-        return {
-          getSheetByName(name) { assert.equal(name, &#x27;Events&#x27;); return missingSheet ? null : sheet; },
-          insertSheet(name) { assert.equal(name, &#x27;Events&#x27;); missingSheet = false; return sheet; }
-        };
-      },
-      flush() { state.flushes++; }
-    },
-    ContentService: {
-      MimeType: { JSON: &#x27;application/json&#x27; },
-      createTextOutput(text) {
-        return { text, setMimeType(mime) { this.mime = mime; return this; } };
-      }
-    }
-  });
-  vm.runInContext(source, context, { timeout: 1000, filename: &#x27;Code.gs&#x27; });
-  function invoke(envelope) {
-    context.request = { postData: { contents: JSON.stringify(envelope) } };
-    const output = vm.runInContext(&#x27;doPost(request)&#x27;, context, { timeout: 1000 });
-    assert.equal(output.mime, &#x27;application/json&#x27;);
-    return JSON.parse(output.text);
-  }
-  return { invoke, stored, state, context };
 }
-
-test(&#x27;valid relay HMAC writes only the four approved columns and releases the lock&#x27;, () =&gt; {
-  const h = harness();
-  assert.deepEqual(h.invoke(signed()), { ok: true });
-  assert.deepEqual(h.stored, [HEADER, [new Date(NOW).toISOString(), &#x27;event-1&#x27;, &#x27;text&#x27;, &#x27;replied&#x27;]]);
-  assert.equal(h.state.flushes, 1);
-  assert.deepEqual(h.state.waits, [5000]);
-  assert.equal(h.state.releases, 1);
-  assert.equal(h.state.held, false);
+else // 如果訊息不是來自群組，直接回覆訊息
+{
+reply_message(replyToken, [{ 'type': 'text', 'text': userMessage }])
+}
+}
+}
+}</pre></details><details><summary>Original slide text · PDF 67</summary><pre>撰寫GAS
+// 取得用戶資訊
+function get_user_info(userId, groupId) // 決定是查詢群組成員還是單一用戶的API
+{
+var url = groupId ? 'https://api.line.me/v2/bot/group/' + groupId + '/member/' + userId : 'https://api.line.me/v2/bot/profile/' + userId;
+var headers = {
+"Authorization": "Bearer " + CHANNEL_ACCESS_TOKEN // 設定認證標頭
+};
+var options = {
+"method": "get", // 使用GET方法
+"headers": headers,
+"muteHttpExceptions": true // 靜音HTTP例外狀況（忽略錯誤）
+};
+var response = UrlFetchApp.fetch(url, options); //用來發送HTTP 請求並取得回應
+if (response.getResponseCode() == 200) // 如果請求成功
+{
+var user_info = JSON.parse(response.getContentText()); // 解析用戶資訊
+return user_info; // 返回用戶資訊
+}
+else
+{
+return { "displayName": "Unknown", "language": "Unknown" }; // 如果失敗，返回預設值
+}
+}
+get_user_info(userId, groupId)：用於取得用戶或群組成員的基本資訊。</pre></details><details><summary>Original slide text · PDF 68</summary><pre>撰寫GAS
+// 發送讀取動畫
+function sendLoading(userId, seconds)
+{
+var url = 'https://api.line.me/v2/bot/chat/loading/start'; // 發送讀取動畫的API
+var payload = {
+"chatId": userId, // 設定聊天對象ID
+"loadingSeconds": seconds // 設定讀取動畫的持續時間
+};
+var options = {
+'method': 'post', // 使用POST方法
+'contentType': 'application/json', // 設定內容類型為JSON
+'headers': {
+'Authorization': 'Bearer ' + CHANNEL_ACCESS_TOKEN, // 設定認證標頭
+},
+'payload': JSON.stringify(payload) // 將資料轉換為JSON格式
+};
+UrlFetchApp.fetch(url, options); // 發送請求
+}
+在回應訊息前，顯示讀取動畫。</pre></details><details><summary>Original slide text · PDF 69</summary><pre>撰寫GAS
+// 發送訊息回覆
+function reply_message(replyToken, reply, url = 'https://api.line.me/v2/bot/message/reply')
+{
+UrlFetchApp.fetch(url, {
+'headers': {
+'Content-Type': 'application/json; charset=UTF-8', // 設定內容類型為JSON
+'Authorization': 'Bearer ' + CHANNEL_ACCESS_TOKEN, // 設定認證標頭
+},
+'method': 'post', // 使用POST方法
+'payload': JSON.stringify({
+'replyToken': replyToken, // 傳送回覆的token
+'messages': reply // 設定回覆的訊息內容
+}),
 });
-
-test(&#x27;payload, timestamp, signature tampering and wrong shared secret are rejected before Sheets access&#x27;, () =&gt; {
-  const original = signed();
-  for (const envelope of [
-    { ...original, payload: JSON.stringify(row(&#x27;tampered&#x27;)) },
-    { ...original, timestamp: NOW - 1 },
-    { ...original, signature: (original.signature[0] === &#x27;A&#x27; ? &#x27;B&#x27; : &#x27;A&#x27;) + original.signature.slice(1) },
-    { ...original, signature: &#x27;short&#x27; },
-    signed(row(), NOW, &#x27;wrong-secret&#x27;)
-  ]) {
-    const h = harness();
-    assert.deepEqual(h.invoke(envelope), REJECTED);
-    assert.equal(h.state.opens, 0);
-    assert.equal(h.state.writes, 0);
-  }
+}
+回應用戶訊息的主要函數。</pre></details></section><section class="panel" id="unit5"><h2>5. Write conversation records to Sheets</h2><p>38-page PDF: 23–25 · 112-page PDF: 76–80</p><p>Follow timestamp creation, opening the spreadsheet, selecting a tab and appendRow after the reply. Start with synthetic test messages and verify column order and tab names. Do not use real learner conversations as practice data.</p><p><strong>Check: the source records time, user ID, group ID, display name, message and language; the AI stage adds reply. Reassess necessity, notice and retention before real use.</strong></p><div class="two-col"><figure class="figure-card"><a href="assets/source-slides/p078.png"><img alt="Original course slide, PDF page 78" loading="lazy" src="assets/source-slides/p078.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 78 · Click to enlarge the original slide</figcaption></figure></div><details><summary>Original slide text · PDF 78</summary><pre>新增時間與試算表設定
+//設定現在時間
+var timestamp = Utilities.formatDate(new Date(), "GMT+8", "yyyy-MM-dd HH:mm:ss");
+//指定試算表
+var ss = SpreadsheetApp.openByUrl(“試算表網址");</pre></details><details><summary>Original slide text · PDF 79</summary><pre>在reply_message後新增紀錄訊息
+reply_message(replyToken, [{ 'type': 'text', 'text': userMessage }]) // 回覆訊息
+sheet = ss.getSheetByName(“工作表1”); //指定工作表
+//在工作表新增最後一筆資料，時間、使用者ID、群組ID、使用者暱稱、使用者訊息、使用者語言
+sheet.appendRow([timestamp, userId, groupId, displayName, userMessage, language]);</pre></details></section><section class="panel" id="unit6"><h2>6. Replace echo replies with Gemini responses</h2><p>38-page PDF: 26–34 · 112-page PDF: 81–98</p><p>Study the API input, generationConfig, requestBody and response parsing. Pass userMessage to gemini_api(send_msg), then pass the returned text to reply_message(). The two else blocks on page 97 are before/after alternatives, not blocks to paste together.</p><p><strong>Check: explain the changed data flow. The source model name gemini-1.5-flash-latest is historical, not a guarantee of current availability.</strong></p><div class="two-col"><figure class="figure-card"><a href="assets/source-slides/p093.png"><img alt="Original course slide, PDF page 93" loading="lazy" src="assets/source-slides/p093.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 93 · Click to enlarge the original slide</figcaption></figure></div><details><summary>Original slide text · PDF 92</summary><pre>在主程式(程式碼.gs)新增API Key
+以及新增指令碼gemini_api .gs
+// 定義LINE的CHANNEL_ACCESS_TOKEN，用來驗證機器人
+var CHANNEL_ACCESS_TOKEN = “填入自己LINE的CHANNEL_ACCESS_TOKEN";
+var Gemini_ACCESS_TOKEN =‘填入自己gemini API Key’;
+後續API設定</pre></details><details><summary>Original slide text · PDF 94</summary><pre>gemini_api()函式內容1
+// 設定生成配置的參數，包括溫度（temperature）、top_p、top_k
+//最大輸出字數（max_output_tokens）、回應的MIME 類型（response_mime_type）
+const generation_config = {
+"temperature": 1, // 溫度值決定回應的隨機性，值越高，回應越多樣化
+"top_p": 0.95, // 使用top-p 取樣來決定回應的多樣性
+"top_k": 64, // 使用top-k 取樣來限制可能的回應選項數量
+"max_output_tokens": 300, // 設定回應的最大token數
+"response_mime_type": "text/plain", // 回應的MIME 類型
+};
+// 定義API URL，其中包含API 金鑰（Gemini_ACCESS_TOKEN）
+var apiUrl =`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${Gemini_ACCESS_TOKEN}`</pre></details><details><summary>Original slide text · PDF 95</summary><pre>gemini_api()函式內容2
+// 建立請求的主體內容，將使用者輸入的訊息（send_msg）包裝成JSON 格式
+var requestBody = JSON.stringify({
+"contents": [
+{
+"parts": [
+{
+"text": `
+`
+},
+{
+"text": send_msg // 使用者輸入的訊息
+}
+]
+}
+],
+"generationConfig": generation_config // 設定生成配置
 });
-
-test(&#x27;timestamp window accepts exactly five minutes and rejects older or future envelopes beyond it&#x27;, () =&gt; {
-  for (const offset of [-300000, 300000]) {
-    assert.deepEqual(harness().invoke(signed(row(), NOW + offset)), { ok: true });
-  }
-  for (const offset of [-300001, 300001]) {
-    const h = harness();
-    assert.deepEqual(h.invoke(signed(row(), NOW + offset)), REJECTED);
-    assert.equal(h.state.opens, 0);
-  }
-});
-
-test(&#x27;replaying an event does not write twice; substring IDs remain distinct&#x27;, () =&gt; {
-  const h = harness();
-  assert.deepEqual(h.invoke(signed()), { ok: true });
-  assert.deepEqual(h.invoke(signed()), { ok: true, duplicate: true });
-  assert.deepEqual(h.invoke(signed(row(&#x27;event-10&#x27;))), { ok: true });
-  assert.equal(h.state.writes, 2);
-  assert.equal(h.state.flushes, 2);
-  assert.equal(h.state.releases, 3);
-});
-
-test(&#x27;incorrect worksheet header or missing Events sheet rejects writes and releases the lock&#x27;, () =&gt; {
-  for (const options of [{ rows: [[&#x27;eventId&#x27;, &#x27;receivedAt&#x27;, &#x27;type&#x27;, &#x27;status&#x27;]] }, { missingSheet: true }]) {
-    const h = harness(options);
-    assert.deepEqual(h.invoke(signed()), REJECTED);
-    assert.equal(h.state.writes, 0);
-    assert.equal(h.state.releases, 1);
-    assert.equal(h.state.held, false);
-  }
-});
-
-test(&#x27;5000-record guard excludes the header, permits record 5000, and still recognizes duplicates at capacity&#x27;, () =&gt; {
-  const rows = [HEADER, ...Array.from({ length: 4999 }, (_, i) =&gt; [&#x27;time&#x27;, `seed-${i}`, &#x27;text&#x27;, &#x27;replied&#x27;])];
-  const h = harness({ rows });
-  assert.deepEqual(h.invoke(signed(row(&#x27;record-5000&#x27;))), { ok: true });
-  assert.equal(h.stored.length, 5001);
-  assert.deepEqual(h.invoke(signed(row(&#x27;record-5001&#x27;))), { ok: false, error: &#x27;CLASSROOM_LOG_CAP&#x27; });
-  assert.deepEqual(h.invoke(signed(row(&#x27;record-5000&#x27;))), { ok: true, duplicate: true });
-  assert.equal(h.state.writes, 1);
-  assert.equal(h.state.flushes, 1);
-  assert.equal(h.state.releases, 3);
-});
-
-test(&#x27;lock timeout refuses writes without releasing an unowned lock&#x27;, () =&gt; {
-  const h = harness({ lockFails: true });
-  assert.deepEqual(h.invoke(signed()), REJECTED);
-  assert.equal(h.state.writes, 0);
-  assert.equal(h.state.releases, 0);
-});
-
-test(&#x27;formula-like event ID is rejected even with a valid HMAC&#x27;, () =&gt; {
-  const h = harness();
-  assert.deepEqual(h.invoke(signed(row(&#x27;=IMPORTXML()&#x27;))), REJECTED);
-  assert.equal(h.state.opens, 0);
-});
-
-test(&#x27;setup creates the header once&#x27;, () =&gt; {
-  const h = harness({ rows: [], missingSheet: true });
-  vm.runInContext(&#x27;setupLogSheet(); setupLogSheet();&#x27;, h.context, { timeout: 1000 });
-  assert.deepEqual(h.stored, [HEADER]);
-  assert.equal(h.state.writes, 1);
-});
-
-test(&#x27;eventId must be a string, not a coerced number&#x27;, () =&gt; {
-  const h = harness();
-  assert.deepEqual(h.invoke(signed(row(123))), REJECTED);
-  assert.equal(h.state.writes, 0);
-});
-</code></pre></details></section><section id="references"><h2>References / Author</h2><ul><li><a href="https://developers.line.biz/en/docs/messaging-api/building-bot/">LINE: building a bot</a></li><li><a href="https://developers.line.biz/en/docs/messaging-api/verify-webhook-signature/">LINE: signature verification</a></li><li><a href="https://cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-nodejs-service">Cloud Run: Node.js source deployment and IAM</a></li><li><a href="https://cloud.google.com/run/docs/configuring/services/secrets">Cloud Run: Secret Manager</a></li><li><a href="https://developers.google.com/apps-script/guides/web">Apps Script: web app event fields</a></li><li><a href="https://developers.google.com/apps-script/guides/services/quotas?hl=zh-tw">Apps Script: quotas</a></li></ul><p>施育廷 Yu-Ting Shih（Andrew Shih） · Adjunct lecturer, National Taichung University of Education; doctoral candidate, Graduate Institute of Educational Information and Measurement.</p></section></main></body></html>
+// 設定API 呼叫的選項，包括HTTP 方法（POST）、內容類型（application/json）、以及請求的主體內容
+var options = {
+"method": "post", // 使用POST 方法
+"contentType": "application/json", // 設定內容類型為JSON
+"payload": requestBody // 請求的主體內容
+};</pre></details><details><summary>Original slide text · PDF 96</summary><pre>gemini_api()函式內容3
+try
+{
+// 使用UrlFetchApp 來呼叫API，並取得回應
+var response = UrlFetchApp.fetch(apiUrl, options);
+// 解析回應的JSON 內容
+var data = JSON.parse(response.getContentText());
+// 輸出並返回回應的文本內容
+console.log(data.candidates[0].content.parts[0].text)
+return data.candidates[0].content.parts[0].text;
+}
+catch (error)
+{
+// 處理API 呼叫時的錯誤，並回傳錯誤訊息
+console.error('Error calling Gemini API:', error.toString());
+return "抱歉，我無法處理您的請求。"; // 回應錯誤訊息
+}</pre></details><details><summary>Original slide text · PDF 97</summary><pre>修改程式碼.gs，將使用者訊息傳入gemini_api()
+else // 如果訊息不是來自群組，直接回覆訊息
+{
+reply_message(replyToken, [{ 'type': 'text', 'text': userMessage }])
+sheet = ss.getSheetByName("工作表1");
+sheet.appendRow([timestamp, userId, groupId, displayName, userMessage, language]);
+}
+else // 如果訊息不是來自群組，直接回覆訊息
+{
+send_msg = userMessage + "###";
+content = gemini_api(send_msg); // 等待API 回應
+// 直接組合訊息並過濾不需要的字元
+reply = content.replace("###", "");
+reply_message(replyToken, [{ 'type': 'text', 'text': reply }])
+sheet = ss.getSheetByName("工作表1");
+sheet.appendRow([timestamp, userId, groupId, displayName, userMessage, language,reply]);
+}</pre></details></section><section class="panel" id="unit7"><h2>7. System instructions and application topics</h2><p>38-page PDF: 35–38 · 112-page PDF: 99–112</p><p>Define role, tone, task scope and behavioral constraints as in the deck. Compare responses on a fixed set of questions before and after changes, then choose an educational, support or knowledge task. A plausible response alone is not a completed test.</p><p><strong>Check: record test prompts, expected behavior, actual answers and revisions; distinguish operational success from factual correctness.</strong></p><div class="two-col"><figure class="figure-card"><a href="assets/source-slides/p100.png"><img alt="Original course slide, PDF page 100" loading="lazy" src="assets/source-slides/p100.png"/></a><figcaption>互動機器人專題應用.pdf · PDF 100 · Click to enlarge the original slide</figcaption></figure></div></section><section class="panel" id="architecture"><h2>From a replying Bot to a cloud assistant</h2><p>The architecture page continues with Sheets → Drive → Apps Script → API settings → Drive API → Web app deployment → LINE webhook, followed by rich menus and file Q&amp;A, report generation, Threads, search, calendar, email and notes. These are extensions to the basic slide exercises, not a replacement cloud-server course.</p></section><section class="panel" id="process"><h2>Process page: learning to develop with AI</h2><ol><li>Define file handling and text-command requirements separately.</li><li>Supply GAS, Sheet tabs, Drive context and current code using placeholders, never real secrets.</li><li>Ask for architecture first, then implement getLogData, UrlFetchApp and intent extraction one at a time.</li><li>Provide de-identified code, errors and screenshots; test, revise and refactor.</li><li>Hand over a working version and pending tasks when changing conversations. The source's 100k-token threshold is historical experience, not a universal model limit.</li><li>Extend incrementally with Flex Message, file explanations, HTML reports, spreadsheet Q&amp;A and Threads.</li></ol></section><section class="panel" id="corrections"><h2>Corrections separate from the source</h2><ul><li>Pages 63, 78, 79 and 92 contain typographic quotes; use straight quotes when transcribing code.</li><li>Page 66 prefixes the message before checking startsWith("!"), preventing group command matching. Check raw event.message.text first, then compose the reply.</li><li>Page 64 contains a continuation placeholder. Page 97 shows before/after else blocks. These are not standalone complete programs.</li><li>Historical model names, free quotas and UI are not current availability guarantees. Do not reuse the old page-85 quota figures as current facts.</li><li>The original APIKEY Sheet and inline secrets require a separate configuration revision. Script Properties separates settings but remains readable by project editors and is not a vault.</li><li>Direct GAS webhook handling is the historical learning architecture, not proof of LINE signature verification. Production verification remains a separate security requirement, not a replacement learning path.</li><li>Do not republish screenshots of credentials, identity details or real conversation logs. This preview selects 11 pages that do not focus on these sensitive materials.</li></ul></section></main><footer class="site-footer">
+<div class="wrap footer-grid">
+<article class="panel" data-static-content="">
+<p class="section-label">Author</p>
+<h3>施育廷 Yu-Ting Shih（Andrew Shih）</h3>
+<p class="muted">NTCU Adjunct Lecturer; doctoral candidate, Graduate Institute of Educational Information and Measurement (教育資訊與測驗統計研究所).</p>
+<p class="muted">This site was curated by Yu-Ting Shih and consolidates teaching materials on LINE Bot, Google Apps Script, Google Sheets, and generative AI into a public-facing instructional website.</p>
+</article>
+<article class="panel">
+<p class="section-label">Links</p>
+<div class="cta-row">
+<a class="button primary" href="../index_en.html">Academic Home</a>
+<a class="button" href="../certificates-site/index_en.html">Credentials</a>
+<a class="button" href="../sitemap_en.html">Sitemap</a>
+</div>
+</article>
+</div>
+</footer></body></html>

@@ -17,26 +17,15 @@
   <title>LINE Bot 系統架構：GAS、Sheets 與 Webhook</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="nav.js" defer></script>
+<link rel="stylesheet" href="../assets/site-shell.css">
+<script defer src="../assets/site-shell.js"></script>
 </head>
-<body>
-  <header class="site-header">
-    <div class="wrap topbar">
-      <a class="brand" href="index.html">LINE Bot x GAS 教學網站</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="course-nav"><span>選單</span><span class="menu-toggle-icon" aria-hidden="true"></span></button>
-      <nav id="course-nav" class="nav" aria-label="LINE Bot 教學導覽">
-        <a href="index.html">首頁</a>
-        <a href="teaching-plan.html">教學地圖</a>
-        <a href="setup.html">初始設定</a>
-        <a href="apps-script.html">GAS 與 Sheets</a>
-        <a href="workflows.html">工作流程</a>
-        <a href="advanced.html">進階應用</a>
-        <a href="resources.html">資源入口</a>
-        <a href="../index.html">學術首頁</a>
-        <a href="../sitemap.html">網站導覽</a>
-        <a href="apps-script_en.html">EN</a>
-      </nav>
-    </div>
-  </header>
+<body class="site-unified">
+  <header class="unified-header"><div class="unified-inner">
+<a class="unified-brand" href="../index.html">施育廷<span>Andrew Shih</span></a>
+<nav aria-label="全站導覽" class="unified-desktop"><a class="unified-link" href="../index.html">首頁</a><a class="unified-link" href="../talks/index.html">演講邀約</a><a class="unified-link" href="../author-works/index.html">研究成果</a><a class="unified-link" href="../ai-course-site/index.html">AI教材</a><a class="unified-link" href="index.html">LINE Bot</a><a class="unified-link" href="../certificates-site/index.html">證照紀錄</a><a class="unified-link" href="../sitemap.html">網站導覽</a><a class="unified-link" href="apps-script_en.html">English</a><details class="unified-local"><summary>本頁／教材導覽</summary><nav aria-label="本頁／教材導覽" class="unified-local-panel"><a class="unified-link" href="teaching-plan.html">教學地圖</a><a class="unified-link" href="setup.html">初始設定</a><a class="unified-link" href="apps-script.html">GAS 與 Sheets</a><a class="unified-link" href="workflows.html">工作流程</a><a class="unified-link" href="advanced.html">進階應用</a><a class="unified-link" href="resources.html">資源入口</a><a class="unified-link" href="quickstart.html">投影片實作</a><a class="unified-link" href="process.html">AI協作流程</a></nav></details></nav>
+<details class="unified-mobile"><summary>選單／語言</summary><nav aria-label="全站導覽" class="unified-mobile-panel"><a class="unified-link" href="../index.html">首頁</a><a class="unified-link" href="../talks/index.html">演講邀約</a><a class="unified-link" href="../author-works/index.html">研究成果</a><a class="unified-link" href="../ai-course-site/index.html">AI教材</a><a class="unified-link" href="index.html">LINE Bot</a><a class="unified-link" href="../certificates-site/index.html">證照紀錄</a><a class="unified-link" href="../sitemap.html">網站導覽</a><a class="unified-link" href="apps-script_en.html">English</a><strong class="unified-mobile-label">本頁／教材導覽</strong><a class="unified-link" href="teaching-plan.html">教學地圖</a><a class="unified-link" href="setup.html">初始設定</a><a class="unified-link" href="apps-script.html">GAS 與 Sheets</a><a class="unified-link" href="workflows.html">工作流程</a><a class="unified-link" href="advanced.html">進階應用</a><a class="unified-link" href="resources.html">資源入口</a><a class="unified-link" href="quickstart.html">投影片實作</a><a class="unified-link" href="process.html">AI協作流程</a></nav></details>
+</div></header>
 
   <section class="page-hero">
     <div class="wrap">
@@ -56,14 +45,14 @@
       <a href="#practice">練習建議</a>
     </aside>
     <article class="article">
-<section class="panel" id="safe-quickstart"><h2>實作回覆Bot與Sheets紀錄</h2><p><a class="button primary" href="quickstart.html">開啟完整快速實作</a></p><p>依序完成Node／Cloud Run驗簽入口、GAS簽名紀錄端與Sheets流程。Python磨課師僅為延伸學習，非必修，也不能替代此實作。</p><p><a href="apps-script.html#security-quotas">安全、配額與官方來源</a></p></section>
-<section class="panel" id="security-quotas"><h2>安全與配額</h2><p>官方資料查核日期：2026-11-07。配額可能變更，部署前請再確認。</p><p>安全原則：<code>APIKEY</code>工作表僅為歷史示例，勿儲存秘密。Token、Channel Secret及其他API金鑰應放在伺服器環境變數或秘密管理器。GAS的Script Properties僅用於relay共享secret與<code>SHEET_ID</code>等設定，不是vault；專案編輯者可取得內容，不可廣發編輯權限。</p><p>GAS公開<code>doPost(e)</code>的事件欄位不含<code>x-line-signature</code>，不能作為可靠驗證LINE簽章的直接入口。正式入口須由Node／Cloud Run以原始請求本文驗簽，再回覆Bot並送出簽名紀錄；GAS驗證relay簽名後才寫入Sheets，兩種簽章不可混為一談。</p><ul class="clean-list"><li>Apps Script每次執行最長6分鐘；每位使用者同時執行30個，每個指令碼同時執行1,000個。這些是執行限制，不是安全使用人數或吞吐量保證。</li><li>UrlFetch每日呼叫：個人帳戶20,000次、Google Workspace帳戶100,000次，依使用者計算；配額於首次要求後24小時重設。</li><li>時間觸發器等觸發條件的每日總執行時間：個人90分鐘、Workspace 6小時。這是trigger用量，不是所有Web App請求共用的每日總執行時間。</li><li>Google Sheets目前檔案上限為2,000萬儲存格（20 million cells）或100MB，不是1,000萬儲存格。這是檔案上限，不能推算可用吞吐量或安全人數上限。</li></ul><p>實務設計：批次讀寫，使用鎖保護共享寫入，處理重送與重複紀錄；設定紀錄保留期限、最小化個資並限制存取。以實測延遲、失敗率與配額使用量評估負載；高併發、交易或細緻權限需求應轉用資料庫。</p><p>官方來源 / Official sources (2026-11-07): <a href="https://developers.google.com/apps-script/guides/services/quotas?hl=zh-tw">Apps Script quotas</a> · <a href="https://developers.google.com/apps-script/guides/properties">Properties Service</a> · <a href="https://developers.google.com/apps-script/guides/web">Web Apps event fields</a> · <a href="https://developers.line.biz/en/docs/messaging-api/verify-webhook-signature/">LINE signature verification</a> · <a href="https://support.google.com/drive/answer/37603">Google Sheets file limits</a>.</p></section>
+<section class="panel" id="safe-quickstart"><h2>從原教材開始：操作與協作流程</h2><div class="cta-row"><a class="button primary" href="quickstart.html">投影片、程式與步驟對照</a><a class="button" href="process.html">AI協作開發流程</a><a class="button" href="apps-script.html#security-quotas">GAS配額與安全補充</a></div><p>維持GAS、Sheets與Gemini教學路徑；公開Python課程僅為延伸，不取代本站練習。</p></section>
+<section class="panel" id="security-quotas"><h2>安全與配額</h2><p>官方資料查核日期：2026-11-07。配額可能變更，部署前請再確認。</p><p>安全原則：<code>APIKEY</code>工作表僅為歷史示例，勿儲存秘密。Token、Channel Secret及其他API金鑰應放在伺服器環境變數或秘密管理器。GAS的Script Properties可分離程式與設定，但不等同秘密管理服務，不是vault；專案編輯者可取得內容，不可廣發編輯權限。</p><p>GAS公開<code>doPost(e)</code>的事件欄位不含<code>x-line-signature</code>，不能作為可靠驗證LINE簽章的直接入口。這是原教材GAS直連架構的安全限制；正式服務須另評估可驗證原始請求簽章的入口。安全擴充與入門學習路徑分開說明，不將其他平台列為本課程先修。</p><ul class="clean-list"><li>Apps Script每次執行最長6分鐘；每位使用者同時執行30個，每個指令碼同時執行1,000個。這些是執行限制，不是安全使用人數或吞吐量保證。</li><li>UrlFetch每日呼叫：個人帳戶20,000次、Google Workspace帳戶100,000次，依使用者計算；配額於首次要求後24小時重設。</li><li>時間觸發器等觸發條件的每日總執行時間：個人90分鐘、Workspace 6小時。這是trigger用量，不是所有Web App請求共用的每日總執行時間。</li><li>Google Sheets目前檔案上限為2,000萬儲存格（20 million cells）或100MB，不是1,000萬儲存格。這是檔案上限，不能推算可用吞吐量或安全人數上限。</li></ul><p>實務設計：批次讀寫，使用鎖保護共享寫入，處理重送與重複紀錄；設定紀錄保留期限、最小化個資並限制存取。以實測延遲、失敗率與配額使用量評估負載；高併發、交易或細緻權限需求應轉用資料庫。</p><p>官方來源 / Official sources (2026-11-07): <a href="https://developers.google.com/apps-script/guides/services/quotas?hl=zh-tw">Apps Script quotas</a> · <a href="https://developers.google.com/apps-script/guides/properties">Properties Service</a> · <a href="https://developers.google.com/apps-script/guides/web">Web Apps event fields</a> · <a href="https://developers.line.biz/en/docs/messaging-api/verify-webhook-signature/">LINE signature verification</a> · <a href="https://support.google.com/drive/answer/37603">Google Sheets file limits</a>.</p></section>
       <section class="panel" id="components">
         <h2>核心元件</h2>
         <ul class="clean-list">
           <li>LINE Messaging API：負責接收使用者訊息與回送內容。</li>
-          <li>Webhook：先由Node／Cloud Run入口驗證LINE簽章，再將簽名紀錄送至Apps Script。</li>
-          <li>Google Apps Script：在本入門架構中驗證relay簽名並寫入Sheets；其他路由、模型呼叫與整理功能屬延伸應用。</li>
+          <li>Webhook：依原教材將LINE事件送至Apps Script，理解事件內容與接收流程；正式服務的驗簽限制另列安全補充。</li>
+          <li>Google Apps Script：依事件與指令執行回覆、Sheets紀錄、Gemini呼叫及Drive檔案處理。</li>
           <li>Google Sheets：作為非機密資料的記憶層與流程紀錄區，不儲存金鑰。</li>
           <li>Google Drive：存放使用者上傳檔案與系統輸出結果。</li>
           <li>Gemini：負責摘要、分類、生成與問答等 AI 任務。</li>
@@ -71,7 +60,7 @@
       </section>
       <section class="panel" id="flow">
         <h2>資料流怎麼走</h2>
-        <p>一則LINE訊息進來後，先由Node／Cloud Run入口以原始請求本文驗證LINE簽章，再處理事件及回覆；入口另將簽名紀錄交給GAS驗證後寫入Sheets。延伸流程可依事件、使用者狀態與指令讀取工作表、呼叫Gemini或存取Drive。這代表設計重點不只是回覆語句，而是整個判斷與寫入流程。</p>
+        <p>原教材從doPost(e)解析LINE事件開始，讀取訊息與來源，再交給對應函式；先完成文字回覆，接著寫入Sheets，最後加入Gemini與Drive功能。每增加一項功能，保留相同測試訊息比較輸入、回覆與紀錄。</p>
       </section>
       <section class="panel" id="logs">
         <h2>管理與紀錄</h2>
@@ -86,7 +75,8 @@
         </ul>
       </section>
     </article>
-  </main>
+  <section class="panel" id="quota-planning"><h2>先估算呼叫，再擴充功能</h2><p>查核日期：2026-11-07。每日配額依使用者計算，首次要求後24小時重設，不一定在午夜重設。超過限制會產生例外並停止執行；LINE與Gemini另外各有產品限制。</p><ul><li>一則訊息可能包含查詢使用者、讀取動畫、Gemini與回覆等多次UrlFetch；請逐一計算實際分支，不能假設一則訊息只呼叫一次。</li><li>估算方式：每日訊息數×實測每則呼叫數，再加重試及排程作業。這是用量估算，不是可支援人數保證。</li><li>單次6分鐘上限不表示可以讓使用者等6分鐘。觸發器每日總時間（個人90分鐘、Workspace 6小時）也不是所有網頁請求的每日總執行額度。</li><li>使用Sheets批次讀寫、記錄不含秘密的錯誤類別，設計停止與重試條件；不要以輪替帳號或金鑰規避配額。</li></ul><p><a href="https://developers.google.com/apps-script/guides/services/quotas?hl=zh-tw">Google Apps Script官方配額與限制</a></p></section>
+</main>
 
   <footer class="site-footer">
     <div class="wrap footer-grid">

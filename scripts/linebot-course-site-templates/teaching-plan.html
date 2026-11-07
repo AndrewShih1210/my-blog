@@ -17,26 +17,15 @@
   <title>LINE Bot 教學地圖與授課規劃</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="nav.js" defer></script>
+<link rel="stylesheet" href="../assets/site-shell.css">
+<script defer src="../assets/site-shell.js"></script>
 </head>
-<body>
-  <header class="site-header">
-    <div class="wrap topbar">
-      <a class="brand" href="index.html">LINE Bot x GAS 教學網站</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="course-nav"><span>選單</span><span class="menu-toggle-icon" aria-hidden="true"></span></button>
-      <nav id="course-nav" class="nav" aria-label="LINE Bot 教學導覽">
-        <a href="index.html">首頁</a>
-        <a href="teaching-plan.html">教學地圖</a>
-        <a href="setup.html">初始設定</a>
-        <a href="apps-script.html">GAS 與 Sheets</a>
-        <a href="workflows.html">工作流程</a>
-        <a href="advanced.html">進階應用</a>
-        <a href="resources.html">資源入口</a>
-        <a href="../index.html">學術首頁</a>
-        <a href="../sitemap.html">網站導覽</a>
-        <a href="teaching-plan_en.html">EN</a>
-      </nav>
-    </div>
-  </header>
+<body class="site-unified">
+  <header class="unified-header"><div class="unified-inner">
+<a class="unified-brand" href="../index.html">施育廷<span>Andrew Shih</span></a>
+<nav aria-label="全站導覽" class="unified-desktop"><a class="unified-link" href="../index.html">首頁</a><a class="unified-link" href="../talks/index.html">演講邀約</a><a class="unified-link" href="../author-works/index.html">研究成果</a><a class="unified-link" href="../ai-course-site/index.html">AI教材</a><a class="unified-link" href="index.html">LINE Bot</a><a class="unified-link" href="../certificates-site/index.html">證照紀錄</a><a class="unified-link" href="../sitemap.html">網站導覽</a><a class="unified-link" href="teaching-plan_en.html">English</a><details class="unified-local"><summary>本頁／教材導覽</summary><nav aria-label="本頁／教材導覽" class="unified-local-panel"><a class="unified-link" href="teaching-plan.html">教學地圖</a><a class="unified-link" href="setup.html">初始設定</a><a class="unified-link" href="apps-script.html">GAS 與 Sheets</a><a class="unified-link" href="workflows.html">工作流程</a><a class="unified-link" href="advanced.html">進階應用</a><a class="unified-link" href="resources.html">資源入口</a><a class="unified-link" href="quickstart.html">投影片實作</a><a class="unified-link" href="process.html">AI協作流程</a></nav></details></nav>
+<details class="unified-mobile"><summary>選單／語言</summary><nav aria-label="全站導覽" class="unified-mobile-panel"><a class="unified-link" href="../index.html">首頁</a><a class="unified-link" href="../talks/index.html">演講邀約</a><a class="unified-link" href="../author-works/index.html">研究成果</a><a class="unified-link" href="../ai-course-site/index.html">AI教材</a><a class="unified-link" href="index.html">LINE Bot</a><a class="unified-link" href="../certificates-site/index.html">證照紀錄</a><a class="unified-link" href="../sitemap.html">網站導覽</a><a class="unified-link" href="teaching-plan_en.html">English</a><strong class="unified-mobile-label">本頁／教材導覽</strong><a class="unified-link" href="teaching-plan.html">教學地圖</a><a class="unified-link" href="setup.html">初始設定</a><a class="unified-link" href="apps-script.html">GAS 與 Sheets</a><a class="unified-link" href="workflows.html">工作流程</a><a class="unified-link" href="advanced.html">進階應用</a><a class="unified-link" href="resources.html">資源入口</a><a class="unified-link" href="quickstart.html">投影片實作</a><a class="unified-link" href="process.html">AI協作流程</a></nav></details>
+</div></header>
 
   <section class="page-hero">
     <div class="wrap">
@@ -56,7 +45,7 @@
       <a href="#deliverables">學習產出</a>
     </aside>
     <article class="article">
-<section class="panel" id="safe-quickstart"><h2>實作回覆Bot與Sheets紀錄</h2><p><a class="button primary" href="quickstart.html">開啟完整快速實作</a></p><p>依序完成Node／Cloud Run驗簽入口、GAS簽名紀錄端與Sheets流程。Python磨課師僅為延伸學習，非必修，也不能替代此實作。</p><p><a href="apps-script.html#security-quotas">安全、配額與官方來源</a></p></section>
+<section class="panel" id="safe-quickstart"><h2>從原教材開始：操作與協作流程</h2><div class="cta-row"><a class="button primary" href="quickstart.html">投影片、程式與步驟對照</a><a class="button" href="process.html">AI協作開發流程</a><a class="button" href="apps-script.html#security-quotas">GAS配額與安全補充</a></div><p>維持GAS、Sheets與Gemini教學路徑；公開Python課程僅為延伸，不取代本站練習。</p></section>
       <section class="panel" id="flow">
         <h2>課程主流程</h2>
         <div class="roadmap">

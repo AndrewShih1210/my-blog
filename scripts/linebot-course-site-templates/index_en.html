@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="A bilingual teaching site on LINE Bot, Google Apps Script, Google Sheets, and Gemini-enabled workflows curated by Yu-Ting Shih." />
+  <meta name="description" content="A bilingual LINE Bot course by Yu-Ting Shih covering LINE Messaging API, Google Apps Script, Google Sheets, webhooks, Gemini integration, and practical automation workflows." />
   <meta name="author" content="Yu-Ting Shih" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/index_en.html" />
@@ -11,7 +11,7 @@
   <link rel="alternate" hreflang="en" href="https://andrewshih1210.github.io/my-blog/linebot-course-site/index_en.html" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="LINE Bot, Google Apps Script, and Google Sheets Teaching Website" />
-  <meta property="og:description" content="A bilingual teaching site on LINE Bot, Google Apps Script, Google Sheets, and Gemini-enabled workflows curated by Yu-Ting Shih." />
+  <meta property="og:description" content="A bilingual LINE Bot course by Yu-Ting Shih covering LINE Messaging API, Google Apps Script, Google Sheets, webhooks, Gemini integration, and practical automation workflows." />
   <meta property="og:url" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/index_en.html" />
   <meta property="og:image" content="https://andrewshih1210.github.io/my-blog/linebot-course-site/assets/figures/line-cloud-manager-map.png" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -36,6 +36,7 @@
             "name": "施育廷",
             "alternateName": ["Yu-Ting Shih", "Andrew Shih"]
           },
+          "isAccessibleForFree": true,
           "teaches": [
             "LINE Messaging API",
             "Webhook configuration",
@@ -57,27 +58,15 @@
   }
   </script>
   <script src="nav.js" defer></script>
+<link rel="stylesheet" href="../assets/site-shell.css">
+<script defer src="../assets/site-shell.js"></script>
 </head>
-<body>
-  <header class="site-header">
-    <div class="wrap topbar">
-      <a class="brand" href="index_en.html">LINE Bot x GAS Teaching Site</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="course-nav"><span>Menu</span><span class="menu-toggle-icon" aria-hidden="true"></span></button>
-      <nav id="course-nav" class="nav">
-        <a href="../talks/index_en.html">Talks</a>
-        <a href="index_en.html">Home</a>
-<a href="teaching-plan_en.html">Course Map</a>
-<a href="setup_en.html">Setup</a>
-<a href="apps-script_en.html">GAS and Sheets</a>
-<a href="workflows_en.html">Workflows</a>
-<a href="advanced_en.html">Advanced</a>
-<a href="resources_en.html">Resources</a>
-<a href="../index_en.html">Academic Home</a>
-<a href="../sitemap_en.html">Sitemap</a>
-<a href="index.html">中文</a>
-      </nav>
-    </div>
-  </header>
+<body class="site-unified">
+  <header class="unified-header"><div class="unified-inner">
+<a class="unified-brand" href="../index_en.html">Yu-Ting Shih<span>Andrew Shih</span></a>
+<nav aria-label="Site navigation" class="unified-desktop"><a class="unified-link" href="../index_en.html">Home</a><a class="unified-link" href="../talks/index_en.html">Talks</a><a class="unified-link" href="../author-works/index_en.html">Research</a><a class="unified-link" href="../ai-course-site/index_en.html">AI Courses</a><a aria-current="page" class="unified-link" href="index_en.html">LINE Bot</a><a class="unified-link" href="../certificates-site/index_en.html">Credentials</a><a class="unified-link" href="../sitemap_en.html">Sitemap</a><a class="unified-link" href="index.html">繁體中文</a><details class="unified-local"><summary>Page / course links</summary><nav aria-label="Page / course links" class="unified-local-panel"><a class="unified-link" href="teaching-plan_en.html">Course Map</a><a class="unified-link" href="setup_en.html">Setup</a><a class="unified-link" href="apps-script_en.html">GAS and Sheets</a><a class="unified-link" href="workflows_en.html">Workflows</a><a class="unified-link" href="advanced_en.html">Advanced</a><a class="unified-link" href="resources_en.html">Resources</a><a class="unified-link" href="quickstart_en.html">Slide exercises</a><a class="unified-link" href="process_en.html">AI collaboration</a></nav></details></nav>
+<details class="unified-mobile"><summary>Menu / Language</summary><nav aria-label="Site navigation" class="unified-mobile-panel"><a class="unified-link" href="../index_en.html">Home</a><a class="unified-link" href="../talks/index_en.html">Talks</a><a class="unified-link" href="../author-works/index_en.html">Research</a><a class="unified-link" href="../ai-course-site/index_en.html">AI Courses</a><a aria-current="page" class="unified-link" href="index_en.html">LINE Bot</a><a class="unified-link" href="../certificates-site/index_en.html">Credentials</a><a class="unified-link" href="../sitemap_en.html">Sitemap</a><a class="unified-link" href="index.html">繁體中文</a><strong class="unified-mobile-label">Page / course links</strong><a class="unified-link" href="teaching-plan_en.html">Course Map</a><a class="unified-link" href="setup_en.html">Setup</a><a class="unified-link" href="apps-script_en.html">GAS and Sheets</a><a class="unified-link" href="workflows_en.html">Workflows</a><a class="unified-link" href="advanced_en.html">Advanced</a><a class="unified-link" href="resources_en.html">Resources</a><a class="unified-link" href="quickstart_en.html">Slide exercises</a><a class="unified-link" href="process_en.html">AI collaboration</a></nav></details>
+</div></header>
 <section class="hero" data-static-content>
   <div class="wrap hero-grid">
     <article class="panel callout">
@@ -112,7 +101,7 @@
   </div>
 </section>
 <main class="wrap main-stack">
-<section class="panel" id="safe-quickstart"><h2>Build a replying bot with Sheets logging</h2><p><a class="button primary" href="quickstart_en.html">Open the complete quickstart</a></p><p>Follow the Node / Cloud Run signature-verifying entry point, GAS signed-record endpoint, and Sheets workflow. The Python MOOC is optional extension material, not a prerequisite or replacement for this hands-on path.</p><p>Security: the <code>APIKEY</code> worksheet is a historical example only. Never store secrets in Sheets. Store tokens, Channel Secret, and other API keys in server environment variables or a secret manager. GAS Script Properties holds relay shared-secret and <code>SHEET_ID</code> configuration; it is not a vault. Project editors can retrieve these values, so do not broadly grant editor access.</p><p>The documented event fields of public GAS <code>doPost(e)</code> do not expose <code>x-line-signature</code>; pure GAS is not a reliable direct LINE signature-verification entry point. Use Node / Cloud Run to verify the original request body before replying and sending signed records. GAS verifies the relay signature before writing to Sheets; relay verification is not LINE signature verification.</p><p><a href="apps-script_en.html#security-quotas">Security, quotas, and official sources</a></p></section>
+<section class="panel" id="safe-quickstart"><h2>Original materials and learning process</h2><div class="cta-row"><a class="button primary" href="quickstart_en.html">Slides, code and steps</a><a class="button" href="process_en.html">AI collaboration process</a><a class="button" href="apps-script_en.html#security-quotas">Quotas and safety notes</a></div><p>Keep GAS, Sheets and Gemini as the learning path; optional Python courses do not replace these exercises.</p></section>
     <section class="section" id="start-here" data-static-content aria-labelledby="start-here-title">
       <div class="section-head"><div><p class="section-label">Start Here</p><h2 id="start-here-title">Prepare, practice, and check</h2></div></div>
       <div class="two-col">

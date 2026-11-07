@@ -628,3 +628,13 @@ section[id] {
     animation: none !important;
   }
 }
+
+/* Source excerpts reuse the existing palette and panels. */
+.source-course > .panel{margin-bottom:24px}
+.source-course .map{display:flex;flex-wrap:wrap;gap:12px}
+.source-course .map a{padding:10px 14px;border:1px solid var(--line);border-radius:8px;background:var(--paper);min-height:44px}
+.source-course figure{margin:0}
+.source-course figcaption{font-size:14px;color:var(--muted);padding:12px}
+.source-course details{margin:12px 0;border:1px solid var(--line);border-radius:8px;padding:12px;min-width:0}
+.source-course summary{cursor:pointer;min-height:44px;padding:8px;font-weight:700}
+.source-course pre,.panel pre{white-space:pre-wrap;overflow-wrap:anywhere;overflow:auto;max-width:100%;padding:18px;background:var(--accent-soft);line-height:1.7}
