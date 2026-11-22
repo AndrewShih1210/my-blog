@@ -33,6 +33,9 @@ def apply(path, source=None):
         return f'<a class="unified-link" href="{escape(href,quote=True)}"'+(' aria-current="page"' if current else '')+f'>{escape(label)}</a>'
     global_links = ''.join(link(rel(p),label,ROOT/p==path) for p,label in targets)
     groups = [
+        ('Learning directions' if en else '教學方向與課程規劃', [
+            ('teaching-directions/index.html', 'Chinese overview' if en else '中文教學方向'),
+            ('teaching-directions/index_en.html', 'English overview')]),
         ('Tools & licenses' if en else '工具與授權', [
             ('veo-crator/index.html', 'Animation Studio' if en else '動態圖室線上版'),
             ('veo-crator/local-version/index.html', 'Local version' if en else '動態圖室本機完整版'),
