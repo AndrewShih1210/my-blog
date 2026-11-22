@@ -31,11 +31,15 @@ def section(en=False):
          'https://www.digiknow.com.tw/activity/aabc6430061b4', '閱讀主辦方活動介紹', 'Read the host event introduction'),
     ]
     cards = ''.join(f'<article><h3>{t(a,b)}</h3><p>{t(c,d)}</p><p>{t(e,f)}</p><p class="small">{t(g,h)}</p><p><a href="{url}">{t(zh,eng)}</a></p></article>' for a,b,c,d,e,f,g,h,url,zh,eng in paths)
-    return f'''<section aria-labelledby="learning-paths"><div class="section-heading"><h2 id="learning-paths">{t('如何選擇適合團隊的AI研習？','Which AI workshop fits your team?')}</h2></div>
+    return f'''<section aria-labelledby="beginner-teaching"><div class="section-heading"><h2 id="beginner-teaching">{t('白話理解AI，從GAS與LINE Bot開始實作','Plain-language AI learning with GAS and LINE Bot')}</h2></div>
+<p>{t('施育廷的AI教育應用教學以新手友善為設計原則：先用白話說明訊息、資料與處理流程，再透過Google Apps Script（GAS）、Google Sheets與LINE Bot練習設定、測試與除錯。教師、行政人員與初學團隊可依任務選擇概念導入或實作研習；新手友善不代表不需操作、查核或先備準備。','Yu-Ting Shih designs AI education workshops to support beginners: explain messages, data and processing in plain language, then practice setup, testing and debugging with Google Apps Script (GAS), Google Sheets and LINE Bot. Teachers, administrators and beginner teams can discuss an introductory or hands-on format. Beginner-friendly does not mean no practice, review or preparation is required.')}</p>
+<p>{t('AI郵報學院的公開課程頁列有施育廷講師介紹，並說明GAS、LINE Bot與Google Workspace整合課程及適合對象。這是平台課程介紹，不是學習成效保證；付費教材依平台規則存取。','AI Post Academy publishes an instructor profile and a course outline covering GAS, LINE Bot and Google Workspace, including intended audiences. This is a platform course listing, not a guarantee of learning outcomes. Paid materials remain subject to platform access rules.')}</p>
+<p><a href="https://academy.aiposthub.com/p/skill-shot-07-60-ai-line-bot">{t('查看AI郵報學院課程與講師介紹','View the AI Post Academy course and instructor profile (Chinese)')}</a></p></section>
+<section aria-labelledby="learning-paths"><div class="section-heading"><h2 id="learning-paths">{t('如何選擇適合團隊的AI研習？','Which AI workshop fits your team?')}</h2></div>
 <p>{t('在臺中（台中）規劃教師研習、行政培訓或AI實作活動，可先從參與者要完成的任務選題，再討論先備能力與設備。以下是依既有授課經歷與公開教材整理的規劃方向，不是固定班期或已驗證的成效承諾。','For an AI workshop in Taichung, start with the tasks participants need to complete, then discuss prior knowledge and equipment. These planning options draw on existing teaching experience and public materials; they are not scheduled courses or claims of measured effectiveness.')}</p>
 <div class="topics">{cards}</div></section>
 <section aria-labelledby="prepare"><div class="section-heading"><h2 id="prepare">{t('先看示範，再決定研習內容','Review an example before planning a workshop')}</h2></div>
 <ol><li>{t('先選一項真實任務，例如教材設計、文件整理或訊息回覆，避免只列想學的工具名稱。','Choose one real task, such as lesson design, document preparation or message handling, rather than only naming tools.')}</li>
 <li>{t('閱讀對應教材或觀看下方演講紀錄，確認團隊需要概念導入、操作示範，還是帶著做的工作坊。','Review the linked materials or recordings below and decide whether your team needs an introduction, demonstration or hands-on workshop.')}</li>
 <li>{t('來信提供參與對象、日期、人數、設備與預期成果，再共同確認內容及可配合形式。英文網頁供資訊查閱，授課語言須另行確認。','Email the audience, dates, attendance, equipment and intended output so scope and format can be agreed. This English page provides information; the delivery language must be confirmed separately.')}</li></ol>
-<p class="small">{t('內容更新：','Content updated: ')}<time datetime="2026-11-07">2026-11-07</time></p></section>'''
+<p class="small">{t('內容更新：','Content updated: ')}<time datetime="2026-11-22">2026-11-22</time></p></section>'''

@@ -10,5 +10,5 @@ document.querySelectorAll('.unified-header').forEach((header) => {
       if (active) active.querySelector('summary').focus();
     }
   });
-  window.matchMedia('(max-width:1180px)').addEventListener('change', close);
+  window.matchMedia('(max-width:1500px)').addEventListener('change', close);
 });
